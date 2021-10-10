@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Qué utilidad tienen las funciones? &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/Lecturas/Funciones/Estructurar proyectos a partir de funciones.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/Lecturas/Funciones/Estructurar proyectos a partir de funciones.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/Lecturas/Funciones/Estructurar proyectos a partir de funciones.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilidad-y-caracteristicas-generales-de-las-funciones">
+   Utilidad y características generales de las funciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scripts">
+   <em>
+    Scripts
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uso-de-funciones-para-ordenar-proyectos-complejos">
+   Uso de funciones para ordenar proyectos complejos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uso-de-funciones-en-analisis-de-datos">
+   Uso de funciones en análisis de datos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="que-utilidad-tienen-las-funciones">
+<h1>¿Qué utilidad tienen las funciones?<a class="headerlink" href="#que-utilidad-tienen-las-funciones" title="Permalink to this headline">¶</a></h1>
+<p>En esta lectura revisaremos uno de los elementos básicos y omnipresentes de la programación: las funciones. Veremos sus características básicas y su aplicación en analítica de datos.</p>
+<div class="section" id="utilidad-y-caracteristicas-generales-de-las-funciones">
+<h2>Utilidad y características generales de las funciones<a class="headerlink" href="#utilidad-y-caracteristicas-generales-de-las-funciones" title="Permalink to this headline">¶</a></h2>
+<p>Las funciones son estructuras que reciben información de entrada, ejecutan operaciones determinadas por el programador, y retornan información de salida. Una de las principales características de las funciones es que permiten empaquetar bloques de código que se pueden re-utilizar, evitando redundancias al tiempo que dan orden conceptual al código. Además, en analítica de datos frecuentemente somos usuarios de funciones provistas en paquetes especializados, por lo cual es importante entender su funcionamiento.</p>
+<p>En programación, el principal propósito de una función es NO tener que re-escribir código para re-utilizarlo. En lugar de esto, cuando se tiene un código que sea útil usar en más de un punto, una buena idea es empaquetar ese código en una función, dándole un nombre y definiendo qué información debe recibir y qué información debe retornar; a esta información que entra o sale de la función se le conoce como parámetros o argumentos.</p>
+<p>Por ejemplo, en algún programa se podría requerir calcular el área de diferentes triángulos, y en lugar de escribir las ecuaciones necesarias cada vez que se quiera hacer el cálculo, podríamos crear una función: su nombre sería ‘calcular_area_triangulo’, recibiría como parámetros de entrada la base y la altura de un triángulo dado, y retornaría, como parámetro de salida, el área calculada para cada triángulo.</p>
+<p>Los parámetros son una característica importante de las funciones ya que, al igual que en matemáticas, las funciones se interpretan como cajas negras que transforman entradas en salidas. Sin embargo, es posible escribir funciones que no reciban o no retornen valores; en estos casos, las funciones pueden modificar algún archivo o variable previamente definidos (las funciones que no retornan un parámetro de salida se conocen como procedimientos).</p>
+<p>Una de las características principales de las funciones, y que se debe tener en cuenta al momento de concebirlas, es que se escriben de forma genérica, nunca pensando en valores. Volviendo al ejemplo de ‘calcular_area_triangulo’, la función debe saber que recibirá un valor correspondiente a la base de un triángulo (ya sea 1, 100, o 500), y un valor correspondiente a la altura (ya sea 20, 30, o 50). Lo importante es tomar esos dos valores, multiplicarlos y dividirlos entre dos, como reza la fórmula del área de un triángulo. Esto es lo que hace que la función se vuelva genérica; que se pueda usar en cualquier momento, para cualquier triángulo. Gracias a esta característica las funciones pueden dar orden a un código, no solo por evitar repetir bloques de código (sobre todo cuando éstos son complejos) sino porque el simple hecho de empaquetar una serie de instrucciones bajo un nombre relacionado con el cumplimiento de un propósito (¡función!) ayuda a escribir, leer y mantener el código más fácilmente. Además, al tener una función escrita, ésta puede prestar sus servicios a más de un programa o proyecto.</p>
+</div>
+<div class="section" id="scripts">
+<h2><em>Scripts</em><a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h2>
+<p>Un <em>script</em> es un bloque de código que ejecuta algún procedimiento. El código Python que escribimos, por ejemplo, puede ser escrito en archivos con extensión “.py” que se invoquen desde otros archivos de código, como generalmente hacemos cuando utilizamos funciones de paquetes como <code class="docutils literal notranslate"><span class="pre">math</span></code> o <code class="docutils literal notranslate"><span class="pre">random</span></code>. De la misma forma que accedemos a esas funciones que otros han desarrollado, podemos acceder a funciones que nosotros mismos hayamos implementado en el pasado. Es común para los programadores tener archivos con funciones que les ayudan con tareas con las que se enfrentan frecuentemente. Por ejemplo, limpiar un cierto tipo de documento que se usa en la organización puede requerir tareas repetitivas. Si estas se utilizan a menudo, valdría la pena escribir un <em>script</em> que se pueda ejecutar siempre para esa tarea.</p>
+</div>
+<div class="section" id="uso-de-funciones-para-ordenar-proyectos-complejos">
+<h2>Uso de funciones para ordenar proyectos complejos<a class="headerlink" href="#uso-de-funciones-para-ordenar-proyectos-complejos" title="Permalink to this headline">¶</a></h2>
+<p>Si nos podemos valer de <em>scripts</em> propios que resuelven algún problema específico, podemos simplificar bastante los proyectos de código, pues utilizamos un archivo principal que ejecuta las tareas principales del proyecto, y archivos separados con <em>scripts</em> que proveen las funciones que se invocan desde el archivo principal. Esto permite una estructuración ordenada del proyecto y facilita su uso y mantenimiento. La siguiente imagen presenta un ejemplo de un proyecto de programación separado en diferentes archivos, cada uno de los cuales incluye funciones que podemos utilizar para diferentes propósitos.</p>
+<img src="Archivos/virtualab.png" width=600x><ul class="simple">
+<li><p>El archivo “input_cleaner.py” contiene funciones propias que son útiles para traducir los datos de su forma original a una forma conveniente para los procesos que se les vayan a aplicar.</p></li>
+<li><p>El archivo “output_gen.py” contiene funciones propias que son útiles para traducir el resultado plano de los análisis a un formato más fácil de convertir en una visualización o herramienta interactiva para un usuario final.</p></li>
+<li><p>El archivo “Core_Models.py” desarrolla los modelos centrales del análisis (machine learning, optimización, etc.) apoyándose en paquetes especializados representados en el bloque “External Modules”.</p></li>
+<li><p>El archivo “util_functions.py” contiene funciones de apoyo que facilitan tareas para el proyecto pero que se pueden dejar “tras bambalinas” para no complejizar el código principal.</p></li>
+<li><p>El archivo “<a class="reference external" href="http://main.py">main.py</a>” es el encargado de establecer la lógica macro del proyecto. Este es el archivo que se ejecuta cuando se quiere correr el proyecto, y desde allí se invocan las funciones necesarias de los demás archivos. Es el archivo principal en el que se consginan los grandes bloques de tareas que permiten dar solución al problema planteado.</p></li>
+</ul>
+<p>Si bien no es obligatorio separar el código de esta manera (pues es solo un ejemplo, y cada comunidad de programadores va estableciendo sus propios estándares), lo cierto es que, para proyectos grandes, es recomendable fragmentar la complejidad del código, separándolo en las funciones necesarias para lograr el objetivo completo. De esta forma, el desarrollo se puede dividir entre diferentes miembros de un equipo, siempre y cuando el diseño de las funciones se haya hecho de forma que, aun si se desarrollan de forma separada, se pueda garantizar que cada una maneja entradas y salidas que le permitan interactuar correctamente con las demás.</p>
+</div>
+<div class="section" id="uso-de-funciones-en-analisis-de-datos">
+<h2>Uso de funciones en análisis de datos<a class="headerlink" href="#uso-de-funciones-en-analisis-de-datos" title="Permalink to this headline">¶</a></h2>
+<p>Lo primero es que, como hemos visto, muchos aspectos de análisis de datos pasan por la programación “tradicional”; aplicamos programación al momento de explorar y preparar datos, así como al momento de correr modelos y generar resultados. Por esto, todas las ventajas de trabajar con funciones se heredan en este contexto.</p>
+<p>Más específicamente, hay dos temas puntuales relacionados con funciones en análisis de datos.</p>
+<ul class="simple">
+<li><p>Primero, que mucho del día a día del análisis de datos es utilizar paquetes especializados para exploración y análisis de datos, entonces terminamos siendo usuarios de funciones escritas por otros. La mayoría de paquetes se valen de “funciones” (entre comillas, ya que técnicamente se les llama métodos, en ese contexto) que ejecutan las tareas que nos interesan, desde leer un archivo de datos, o contar sus registros, hasta correr los modelos más sofisticados. Técnicamente, estos paquetes utilizan clases y métodos (que vienen del paradigma de programación orientada a objetos), pero la relación con las funciones es estrecha. Aunque ese no es un tema que nos interese cubrir en profundidad, vale la pena entenderlo al menos a nivel superficial para relacionarse más fácilmente con los paquetes.</p></li>
+<li><p>Segundo, aplicar operaciones sobre grandes conjuntos de datos puede ser costoso y debe hacerse eficientemente. Muchos de los procedimientos de interés en análisis de datos ya vienen incorporados en paquetes que los implementan eficientemente. Sin embargo, muchas veces se requiere de algún procedimiento especializado (ej. un cálculo actuarial en el sector de pensiones o seguros), en cuyo caso es posible utilizar funciones propias y pasarlas a los paquetes para que las apliquen eficientemente sobre los datos.</p></li>
+</ul>
+<p>Entender las funciones es de gran utilidad en programación y va a ser muy útil a la hora de consultar la documentación de paquetes especializados en análisis de datos, cuyos servicios están implementados como funciones (métodos), por lo general.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/Lecturas/Funciones"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

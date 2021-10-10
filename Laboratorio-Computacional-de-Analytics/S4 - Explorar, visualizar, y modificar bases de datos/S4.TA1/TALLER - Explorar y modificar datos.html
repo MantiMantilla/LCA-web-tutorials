@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorar y modificar bases de datos utilizando pandas &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TA1/TALLER - Explorar y modificar datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TA1/TALLER - Explorar y modificar datos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TA1/TALLER - Explorar y modificar datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#habilidades-en-practica">
+   Habilidades en práctica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrucciones">
+   Instrucciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicios">
+   Ejercicios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1">
+     Ejercicio 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2">
+     Ejercicio 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-3">
+     Ejercicio 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-4">
+     Ejercicio 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-5">
+     Ejercicio 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-6">
+     Ejercicio 6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="explorar-y-modificar-bases-de-datos-utilizando-pandas">
+<h1>Explorar y modificar bases de datos utilizando <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#explorar-y-modificar-bases-de-datos-utilizando-pandas" title="Permalink to this headline">¶</a></h1>
+<p>En este taller filtrarás y modificarás bases de datos por medio de sus índices al resolver diversos ejercicios.</p>
+<div class="section" id="habilidades-en-practica">
+<h2>Habilidades en práctica<a class="headerlink" href="#habilidades-en-practica" title="Permalink to this headline">¶</a></h2>
+<p>Al realizar este taller podrás revisar tu progreso para:</p>
+<p><strong>1.</strong> Indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> empleando índices unitarios o múltiples. <br>
+<strong>2.</strong> Aplicar los distintos tipos de filtrado utilizando <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.<br>
+<strong>3.</strong> Emplear algunos métodos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para modificar una base de datos. <br></p>
+</div>
+<div class="section" id="instrucciones">
+<h2>Instrucciones<a class="headerlink" href="#instrucciones" title="Permalink to this headline">¶</a></h2>
+<p>En cada uno de los siguientes ejercicios deberás escribir el código solicitado estrictamente en las celdas indicadas para ello, teniendo en cuenta las siguientes recomendaciones:</p>
+<ul class="simple">
+<li><p>No crear, eliminar o modificar celdas de este Notebook (salvo lo que se te indique), pues puede verse afectado el proceso de calificación automática.</p></li>
+<li><p>La calificación se realiza de manera automática con datos diferentes a los proporcionados en este taller. Por consiguiente, tu código debe funcionar para diferentes instancias de cada uno de los ejercicios; una instancia hace referencia a los posibles valores de los parámetros.</p></li>
+<li><p>La calificación de cada ejercicio depende del valor que retorne la función especificada en su enunciado. Por lo tanto, aunque implementes funciones adicionales, es escencial que utilices los nombres propuestos en los enunciados de los ejercicios para implementar la función definitiva.</p></li>
+</ul>
+</div>
+<div class="section" id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">¶</a></h2>
+<p>En la siguente celda encuentras declarados los paquetes necesarios para el desarollo de este taller.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1">
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">¶</a></h3>
+<p>Junto a este Notebook encontrarás un archivo llamado <code class="docutils literal notranslate"><span class="pre">&quot;pooled_data_public.dta&quot;</span></code> que contiene la base de datos completa del BID. Este archivo, al ser de tipo <em>.dta</em>, requiere de una función de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para ser importado a Python.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>read_stata(file = &quot;Archivos/pooled_data_public.dta&quot;)
+</pre></div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">importar_e_indexar</span></code> que no reciba parámetros, importe los datos del archivo <code class="docutils literal notranslate"><span class="pre">&quot;pooled_data_public.dta&quot;</span></code> y retorne un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> cuyo índice (<code class="docutils literal notranslate"><span class="pre">index</span></code>) sea la columna <code class="docutils literal notranslate"><span class="pre">'id'</span></code> de la base de datos sin incluirla en las columnas del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultante.</p>
+<p>La función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+<span class="k">def</span> <span class="nf">importar_e_indexar</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s2">&quot;Archivos/pooled_data_public.dta&quot;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;country_code&#39;</span><span class="p">,</span> <span class="s1">&#39;country_name&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_pop&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;recordeddate&#39;</span><span class="p">,</span> <span class="s1">&#39;genero&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;estcivil&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar_antes&#39;</span><span class="p">,</span> <span class="s1">&#39;hayninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;ninos_5&#39;</span><span class="p">,</span> <span class="s1">&#39;nrninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;matriculados&#39;</span><span class="p">,</span> <span class="s1">&#39;esc_publica&#39;</span><span class="p">,</span> <span class="s1">&#39;grado&#39;</span><span class="p">,</span> <span class="s1">&#39;haymayores&#39;</span><span class="p">,</span> <span class="s1">&#39;diasmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;lugarmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;comprotodo&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_pan&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_vegetal&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_carne&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_envasados&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_bebidas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_limpieza&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_medicinas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_otro&#39;</span><span class="p">,</span> <span class="s1">&#39;nrnegocios&#39;</span><span class="p">,</span> <span class="s1">&#39;esperarfila&#39;</span><span class="p">,</span> <span class="s1">&#39;subaprecios&#39;</span><span class="p">,</span> <span class="s1">&#39;hambre&#39;</span><span class="p">,</span> <span class="s1">&#39;menos_saludable&#39;</span><span class="p">,</span> <span class="s1">&#39;vivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda_prox&#39;</span><span class="p">,</span> <span class="s1">&#39;ayuda_alquiler&#39;</span><span class="p">,</span> <span class="s1">&#39;sufialimento&#39;</span><span class="p">,</span> <span class="s1">&#39;sufirecursos&#39;</span><span class="p">,</span> <span class="s1">&#39;gasto_emergencia&#39;</span><span class="p">,</span> <span class="s1">&#39;monto_gasto&#39;</span><span class="p">,</span> <span class="s1">&#39;pre_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;new_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;coima&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_tarjdebito&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpub&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpriv&#39;</span><span class="p">,</span> <span class="s1">&#39;recibeprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;darprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_enero&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_origen&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_persona&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_remesas&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioempleo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_gob&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_dem&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_asistmedica&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioingrarriendo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_dejoasistencia&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_freq&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_ayudaemp&#39;</span><span class="p">,</span> <span class="s1">&#39;compromiso_futurotrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;empleo_formal&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_empleado&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_negocio&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_estudio&#39;</span><span class="p">,</span> <span class="s1">&#39;trabajocasa&#39;</span><span class="p">,</span> <span class="s1">&#39;diastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;horastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">,</span> <span class="s1">&#39;redujo_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_jan2020&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_apr2020&#39;</span><span class="p">,</span> <span class="s1">&#39;retorno_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_ninguno&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_garganta&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_gripe&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_sarpullido&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_fiebre&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_tos&#39;</span><span class="p">,</span> <span class="s1">&#39;conoce_sintomas&#39;</span><span class="p">,</span> <span class="s1">&#39;infectados_sinsintomas&#39;</span><span class="p">,</span> <span class="s1">&#39;sinsintomas_contagiar&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_trabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_mercado&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_ejercitar&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;comotransmite&#39;</span><span class="p">,</span> <span class="s1">&#39;sabe_comotransmite&#39;</span><span class="p">,</span> <span class="s1">&#39;distsoc&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_trabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_mercado&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_ejercicio&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_hogar&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_vecinos&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_jovenes&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_mayores&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_otropais&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_emplmercados&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_redessoc&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_sms&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_periodico&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_website&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_otro&#39;</span><span class="p">]</span>
+<span class="n">tipo_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int16]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">]</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">importar_e_indexar</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">importar_e_indexar</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada importar_e_indexar.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">importar_e_indexar</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un valor de tipo </span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: no utiliza el nombre del archivo</span>
+<span class="k">assert</span> <span class="n">source</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;pooled_data_public.dta&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no hace referencia al archivo &#39;pooled_data_public.dta&#39;.&quot;</span>
+
+<span class="c1"># Caso 5: retorna el dataframe con la columna &#39;id&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;id&#39;. Debes convertir esta columna en el index del DataFrame.&quot;</span>
+
+<span class="c1"># Caso 6: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">128</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 7: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="n">nombre_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos nombres no coinciden con los de los datos del archivo.&quot;</span>
+
+<span class="c1"># Caso 8: devuelve un dataframe cuyas columnas tienen tipo distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">dtypes</span><span class="p">]</span> <span class="o">==</span> <span class="n">tipo_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos tipos no coinciden con los de los datos del archivo.&quot;</span>
+
+<span class="c1"># Caso 9: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">230509</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 10: devuelve un dataframe con indice del mismo tipo que por defecto (&#39;int64&#39;)</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice del mismo tipo que el que se crea por defecto en pandas. Asegurate de estar asignando la columna &#39;id&#39; al índice.&quot;</span>
+
+<span class="c1"># Caso 11: devuelve un dataframe con índice de tipo errado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice de tipo distinto del esperado. Asegurate de estar usando la columna &#39;id&#39; sin editarla.&quot;</span>
+
+<span class="c1"># Caso 12: el índice no tiene el nombre de la columna &#39;id&#39;</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice de nombre distinto de la columna &#39;id&#39;.&quot;</span>
+
+<span class="c1"># Caso 13: primer o última posicion del índice distintas de lo esperado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1000060.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la primera posición de su índice&quot;</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">17003990.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la última posición de su índice&quot;</span>
+
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def importar_e_indexar_sol(): </span>
+<span class="sd">    </span>
+<span class="sd">    df = pd.read_stata(&quot;Archivos/pooled_data_public.dta&quot;) </span>
+<span class="sd">    df = df.set_index([&#39;id&#39;])</span>
+<span class="sd">    </span>
+<span class="sd">    return df</span>
+
+<span class="sd">pd.testing.assert_frame_equal(resultado, importar_e_indexar_sol())</span>
+<span class="sd">&#39;&#39;&#39;</span>    
+<span class="c1">### END HIDDEN TESTS</span>
+
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">indice_sencillo_a_multiple</span></code> que no reciba parámetros, tome el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultante del <a class="reference external" href="#Ejercicio-1">Ejercicio 1</a> y modifique el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> de manera que su índice (<code class="docutils literal notranslate"><span class="pre">index</span></code>) consista de tuplas compuestas por el valor del índice original y el valor correspondiente en la columna <code class="docutils literal notranslate"><span class="pre">&quot;country_code&quot;</span></code>. No incluya la columna <code class="docutils literal notranslate"><span class="pre">&quot;country_code&quot;</span></code> en el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultante.</p>
+<p>La función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">indice_sencillo_a_multiple</span><span class="p">():</span> 
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">importar_e_indexar</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;country_code&quot;</span><span class="p">],</span> <span class="n">append</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;country_name&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_pop&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;recordeddate&#39;</span><span class="p">,</span> <span class="s1">&#39;genero&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;estcivil&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar_antes&#39;</span><span class="p">,</span> <span class="s1">&#39;hayninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;ninos_5&#39;</span><span class="p">,</span> <span class="s1">&#39;nrninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;matriculados&#39;</span><span class="p">,</span> <span class="s1">&#39;esc_publica&#39;</span><span class="p">,</span> <span class="s1">&#39;grado&#39;</span><span class="p">,</span> <span class="s1">&#39;haymayores&#39;</span><span class="p">,</span> <span class="s1">&#39;diasmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;lugarmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;comprotodo&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_pan&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_vegetal&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_carne&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_envasados&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_bebidas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_limpieza&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_medicinas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_otro&#39;</span><span class="p">,</span> <span class="s1">&#39;nrnegocios&#39;</span><span class="p">,</span> <span class="s1">&#39;esperarfila&#39;</span><span class="p">,</span> <span class="s1">&#39;subaprecios&#39;</span><span class="p">,</span> <span class="s1">&#39;hambre&#39;</span><span class="p">,</span> <span class="s1">&#39;menos_saludable&#39;</span><span class="p">,</span> <span class="s1">&#39;vivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda_prox&#39;</span><span class="p">,</span> <span class="s1">&#39;ayuda_alquiler&#39;</span><span class="p">,</span> <span class="s1">&#39;sufialimento&#39;</span><span class="p">,</span> <span class="s1">&#39;sufirecursos&#39;</span><span class="p">,</span> <span class="s1">&#39;gasto_emergencia&#39;</span><span class="p">,</span> <span class="s1">&#39;monto_gasto&#39;</span><span class="p">,</span> <span class="s1">&#39;pre_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;new_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;coima&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_tarjdebito&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpub&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpriv&#39;</span><span class="p">,</span> <span class="s1">&#39;recibeprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;darprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_enero&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_origen&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_persona&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_remesas&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioempleo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_gob&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_dem&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_asistmedica&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioingrarriendo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_dejoasistencia&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_freq&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_ayudaemp&#39;</span><span class="p">,</span> <span class="s1">&#39;compromiso_futurotrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;empleo_formal&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_empleado&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_negocio&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_estudio&#39;</span><span class="p">,</span> <span class="s1">&#39;trabajocasa&#39;</span><span class="p">,</span> <span class="s1">&#39;diastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;horastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">,</span> <span class="s1">&#39;redujo_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_jan2020&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_apr2020&#39;</span><span class="p">,</span> <span class="s1">&#39;retorno_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_ninguno&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_garganta&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_gripe&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_sarpullido&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_fiebre&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_tos&#39;</span><span class="p">,</span> <span class="s1">&#39;conoce_sintomas&#39;</span><span class="p">,</span> <span class="s1">&#39;infectados_sinsintomas&#39;</span><span class="p">,</span> <span class="s1">&#39;sinsintomas_contagiar&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_trabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_mercado&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_ejercitar&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;comotransmite&#39;</span><span class="p">,</span> <span class="s1">&#39;sabe_comotransmite&#39;</span><span class="p">,</span> <span class="s1">&#39;distsoc&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_trabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_mercado&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_ejercicio&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_hogar&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_vecinos&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_jovenes&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_mayores&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_otropais&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_emplmercados&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_redessoc&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_sms&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_periodico&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_website&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_otro&#39;</span><span class="p">]</span>
+<span class="n">tipo_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int16]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">]</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">indice_sencillo_a_multiple</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">indice_sencillo_a_multiple</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada indice_sencillo_a_multiple.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">indice_sencillo_a_multiple</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un valor de tipo </span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: no ejecuta la función importar_e_indexar</span>
+<span class="k">assert</span> <span class="n">source</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;importar_e_indexar()&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no hace referencia a la función importar_e_indexar. Asegurate de ejecutarla en tu función.&quot;</span>
+
+<span class="c1"># Caso 5: retorna el dataframe con la columna &#39;id&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;id&#39;. Esta columna debes haberla convertido en el index sencillo del DataFrame.&quot;</span>
+
+<span class="c1"># Caso 6: retorna el dataframe con la columna &#39;country_code&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;country_code&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;country_code&#39;. Esta columna debes haberla unido al index del DataFrame para formar un índice múltiple.&quot;</span>
+
+<span class="c1"># Caso 7: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">127</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 8: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="n">nombre_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos nombres no coinciden con los de los datos del archivo.&quot;</span>
+
+<span class="c1"># Caso 9: devuelve un dataframe cuyas columnas tienen tipo distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">dtypes</span><span class="p">]</span> <span class="o">==</span> <span class="n">tipo_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos tipos no coinciden con los de los datos del archivo.&quot;</span>
+
+<span class="c1"># Caso 10: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">230509</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 11: devuelve un dataframe con indice no multiple</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice no múltiple.&quot;</span>
+
+<span class="c1"># Caso 12: devuelve un dataframe con primer nivel de indice multiple del mismo tipo que por defecto (&#39;int64&#39;)</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice múltiple cuyo primer nivel es del mismo tipo que el que se crea por defecto en pandas. Asegurate de estar asignando la columna &#39;id&#39; al índice.&quot;</span>
+
+<span class="c1"># Caso 13: devuelve un dataframe con primer nivel de indice multiple de tipo errado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice múltiple cuyo primer nivel es de tipo distinto del esperado. Asegurate de estar usando la columna &#39;id&#39; sin editarla.&quot;</span>
+
+<span class="c1"># Caso 14: devuelve un dataframe con segundo nivel de indice multiple de tipo errado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice múltiple cuyo segundo nivel es de tipo distinto del esperado. Asegurate de estar usando la columna &#39;country_code&#39; sin editarla.&quot;</span>
+
+<span class="c1"># Caso 15: el multiíndice no tiene el nombre de la columna &#39;id&#39; y &#39;country_code&#39;</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;country_code&#39;</span><span class="p">],</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice de nombres distintos de las columna &#39;id&#39; y &#39;country_code&#39;.&quot;</span>
+
+<span class="c1"># Caso 16: primera o última posicion del índice distintas de lo esperado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="mf">1000060.0</span><span class="p">,</span> <span class="s1">&#39;Bahamas&#39;</span><span class="p">),</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la primera posición de su índice&quot;</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="mf">17003990.0</span><span class="p">,</span> <span class="s1">&#39;Uruguay&#39;</span><span class="p">),</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la última posición de su índice&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def indice_sencillo_a_multiple_sol(): </span>
+<span class="sd">    </span>
+<span class="sd">    df = importar_e_indexar()</span>
+<span class="sd">    df = df.set_index(keys = [&quot;country_code&quot;], append = True)</span>
+<span class="sd">    </span>
+<span class="sd">    return df</span>
+
+<span class="sd">pd.testing.assert_frame_equal(resultado, indice_sencillo_a_multiple_sol())</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-3">
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">sin_columnas</span></code> que no reciba parámetros, tome el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultante del <a class="reference external" href="#Ejercicio-1">Ejercicio 1</a> y lo retorne sin las columnas <code class="docutils literal notranslate"><span class="pre">&quot;country_name&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;grado&quot;</span></code> y <code class="docutils literal notranslate"><span class="pre">&quot;coima&quot;</span></code>.</p>
+<p>Debes hacer uso del método <code class="docutils literal notranslate"><span class="pre">drop</span></code>.</p>
+<p>La función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">sin_columnas</span><span class="p">():</span> 
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">importar_e_indexar</span><span class="p">()</span> 
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;country_name&quot;</span><span class="p">,</span> <span class="s2">&quot;grado&quot;</span><span class="p">,</span> <span class="s2">&quot;coima&quot;</span><span class="p">])</span> 
+    
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;country_code&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_pop&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;recordeddate&#39;</span><span class="p">,</span> <span class="s1">&#39;genero&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;estcivil&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar_antes&#39;</span><span class="p">,</span> <span class="s1">&#39;hayninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;ninos_5&#39;</span><span class="p">,</span> <span class="s1">&#39;nrninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;matriculados&#39;</span><span class="p">,</span> <span class="s1">&#39;esc_publica&#39;</span><span class="p">,</span> <span class="s1">&#39;haymayores&#39;</span><span class="p">,</span> <span class="s1">&#39;diasmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;lugarmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;comprotodo&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_pan&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_vegetal&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_carne&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_envasados&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_bebidas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_limpieza&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_medicinas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_otro&#39;</span><span class="p">,</span> <span class="s1">&#39;nrnegocios&#39;</span><span class="p">,</span> <span class="s1">&#39;esperarfila&#39;</span><span class="p">,</span> <span class="s1">&#39;subaprecios&#39;</span><span class="p">,</span> <span class="s1">&#39;hambre&#39;</span><span class="p">,</span> <span class="s1">&#39;menos_saludable&#39;</span><span class="p">,</span> <span class="s1">&#39;vivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda_prox&#39;</span><span class="p">,</span> <span class="s1">&#39;ayuda_alquiler&#39;</span><span class="p">,</span> <span class="s1">&#39;sufialimento&#39;</span><span class="p">,</span> <span class="s1">&#39;sufirecursos&#39;</span><span class="p">,</span> <span class="s1">&#39;gasto_emergencia&#39;</span><span class="p">,</span> <span class="s1">&#39;monto_gasto&#39;</span><span class="p">,</span> <span class="s1">&#39;pre_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;new_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_tarjdebito&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpub&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpriv&#39;</span><span class="p">,</span> <span class="s1">&#39;recibeprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;darprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_enero&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_origen&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_persona&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_remesas&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioempleo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_gob&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_dem&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_asistmedica&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioingrarriendo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_dejoasistencia&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_freq&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_ayudaemp&#39;</span><span class="p">,</span> <span class="s1">&#39;compromiso_futurotrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;empleo_formal&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_empleado&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_negocio&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_estudio&#39;</span><span class="p">,</span> <span class="s1">&#39;trabajocasa&#39;</span><span class="p">,</span> <span class="s1">&#39;diastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;horastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">,</span> <span class="s1">&#39;redujo_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_jan2020&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_apr2020&#39;</span><span class="p">,</span> <span class="s1">&#39;retorno_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_ninguno&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_garganta&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_gripe&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_sarpullido&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_fiebre&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_tos&#39;</span><span class="p">,</span> <span class="s1">&#39;conoce_sintomas&#39;</span><span class="p">,</span> <span class="s1">&#39;infectados_sinsintomas&#39;</span><span class="p">,</span> <span class="s1">&#39;sinsintomas_contagiar&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_trabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_mercado&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_ejercitar&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;comotransmite&#39;</span><span class="p">,</span> <span class="s1">&#39;sabe_comotransmite&#39;</span><span class="p">,</span> <span class="s1">&#39;distsoc&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_trabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_mercado&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_ejercicio&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_hogar&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_vecinos&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_jovenes&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_mayores&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_otropais&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_emplmercados&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_redessoc&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_sms&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_periodico&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_website&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_otro&#39;</span><span class="p">]</span>
+<span class="n">tipo_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int16]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">]</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">sin_columnas</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">sin_columnas</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada sin_columnas.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">sin_columnas</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un valor de tipo </span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: no ejecuta la función importar_e_indexar</span>
+<span class="k">assert</span> <span class="n">source</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;importar_e_indexar()&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no hace referencia a la función importar_e_indexar. Asegurate de ejecutarla en tu código.&quot;</span>
+
+<span class="c1"># Caso 5: no ejecuta el método drop de pandas</span>
+<span class="k">assert</span> <span class="n">source</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.drop(&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no hace referencia al método drop. Asegurate de ejecutarlo en tu código.&quot;</span>
+
+<span class="c1"># Caso 6: retorna el dataframe con la columna &#39;id&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;id&#39;. Esta columna debes convertirla en el index del DataFrame.&quot;</span>
+
+<span class="c1"># Caso 7: retorna el dataframe con la columna &#39;country_name&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;country_name&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;country_name&#39;.&quot;</span>
+
+<span class="c1"># Caso 8: retorna el dataframe con la columna &#39;grado&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;grado&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;grado&#39;.&quot;</span>
+
+<span class="c1"># Caso 9: retorna el dataframe con la columna &#39;coima&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;coima&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;coima&#39;.&quot;</span>
+
+<span class="c1"># Caso 10: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">125</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 11: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="n">nombre_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos nombres no coinciden con los de los datos del archivo, sin las columnas country_name, grado y coima.&quot;</span>
+
+<span class="c1"># Caso 12: devuelve un dataframe cuyas columnas tienen tipo distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">dtypes</span><span class="p">]</span> <span class="o">==</span> <span class="n">tipo_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos tipos no coinciden con los de los datos del archivo, sin las columnas country_name, grado y coima.&quot;</span>
+
+<span class="c1"># Caso 13: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">230509</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 14: devuelve un dataframe con indice del mismo tipo que por defecto (&#39;int64&#39;)</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice del mismo tipo que el que se crea por defecto en pandas. Asegurate de estar asignando la columna &#39;id&#39; como índice.&quot;</span>
+
+<span class="c1"># Caso 15: devuelve un dataframe con índice de tipo errado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice de tipo distinto del esperado. Asegurate de estar usando la columna &#39;id&#39; sin editarla.&quot;</span>
+
+<span class="c1"># Caso 16: primer o última posicion del índice distintas de lo esperado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1000060.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la primera posición de su índice&quot;</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">17003990.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la última posición de su índice&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def sin_columnas_sol(): </span>
+<span class="sd">    </span>
+<span class="sd">    df = importar_e_indexar() </span>
+<span class="sd">    df = df.drop(columns = [&quot;country_name&quot;, &quot;grado&quot;, &quot;coima&quot;]) </span>
+<span class="sd">    </span>
+<span class="sd">    return df</span>
+
+<span class="sd">pd.testing.assert_frame_equal(resultado, sin_columnas_sol())</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-4">
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">indexar_columnas_numericamente</span></code> que no reciba parámetros, tome el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultante del <a class="reference external" href="#Ejercicio-1">Ejercicio 1</a> y lo retorne sin el grupo de <strong>columnas</strong> cuya posición (indexada desde 0) sea mayor o igual a 80 y menor o igual a 100.</p>
+<p>La función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">indexar_columnas_numericamente</span><span class="p">():</span> 
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">importar_e_indexar</span><span class="p">()</span> 
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span> <span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">80</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)))]</span>
+    
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;country_code&#39;</span><span class="p">,</span> <span class="s1">&#39;country_name&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_pop&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;recordeddate&#39;</span><span class="p">,</span> <span class="s1">&#39;genero&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;estcivil&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar_antes&#39;</span><span class="p">,</span> <span class="s1">&#39;hayninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;ninos_5&#39;</span><span class="p">,</span> <span class="s1">&#39;nrninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;matriculados&#39;</span><span class="p">,</span> <span class="s1">&#39;esc_publica&#39;</span><span class="p">,</span> <span class="s1">&#39;grado&#39;</span><span class="p">,</span> <span class="s1">&#39;haymayores&#39;</span><span class="p">,</span> <span class="s1">&#39;diasmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;lugarmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;comprotodo&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_pan&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_vegetal&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_carne&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_envasados&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_bebidas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_limpieza&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_medicinas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_otro&#39;</span><span class="p">,</span> <span class="s1">&#39;nrnegocios&#39;</span><span class="p">,</span> <span class="s1">&#39;esperarfila&#39;</span><span class="p">,</span> <span class="s1">&#39;subaprecios&#39;</span><span class="p">,</span> <span class="s1">&#39;hambre&#39;</span><span class="p">,</span> <span class="s1">&#39;menos_saludable&#39;</span><span class="p">,</span> <span class="s1">&#39;vivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda_prox&#39;</span><span class="p">,</span> <span class="s1">&#39;ayuda_alquiler&#39;</span><span class="p">,</span> <span class="s1">&#39;sufialimento&#39;</span><span class="p">,</span> <span class="s1">&#39;sufirecursos&#39;</span><span class="p">,</span> <span class="s1">&#39;gasto_emergencia&#39;</span><span class="p">,</span> <span class="s1">&#39;monto_gasto&#39;</span><span class="p">,</span> <span class="s1">&#39;pre_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;new_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;coima&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_tarjdebito&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpub&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpriv&#39;</span><span class="p">,</span> <span class="s1">&#39;recibeprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;darprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_enero&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_origen&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_persona&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_remesas&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioempleo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_gob&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_dem&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_asistmedica&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioingrarriendo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_dejoasistencia&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_freq&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_ayudaemp&#39;</span><span class="p">,</span> <span class="s1">&#39;compromiso_futurotrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;empleo_formal&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_empleado&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_negocio&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_estudio&#39;</span><span class="p">,</span> <span class="s1">&#39;trabajocasa&#39;</span><span class="p">,</span> <span class="s1">&#39;diastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;horastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">,</span> <span class="s1">&#39;redujo_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_jan2020&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_apr2020&#39;</span><span class="p">,</span> <span class="s1">&#39;retorno_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_ninguno&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_garganta&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_gripe&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_ejercicio&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_hogar&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_vecinos&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_jovenes&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_mayores&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_otropais&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_emplmercados&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_redessoc&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_sms&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_periodico&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_website&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_otro&#39;</span><span class="p">]</span>
+<span class="n">tipo_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int16]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">]</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">indexar_columnas_numericamente</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">indexar_columnas_numericamente</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada indexar_columnas_numericamente.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">indexar_columnas_numericamente</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un valor de tipo </span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: no ejecuta la función importar_e_indexar</span>
+<span class="k">assert</span> <span class="n">source</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;importar_e_indexar()&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no hace referencia a la función importar_e_indexar. Asegurate de ejecutarla en tu código.&quot;</span>
+
+<span class="c1"># Caso 5: retorna el dataframe con la columna &#39;id&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;id&#39;. Esta columna debes convertirla en el index del DataFrame.&quot;</span>
+
+<span class="c1"># Caso 6: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">107</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 7: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="n">nombre_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos nombres no coinciden con los de los datos del archivo. Asegurate de estar filtrando las columnas indicadas.&quot;</span>
+
+<span class="c1"># Caso 8: devuelve un dataframe cuyas columnas tienen tipo distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">dtypes</span><span class="p">]</span> <span class="o">==</span> <span class="n">tipo_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos tipos no coinciden con los de los datos del archivo. Asegurate de estar filtrando las columnas indicadas.&quot;</span>
+
+<span class="c1"># Caso 9: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">230509</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 10: devuelve un dataframe con indice del mismo tipo que por defecto (&#39;int64&#39;)</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice del mismo tipo que el que se crea por defecto en pandas. Asegurate de estar asignando la columna &#39;id&#39; como índice.&quot;</span>
+
+<span class="c1"># Caso 11: devuelve un dataframe con índice de tipo errado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice de tipo distinto del esperado. Asegurate de estar usando la columna &#39;id&#39; sin editarla.&quot;</span>
+
+<span class="c1"># Caso 12: primer o última posicion del índice distintas de lo esperado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1000060.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la primera posición de su índice&quot;</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">17003990.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo en menos la última posición de su índice&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def indexar_columnas_numericamente_sol():</span>
+<span class="sd">    </span>
+<span class="sd">    df = importar_e_indexar() </span>
+<span class="sd">    df = df.iloc[:,list(range(80)) + list(range(101, len(df.columns)))]</span>
+<span class="sd">    </span>
+<span class="sd">    return df</span>
+
+<span class="sd">pd.testing.assert_frame_equal(resultado, indexar_columnas_numericamente_sol())</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-5">
+<h3>Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permalink to this headline">¶</a></h3>
+<p>A raiz de la pandemia, los gobiernos de latinoamérica desean monitorear a aquellas personas que salen de sus casas a trabajar y conviven con personas mayores de 60 años.</p>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">trabajo_afuera_y_mayores</span></code> que no reciba parámetros, tome el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultante del <a class="reference external" href="#Ejercicio-1">Ejercicio 1</a> y lo retorne únicamente con los registros que en la columna <code class="docutils literal notranslate"><span class="pre">&quot;trabajocasa&quot;</span></code> tengan el valor <code class="docutils literal notranslate"><span class="pre">&quot;Fuera</span> <span class="pre">de</span> <span class="pre">su</span> <span class="pre">casa&quot;</span></code> y que en la columna <code class="docutils literal notranslate"><span class="pre">&quot;haymayores&quot;</span></code> tengan el valor <code class="docutils literal notranslate"><span class="pre">&quot;si&quot;</span></code>.</p>
+<p>La función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">trabajo_afuera_y_mayores</span><span class="p">():</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">importar_e_indexar</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;trabajocasa&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Fuera de su casa&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;haymayores&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;si&quot;</span><span class="p">)]</span>
+    
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;country_code&#39;</span><span class="p">,</span> <span class="s1">&#39;country_name&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_pop&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;recordeddate&#39;</span><span class="p">,</span> <span class="s1">&#39;genero&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;estcivil&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar&#39;</span><span class="p">,</span> <span class="s1">&#39;nrhogar_antes&#39;</span><span class="p">,</span> <span class="s1">&#39;hayninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;ninos_5&#39;</span><span class="p">,</span> <span class="s1">&#39;nrninhos&#39;</span><span class="p">,</span> <span class="s1">&#39;matriculados&#39;</span><span class="p">,</span> <span class="s1">&#39;esc_publica&#39;</span><span class="p">,</span> <span class="s1">&#39;grado&#39;</span><span class="p">,</span> <span class="s1">&#39;haymayores&#39;</span><span class="p">,</span> <span class="s1">&#39;diasmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;lugarmercado&#39;</span><span class="p">,</span> <span class="s1">&#39;comprotodo&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_pan&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_vegetal&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_carne&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_envasados&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_bebidas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_limpieza&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_medicinas&#39;</span><span class="p">,</span> <span class="s1">&#39;nocompra_otro&#39;</span><span class="p">,</span> <span class="s1">&#39;nrnegocios&#39;</span><span class="p">,</span> <span class="s1">&#39;esperarfila&#39;</span><span class="p">,</span> <span class="s1">&#39;subaprecios&#39;</span><span class="p">,</span> <span class="s1">&#39;hambre&#39;</span><span class="p">,</span> <span class="s1">&#39;menos_saludable&#39;</span><span class="p">,</span> <span class="s1">&#39;vivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda&#39;</span><span class="p">,</span> <span class="s1">&#39;probvivienda_prox&#39;</span><span class="p">,</span> <span class="s1">&#39;ayuda_alquiler&#39;</span><span class="p">,</span> <span class="s1">&#39;sufialimento&#39;</span><span class="p">,</span> <span class="s1">&#39;sufirecursos&#39;</span><span class="p">,</span> <span class="s1">&#39;gasto_emergencia&#39;</span><span class="p">,</span> <span class="s1">&#39;monto_gasto&#39;</span><span class="p">,</span> <span class="s1">&#39;pre_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;new_cash&#39;</span><span class="p">,</span> <span class="s1">&#39;coima&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_tarjdebito&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpub&#39;</span><span class="p">,</span> <span class="s1">&#39;tiene_segsaludpriv&#39;</span><span class="p">,</span> <span class="s1">&#39;recibeprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;darprestamos&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_enero&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_origen&#39;</span><span class="p">,</span> <span class="s1">&#39;remesas_persona&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_remesas&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioempleo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_gob&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_cerronegocio_dem&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_asistmedica&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_perdioingrarriendo&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_dejoasistencia&#39;</span><span class="p">,</span> <span class="s1">&#39;lm_freq&#39;</span><span class="p">,</span> <span class="s1">&#39;recibio_ayudaemp&#39;</span><span class="p">,</span> <span class="s1">&#39;compromiso_futurotrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;empleo_formal&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_empleado&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_negocio&#39;</span><span class="p">,</span> <span class="s1">&#39;actividad_estudio&#39;</span><span class="p">,</span> <span class="s1">&#39;trabajocasa&#39;</span><span class="p">,</span> <span class="s1">&#39;diastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;horastrabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">,</span> <span class="s1">&#39;redujo_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_jan2020&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso_apr2020&#39;</span><span class="p">,</span> <span class="s1">&#39;retorno_ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_ninguno&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_garganta&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_gripe&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_sarpullido&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_fiebre&#39;</span><span class="p">,</span> <span class="s1">&#39;sintoma_tos&#39;</span><span class="p">,</span> <span class="s1">&#39;conoce_sintomas&#39;</span><span class="p">,</span> <span class="s1">&#39;infectados_sinsintomas&#39;</span><span class="p">,</span> <span class="s1">&#39;sinsintomas_contagiar&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_trabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_mercado&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_ejercitar&#39;</span><span class="p">,</span> <span class="s1">&#39;visito_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;comotransmite&#39;</span><span class="p">,</span> <span class="s1">&#39;sabe_comotransmite&#39;</span><span class="p">,</span> <span class="s1">&#39;distsoc&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_trabajo&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_mercado&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_banco&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_amigos&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_familiares&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_ejercicio&#39;</span><span class="p">,</span> <span class="s1">&#39;recom_iglesia&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_hogar&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_vecinos&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_jovenes&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_mayores&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_otropais&#39;</span><span class="p">,</span> <span class="s1">&#39;haceds_emplmercados&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_noti_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_redessociales&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_chat&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_periodicos&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;medios_covid_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_redessoc&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_sms&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_periodico&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_tv&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_radio&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_website&#39;</span><span class="p">,</span> <span class="s1">&#39;nps_medio_otro&#39;</span><span class="p">]</span>
+<span class="n">tipo_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int16]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float64]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[int8]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[float32]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype[object_]&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">,</span> <span class="s1">&#39;CategoricalDtype&#39;</span><span class="p">]</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">trabajo_afuera_y_mayores</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">trabajo_afuera_y_mayores</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada trabajo_afuera_y_mayores.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">trabajo_afuera_y_mayores</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un valor de tipo </span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: no ejecuta la función importar_e_indexar</span>
+<span class="k">assert</span> <span class="n">source</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;importar_e_indexar()&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no hace referencia a la función importar_e_indexar. Asegurate de ejecutarla en tu código.&quot;</span>
+
+<span class="c1"># Caso 5: retorna el dataframe con la columna &#39;id&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;id&#39;. Esta columna debes haberla convertido en el index sencillo del DataFrame.&quot;</span>
+
+<span class="c1"># Caso 6: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">128</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 7: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="n">nombre_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos nombres no coinciden con los de los datos del archivo.&quot;</span>
+
+<span class="c1"># Caso 8: devuelve un dataframe cuyas columnas tienen tipo distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">dtypes</span><span class="p">]</span> <span class="o">==</span> <span class="n">tipo_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos tipos no coinciden con los de los datos del archivo.&quot;</span>
+
+<span class="c1"># Caso 9: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">14311</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 10: devuelve un dataframe con indice del mismo tipo que por defecto (&#39;int64&#39;)</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice del mismo tipo que el que se crea por defecto en pandas. Asegurate de estar asignando la columna &#39;id&#39; como índice.&quot;</span>
+
+<span class="c1"># Caso 11: devuelve un dataframe con índice de tipo errado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice de tipo distinto del esperado. Asegurate de estar usando la columna &#39;id&#39; sin editarla.&quot;</span>
+
+<span class="c1"># Caso 12: primera o última posicion del índice distintas de lo esperado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1000019.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la primera posición de su índice&quot;</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">17020778.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la última posición de su índice&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def trabajo_afuera_y_mayores_sol():</span>
+<span class="sd">    </span>
+<span class="sd">    df = importar_e_indexar()</span>
+<span class="sd">    df = df[(df[&#39;trabajocasa&#39;] == &quot;Fuera de su casa&quot;) &amp; (df[&#39;haymayores&#39;] == &quot;si&quot;)]</span>
+<span class="sd">    </span>
+<span class="sd">    return df</span>
+
+<span class="sd">pd.testing.assert_frame_equal(resultado, trabajo_afuera_y_mayores_sol())</span>
+<span class="sd">&#39;&#39;&#39;</span> 
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-6">
+<h3>Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">hogares_decrecen</span></code> que no reciba parámetros, tome el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultante del <a class="reference external" href="#Ejercicio-1">Ejercicio 1</a> y retorne un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> únicamente con las columnas <code class="docutils literal notranslate"><span class="pre">&quot;nrhogar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;nrhogar_antes&quot;</span></code> y una columna adicional llamada <code class="docutils literal notranslate"><span class="pre">&quot;hogar_decrecio&quot;</span></code> que para cada registro tome un valor de:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>, si el valor numérico de la columna <code class="docutils literal notranslate"><span class="pre">&quot;nrhogar&quot;</span></code> es menor que el valor de la columna <code class="docutils literal notranslate"><span class="pre">&quot;nrhogar_antes&quot;</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>, de lo contrario.</p></li>
+</ul>
+<p>La función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">hogares_decrecen</span><span class="p">():</span> 
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">importar_e_indexar</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;hogar_decrecio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span> <span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;nrhogar&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;nrhogar_antes&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;nrhogar&#39;</span><span class="p">,</span><span class="s1">&#39;nrhogar_antes&#39;</span><span class="p">,</span><span class="s1">&#39;hogar_decrecio&#39;</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nrhogar&#39;</span><span class="p">,</span><span class="s1">&#39;nrhogar_antes&#39;</span><span class="p">,</span><span class="s1">&#39;hogar_decrecio&#39;</span><span class="p">]</span>
+<span class="n">tipo_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">]</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">hogares_decrecen</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">hogares_decrecen</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada hogares_decrecen.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">hogares_decrecen</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un valor de tipo </span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: no ejecuta la función importar_e_indexar</span>
+<span class="k">assert</span> <span class="n">source</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;importar_e_indexar()&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no hace referencia a la función importar_e_indexar. Asegurate de ejecutarla en tu código.&quot;</span>
+
+<span class="c1"># Caso 5: retorna el dataframe con la columna &#39;id&#39;</span>
+<span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que incluye la columna &#39;id&#39;. Esta columna debes convertirla en el index del DataFrame.&quot;</span>
+
+<span class="c1"># Caso 6: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 7: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">resultado</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="n">nombre_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos nombres no son nrhogar, nrhogar_antes y hogar_decrecio (en ese orden).&quot;</span>
+
+<span class="c1"># Caso 8: devuelve un dataframe cuyas columnas tienen tipo distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">resultado</span><span class="o">.</span><span class="n">dtypes</span><span class="p">]</span> <span class="o">==</span> <span class="n">tipo_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos tipos no coinciden con los esperados. Asegurate de registrar los 0 y 1 como números enteros.&quot;</span>
+
+<span class="c1"># Caso 9: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">230509</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 10: devuelve un dataframe con indice del mismo tipo que por defecto (&#39;int64&#39;)</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice del mismo tipo que el que se crea por defecto en pandas. Asegurate de estar asignando la columna &#39;id&#39; como índice.&quot;</span>
+
+<span class="c1"># Caso 11: devuelve un dataframe con índice de tipo errado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con índice de tipo distinto del esperado. Asegurate de estar usando la columna &#39;id&#39; sin editarla.&quot;</span>
+
+<span class="c1"># Caso 12: primer o última posicion del índice distintas de lo esperado</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1000060.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la primera posición de su índice&quot;</span>
+<span class="k">assert</span> <span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">17003990.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que es errado por lo menos en la última posición de su índice&quot;</span>
+
+<span class="c1"># Caso 13: asigna más de dos valores únicos a la columna hogar_decrecio</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="p">[</span><span class="s2">&quot;hogar_decrecio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que que en la columna hogar_decrecio incluye más de dos valores únicos. Recuerda que esta columna solo debe incluir los números enteros 0 y 1.&quot;</span>
+
+<span class="c1"># Caso 14: no asigna 0 y 1 como únicos valores a la columna hogar_decrecio</span>
+<span class="k">assert</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">resultado</span><span class="p">[</span><span class="s2">&quot;hogar_decrecio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> <span class="ow">and</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">resultado</span><span class="p">[</span><span class="s2">&quot;hogar_decrecio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="s2">&quot;Tu función retorna un DataFrame que que en la columna hogar_decrecio incluye valores distintos de los números enteros 0 y 1.&quot;</span>
+
+<span class="c1"># Caso 15: asigna mal el valor binario.</span>
+<span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">resultado</span><span class="p">[</span><span class="s2">&quot;hogar_decrecio&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">19908</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que que en la columna hogar_decrecio asigna de manera errada los valores 0 y 1.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def hogares_decrecen_sol(): </span>
+<span class="sd">    </span>
+<span class="sd">    df = importar_e_indexar()</span>
+<span class="sd">    df[&#39;hogar_decrecio&#39;] = df.apply(lambda row : 1 if (row[&#39;nrhogar&#39;] &lt; row[&#39;nrhogar_antes&#39;]) else 0, axis = 1)</span>
+<span class="sd">    df = df[[&#39;nrhogar&#39;,&#39;nrhogar_antes&#39;,&#39;hogar_decrecio&#39;]]</span>
+
+<span class="sd">    return df</span>
+
+<span class="sd">pd.testing.assert_frame_equal(resultado, hogares_decrecen_sol())</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p>BID (2020). Encuesta Coronavirus BID/Cornell. Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://data.iadb.org/DataCatalog/Dataset#DataCatalogID=11319/28452">https://data.iadb.org/DataCatalog/Dataset#DataCatalogID=11319/28452</a></p>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Jorge Esteban Camargo Forero, Alejandro Mantilla Redondo, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización:</strong> 10/09/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TA1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

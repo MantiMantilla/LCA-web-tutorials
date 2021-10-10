@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio 2 &#8212; Repositorio de LCA</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorio-Computacional-de-Analytics/Lab 2/Laboratorio 2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/Lab 2/Laboratorio 2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/Lab 2/Laboratorio 2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hito-desarrollo-de-una-herramienta-analitica-usando-paquetes-especializados-para-analisis-de-datos-en-python">
+   Hito: desarrollo de una herramienta analítica usando paquetes especializados para análisis de datos en Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contexto-desigualdad-y-factores-de-exito-en-pruebas-saber-11-colombia">
+   Contexto: desigualdad y factores de éxito en pruebas Saber 11 (Colombia)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entender-el-contenido-de-los-archivos-de-datos">
+   1. Entender el contenido de los archivos de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identificar-caracteristicas-y-relaciones-en-las-variables">
+   2. Identificar características y relaciones en las variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abordar-preguntas-de-negocio-planteadas">
+   3. Abordar preguntas de negocio planteadas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#desarrollar-una-herramienta-interactiva-de-analisis">
+   4. Desarrollar una herramienta interactiva de análisis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="laboratorio-2">
+<h1>Laboratorio 2<a class="headerlink" href="#laboratorio-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hito-desarrollo-de-una-herramienta-analitica-usando-paquetes-especializados-para-analisis-de-datos-en-python">
+<h2>Hito: desarrollo de una herramienta analítica usando paquetes especializados para análisis de datos en Python<a class="headerlink" href="#hito-desarrollo-de-una-herramienta-analitica-usando-paquetes-especializados-para-analisis-de-datos-en-python" title="Permalink to this headline">¶</a></h2>
+<p>Este laboratorio corresponde al 34% de la calificación total del curso y su entrega está planteada para el final de la semana 8. Su objetivo es poner en práctica las competencias adquiridas sobre el uso de los paquetes <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> y Scikit-Learn, entre otros, para hacer exploración, análisis descriptivo y abordar preguntas de negocio para un caso basado en datos reales.</p>
+<p>Al desarrollar este laboratorio, pondrás a prueba tus habilidades para:</p>
+<ol class="simple">
+<li><p>Identificar y abordar una pregunta de negocio a partir de un contexto.</p></li>
+<li><p>Cargar datos desde archivos utilizando métodos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+<li><p>Explorar, manejar, limpiar y agregar objetos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+<li><p>Implementar análisis combinando métricas descriptivas, visualización, filtrado y agrupación.</p></li>
+<li><p>Implementar análisis basado en modelos estadísticos o de <em>machine learning</em>.</p></li>
+<li><p>Utilizar paquetes como <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> o <code class="docutils literal notranslate"><span class="pre">panel</span></code> para agregar interactividad a los análisis.</p></li>
+</ol>
+<p>Te recomendamos leer por completo el enunciado del laboratorio antes de comenzar, de forma que tengas claro el propósito completo de la actividad y puedas desarrollar tu solución apuntando a él en cada paso.</p>
+</div>
+<div class="section" id="contexto-desigualdad-y-factores-de-exito-en-pruebas-saber-11-colombia">
+<h2>Contexto: desigualdad y factores de éxito en pruebas Saber 11 (Colombia)<a class="headerlink" href="#contexto-desigualdad-y-factores-de-exito-en-pruebas-saber-11-colombia" title="Permalink to this headline">¶</a></h2>
+<p>El ICFES es el Instituto Colombiano para el Fomento de la Educación Superior y está adscrito al Ministerio de Educación a nivel nacional. Como parte de sus funciones, el ICFES administra las pruebas <em>Saber 11</em>, las cuales evalúan a todos los estudiantes del país al final de su educación secundaria. El examen contiene preguntas que evalúan una variedad de áreas del conocimiento (p.ej., matemáticas) y se lleva a cabo dos veces al año, acomodandose a los diferentes calendarios académicos que siguen las instituciones educativas. Al momento de inscribirse a las pruebas, los estudiantes diligencian un formulario que recoge información socio-demográfica y relacionada con la institución a la que pertenecen. El fin es obtener información con respecto al desempeño de los estudiantes en la prueba y de sus características.</p>
+<img src="Archivos/saberpro.png" width=700x>
+<p>Al igual que otros países de la región, Colombia tiene grandes retos en términos de desigualdad, particularmente en el contexto de educación primaria y secundaria. Por esta razón, para el Estado colombiano es muy valioso el amplio registro de datos que el ICFES genera alrededor de las pruebas Saber 11, pues con ellos se pueden generar análisis sobre la calidad de la educación en el país y eventualmente dar lugar a recomendaciones sobre políticas públicas. En particular, la problemática a abordar en este caso de estudio es: desigualdad y factores de éxito en las pruebas Saber 11.</p>
+<p>Los objetivos de este caso de estudio son:</p>
+<ul class="simple">
+<li><p>Entender el contenido de los archivos de datos proporcionados sobre las pruebas Saber 11, generar un reporte acerca de sus características principales y seleccionar las partes de dicho contenido que podrían ser relevantes para el análisis.</p></li>
+<li><p>Identificar características de las variables de interés y relaciones entre ellas, por ejemplo, a través de agrupación, visualizaciones y estadísticas descriptivas.</p></li>
+<li><p>Abordar preguntas de negocio relacionadas con la problemática planteada con respecto a los factores que puedan incidir significativamente en el puntaje, particularmente, para aquellas personas cuyo desempeño se pueda considerar malo.</p></li>
+<li><p>Generar una herramienta sencilla que permita a un usuario interactuar con alguno de los análisis realizados de forma relevante en el contexto del problema.</p></li>
+</ul>
+</div>
+<div class="section" id="entender-el-contenido-de-los-archivos-de-datos">
+<h2>1. Entender el contenido de los archivos de datos<a class="headerlink" href="#entender-el-contenido-de-los-archivos-de-datos" title="Permalink to this headline">¶</a></h2>
+<p>En esta misión te harás una idea general del contenido de los datos y seleccionarás un segmento de ellos que consideres útil para los análisis propuestos.</p>
+<p>Pautas generales:</p>
+<ul class="simple">
+<li><p>Leer los archivos de datos y agregarlos según sea necesario (p.ej., utilizando los métodos <code class="docutils literal notranslate"><span class="pre">append</span></code> o <code class="docutils literal notranslate"><span class="pre">concat</span></code>).</p></li>
+<li><p>Inspeccionar el archivo a partir de su encabezado, columnas y descripciones de las variables según su tipo (p.ej., numéricas o categóricas).</p></li>
+<li><p>Declarar en una estructura de datos (p.ej., una lista) un sub-conjunto de variables que puedan ser relevantes para la problemática de interés.</p></li>
+</ul>
+<p>Preguntas guía:</p>
+<ul class="simple">
+<li><p>¿Qué dimensiones tienen los datos?</p></li>
+<li><p>¿Con cuántos años y periodos de evaluación se cuenta?</p></li>
+<li><p>¿Cuáles variables pueden ser de interés para la problemática planteada?</p></li>
+<li><p>¿Qué porcentaje de datos faltantes o no válidos hay en las columnas de interés? ¿Cómo abordas el análisis?</p></li>
+</ul>
+<p>Esta misión corresponde a tu trabajo interno como analista, por lo cual no tiene un entregable para el cliente. Para completarla, deberás generar un reporte básico sobre el contenido de los archivos de datos, ya sea a través de la impresión de mensajes, la presentación de tablas de resumen, entre otros.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Código</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="identificar-caracteristicas-y-relaciones-en-las-variables">
+<h2>2. Identificar características y relaciones en las variables<a class="headerlink" href="#identificar-caracteristicas-y-relaciones-en-las-variables" title="Permalink to this headline">¶</a></h2>
+<p>En esta misión utilizarás análisis descriptivos para explorar patrones o relaciones en las variables de interés para la problemática planteada.</p>
+<p>Pautas generales:</p>
+<ul class="simple">
+<li><p>Utilizar <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> o <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> para inspeccionar visualmente variables de interés. Los métodos <code class="docutils literal notranslate"><span class="pre">distplot</span></code>, <code class="docutils literal notranslate"><span class="pre">pairplot</span></code>, <code class="docutils literal notranslate"><span class="pre">boxplot</span></code>, o <code class="docutils literal notranslate"><span class="pre">violinplot</span></code>, entre otros, pueden ser útiles.</p></li>
+<li><p>Utilizar el método <code class="docutils literal notranslate"><span class="pre">groupby</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, en conjunto con métodos de visualización, para proveer evidencia del impacto de las variables socio-demográficas de interés sobre el desempeño de los estudiantes en la prueba.</p></li>
+<li><p>Plantear tres preguntas de <em>analytics</em>.</p></li>
+</ul>
+<p>Preguntas guía:</p>
+<ul class="simple">
+<li><p>¿Hay patrones de interés en las distribuciones de las variables o en las relaciones entre ellas?</p></li>
+<li><p>¿Consideras que existe algún impacto significativo de variables socio-demográficas en los puntajes globales o por área?</p></li>
+<li><p>¿Sobre cuáles variables harías un análisis más profundo?</p></li>
+</ul>
+<p>En esta misión presentarás un reporte (p.ej., un conjunto de visualizaciones) que de cuenta de los comportamientos más interesantes que observes en las variables de interés para el contexto propuesto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Código</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="abordar-preguntas-de-negocio-planteadas">
+<h2>3. Abordar preguntas de negocio planteadas<a class="headerlink" href="#abordar-preguntas-de-negocio-planteadas" title="Permalink to this headline">¶</a></h2>
+<p>En esta misión propondrás, implementarás y evaluarás el desempeño de uno o más modelos que busquen explicar las relaciones entre factores socio-demográficos y desempeño en la prueba.</p>
+<p>Pautas generales:</p>
+<ul class="simple">
+<li><p>Seleccionar variables y proponer modelos acordes a estas y al contexto del problema.</p></li>
+<li><p>Utilizar los paquetes <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> y Scikit-Learn para indagar sobre los aspectos que contribuyen al éxito de los estudiantes. Los módulos correspondientes a regresión lineal y regresión logística pueden ser útiles.</p></li>
+<li><p>Utilizar las métricas de evaluación de desempeño (disponibles en los paquetes mencionados), para concluir sobre la validez de los modelos propuestos.</p></li>
+</ul>
+<p>Preguntas guía:</p>
+<ul class="simple">
+<li><p>¿Existe algún sub-conjunto de variables socio-demográficas que explique razonablemente bien el desempeño de los estudiantes en la prueba?</p></li>
+<li><p>Definiendo como Estudiante en Riesgo a quien tenga un puntaje por debajo del percentil <span class="math notranslate nohighlight">\(\gamma\)</span> en más de la mitad de las áreas de la prueba, ¿cuáles variables socio-demográficas permitirían predecir si un estudiante pertenecerá a dicho grupo?</p></li>
+</ul>
+<p>En esta misión presentarás un reporte sobre el desempeño de los modelos propuestos para abordar al menos una de las preguntas guía planteadas, acompañado de una conclusión sobre los resultados del modelo (si son válidos) en el contexto de la problemática planteada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Código</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="desarrollar-una-herramienta-interactiva-de-analisis">
+<h2>4. Desarrollar una herramienta interactiva de análisis<a class="headerlink" href="#desarrollar-una-herramienta-interactiva-de-analisis" title="Permalink to this headline">¶</a></h2>
+<p>En esta misión desarrollarás una herramienta interactiva sencilla que sea relevante en el contexto del problema, a partir de alguno de los análisis realizados en las misiones <a class="reference external" href="#2.-Identificar-caracter%C3%ADsticas-y-relaciones-en-las-variables">dos</a> o <a class="reference external" href="#3.-Abordar-preguntas-de-negocio-planteadas">tres</a>.</p>
+<p>Pautas generales:</p>
+<ul class="simple">
+<li><p>Seleccionar uno de los análisis previos que pueda verse enriquecido con alguna característica de interactividad.</p></li>
+<li><p>Seleccionar los parámetros que el usuario podrá cambiar.</p></li>
+<li><p>Desarrollar las funciones que se deben ejecutar con cada acción del usuario.</p></li>
+<li><p>Utilizar los paquetes <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> o <code class="docutils literal notranslate"><span class="pre">panel</span></code> para implementar la herramienta.</p></li>
+</ul>
+<p>Pregunta guía:</p>
+<ul class="simple">
+<li><p>¿Cuál o cuáles preguntas podrá hacerle el usuario a la herramienta y cómo aporta la respuesta al análisis?</p></li>
+<li><p>¿Qué aprendizajes clave puede explorar u obtener el usuario con esta herramienta?</p></li>
+</ul>
+<p>En esta misión entregarás la implementación de tu herramienta, acompañada de las instrucciones necesarias para que un usuario la pueda utilizar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Código</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>J. VanderPlas (2016) <em>Python Data Science Handbook: Essential Tools for Working with Data</em> O’Reilly Media, Inc.</p></li>
+<li><p>scikit-learn developers . (2020). Demo of DBSCAN clustering algorithm. 11 Diciembre 2020, de scikit-learn Sitio web: <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html#sphx-glr-auto-examples-cluster-plot-dbscan-py">https://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html#sphx-glr-auto-examples-cluster-plot-dbscan-py</a></p></li>
+</ul>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Camilo Hernando Gómez Castro, Alejandro Mantilla Redondo, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización</strong>: 16/09/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/Lab 2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

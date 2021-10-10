@@ -1,0 +1,1314 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modificar y limpiar datos utilizando pandas &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S5 - Limpiar y unir bases de datos/S5.TU1/TUTORIAL - Limpiar bases de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S5 - Limpiar y unir bases de datos/S5.TU1/TUTORIAL - Limpiar bases de datos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S5 - Limpiar y unir bases de datos/S5.TU1/TUTORIAL - Limpiar bases de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requisitos">
+   Requisitos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivos">
+   Objetivos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modificar-cadenas-de-texto-contenidas-en-un-series-utilizando-la-libreria-pandas">
+   1. Modificar cadenas de texto contenidas en un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Series
+    </span>
+   </code>
+   utilizando la librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-1">
+     Ejemplo 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representar-fechas-utilizando-la-libreria-datetime">
+   2. Representar fechas utilizando la librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     datetime
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-modulo-datetime">
+     2.1. El módulo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       datetime
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-de-los-objetos-tipo-datetime">
+     2.2. Métodos de los objetos tipo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       datetime
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-del-modulo-datetime">
+     2.3 Métodos del módulo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       datetime
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-2">
+       Ejemplo 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#columnas-con-formato-de-fechas">
+     2.3. Columnas con formato de fechas
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-3">
+       Ejemplo 3
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imputar-datos-faltantes-en-un-dataframe-utilizando-la-libreria-pandas">
+   3. Imputar datos faltantes en un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     DataFrame
+    </span>
+   </code>
+   , utilizando la librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+   .
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#representacion-de-datos-faltantes-dentro-de-python">
+     3.1. Representación de datos faltantes dentro de Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imputar-datos-faltantes-utilizando-la-libreria-pandas">
+     3.2. Imputar datos faltantes utilizando la librería
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pandas
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-4">
+       Ejemplo 4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-5">
+       Ejemplo 5
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-para-imputar-faltantes-utilizando-la-libreria-pandas">
+     3.3. Métodos para imputar faltantes utilizando la librería
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pandas
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metodo-dropna">
+       Método
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         dropna
+        </span>
+       </code>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-6">
+         Ejemplo 6
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metodo-fillna">
+       Método
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         fillna
+        </span>
+       </code>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-7">
+         Ejemplo 7
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-8">
+         Ejemplo 8
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="modificar-y-limpiar-datos-utilizando-pandas">
+<h1>Modificar y limpiar datos utilizando <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#modificar-y-limpiar-datos-utilizando-pandas" title="Permalink to this headline">¶</a></h1>
+<p>Con lo aprendido hasta ahora, somo capaces de cargar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contenga los datos a analizar. Además, podemos indexar este <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en las filas según el contexto del problema y renombrar sus columnas según las prácticas recomendadas. No obstante, antes de realizar un análisis de datos, debemos revisar algunos aspectos importantes del manejo de bases de datos. Aprenderemos acerca de las estrategias que podemos aplicar sobre registros faltantes, y sobre el manejo de cadenas de texto y su transformación a fechas en los <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="section" id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<p>Para desarrollar este tutorial necesitarás:</p>
+<ul class="simple">
+<li><p>Conocer las principales características de los arreglos en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> y de los <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+<li><p>Importar datos a un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> desde distintos formatos.</p></li>
+<li><p>Indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> a partir de una o más columnas.</p></li>
+</ul>
+</div>
+<div class="section" id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+<p>Al final de este tutorial podrás:</p>
+<p><strong>1.</strong> Modificar cadenas de texto contenidas en un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.<br>
+<strong>2.</strong> Representar fechas utilizando el paquete <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.<br>
+<strong>3.</strong> Imputar datos faltantes en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br></p>
+</div>
+<div class="section" id="modificar-cadenas-de-texto-contenidas-en-un-series-utilizando-la-libreria-pandas">
+<h2>1. Modificar cadenas de texto contenidas en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#modificar-cadenas-de-texto-contenidas-en-un-series-utilizando-la-libreria-pandas" title="Permalink to this headline">¶</a></h2>
+<p>En <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, las cadenas de texto contenidas en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> (o en columnas de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) heredan varios métodos propios de los objetos de tipo cadena de texto. Para acceder a ellos los llamamos del módulo <code class="docutils literal notranslate"><span class="pre">Series.str</span></code> (o <code class="docutils literal notranslate"><span class="pre">DataFrame.str</span></code>).</p>
+<p>A continuación explicamos la documentación de algunos de los métodos más comunes: <code class="docutils literal notranslate"><span class="pre">split</span></code>, <code class="docutils literal notranslate"><span class="pre">get_dummies</span></code>, <code class="docutils literal notranslate"><span class="pre">capitalize</span></code>, <code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">upper</span></code> y <code class="docutils literal notranslate"><span class="pre">strip</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">split</span></code>: divide cada cadena del <code class="docutils literal notranslate"><span class="pre">Series</span></code> cada vez que encuentra la subcadena especificada en el parámetro <code class="docutils literal notranslate"><span class="pre">pat</span></code>. Utilizamos el parámetro <code class="docutils literal notranslate"><span class="pre">n</span></code> para limitar la cantidad de divisiones que realizamos las cadenas. Utilizamos el parámetro expand para retornar los segmentos de las cadenas en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (<code class="docutils literal notranslate"><span class="pre">expand</span> <span class="pre">=</span> <span class="pre">True</span></code>) o en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> de listas (<code class="docutils literal notranslate"><span class="pre">expand</span> <span class="pre">=</span> <span class="pre">false</span></code>). <br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_dummies</span></code>: crea un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> donde las columnas corresponden a cada uno de los valores únicos del <code class="docutils literal notranslate"><span class="pre">Series</span></code>, las filas corresponden a los elementos del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y los valores son binarios (<code class="docutils literal notranslate"><span class="pre">0</span></code> o <code class="docutils literal notranslate"><span class="pre">1</span></code>) dependiendo de si el elemento toma el valor que indica la columna.<br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">capitalize</span></code>: revisa si el primer caracter de cada cadena es una letra minúscula y lo convierte en mayúscula y vuelve minúscula el resto de las letras en la cadena.    <br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lower</span></code>: convierte todas las letras de cada cadena en minúsculas.<br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upper</span></code>: convierte todas las letras de cada cadena en mayúsculas.    <br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strip</span></code>: elimina del inicio y del final de cada cadena del <code class="docutils literal notranslate"><span class="pre">Series</span></code>, la subcadena especificada en el parámetro <code class="docutils literal notranslate"><span class="pre">to_strip</span></code>. Si la subcadena no es especificada, por defecto se supone la subcadena <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code> (espacio).</p></li>
+</ul>
+<p>Importamos el paquete <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-1">
+<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda de código declaramos un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el nombre de algunos libros. Se nos pide que extraigamos el artículo del título de los libros que se encuentran dentro del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie_libros</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;El Extranjero&quot;</span><span class="p">,</span> <span class="s2">&quot;La Peste&quot;</span><span class="p">,</span> <span class="s2">&quot;La Caída&quot;</span><span class="p">])</span>
+<span class="n">serie_articulos</span> <span class="o">=</span> <span class="n">serie_libros</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># Tomamos los primeros dos caracteres del título.</span>
+<span class="n">serie_articulos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    El
+1    La
+2    La
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Puede cumplirse lo mismo con el método <code class="docutils literal notranslate"><span class="pre">split</span></code>, como se ve a continuación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie_articulos</span> <span class="o">=</span> <span class="n">serie_libros</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">expand</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">serie_articulos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    El
+1    La
+2    La
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="representar-fechas-utilizando-la-libreria-datetime">
+<h2>2. Representar fechas utilizando la librería <code class="docutils literal notranslate"><span class="pre">datetime</span></code><a class="headerlink" href="#representar-fechas-utilizando-la-libreria-datetime" title="Permalink to this headline">¶</a></h2>
+<p>Una de las grandes ventajas de la programación de rutinas de código en Python es la versatilidad que ofrece. El caso de la manipulación de información temporal no es la excepción, en tanto Python permite representar los principales formatos de fechas que se usan en lenguajes de manipulación de bases de datos como SQL. El principal módulo a importar para trabajar con fechas es <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<div class="section" id="el-modulo-datetime">
+<h3>2.1. El módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code><a class="headerlink" href="#el-modulo-datetime" title="Permalink to this headline">¶</a></h3>
+<p>La principal característica del módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> es que permite trabajar simultáneamente con fechas (<em>Dates</em>) y tiempos (<em>Time</em>). Es decir, al crear un objeto con el módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, este contendrá la información de la fecha (día, mes y año) y un registro detallado del dato de tiempo (hora, minuto, segundo, microsegundo). Para importar el módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> se puede usar la siguiente sintaxis:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from datetime import datetime
+</pre></div>
+</div>
+<p>Esta sintaxis permite declarar de forma directa objetos de tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> ya que importa los métodos del módulo (y no todo el paquete) <code class="docutils literal notranslate"><span class="pre">datetime</span></code>. Así, resulta innecesario referenciar nuevamente un objeto de este módulo. Para declarar una fecha se usa la siguiente sintaxis, empleando valores enteros como argumentos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fecha = datetime(anho, mes, dia)
+</pre></div>
+</div>
+<p>A esta fecha se le asignará por defecto la primera hora del día (00:00:00). Si se desea, también se puede especificar el total de la información como en la siguiente declaración:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tiempo = datetime(anho, mes, dia, hora, minuto, segundo, microsegundo)
+</pre></div>
+</div>
+<p>A continuación, trabajaremos los principales métodos del módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+</div>
+<div class="section" id="metodos-de-los-objetos-tipo-datetime">
+<h3>2.2. Métodos de los objetos tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code><a class="headerlink" href="#metodos-de-los-objetos-tipo-datetime" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><center>Métodos</center></p></th>
+<th class="text-align:left head"><p><center>Descripción</center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">weekday()</span></code></p></td>
+<td class="text-align:left"><p>Obtiene el día de la semana correspondiente a la fecha</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">isoweekday()</span></code></p></td>
+<td class="text-align:left"><p>Obtiene el día de la semana correspondiente a la fecha en formato ISO</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">__format__(formato)</span></code></p></td>
+<td class="text-align:left"><p>Confiere a un <code class="docutils literal notranslate"><span class="pre">datetime</span></code> el <code class="docutils literal notranslate"><span class="pre">formato</span></code> especificado</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">replace()</span></code></p></td>
+<td class="text-align:left"><p>Permite modificar cualquiera de los valores de una fecha particular (año, mes, dia)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="metodos-del-modulo-datetime">
+<h3>2.3 Métodos del módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code><a class="headerlink" href="#metodos-del-modulo-datetime" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><center>Métodos</center></p></th>
+<th class="text-align:left head"><p><center>Descripción</center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">stftime(formato)</span></code></p></td>
+<td class="text-align:left"><p>Retorna una cadena de texto con la información de la fecha según el <code class="docutils literal notranslate"><span class="pre">formato</span></code> especificado</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">strptime(cadena_fecha)</span></code></p></td>
+<td class="text-align:left"><p>Crea un <code class="docutils literal notranslate"><span class="pre">datetime</span></code> con base en una fecha descrita por una cadena de texto (<code class="docutils literal notranslate"><span class="pre">cadena_fecha</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para usar los métodos <code class="docutils literal notranslate"><span class="pre">stftime</span></code> y <code class="docutils literal notranslate"><span class="pre">strptime</span></code> se usan las siguientes convenciones:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><center>Convención</center></p></th>
+<th class="text-align:left head"><p><center>Descripción</center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%a'</span></code></p></td>
+<td class="text-align:left"><p>Referencia los primeros caracteres del día de la semana ‘Wed’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%A'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el nombre completo ‘Wednesday’</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%B'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el nombre completo del mes ‘Septiembre’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%w'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el día de la semana con números del 0 al 6 donde el Domingo es el 0</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%m'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el número del mes del ‘01’ al ‘12’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%p'</span></code></p></td>
+<td class="text-align:left"><p>Referencia la hora en formato AM/PM</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%y'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el año usando únicamente los últimos dos dígitos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%Y'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el año usando todos los dígitos</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%Z'</span></code></p></td>
+<td class="text-align:left"><p>Referencia la zona horaria</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%z'</span></code></p></td>
+<td class="text-align:left"><p>Referencia la zona horaria en formato UTC</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%j'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el día del año del ‘001’ al ‘366’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%W'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el día</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'%U'</span></code></p></td>
+<td class="text-align:left"><p>Referencia el número de la semana en el año desde el ‘00’ hasta el ‘53’</p></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplificaremos el uso de los métodos <code class="docutils literal notranslate"><span class="pre">strftime</span></code> y <code class="docutils literal notranslate"><span class="pre">strptime</span></code> según estas.</p>
+<p>Importamos el módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-2">
+<h4>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">¶</a></h4>
+<p>Vamos a convertir la cadena de texto con formato <code class="docutils literal notranslate"><span class="pre">&quot;%y-%m-%d&quot;</span></code> en un objeto <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cadena_fecha</span> <span class="o">=</span> <span class="s2">&quot;18-12-31&quot;</span>
+<span class="n">fecha</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">cadena_fecha</span><span class="p">,</span><span class="s2">&quot;%y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fecha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2018, 12, 31, 0, 0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>También se habría podido lograr esta fecha con la cadena de texto que contiene todos los dígitos del año:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cadena_fecha</span> <span class="o">=</span> <span class="s2">&quot;2018-12-31&quot;</span>
+<span class="n">fecha</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">cadena_fecha</span><span class="p">,</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fecha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2018, 12, 31, 0, 0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recuerde que también se puede recuperar la cadena de texto original sobre la cual se creó la fecha usando el método <code class="docutils literal notranslate"><span class="pre">strftime</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cadena_fecha</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">fecha</span><span class="p">,</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">cadena_fecha</span> <span class="c1"># tipo: cadena de texto</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2018-12-31&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="columnas-con-formato-de-fechas">
+<h3>2.3. Columnas con formato de fechas<a class="headerlink" href="#columnas-con-formato-de-fechas" title="Permalink to this headline">¶</a></h3>
+<p>Una vez conocemos el procedimiento para transformar cadenas de texto en objetos <code class="docutils literal notranslate"><span class="pre">datetime</span></code> podemos pensar en cómo transformar columnas o <code class="docutils literal notranslate"><span class="pre">Series</span></code> de enteros o cadenas de texto en fechas. La manera más frecuente es por medio del método <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>to_datetime(arg = cadena_fecha, UTC = None, format = None)
+</pre></div>
+</div>
+<p>A continuación, describimos el uso de los parámetros.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: cadena de texto, entero, lista, arreglo o fecha (<code class="docutils literal notranslate"><span class="pre">datetime</span></code>) a transformar en una fecha (<code class="docutils literal notranslate"><span class="pre">datetime</span></code>). <br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UTC</span></code>: especifica la zona horaria.<br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format</span></code>: recibe una cadena de texto que indica el formato de la fecha según las convenciones.</p></li>
+</ul>
+<div class="section" id="ejemplo-3">
+<h4>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">¶</a></h4>
+<p>En la celda de código a continuación, importamos el índice de los títulos de deuda pública de los TES de Corto Plazo para los años comprendidos entre el 2010 y 2019. Estos datos fueron descargados directamente de la página de la Bolsa de Valores de Colombia disponible en las referencias. Declaramos un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> indexado por su columna <code class="docutils literal notranslate"><span class="pre">&quot;fecha&quot;</span></code>.</p>
+<p>Empecemos inspeccionando la base de datos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfTES</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Archivos/Indices.xls&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">dfTES</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Float64Index: 2902 entries, nan to nan
+Data columns (total 8 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   Fecha                2902 non-null   int64  
+ 1   Indice               2902 non-null   object 
+ 2   Valor Hoy            2902 non-null   float64
+ 3   Valor Ayer           2902 non-null   float64
+ 4   Variacion %          2902 non-null   float64
+ 5   VariaciÃ³n Absoluta  2902 non-null   float64
+ 6   Variacion 12 meses   2902 non-null   float64
+ 7   VariaciÃ³n Anual     2902 non-null   float64
+dtypes: float64(6), int64(1), object(1)
+memory usage: 204.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notamos que la base de datos está indexada por el número de fila, por lo que podemos indexar el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en la fecha sin perder información, como se muestra a continuación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfTES</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dfTES</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span><span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="n">dfTES</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2010-01-01&#39;, &#39;2010-01-02&#39;, &#39;2010-01-03&#39;, &#39;2010-01-04&#39;,
+               &#39;2010-01-05&#39;, &#39;2010-01-06&#39;, &#39;2010-01-07&#39;, &#39;2010-01-08&#39;,
+               &#39;2010-01-09&#39;, &#39;2010-01-10&#39;,
+               ...
+               &#39;2019-12-16&#39;, &#39;2019-12-17&#39;, &#39;2019-12-18&#39;, &#39;2019-12-19&#39;,
+               &#39;2019-12-20&#39;, &#39;2019-12-23&#39;, &#39;2019-12-24&#39;, &#39;2019-12-26&#39;,
+               &#39;2019-12-27&#39;, &#39;2019-12-30&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;Fecha&#39;, length=2902, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como el índice es de tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, podemos utilizar los métodos de este módulo. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">weekday</span></code> para el día de la semana.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfTES</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([4, 5, 6, 0, 1, 2, 3, 4, 5, 6,
+            ...
+            0, 1, 2, 3, 4, 0, 1, 3, 4, 0],
+           dtype=&#39;int64&#39;, name=&#39;Fecha&#39;, length=2902)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imputar-datos-faltantes-en-un-dataframe-utilizando-la-libreria-pandas">
+<h2>3. Imputar datos faltantes en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.<a class="headerlink" href="#imputar-datos-faltantes-en-un-dataframe-utilizando-la-libreria-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="representacion-de-datos-faltantes-dentro-de-python">
+<h3>3.1. Representación de datos faltantes dentro de Python<a class="headerlink" href="#representacion-de-datos-faltantes-dentro-de-python" title="Permalink to this headline">¶</a></h3>
+<p>Python cuenta con dos alternativas para representar datos faltantes: el objeto <code class="docutils literal notranslate"><span class="pre">None</span></code> y el valor <code class="docutils literal notranslate"><span class="pre">nan</span></code> (<em>Not a Number</em>) del paquete <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. El valor <code class="docutils literal notranslate"><span class="pre">nan</span></code> es almacenado como un objeto de tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>. Así, podemos aplicar métodos de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> sobre arreglos numéricos, incluso si contienen valores <code class="docutils literal notranslate"><span class="pre">nan</span></code>. Dado que <code class="docutils literal notranslate"><span class="pre">nan</span></code> es un elemento del paquete, podemos asignarlo a variables o invocarlo de la misma manera que cualquier método o constante.</p>
+<p>Importemos el paquete <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al aplicar métodos de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> sobre arreglos que contienen valores <code class="docutils literal notranslate"><span class="pre">nan</span></code>, el resultado suele ser <code class="docutils literal notranslate"><span class="pre">nan</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span> 
+<span class="n">promedio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
+<span class="n">promedio</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nan
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pese a no ser un número, <code class="docutils literal notranslate"><span class="pre">nan</span></code> es de tipo numérico (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, para poder calcular el promedio utilizamos el método <code class="docutils literal notranslate"><span class="pre">nanmean</span></code>, el cual omite los valores <code class="docutils literal notranslate"><span class="pre">nan</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span> 
+<span class="n">promedio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
+<span class="n">promedio</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ninguno de estos métodos sirve para un objeto <code class="docutils literal notranslate"><span class="pre">None</span></code>, ya que <code class="docutils literal notranslate"><span class="pre">numpy</span></code> no lo tiene definido como de tipo numérico. Veamos un ejemplo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span> 
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El arreglo tiene valores faltantes.&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El arreglo contiene valores no numéricos.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El arreglo tiene valores faltantes.
+El arreglo contiene valores no numéricos.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imputar-datos-faltantes-utilizando-la-libreria-pandas">
+<h3>3.2. Imputar datos faltantes utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span> </code><a class="headerlink" href="#imputar-datos-faltantes-utilizando-la-libreria-pandas" title="Permalink to this headline">¶</a></h3>
+<p>Debido a que <code class="docutils literal notranslate"><span class="pre">numpy</span></code> puede operar sobre los objetos <code class="docutils literal notranslate"><span class="pre">nan</span></code> y no sobre los <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> representa los datos faltantes en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el valor <code class="docutils literal notranslate"><span class="pre">nan</span></code>. Al introducir valores faltantes dentro de un <code class="docutils literal notranslate"><span class="pre">Series</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> transforma el tipo de dato para que sea compatible con el de los valores <code class="docutils literal notranslate"><span class="pre">nan</span></code>.</p>
+<p>Al introducir un valor <code class="docutils literal notranslate"><span class="pre">nan</span></code> a un <code class="docutils literal notranslate"><span class="pre">Series</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
+<ul class="simple">
+<li><p>convierte el <code class="docutils literal notranslate"><span class="pre">Series</span></code> en tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>, si este es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> de enteros.<br><br></p></li>
+<li><p>convierte el <code class="docutils literal notranslate"><span class="pre">Series</span></code> en tipo <code class="docutils literal notranslate"><span class="pre">object</span></code>, si este es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> de valores lógicos.<br><br></p></li>
+<li><p>conserva el tipo del <code class="docutils literal notranslate"><span class="pre">Series</span></code>, si este es de tipo <code class="docutils literal notranslate"><span class="pre">float</span></code> u <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
+</ul>
+<p><strong>Nota:</strong> recuerda que toda la información aplicable a un <code class="docutils literal notranslate"><span class="pre">Series</span></code> es igualmente aplicable a una columna de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="section" id="ejemplo-4">
+<h4>Ejemplo 4<a class="headerlink" href="#ejemplo-4" title="Permalink to this headline">¶</a></h4>
+<p>Para ilustrar el cambio de tipo de dato, creamos un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con los enteros del 1 al 10. Ya creado, reemplazamos el primer elemento por un <code class="docutils literal notranslate"><span class="pre">nan</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">numeros</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">numeros</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      NaN
+1      1.0
+2      2.0
+3      3.0
+4      4.0
+5      5.0
+6      6.0
+7      7.0
+8      8.0
+9      9.0
+10    10.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Confirmamos que el <code class="docutils literal notranslate"><span class="pre">Series</span></code> en la variable <code class="docutils literal notranslate"><span class="pre">numeros</span></code> pasó de ser de tipo entero a ser de tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>. Ahora bien, ¿cómo haríamos para detectar los faltantes y después eliminarlos o reemplazarlos?. Hay varias maneras, una de ellas es usar los métodos <code class="docutils literal notranslate"><span class="pre">notnull</span></code> e <code class="docutils literal notranslate"><span class="pre">isnull</span></code>. Estos métodos generan un <code class="docutils literal notranslate"><span class="pre">Series</span></code> de booleanos que identifican los datos faltantes con el valor de <code class="docutils literal notranslate"><span class="pre">True</span></code> para el método <code class="docutils literal notranslate"><span class="pre">isnull</span></code> y <code class="docutils literal notranslate"><span class="pre">False</span></code> para el método <code class="docutils literal notranslate"><span class="pre">notnull</span></code>. El siguiente ejemplo ilustra el uso del método <code class="docutils literal notranslate"><span class="pre">notnull</span></code>.</p>
+</div>
+<div class="section" id="ejemplo-5">
+<h4>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">¶</a></h4>
+<p>Vamos a usar el método <code class="docutils literal notranslate"><span class="pre">notnull</span></code> para eliminar los datos faltantes del <code class="docutils literal notranslate"><span class="pre">Series</span></code> en la celda de código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="n">numeros</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     0.0
+1     1.0
+2     2.0
+3     3.0
+4     4.0
+5     NaN
+6     6.0
+7     7.0
+8     8.0
+9     9.0
+10    NaN
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="n">numeros</span><span class="p">[</span><span class="n">numeros</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+<span class="n">numeros</span> <span class="c1"># Se quitaron las filas con índices 5 y 10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.0
+1    1.0
+2    2.0
+3    3.0
+4    4.0
+6    6.0
+7    7.0
+8    8.0
+9    9.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metodos-para-imputar-faltantes-utilizando-la-libreria-pandas">
+<h3>3.3. Métodos para imputar faltantes utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#metodos-para-imputar-faltantes-utilizando-la-libreria-pandas" title="Permalink to this headline">¶</a></h3>
+<p>Existen dos métodos en <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para manipular los datos faltantes: <code class="docutils literal notranslate"><span class="pre">dropna</span></code> y <code class="docutils literal notranslate"><span class="pre">fillna</span></code>.</p>
+<div class="section" id="metodo-dropna">
+<h4>Método <code class="docutils literal notranslate"><span class="pre">dropna</span></code><a class="headerlink" href="#metodo-dropna" title="Permalink to this headline">¶</a></h4>
+<p>Este método elimina aquellas columnas o filas que contengan entradas <code class="docutils literal notranslate"><span class="pre">nan</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DataFrame.dropna(axis = 0, how = &#39;any&#39;, thresh = 0, subset = DataFrame.columns)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">axis</span></code>: indica si aplicar el método sobre sobre las filas (<code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">0</span></code>) o sobre las columnas (<code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">1</span></code>). Por defecto es sobre las filas.<br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">how</span></code>: <br><br></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">how</span> <span class="pre">=</span> <span class="pre">'any'</span></code>: elimina la fila o la columna si contiene al menos un faltante.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">how</span> <span class="pre">=</span> <span class="pre">'all'</span></code>: elimina la fila o la columna si solo contiene faltantes.<br><br></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thresh</span></code>: elimina todas las filas o columnas con más datos faltantes que el umbral (de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>) especificado. <br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subset</span></code>: permite seleccionar un subconjunto de columnas o de filas sobre el cual aplicar el método.</p></li>
+</ul>
+<div class="section" id="ejemplo-6">
+<h5>Ejemplo 6<a class="headerlink" href="#ejemplo-6" title="Permalink to this headline">¶</a></h5>
+<p>A continuación, declaramos un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> para ejemplificar el uso del método <code class="docutils literal notranslate"><span class="pre">dropna</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla_numeros</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span>     <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span>     <span class="p">],</span>
+                              <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span>     <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+                              <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span>     <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span>     <span class="p">]],</span>
+                             <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">])</span>
+<span class="n">tabla_numeros</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Utilizamos el método <code class="docutils literal notranslate"><span class="pre">dropna</span></code> para eliminar aquellas filas que solo contienen datos faltantes en el subconjunto de columnas <code class="docutils literal notranslate"><span class="pre">A</span></code> y <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla_numeros</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="metodo-fillna">
+<h4>Método <code class="docutils literal notranslate"><span class="pre">fillna</span></code><a class="headerlink" href="#metodo-fillna" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DataFrame.fillna(value = None, method = None, axis = None, inplace = False, limit = 0)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: indica el valor o diccionario de valores para imputar en las entradas <code class="docutils literal notranslate"><span class="pre">nan</span></code>.<br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>:<br><br></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">'ffil'</span></code>: (<em>forward fill</em>) rellena cada dato faltante con el dato no faltante anterior.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">'bfill'</span></code>: (<em>backward fill</em>) rellena cada dato faltante con el dato no faltante siguiente.<br><br></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis</span></code>: <br><br></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: aplica el método sobre las filas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: aplica el método sobre las columnas.<br><br></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inplace</span></code>:<br><br></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">inplace</span> <span class="pre">=</span> <span class="pre">True</span></code>: aplica los cambios sobre la variable que invoca el método.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inplace</span> <span class="pre">=</span> <span class="pre">False</span></code>: aplica los cambios sobre una copia de la variable que invoca el método.<br><br></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code>: limita el número máximo de datos a imputar hacia adelante (o hacia atrás), según lo especificado en el parámetro <code class="docutils literal notranslate"><span class="pre">method</span></code>.</p></li>
+</ul>
+<div class="section" id="ejemplo-7">
+<h5>Ejemplo 7<a class="headerlink" href="#ejemplo-7" title="Permalink to this headline">¶</a></h5>
+<p>Vamos a completar los datos del siguiente <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> reemplazando los valores faltantes por su anterior no faltante en la misma fila.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla_numeros</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span>     <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span>     <span class="p">],</span>
+                              <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span>     <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+                              <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span>     <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span>     <span class="p">]],</span>
+                             <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">])</span>
+<span class="n">tabla_numeros</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Para esto, debemos especificar <code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">1</span></code>. Además, como utilizaremos los valores precedentes, especificamos <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">ffill</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla_numeros</span> <span class="o">=</span> <span class="n">tabla_numeros</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;ffill&quot;</span><span class="p">)</span>
+<span class="n">tabla_numeros</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="ejemplo-8">
+<h5>Ejemplo 8<a class="headerlink" href="#ejemplo-8" title="Permalink to this headline">¶</a></h5>
+<p>Imputamos cada una de las entradas faltantes (columna <code class="docutils literal notranslate"><span class="pre">A</span></code>, fila <code class="docutils literal notranslate"><span class="pre">1</span></code>; columna <code class="docutils literal notranslate"><span class="pre">A</span></code>, fila <code class="docutils literal notranslate"><span class="pre">2</span></code>; columna <code class="docutils literal notranslate"><span class="pre">B</span></code> , fila <code class="docutils literal notranslate"><span class="pre">1</span></code>) del objeto <code class="docutils literal notranslate"><span class="pre">tabla_numeros</span></code> con el valor del promedio de la columna a la que pertenece.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla_numeros</span> <span class="o">=</span> <span class="n">tabla_numeros</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">tabla_numeros</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">tabla_numeros</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p>Bolsa de Valores de Colombia (2020). Índices de TES de Corto Plazo [Base deDatos]. Recuperado el 14 de diciembre de 2020 de :
+<a class="reference external" href="https://www.bvc.com.co/pps/tibco/portalbvc">https://www.bvc.com.co/pps/tibco/portalbvc</a></p>
+<p>J. VanderPlas (2016) Python Data Science Handbook: Essential Tools for Working with Data O’Reilly Media, Inc.</p>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Jorge Esteban Camargo Forero, Alejandro Mantilla Redondo, Diego Alejandro Cely Gomez</p>
+<p><strong>Fecha última actualización:</strong> 06/08/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S5 - Limpiar y unir bases de datos/S5.TU1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

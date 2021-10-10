@@ -1,0 +1,1158 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modificar, limpiar y unir datos utilizando pandas &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S5 - Limpiar y unir bases de datos/S5.TA1/TALLER - Limpiar y unir bases de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S5 - Limpiar y unir bases de datos/S5.TA1/TALLER - Limpiar y unir bases de datos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S5 - Limpiar y unir bases de datos/S5.TA1/TALLER - Limpiar y unir bases de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#habilidades-en-practica">
+   Habilidades en práctica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrucciones">
+   Instrucciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicios">
+   Ejercicios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1">
+     Ejercicio 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2">
+     Ejercicio 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-3">
+     Ejercicio 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-4">
+     Ejercicio 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-5">
+     Ejercicio 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-6">
+     Ejercicio 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-7">
+     Ejercicio 7
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-8">
+     Ejercicio 8
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="modificar-limpiar-y-unir-datos-utilizando-pandas">
+<h1>Modificar, limpiar y unir datos utilizando <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#modificar-limpiar-y-unir-datos-utilizando-pandas" title="Permalink to this headline">¶</a></h1>
+<p>En este taller modificarás, limpiarás y unirás bases de datos al resolver diversos ejercicios.</p>
+<div class="section" id="habilidades-en-practica">
+<h2>Habilidades en práctica<a class="headerlink" href="#habilidades-en-practica" title="Permalink to this headline">¶</a></h2>
+<p>Al realizar este taller podrás revisar tu progreso para:</p>
+<p><strong>1.</strong> Modificar cadenas de texto contenidas en un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.<br>
+<strong>2.</strong> Representar fechas utilizando el paquete <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.<br>
+<strong>3.</strong> Imputar datos faltantes en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br>
+<strong>4.</strong> Unir dos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> por coincidencia de filas o columnas.</p>
+</div>
+<div class="section" id="instrucciones">
+<h2>Instrucciones<a class="headerlink" href="#instrucciones" title="Permalink to this headline">¶</a></h2>
+<p>En cada uno de los siguientes ejercicios deberás escribir el código solicitado estrictamente en las celdas indicadas para ello, teniendo en cuenta las siguientes recomendaciones:</p>
+<ul class="simple">
+<li><p>No crear, eliminar o modificar celdas de este Notebook (salvo lo que se te indique), pues puede verse afectado el proceso de calificación automática.</p></li>
+<li><p>La calificación se realiza de manera automática con datos diferentes a los proporcionados en este taller. Por consiguiente, tu código debe funcionar para diferentes instancias de cada uno de los ejercicios; una instancia hace referencia a los posibles valores de los parámetros.</p></li>
+<li><p>La calificación de cada ejercicio depende del valor que retorne la función especificada en su enunciado. Por lo tanto, aunque implementes funciones adicionales, es escencial que utilices los nombres propuestos en los enunciados de los ejercicios para implementar la función definitiva.</p></li>
+</ul>
+</div>
+<div class="section" id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">¶</a></h2>
+<p>En la siguente celda encuentras declarados los paquetes necesarios para el desarollo de este taller.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1">
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarados dos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que almacenan los datos de los clientes de un negocio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orden_cliente</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">70001</span><span class="p">,</span> <span class="mi">3002</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">70002</span><span class="p">,</span> <span class="mi">3001</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">70003</span><span class="p">,</span> <span class="mi">3001</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">70004</span><span class="p">,</span> <span class="mi">3003</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">70005</span><span class="p">,</span> <span class="mi">3003</span><span class="p">]],</span>
+                              <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no_orden&#39;</span><span class="p">,</span> <span class="s1">&#39;id_cliente&#39;</span><span class="p">])</span>
+
+<span class="n">cliente_categoria</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3003</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3004</span><span class="p">,</span> <span class="s2">&quot;Bronce&quot;</span> <span class="p">]],</span>
+                                  <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;Categoría Cliente&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">union_derecha</span></code> que reciba por parámetro dos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> como los declarados en la celda anterior y que retorne un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultado de la unión, donde se preserven todas las filas del segundo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y solo las que coincidan del primer <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. La coincidencia debe hacerse evaluando la columna “id_cliente”.</p>
+<p>La función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">union_derecha</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">):</span>    
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="c1">#, left_on = &quot;id_cliente&quot;, right_on = &quot;id_cliente&quot;)    </span>
+    <span class="k">return</span> <span class="n">resultado</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">orden_cliente</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">70001</span><span class="p">,</span> <span class="mi">3002</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">70002</span><span class="p">,</span> <span class="mi">3001</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">70003</span><span class="p">,</span> <span class="mi">3001</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">70004</span><span class="p">,</span> <span class="mi">3003</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">70005</span><span class="p">,</span> <span class="mi">3003</span><span class="p">]],</span>
+                              <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no_orden&#39;</span><span class="p">,</span> <span class="s1">&#39;id_cliente&#39;</span><span class="p">])</span>
+
+<span class="n">cliente_categoria</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3003</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3004</span><span class="p">,</span> <span class="s2">&quot;Bronce&quot;</span> <span class="p">]],</span>
+                                  <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;Categoría Cliente&#39;</span><span class="p">])</span>
+
+<span class="n">orden_cliente_prueba</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">70001</span><span class="p">,</span> <span class="mi">3002</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="mi">70002</span><span class="p">,</span> <span class="mi">3002</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="mi">70003</span><span class="p">,</span> <span class="mi">3001</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="mi">70004</span><span class="p">,</span> <span class="mi">3000</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="mi">70006</span><span class="p">,</span> <span class="mi">3004</span><span class="p">]],</span>
+                                   <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no_orden&#39;</span><span class="p">,</span> <span class="s1">&#39;id_cliente&#39;</span><span class="p">])</span>
+
+<span class="n">cliente_categoria_prueba</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">],</span>
+                                         <span class="p">[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                         <span class="p">[</span><span class="mi">3000</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                         <span class="p">[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Bronce&quot;</span> <span class="p">]],</span>
+                                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;Categoría Cliente&#39;</span><span class="p">])</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">union_derecha</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">union_derecha</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada union_derecha.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">union_derecha</span><span class="p">(</span><span class="n">orden_cliente</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">union_derecha</span><span class="p">(</span><span class="n">orden_cliente</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">orden_cliente</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">orden_cliente</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">union_derecha</span><span class="p">(</span><span class="n">orden_cliente</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+<span class="k">assert</span> <span class="n">union_derecha</span><span class="p">(</span><span class="n">orden_cliente_prueba</span><span class="p">,</span> <span class="n">cliente_categoria_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 5: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">union_derecha</span><span class="p">(</span><span class="n">orden_cliente</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+<span class="k">assert</span> <span class="n">union_derecha</span><span class="p">(</span><span class="n">orden_cliente_prueba</span><span class="p">,</span> <span class="n">cliente_categoria_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 6: retorna los valores que son (dfs prueba)</span>
+<span class="k">assert</span> <span class="n">union_derecha</span><span class="p">(</span><span class="n">orden_cliente_prueba</span><span class="p">,</span> <span class="n">cliente_categoria_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Bronce&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con valores distintos a los esperados.&quot;</span>
+<span class="k">assert</span> <span class="n">union_derecha</span><span class="p">(</span><span class="n">orden_cliente_prueba</span><span class="p">,</span> <span class="n">cliente_categoria_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con valores distintos a los esperados.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">from pandas.testing import assert_frame_equal</span>
+
+<span class="sd">def union_derecha_sol(df1, df2):</span>
+<span class="sd">    resultado = df1.merge(df2, how = &#39;right&#39;, left_on = &quot;id_cliente&quot;, right_on = &quot;id_cliente&quot;)        </span>
+<span class="sd">    return resultado</span>
+
+<span class="sd">students = union_derecha(orden_cliente, cliente_categoria)</span>
+<span class="sd">ours = union_derecha_sol(orden_cliente, cliente_categoria)</span>
+
+<span class="sd">try:</span>
+<span class="sd">    assert_frame_equal(students, ours)</span>
+<span class="sd">except AssertionError as e:</span>
+<span class="sd">    e.args += (&quot;Tu respuesta es incorrecta.&quot;,)</span>
+<span class="sd">    raise</span>
+<span class="sd">&#39;&#39;&#39;</span> 
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarados dos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que almacenan los datos de los clientes de un negocio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cliente_categoria_orden</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">,</span> <span class="mi">70001</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="mi">3004</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span><span class="p">,</span>     <span class="mi">70002</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="mi">3003</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span><span class="p">,</span>     <span class="mi">70003</span><span class="p">]],</span>
+                                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;Categoría Cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;no_orden&#39;</span><span class="p">])</span>
+    
+<span class="n">cliente_categoria</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3006</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3005</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3007</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">]],</span>
+                                  <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;Categoría Cliente&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">concatenar_interno</span></code> que reciba por parámetro dos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> como los declarados en la celda anterior y que retorne un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultado de la unión, donde se preserven las filas de ambos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p>La función deber retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con las <strong>columnas</strong> que existan en ambos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y todas las filas de ambos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### BEGIN SOLUTION</span>
+<span class="k">def</span> <span class="nf">concatenar_interno</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df2</span><span class="p">):</span>
+    
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span><span class="n">df2</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">join</span> <span class="o">=</span> <span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">resultado</span>
+
+<span class="n">concatenar_interno</span><span class="p">(</span><span class="n">cliente_categoria_orden</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">cliente_categoria_orden</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">,</span> <span class="mi">70001</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="mi">3004</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span><span class="p">,</span>     <span class="mi">70002</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="mi">3003</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span><span class="p">,</span>     <span class="mi">70003</span><span class="p">]],</span>
+                                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;Categoría Cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;no_orden&#39;</span><span class="p">])</span>
+    
+<span class="n">cliente_categoria</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3006</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span>    <span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3005</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">]],</span>
+                                  <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;Categoría Cliente&#39;</span><span class="p">])</span>
+
+<span class="n">cliente_categoria_orden_prueba</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Platino&quot;</span><span class="p">,</span> <span class="mi">70001</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="mi">3004</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span><span class="p">,</span>     <span class="mi">70002</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="mi">3003</span><span class="p">,</span> <span class="s2">&quot;Oro&quot;</span><span class="p">,</span>     <span class="mi">70003</span><span class="p">]],</span>
+                                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;Categoría Cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;no_orden&#39;</span><span class="p">])</span>
+    
+<span class="n">cliente_categoria_prueba</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3006</span><span class="p">,</span> <span class="mi">70006</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3001</span><span class="p">,</span> <span class="mi">70007</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">3009</span><span class="p">,</span> <span class="mi">70008</span><span class="p">]],</span>
+                                  <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span> <span class="s1">&#39;no_orden&#39;</span><span class="p">])</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">concatenar_interno</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">concatenar_interno</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada union_interna.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">concatenar_interno</span><span class="p">(</span><span class="n">cliente_categoria_orden</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">concatenar_interno</span><span class="p">(</span><span class="n">cliente_categoria_orden</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">cliente_categoria</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">orden_cliente</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">concatenar_interno</span><span class="p">(</span><span class="n">cliente_categoria_orden</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 5: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">concatenar_interno</span><span class="p">(</span><span class="n">cliente_categoria_orden</span><span class="p">,</span> <span class="n">cliente_categoria</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 7: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado (dfs prueba)</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">concatenar_interno</span><span class="p">(</span><span class="n">cliente_categoria_orden_prueba</span><span class="p">,</span> <span class="n">cliente_categoria_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;id_cliente&#39;</span><span class="p">,</span><span class="s1">&#39;no_orden&#39;</span><span class="p">],</span> <span class="s2">&quot;Tu función retorna un DataFrame con las columnas incorrectas.&quot;</span>
+
+
+<span class="c1">#Caso 8: retorna un dataframe con los valores correctos (dfs prueba)</span>
+<span class="k">assert</span> <span class="n">concatenar_interno</span><span class="p">(</span><span class="n">cliente_categoria_orden_prueba</span><span class="p">,</span> <span class="n">cliente_categoria_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">70002</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con los valores incorrectos.&quot;</span>
+<span class="k">assert</span> <span class="n">concatenar_interno</span><span class="p">(</span><span class="n">cliente_categoria_orden_prueba</span><span class="p">,</span> <span class="n">cliente_categoria_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3009</span><span class="p">,</span><span class="s2">&quot;Tu función retorna un DataFrame con los valores incorrectos.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def concatenar_interno_sol(df, df2):</span>
+<span class="sd">    </span>
+<span class="sd">    resultado = pd.concat([df,df2], axis = 0, join = &quot;inner&quot;)</span>
+<span class="sd">    </span>
+<span class="sd">    return resultado</span>
+
+<span class="sd">students = concatenar_interno(cliente_categoria_orden, cliente_categoria)</span>
+<span class="sd">ours = concatenar_interno_sol(cliente_categoria_orden, cliente_categoria)</span>
+<span class="sd">try:</span>
+<span class="sd">    assert_frame_equal(students, ours)</span>
+<span class="sd">except AssertionError as e:</span>
+<span class="sd">    e.args += (&#39;Tu respuesta es incorrecta&#39;,)</span>
+<span class="sd">    raise</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-3">
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarado un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que almacenan en las filas las ventas diarias de los tres principales productos de un negocio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ventas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">2600.0</span><span class="p">,</span>  <span class="mf">12200.0</span><span class="p">,</span> <span class="mf">6000.0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">11200.0</span><span class="p">,</span> <span class="mf">9000.0</span><span class="p">,</span>  <span class="mf">600.0</span> <span class="p">],</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="mf">8000.0</span><span class="p">,</span>  <span class="mf">3000.0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">4000.0</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="mf">10000.0</span><span class="p">,</span> <span class="mf">2000.0</span><span class="p">]],</span>
+                      <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Producto 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Producto 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Producto 3&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">mediana_faltantes</span></code> que reciba por parámetro un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> como el declarado en la celda anterior, complete los datos faltantes del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con la mediana de su columna respectiva y lo retorne.</p>
+<p>La función deber retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> sin datos faltantes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### BEGIN SOLUTION</span>
+<span class="k">def</span> <span class="nf">mediana_faltantes</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+    
+    <span class="k">return</span> <span class="n">resultado</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">ventas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">2600.0</span><span class="p">,</span>  <span class="mf">12200.0</span><span class="p">,</span> <span class="mf">6000.0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">11200.0</span><span class="p">,</span> <span class="mf">9000.0</span><span class="p">,</span>  <span class="mf">600.0</span> <span class="p">],</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="mf">8000.0</span><span class="p">,</span>  <span class="mf">3000.0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">4000.0</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="mf">10000.0</span><span class="p">,</span> <span class="mf">2000.0</span><span class="p">]],</span>
+                      <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Producto 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Producto 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Producto 3&quot;</span><span class="p">])</span>
+
+<span class="n">ventas_prueba</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">2600.0</span><span class="p">,</span>  <span class="mf">12200.0</span><span class="p">,</span> <span class="mf">6000.0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">11200.0</span><span class="p">,</span> <span class="mf">9000.0</span><span class="p">,</span>  <span class="mf">6000.0</span> <span class="p">],</span>
+                       <span class="p">[</span><span class="mf">3000.0</span><span class="p">,</span>  <span class="mf">8000.0</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="mf">6500.0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="mf">12000.0</span><span class="p">,</span> <span class="mf">2000.0</span><span class="p">]],</span>
+                      <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Producto 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Producto 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Producto 3&quot;</span><span class="p">])</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mediana_faltantes</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mediana_faltantes</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada mediana_faltantes.&quot;</span><span class="p">,)</span>
+
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">ventas</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">ventas</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 5: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 5: no hay valores na</span>
+<span class="k">assert</span> <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas</span><span class="p">)</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con valores faltantes.&quot;</span>
+<span class="k">assert</span> <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con valores faltantes.&quot;</span>
+<span class="c1"># Caso 6: Los espacios vacios se llenan con la mediana</span>
+<span class="k">assert</span> <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">3000.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que no llena los valores faltantes con la mediana.&quot;</span>
+<span class="k">assert</span> <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mf">6000.0</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame que no llena los valores faltantes con la mediana.&quot;</span>
+<span class="c1">#respuestas </span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4000</span>
+    <span class="k">assert</span> <span class="n">mediana_faltantes</span><span class="p">(</span><span class="n">ventas</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9500</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu función retorna un DataFrame que no llena los valores faltantes con la mediana.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+    
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def mediana_faltantes_sol(df):</span>
+<span class="sd">    resultado = df.fillna(df.median())</span>
+<span class="sd">    return resultado</span>
+
+<span class="sd">students = mediana_faltantes(ventas)</span>
+<span class="sd">ours = mediana_faltantes_sol(ventas)</span>
+
+<span class="sd">try:</span>
+<span class="sd">    assert_frame_equal(students, ours)</span>
+<span class="sd">except AssertionError as e:</span>
+<span class="sd">    e.args += (&#39;Tu respuesta es incorrecta&#39;,)</span>
+<span class="sd">    raise</span>
+<span class="sd">&#39;&#39;&#39;</span>  
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-4">
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarados dos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que almacenan los datos de los clientes de un negocio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Masculino&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Femenino&quot;</span><span class="p">,</span>  <span class="s2">&quot;No&quot;</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">3003</span><span class="p">,</span> <span class="s2">&quot;Femenino&quot;</span><span class="p">,</span>  <span class="s2">&quot;Sí&quot;</span><span class="p">]],</span>
+                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id_cliente&quot;</span><span class="p">,</span> <span class="s2">&quot;Sexo&quot;</span><span class="p">,</span> <span class="s2">&quot;Cliente Premium&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implemente una función llamada <code class="docutils literal notranslate"><span class="pre">cliente_dummies</span></code> que reciba por parámetro un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> como el declarado en la celda anterior, y retorne un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con la representación en variables <em>dummy</em> de las columnas <code class="docutils literal notranslate"><span class="pre">&quot;Sexo&quot;</span></code> y <code class="docutils literal notranslate"><span class="pre">&quot;Cliente</span> <span class="pre">Premium&quot;</span></code>.</p>
+<ul class="simple">
+<li><p>La varable <code class="docutils literal notranslate"><span class="pre">&quot;Sexo&quot;</span></code> debe ser representada por un 1 si su valor es <code class="docutils literal notranslate"><span class="pre">&quot;Femenino&quot;</span></code> y cero de lo contrario.</p></li>
+<li><p>La varable <code class="docutils literal notranslate"><span class="pre">&quot;Cliente</span> <span class="pre">Premium&quot;</span></code> debe ser representada por un 1 si su valor es <code class="docutils literal notranslate"><span class="pre">&quot;No&quot;</span></code> y cero de lo contrario.</p></li>
+</ul>
+<p>La función deber retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con la misma cantidad de filas y columnas, pero números binarios en lugar de los registros de sexo y si es cliente premium.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cliente_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">resultado</span><span class="p">[</span><span class="s1">&#39;Sexo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resultado</span><span class="p">[</span><span class="s1">&#39;Sexo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">()</span>
+    <span class="n">resultado</span><span class="p">[</span><span class="s1">&#39;Cliente Premium&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resultado</span><span class="p">[</span><span class="s1">&#39;Cliente Premium&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">resultado</span>
+
+<span class="n">cliente_dummies</span><span class="p">(</span><span class="n">clientes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">clientes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Masculino&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Femenino&quot;</span><span class="p">,</span>  <span class="s2">&quot;No&quot;</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">3003</span><span class="p">,</span> <span class="s2">&quot;Femenino&quot;</span><span class="p">,</span>  <span class="s2">&quot;Sí&quot;</span><span class="p">]],</span>
+                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id_cliente&quot;</span><span class="p">,</span> <span class="s2">&quot;Sexo&quot;</span><span class="p">,</span> <span class="s2">&quot;Cliente Premium&quot;</span><span class="p">])</span>
+
+<span class="n">clientes_prueba</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3002</span><span class="p">,</span> <span class="s2">&quot;Masculino&quot;</span><span class="p">,</span> <span class="s2">&quot;Sí&quot;</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">3001</span><span class="p">,</span> <span class="s2">&quot;Masculino&quot;</span><span class="p">,</span>  <span class="s2">&quot;No&quot;</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">3003</span><span class="p">,</span> <span class="s2">&quot;Femenino&quot;</span><span class="p">,</span>  <span class="s2">&quot;Sí&quot;</span><span class="p">]],</span>
+                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id_cliente&quot;</span><span class="p">,</span> <span class="s2">&quot;Sexo&quot;</span><span class="p">,</span> <span class="s2">&quot;Cliente Premium&quot;</span><span class="p">])</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cliente_dummies</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">cliente_dummies</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada cliente_dummies.&quot;</span><span class="p">,)</span>
+
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cliente_dummies</span><span class="p">(</span><span class="n">clientes</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">cliente_dummies</span><span class="p">(</span><span class="n">clientes</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">clientes</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">clientes</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="n">cliente_dummies</span><span class="p">(</span><span class="n">clientes</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de columnas errada.&quot;</span>
+
+<span class="c1"># Caso 5: devuelve un dataframe con cantidad de filas errada</span>
+<span class="k">assert</span> <span class="n">cliente_dummies</span><span class="p">(</span><span class="n">clientes</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1">#Caso 6: Tu funcion no retorna los dummies que son (prueba)</span>
+<span class="k">assert</span> <span class="n">cliente_dummies</span><span class="p">(</span><span class="n">clientes_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Tu función retorna un DataFrame con los valores incorrectos.&quot;</span>
+<span class="k">assert</span> <span class="n">cliente_dummies</span><span class="p">(</span><span class="n">clientes_prueba</span><span class="p">)</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Tu función retorna un DataFrame con los valores incorrectos.&quot;</span>
+
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def cliente_dummies_sol(df):</span>
+<span class="sd">    </span>
+<span class="sd">    resultado = df.copy()</span>
+<span class="sd">    resultado[&#39;Sexo&#39;] = resultado[&#39;Sexo&#39;].str.get_dummies()</span>
+<span class="sd">    resultado[&#39;Cliente Premium&#39;] = resultado[&#39;Cliente Premium&#39;].str.get_dummies()</span>
+<span class="sd">    </span>
+<span class="sd">    return resultado</span>
+
+<span class="sd">students = cliente_dummies(clientes)</span>
+<span class="sd">ours = cliente_dummies_sol(clientes)</span>
+<span class="sd">try:</span>
+<span class="sd">    assert_frame_equal(students, ours)</span>
+<span class="sd">except AssertionError as e:</span>
+<span class="sd">    e.args += (&#39;Tu respuesta es incorrecta&#39;,)</span>
+<span class="sd">    raise</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-5">
+<h3>Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarada una fecha tipo cadena de caracteres.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fecha_string</span> <span class="o">=</span> <span class="s2">&quot;2020-10-December&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implemente una función llamada <code class="docutils literal notranslate"><span class="pre">cadena_a_fecha</span></code> que reciba por parámetro una cadena como la declarada en la celda anterior y retorne un objeto de tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> que represente la misma fecha.</p>
+<p>La función deber retornar un objeto de tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cadena_a_fecha</span><span class="p">(</span><span class="n">cadena</span><span class="p">):</span>
+    
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">cadena</span><span class="p">,</span><span class="s2">&quot;%Y-</span><span class="si">%d</span><span class="s2">-%B&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">resultado</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+
+<span class="n">fecha_string</span> <span class="o">=</span> <span class="s2">&quot;2020-10-December&quot;</span>
+
+<span class="n">fecha_string_prueba</span> <span class="o">=</span> <span class="s2">&quot;2021-20-October&quot;</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cadena_a_fecha</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">cadena_a_fecha</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada cadena_a_fecha.&quot;</span><span class="p">,)</span>
+
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cadena_a_fecha</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un Datetime.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">cadena_a_fecha</span><span class="p">(</span><span class="n">fecha_string</span><span class="p">))</span> <span class="o">==</span> <span class="n">datetime</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1">#Caso 4: retorna la fecha correcta</span>
+<span class="k">assert</span> <span class="n">cadena_a_fecha</span><span class="p">(</span><span class="n">fecha_string_prueba</span><span class="p">)</span> <span class="o">==</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+<span class="k">assert</span> <span class="n">cadena_a_fecha</span><span class="p">(</span><span class="n">fecha_string</span><span class="p">)</span> <span class="o">==</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def cadena_a_fecha_sol(cadena):</span>
+
+<span class="sd">    resultado = datetime.strptime(fecha_string,&quot;%Y-%d-%B&quot;)</span>
+<span class="sd">    </span>
+<span class="sd">    return resultado</span>
+
+<span class="sd">students = cadena_a_fecha(fecha_string)</span>
+<span class="sd">ours = cadena_a_fecha_sol(fecha_string)</span>
+<span class="sd">try:</span>
+<span class="sd">    assert students == ours</span>
+<span class="sd">except AssertionError as e:</span>
+<span class="sd">    e.args += (&#39;Tu respuesta es incorrecta.&#39;,)</span>
+<span class="sd">    raise</span>
+<span class="sd">&#39;&#39;&#39;</span> 
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-6">
+<h3>Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permalink to this headline">¶</a></h3>
+<p>Junto a este Notebook encontrarás dos archivos de Excel. Cada uno de estos archivos contiene una base de datos, ambas provistas por el Banco de la República.</p>
+<p>La primera base de datos (<code class="docutils literal notranslate"><span class="pre">&quot;1.1.TIB_Serie</span> <span class="pre">historica</span> <span class="pre">IQY.xlsx&quot;</span></code>) corresponde a la tasa a la que se puede prestar o pedir prestado entre los bancos.</p>
+<p>La segunda base de datos (<code class="docutils literal notranslate"><span class="pre">&quot;1.2.TIP_Serie</span> <span class="pre">historica</span> <span class="pre">diaria</span> <span class="pre">IQY.xlsx&quot;</span></code>) corresponde a la tasa de interés de referencia fijada por el Banco de la República.</p>
+<p>Implemente una función llamada <code class="docutils literal notranslate"><span class="pre">union_izquierda</span></code> que no reciba parámetros, importe los datos de los archivos de Excel y retorne un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> resultado de la unión, donde se preserven todas las filas de los datos de la Tasa Interbancaria y solo las que coincidan de la Tasa de Intervención Pública. La coincidencia debe hacerse evaluando la columna “Fecha”.</p>
+<p>La función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">union_izquierda</span><span class="p">():</span>
+
+    <span class="n">TIB</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/1.1.TIB_Serie historica IQY.xlsx&quot;</span><span class="p">,</span>
+                        <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">skiprows</span> <span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">skipfooter</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> 
+    <span class="n">TIP</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/1.2.TIP_Serie historica diaria IQY.xlsx&quot;</span><span class="p">,</span>
+                        <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">skiprows</span> <span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">skipfooter</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">TIP</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TIB</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">resultado</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">union_izquierda</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">union_izquierda</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada union_izquierda.&quot;</span><span class="p">,)</span>
+
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">union_izquierda</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un Dataframe.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">union_izquierda</span><span class="p">())</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def union_izquierda_sol():</span>
+
+<span class="sd">    TIB = pd.read_excel(&quot;Archivos/1.1.TIB_Serie historica IQY.xlsx&quot;,</span>
+<span class="sd">                        index_col=0, usecols = [0,1], skiprows =7, skipfooter = 5) </span>
+<span class="sd">    TIP = pd.read_excel(&quot;Archivos/1.2.TIP_Serie historica diaria IQY.xlsx&quot;,</span>
+<span class="sd">                        index_col=0, usecols = [0,1], skiprows =7, skipfooter = 5)</span>
+<span class="sd">    resultado = TIP.join(TIB, how= &quot;left&quot;)</span>
+<span class="sd">    </span>
+<span class="sd">    return resultado</span>
+
+<span class="sd">students = union_izquierda()</span>
+<span class="sd">ours = union_izquierda_sol()</span>
+<span class="sd">try:</span>
+<span class="sd">    assert_frame_equal(students, ours)</span>
+<span class="sd">except AssertionError as e:</span>
+<span class="sd">    e.args += (&#39;Tu respuesta es incorrecta, intentalo de nuevo&#39;,)</span>
+<span class="sd">    raise</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-7">
+<h3>Ejercicio 7<a class="headerlink" href="#ejercicio-7" title="Permalink to this headline">¶</a></h3>
+<p>Crea una función que reciba un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y retorne en una lista el nombre de las columnas que tienen más de 1 dato faltante. Puedes usar el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> de la celda de código para probar que tu función este obteniendo el resultado correctamente. Vale aclarar que se usarán otros <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> para poner a prueba tu función.</p>
+<p>La función, con nombre <code class="docutils literal notranslate"><span class="pre">ejercicio7</span></code>, debe retornar una lista.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;no_orden&#39;</span><span class="p">:</span>    <span class="p">[</span><span class="mi">70001</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70002</span><span class="p">,</span><span class="mi">70004</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70005</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70010</span><span class="p">,</span><span class="mi">70003</span><span class="p">,</span><span class="mi">70012</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70013</span><span class="p">],</span>
+                   <span class="s1">&#39;monto US$&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mf">150.5</span><span class="p">,</span><span class="mf">270.65</span><span class="p">,</span><span class="mf">65.26</span><span class="p">,</span><span class="mf">110.5</span><span class="p">,</span><span class="mf">948.5</span><span class="p">,</span><span class="mf">2400.6</span><span class="p">,</span><span class="mi">5760</span><span class="p">,</span><span class="mf">1983.43</span><span class="p">,</span><span class="mf">2480.4</span><span class="p">,</span><span class="mf">250.45</span><span class="p">,</span> <span class="mf">75.29</span><span class="p">,</span><span class="mf">3045.6</span><span class="p">],</span>
+                   <span class="s1">&#39;Fecha Orden&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2012-10-05&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="s1">&#39;2012-08-17&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-07-27&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-06-27&#39;</span><span class="p">,</span><span class="s1">&#39;2012-08-17&#39;</span><span class="p">,</span><span class="s1">&#39;2012-04-25&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;idCliente&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">3002</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3003</span><span class="p">,</span><span class="mi">3002</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3004</span><span class="p">,</span><span class="mi">3003</span><span class="p">,</span><span class="mi">3002</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3001</span><span class="p">],</span>
+                   <span class="s1">&#39;idVendedor&#39;</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### BEGIN SOLUTION</span>
+<span class="k">def</span> <span class="nf">ejercicio7</span><span class="p">(</span><span class="n">df</span><span class="p">):</span> 
+    <span class="n">cantidad_faltantes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  
+    <span class="k">return</span> <span class="p">[</span><span class="o">*</span><span class="n">cantidad_faltantes</span><span class="p">[</span><span class="n">cantidad_faltantes</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;no_orden&#39;</span><span class="p">:[</span><span class="mi">70001</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70002</span><span class="p">,</span><span class="mi">70004</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70005</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70010</span><span class="p">,</span><span class="mi">70003</span><span class="p">,</span><span class="mi">70012</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70013</span><span class="p">],</span>
+    <span class="s1">&#39;monto US$&#39;</span><span class="p">:[</span><span class="mf">150.5</span><span class="p">,</span><span class="mf">270.65</span><span class="p">,</span><span class="mf">65.26</span><span class="p">,</span><span class="mf">110.5</span><span class="p">,</span><span class="mf">948.5</span><span class="p">,</span><span class="mf">2400.6</span><span class="p">,</span><span class="mi">5760</span><span class="p">,</span><span class="mf">1983.43</span><span class="p">,</span><span class="mf">2480.4</span><span class="p">,</span><span class="mf">250.45</span><span class="p">,</span> <span class="mf">75.29</span><span class="p">,</span><span class="mf">3045.6</span><span class="p">],</span>
+    <span class="s1">&#39;Fecha Orden&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2012-10-05&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="s1">&#39;2012-08-17&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-07-27&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-06-27&#39;</span><span class="p">,</span><span class="s1">&#39;2012-08-17&#39;</span><span class="p">,</span><span class="s1">&#39;2012-04-25&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;idCliente&#39;</span><span class="p">:[</span><span class="mi">3002</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3003</span><span class="p">,</span><span class="mi">3002</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3004</span><span class="p">,</span><span class="mi">3003</span><span class="p">,</span><span class="mi">3002</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3001</span><span class="p">],</span>
+    <span class="s1">&#39;idVendedor&#39;</span><span class="p">:[</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]})</span>
+
+<span class="n">df_prueba</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;no_orden&#39;</span><span class="p">:[</span><span class="mi">70001</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70002</span><span class="p">,</span><span class="mi">70004</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70005</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70010</span><span class="p">,</span><span class="mi">70003</span><span class="p">,</span><span class="mi">70012</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">70013</span><span class="p">],</span>
+    <span class="s1">&#39;monto US$&#39;</span><span class="p">:[</span><span class="mf">150.5</span><span class="p">,</span><span class="mf">270.65</span><span class="p">,</span><span class="mf">65.26</span><span class="p">,</span><span class="mf">110.5</span><span class="p">,</span><span class="mf">948.5</span><span class="p">,</span><span class="mf">2400.6</span><span class="p">,</span><span class="mi">5760</span><span class="p">,</span><span class="mf">1983.43</span><span class="p">,</span><span class="mf">2480.4</span><span class="p">,</span><span class="mf">250.45</span><span class="p">,</span> <span class="mf">75.29</span><span class="p">,</span><span class="mf">3045.6</span><span class="p">],</span>
+    <span class="s1">&#39;Fecha Orden&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2012-10-05&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="s1">&#39;2012-08-17&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-07-27&#39;</span><span class="p">,</span><span class="s1">&#39;2012-09-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span><span class="s1">&#39;2012-06-27&#39;</span><span class="p">,</span><span class="s1">&#39;2012-08-17&#39;</span><span class="p">,</span><span class="s1">&#39;2012-04-25&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;idCliente&#39;</span><span class="p">:[</span><span class="mi">3002</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3003</span><span class="p">,</span><span class="mi">3002</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">3003</span><span class="p">,</span><span class="mi">3002</span><span class="p">,</span><span class="mi">3001</span><span class="p">,</span><span class="mi">3001</span><span class="p">],</span>
+    <span class="s1">&#39;idVendedor&#39;</span><span class="p">:[</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="mi">5001</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="mi">5002</span><span class="p">,</span><span class="mi">5003</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]})</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">ejercicio7</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">ejercicio7</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada ejercicio7.&quot;</span><span class="p">,)</span>
+
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">ejercicio7</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un Dataframe.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">ejercicio7</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: Probar con otro Dataframe que sean esas dos.</span>
+<span class="k">assert</span> <span class="n">ejercicio7</span><span class="p">(</span><span class="n">df_prueba</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;no_orden&#39;</span><span class="p">,</span> <span class="s1">&#39;idCliente&#39;</span><span class="p">],</span> <span class="sa">f</span><span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">#probar con la otra respuesta? sera buena idea botarles la repsuesta</span>
+
+<span class="sd">def ejercicio7_sol(df): </span>
+<span class="sd">    cantidad_faltantes = df.isnull().sum()  </span>
+<span class="sd">    return [*cantidad_faltantes[cantidad_faltantes &gt; 1].index]</span>
+
+<span class="sd">assert ejercicio7(df) == ejercicio7_sol(df)</span>
+<span class="sd">assert ejercicio7(df_prueba) == ejercicio7_sol(df_prueba)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-8">
+<h3>Ejercicio 8<a class="headerlink" href="#ejercicio-8" title="Permalink to this headline">¶</a></h3>
+<p>Colombia es un país con un gran número de días feriados. En la carpeta de este taller encontrará una base de datos (<code class="docutils literal notranslate"><span class="pre">&quot;Festivos.xlsx&quot;</span></code>) que contiene estas fechas. Esta base de datos organiza en columnas los festivos de cada año, desde el año 2001 hasta el año 2019. Todos los festivos se presentan con el mismo formato:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6 Enero Día de los Reyes Magos
+</pre></div>
+</div>
+<p>Debe crear una función que procese la base de datos de festivos, de manera que retorne un objeto de tipo <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> con todos los festivos que se han presentado en Colombia desde el año 2012 hasta el año 2020.</p>
+<p>Al imprimirse, el objeto tendría el siguientes aspecto:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2001-01-01&#39;, &#39;2001-01-08&#39;, &#39;2001-03-19&#39;, &#39;2001-04-12&#39;,
+               &#39;2001-04-13&#39;, &#39;2001-05-01&#39;, &#39;2001-05-28&#39;, &#39;2001-06-18&#39;,
+               &#39;2001-06-25&#39;, &#39;2001-07-02&#39;,
+               ...
+               &#39;2020-06-29&#39;, &#39;2020-07-20&#39;, &#39;2020-08-07&#39;, &#39;2020-08-17&#39;,
+               &#39;2020-10-12&#39;, &#39;2020-11-02&#39;, &#39;2020-11-16&#39;, &#39;2020-12-08&#39;,
+               &#39;2020-12-25&#39;, &#39;2020-12-31&#39;],
+               dtype = &#39;datetime64[ns]&#39;, name = &#39;Fecha&#39;, length = 380, freq = None)
+</pre></div>
+</div>
+<p>En la caja de código se le incluirá una lista con los meses del año. Esta lista le puede resultar de utilidad para procesar la información del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p>La función, con nombre <code class="docutils literal notranslate"><span class="pre">ejercicio8</span></code>, debe retornar un objeto <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_meses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Enero&quot;</span><span class="p">,</span>      <span class="s2">&quot;Febrero&quot;</span><span class="p">,</span> <span class="s2">&quot;Marzo&quot;</span><span class="p">,</span>     <span class="s2">&quot;Abril&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;Mayo&quot;</span><span class="p">,</span>       <span class="s2">&quot;Junio&quot;</span><span class="p">,</span>   <span class="s2">&quot;Julio&quot;</span><span class="p">,</span>     <span class="s2">&quot;Agosto&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;Septiembre&quot;</span><span class="p">,</span> <span class="s2">&quot;Octubre&quot;</span><span class="p">,</span> <span class="s2">&quot;Noviembre&quot;</span><span class="p">,</span> <span class="s2">&quot;Diciembre&quot;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+<span class="n">lista_meses_ingles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;January&quot;</span><span class="p">,</span>   <span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="s2">&quot;March&quot;</span><span class="p">,</span>    <span class="s2">&quot;April&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;May&quot;</span><span class="p">,</span>       <span class="s2">&quot;June&quot;</span><span class="p">,</span>     <span class="s2">&quot;July&quot;</span><span class="p">,</span>     <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="s2">&quot;October&quot;</span><span class="p">,</span>  <span class="s2">&quot;November&quot;</span><span class="p">,</span> <span class="s2">&quot;December&quot;</span><span class="p">]</span> 
+
+<span class="k">def</span> <span class="nf">ejercicio8</span><span class="p">():</span>    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./Archivos/Festivos.xlsx&#39;</span><span class="p">)</span>
+    <span class="n">anhos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2021</span><span class="p">))</span>
+    <span class="n">df_filtr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">anhos</span><span class="p">]</span>
+    <span class="n">lista_fechas</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">columna</span> <span class="ow">in</span> <span class="n">df_filtr</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>        
+        <span class="k">for</span> <span class="n">indice</span> <span class="ow">in</span> <span class="n">df_filtr</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+
+            <span class="n">cadena</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indice</span><span class="p">,</span> <span class="n">columna</span><span class="p">]</span>
+            <span class="n">cadena</span> <span class="o">=</span> <span class="n">cadena</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="n">dia</span> <span class="o">=</span> <span class="n">cadena</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">mes</span> <span class="o">=</span> <span class="n">lista_meses_ingles</span><span class="p">[</span><span class="n">lista_meses</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cadena</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])]</span>
+            
+            <span class="n">fecha_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">columna</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="n">mes</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dia</span><span class="p">)</span>
+            <span class="n">fecha</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">fecha_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%B-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">lista_fechas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fecha</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">lista_fechas</span><span class="p">)</span>
+    
+<span class="n">ejercicio8</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">lista_meses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Enero&quot;</span><span class="p">,</span> <span class="s2">&quot;Febrero&quot;</span><span class="p">,</span> <span class="s2">&quot;Marzo&quot;</span><span class="p">,</span> <span class="s2">&quot;Abril&quot;</span><span class="p">,</span> <span class="s2">&quot;Mayo&quot;</span><span class="p">,</span> <span class="s2">&quot;Junio&quot;</span><span class="p">,</span> <span class="s2">&quot;Julio&quot;</span><span class="p">,</span> <span class="s2">&quot;Agosto&quot;</span><span class="p">,</span> <span class="s2">&quot;Septiembre&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;Octubre&quot;</span><span class="p">,</span> <span class="s2">&quot;Noviembre&quot;</span><span class="p">,</span> <span class="s2">&quot;Diciembre&quot;</span><span class="p">]</span> 
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">ejercicio8</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">ejercicio8</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada ejercicio8.&quot;</span><span class="p">,)</span>
+
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">ejercicio8</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un Datatimeindex.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">ejercicio8</span><span class="p">())</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">indexes</span><span class="o">.</span><span class="n">datetimes</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">indexes</span><span class="o">.</span><span class="n">datetimes</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: retorna un dataframe con cantidad de columnas errada</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">ejercicio8</span><span class="p">())</span> <span class="o">==</span> <span class="mi">171</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un objeto DatetimeIndex con una longitud incorrecta.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">lista_meses_ingles_sol</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;January&quot;</span><span class="p">,</span>   <span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="s2">&quot;March&quot;</span><span class="p">,</span>    <span class="s2">&quot;April&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;May&quot;</span><span class="p">,</span>       <span class="s2">&quot;June&quot;</span><span class="p">,</span>     <span class="s2">&quot;July&quot;</span><span class="p">,</span>     <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="s2">&quot;October&quot;</span><span class="p">,</span>  <span class="s2">&quot;November&quot;</span><span class="p">,</span> <span class="s2">&quot;December&quot;</span><span class="p">]</span> 
+
+<span class="k">def</span> <span class="nf">ejercicio8_sol</span><span class="p">():</span>    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./Archivos/Festivos.xlsx&#39;</span><span class="p">)</span>
+    <span class="n">anhos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2021</span><span class="p">))</span>
+    <span class="n">df_filtr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">anhos</span><span class="p">]</span>
+    <span class="n">lista_fechas</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">columna</span> <span class="ow">in</span> <span class="n">df_filtr</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>        
+        <span class="k">for</span> <span class="n">indice</span> <span class="ow">in</span> <span class="n">df_filtr</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+
+            <span class="n">cadena</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indice</span><span class="p">,</span> <span class="n">columna</span><span class="p">]</span>
+            <span class="n">cadena</span> <span class="o">=</span> <span class="n">cadena</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="n">dia</span> <span class="o">=</span> <span class="n">cadena</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">mes</span> <span class="o">=</span> <span class="n">lista_meses_ingles_sol</span><span class="p">[</span><span class="n">lista_meses</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cadena</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])]</span>
+            
+            <span class="n">fecha_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">columna</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="n">mes</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dia</span><span class="p">)</span>
+            <span class="n">fecha</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">fecha_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%B-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">lista_fechas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fecha</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">lista_fechas</span><span class="p">)</span>
+
+
+<span class="k">assert</span> <span class="p">(</span><span class="n">ejercicio8</span><span class="p">()</span> <span class="o">==</span> <span class="n">ejercicio8_sol</span><span class="p">())</span><span class="o">.</span><span class="n">all</span>
+
+<span class="c1">### END HIDDEN TESTS</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p>Banco de la República (2020). 1.2.TIP_Serie histórica diaria IQY.xlsx [Base deDatos]. Recuperado el 15 de Noviembre de 2020 de :
+<a class="reference external" href="https://www.banrep.gov.co/es/estadisticas/tasas-interes-politica-monetaria">https://www.banrep.gov.co/es/estadisticas/tasas-interes-politica-monetaria</a></p>
+<p>Banco de la República (2020). 1.1.TIB_Serie histórica IQY.xlsx [Base deDatos]. Recuperado el 15 de Noviembre de 2020 de :
+<a class="reference external" href="https://www.banrep.gov.co/es/estadisticas/tasa-interbancaria-tib">https://www.banrep.gov.co/es/estadisticas/tasa-interbancaria-tib</a></p>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Jorge Esteban Camargo Forero, Juan David Reyes Jaimes, Alejandro Mantilla Redondo, Diego Alejandro Cely Gomez</p>
+<p><strong>Última actualización:</strong> 17/09/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S5 - Limpiar y unir bases de datos/S5.TA1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

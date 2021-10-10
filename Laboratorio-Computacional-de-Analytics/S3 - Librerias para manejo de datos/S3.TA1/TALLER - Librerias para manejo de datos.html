@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Librerías para manejo de datos: numpy y pandas &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TA1/TALLER - Librerias para manejo de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TA1/TALLER - Librerias para manejo de datos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TA1/TALLER - Librerias para manejo de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#habilidades-en-practica">
+   Habilidades en práctica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrucciones">
+   Instrucciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicios">
+   Ejercicios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo">
+     Ejemplo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1">
+     Ejercicio 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2">
+     Ejercicio 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#salarios-en-latinoamerica">
+   Salarios en latinoamérica
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-3">
+     Ejercicio 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-4">
+     Ejercicio 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-5">
+     Ejercicio 5
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lista-de-paises">
+   Lista de países
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-6">
+     Ejercicio 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-7">
+     Ejercicio 7
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-8">
+     Ejercicio 8
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="./Archivos/miad4.png" width=800x>
+<div class="section" id="librerias-para-manejo-de-datos-numpy-y-pandas">
+<h1>Librerías para manejo de datos: <code class="docutils literal notranslate"><span class="pre">numpy</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#librerias-para-manejo-de-datos-numpy-y-pandas" title="Permalink to this headline">¶</a></h1>
+<p>En este taller implementarás métodos de las librerías <code class="docutils literal notranslate"><span class="pre">numpy</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, para integrarlos en procesos de análisis de datos.</p>
+<div class="section" id="habilidades-en-practica">
+<h2>Habilidades en práctica<a class="headerlink" href="#habilidades-en-practica" title="Permalink to this headline">¶</a></h2>
+<p>Al realizar este taller podrás revisar tu progreso para:</p>
+<p><strong>1.</strong> Utilizar arreglos y operaciones básicas en <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. <br>
+<strong>2.</strong> Crear, indexar y utilizar métodos para explorar y manipular <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+</div>
+<div class="section" id="instrucciones">
+<h2>Instrucciones<a class="headerlink" href="#instrucciones" title="Permalink to this headline">¶</a></h2>
+<p>En cada uno de los siguientes ejercicios deberás escribir el código solicitado estrictamente en las celdas indicadas para ello, teniendo en cuenta las siguientes recomendaciones:</p>
+<ul class="simple">
+<li><p>No crear, eliminar o modificar celdas de este Notebook (salvo lo que se te indique), pues puede verse afectado el proceso de calificación automática.</p></li>
+<li><p>La calificación se realiza de manera automática con datos diferentes a los proporcionados en este taller. Por consiguiente, tu código debe funcionar para diferentes instancias de cada uno de los ejercicios; una instancia hace referencia al valor de los parámetros.</p></li>
+<li><p>La calificación de cada ejercicio depende del valor que tome la variable especificada en su enunciado. Por lo tanto, aunque declares variables adicionales en tu código, es escencial que utilices los nombres de las variables propuestas en los enunciados de los ejercicios para guardar el resultado final.</p></li>
+</ul>
+<p>Esta es una actividad calificada y, por lo tanto, debe ser resuelta individualmente.</p>
+<p>A continuación puedes ver un ejemplo de los ejercicios que encontrarás en este taller.</p>
+</div>
+<div class="section" id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">¶</a></h2>
+<p>En la siguente celda encuentras declarados los paquetes necesarios para el desarollo de este taller.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable.</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo">
+<h3>Ejemplo<a class="headerlink" href="#ejemplo" title="Permalink to this headline">¶</a></h3>
+<p>A continuación encuentras dos arreglos. Cada uno contiene los salarios (en USD) de los funcionarios de un área de una empresa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable.</span>
+
+<span class="n">mercadeo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mi">1600</span><span class="p">])</span>
+<span class="n">logistica</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">suma</span></code> que reciba dos arreglos por parámetro, los una y retorne la suma de los elementos de la unión.</p>
+<p><em>Esta función debe retornar un <code class="docutils literal notranslate"><span class="pre">int</span></code>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda.</span>
+
+<span class="k">def</span> <span class="nf">suma</span><span class="p">(</span><span class="n">arreglo1</span><span class="p">,</span> <span class="n">arreglo2</span><span class="p">):</span>
+    
+    <span class="n">concatenado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">arreglo1</span><span class="p">,</span><span class="n">arreglo2</span><span class="p">))</span>
+    <span class="n">respuesta</span> <span class="o">=</span> <span class="n">concatenado</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">respuesta</span>
+
+<span class="n">suma</span><span class="p">(</span><span class="n">mercadeo</span><span class="p">,</span> <span class="n">logistica</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1">
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">¶</a></h3>
+<p>A continuación encuentras dos arreglos. Cada uno contiene los salarios (en USD) de los funcionarios de un área de una empresa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable.</span>
+
+<span class="n">mercadeo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mi">1600</span><span class="p">])</span>
+<span class="n">logistica</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1600</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">promedio</span></code> que reciba dos arreglos por parámetro, los una y retorne el promedio de los elementos de la unión.</p>
+<p><em>Esta función debe retornar un <code class="docutils literal notranslate"><span class="pre">float</span></code></em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda.</span>
+
+<span class="k">def</span> <span class="nf">promedio</span><span class="p">(</span><span class="n">arreglo1</span><span class="p">,</span> <span class="n">arreglo2</span><span class="p">):</span>
+    
+    <span class="n">concatenado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">arreglo1</span><span class="p">,</span><span class="n">arreglo2</span><span class="p">))</span>
+    <span class="n">respuesta</span> <span class="o">=</span> <span class="n">concatenado</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">respuesta</span>
+
+<span class="n">promedio</span><span class="p">(</span><span class="n">mercadeo</span><span class="p">,</span> <span class="n">logistica</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">mercadeo_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1800</span><span class="p">,</span> <span class="mi">1300</span><span class="p">])</span>
+<span class="n">logistica_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1100</span><span class="p">,</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1500</span><span class="p">])</span>
+<span class="c1"># Respuestas 1800 og  y 1600 test</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">promedio</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">promedio</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada promedio.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">promedio</span><span class="p">(</span><span class="n">mercadeo</span><span class="p">,</span> <span class="n">logistica</span><span class="p">)</span>
+    <span class="n">promedio</span><span class="p">(</span><span class="n">mercadeo_test</span><span class="p">,</span> <span class="n">logistica_test</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un número</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">promedio</span><span class="p">(</span><span class="n">mercadeo_test</span><span class="p">,</span> <span class="n">logistica_test</span><span class="p">))</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un valor de tipo </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="si">}</span><span class="s2">.&quot;</span>    
+       
+<span class="c1"># Caso 4: respuesta explicita</span>
+<span class="k">assert</span> <span class="n">promedio</span><span class="p">(</span><span class="n">mercadeo_test</span><span class="p">,</span> <span class="n">logistica_test</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">1800.0</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta para una instancia diferente. Utiliza los parámetros.&quot;</span>
+
+<span class="c1"># Caso 5: procedimiento incorrecto</span>
+<span class="k">assert</span> <span class="n">promedio</span><span class="p">(</span><span class="n">mercadeo_test</span><span class="p">,</span> <span class="n">logistica_test</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1600.0</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta. Asegurate de cocatenar los arreglos y luego calcular un promedio.&quot;</span>
+
+<span class="c1"># Caso 6: retorna un numero distinto del esperado</span>
+<span class="k">assert</span> <span class="n">promedio</span><span class="p">(</span><span class="n">mercadeo_test</span><span class="p">,</span> <span class="n">logistica_test</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1600.0</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta. Es posible que hayas omitido algún valor al realizar el cálculo.&quot;</span>
+<span class="k">assert</span> <span class="n">promedio</span><span class="p">(</span><span class="n">mercadeo</span><span class="p">,</span> <span class="n">logistica</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1575.0</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta. Es posible que hayas omitido algún valor al realizar el cálculo.&quot;</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">¶</a></h3>
+<p>A continuación encuentras un <code class="docutils literal notranslate"><span class="pre">Series</span></code> que contiene la edad de Sonia y sus hermanos. Ellos quieren quienes son los dos mayores para estar atentos a la vacunación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable.</span>
+
+<span class="n">hermanos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s2">&quot;Sonia&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;Patricia&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;Jorge&quot;</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;Alejandro&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s2">&quot;Aura&quot;</span><span class="p">:</span> <span class="mi">47</span><span class="p">,</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;Claudia&quot;</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span> <span class="s2">&quot;Victor&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">mayores</span></code> que reciba un <code class="docutils literal notranslate"><span class="pre">Series</span></code> por parámetro y retorne los dos mayores valores en una tupla.</p>
+<p><em>Esta función debe retornar una tupla de la forma</em> <code class="docutils literal notranslate"><span class="pre">(mayor_valor1,</span> <span class="pre">mayor_valor2)</span></code> <em>, dónde</em> <code class="docutils literal notranslate"><span class="pre">mayor_valor1</span></code> <em>es mayor o igual que</em> <code class="docutils literal notranslate"><span class="pre">mayor_valor2</span></code> <em>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda.</span>
+
+<span class="k">def</span> <span class="nf">mayores</span><span class="p">(</span><span class="n">serie</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="n">serie</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">2</span><span class="p">),)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">hermanos_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s2">&quot;Sonia&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span> <span class="s2">&quot;Patricia&quot;</span><span class="p">:</span> <span class="mi">46</span><span class="p">,</span> <span class="s2">&quot;Jorge&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span> <span class="s2">&quot;Alejandro&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;Aura&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span> <span class="s2">&quot;Claudia&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">})</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mayores</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mayores</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada mayores.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mayores</span><span class="p">(</span><span class="n">hermanos</span><span class="p">)</span>
+    <span class="n">mayores</span><span class="p">(</span><span class="n">hermanos_test</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna una lista</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mayores</span><span class="p">(</span><span class="n">hermanos_test</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">((</span><span class="s2">&quot;&quot;</span><span class="p">,)),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="nb">tuple</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>    
+       
+<span class="c1"># Caso 4: tamaño incorrecto</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">mayores</span><span class="p">(</span><span class="n">hermanos_test</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna una lista de un tamaño diferente al solicitado.&quot;</span>
+
+<span class="c1"># Caso 5: procedimiento incorrecto</span>
+<span class="k">assert</span> <span class="n">mayores</span><span class="p">(</span><span class="n">hermanos_test</span><span class="p">)</span> <span class="o">!=</span> <span class="p">[</span><span class="mi">47</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="s2">&quot;Tu respuesta es incorrecta para una instancia diferente. Utiliza los parámetros.&quot;</span>
+
+<span class="c1"># Caso 6: la lista no contiene todos los valores correctos</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">mayores</span><span class="p">(</span><span class="n">hermanos_test</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">46</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">mayores</span><span class="p">(</span><span class="n">hermanos_test</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu respuesta no contiene la información solicitada.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 7: la lista es estrictamente correcta</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">mayores</span><span class="p">(</span><span class="n">hermanos_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">46</span>
+    <span class="k">assert</span> <span class="n">mayores</span><span class="p">(</span><span class="n">hermanos_test</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">43</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu respuesta tiene un orden incorrecto.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 8: retorna un numero distinto del esperado</span>
+<span class="k">assert</span> <span class="n">mayores</span><span class="p">(</span><span class="n">hermanos</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">47</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="salarios-en-latinoamerica">
+<h2>Salarios en latinoamérica<a class="headerlink" href="#salarios-en-latinoamerica" title="Permalink to this headline">¶</a></h2>
+<p>A continuación, encuentras declarado un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contiene la edad, la ciudad de residencia y el salario (en USD) de nombres de algunos empleados de una multinacional. Utiliza esta información para dar respuesta a los ejercicios 3, 4 y 5.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable.</span>
+
+<span class="n">e1</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">28</span><span class="p">,</span><span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="mi">3200</span> <span class="p">]</span>
+<span class="n">e3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">23</span><span class="p">,</span><span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">1700</span><span class="p">]</span>
+<span class="n">e4</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Buenos Aires&quot;</span><span class="p">,</span> <span class="mi">1100</span> <span class="p">]</span>
+<span class="n">e5</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">43</span><span class="p">,</span><span class="s2">&quot;Buenos Aires&quot;</span><span class="p">,</span> <span class="mi">3300</span><span class="p">]</span>
+<span class="n">e6</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">58</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="mi">5500</span> <span class="p">]</span>
+<span class="n">e7</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">32</span><span class="p">,</span><span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">2700</span><span class="p">]</span>
+<span class="n">e8</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Quito&quot;</span><span class="p">,</span> <span class="mi">2500</span> <span class="p">]</span>
+
+<span class="n">empleados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">,</span> <span class="n">e4</span><span class="p">,</span> <span class="n">e5</span><span class="p">,</span> <span class="n">e6</span><span class="p">,</span> <span class="n">e7</span><span class="p">,</span> <span class="n">e8</span><span class="p">],</span> 
+                         <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="s2">&quot;Felipe&quot;</span><span class="p">,</span> <span class="s2">&quot;Luisa&quot;</span><span class="p">,</span> <span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;Camila&quot;</span><span class="p">],</span> 
+                         <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Edad&quot;</span><span class="p">,</span> <span class="s2">&quot;Ciudad Residencia&quot;</span><span class="p">,</span> <span class="s2">&quot;Salario (en USD)&quot;</span><span class="p">])</span>
+<span class="n">empleados</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-3">
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">ciudades</span></code> que reciba un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> por parámetro y retorne el número de ciudades diferentes en las que residen los empleados de la multinacional.</p>
+<p><em>Esta función debe retornar un <code class="docutils literal notranslate"><span class="pre">int</span></code></em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ciudades</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ciudad Residencia&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">ciudades</span><span class="p">(</span><span class="n">empleados</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Test paremters</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">28</span><span class="p">,</span><span class="s2">&quot;Quito&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="mi">3200</span> <span class="p">]</span>
+<span class="n">e3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">22</span><span class="p">,</span><span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">1700</span><span class="p">]</span>
+<span class="n">e4</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Santiago&quot;</span><span class="p">,</span> <span class="mi">1100</span><span class="p">]</span>
+<span class="n">e5</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">41</span><span class="p">,</span><span class="s2">&quot;Buenos Aires&quot;</span><span class="p">,</span> <span class="mi">3900</span><span class="p">]</span>
+<span class="n">e6</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">58</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="mi">5500</span><span class="p">]</span>
+<span class="n">e7</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">22</span><span class="p">,</span><span class="s2">&quot;Brasilia&quot;</span><span class="p">,</span> <span class="mi">2100</span><span class="p">]</span>
+<span class="n">e8</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">2500</span><span class="p">]</span>
+
+<span class="n">empleados_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">,</span> <span class="n">e4</span><span class="p">,</span> <span class="n">e5</span><span class="p">,</span> <span class="n">e6</span><span class="p">,</span> <span class="n">e7</span><span class="p">,</span> <span class="n">e8</span><span class="p">],</span> 
+                              <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="s2">&quot;Felipe&quot;</span><span class="p">,</span> <span class="s2">&quot;Luisa&quot;</span><span class="p">,</span> <span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;Camila&quot;</span><span class="p">],</span> 
+                              <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Edad&quot;</span><span class="p">,</span> <span class="s2">&quot;Ciudad Residencia&quot;</span><span class="p">,</span> <span class="s2">&quot;Salario (en USD)&quot;</span><span class="p">])</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">ciudades</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">ciudades</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada ciudades.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">ciudades</span><span class="p">(</span><span class="n">empleados</span><span class="p">)</span>
+    <span class="n">ciudades</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un int</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">ciudades</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">))</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>   
+
+<span class="c1"># Caso 4: respuesta explicita</span>
+<span class="k">assert</span> <span class="n">ciudades</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta para una instancia diferente. Utiliza los parámetros.&quot;</span>
+
+<span class="c1"># Caso 5: Retorna el número de elementos de la columna &#39;Ciudad Residencia&#39;</span>
+<span class="k">assert</span> <span class="n">ciudades</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es el número de elementos de la columna &#39;Ciudad Residencia&#39;.&quot;</span>
+
+<span class="c1"># Caso 6: retorna un numero distinto del esperado</span>
+<span class="k">assert</span> <span class="n">ciudades</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+<span class="k">assert</span> <span class="n">ciudades</span><span class="p">(</span><span class="n">empleados</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-4">
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">mayor_al_promedio</span></code> que reciba un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y un índice de este <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> por parámetro, y retorne <code class="docutils literal notranslate"><span class="pre">True</span></code> si el salario asociado a este índice es mayor al promedio o <code class="docutils literal notranslate"><span class="pre">False</span></code> de lo contrario.</p>
+<p><em>Esta función debe retornar</em> <code class="docutils literal notranslate"><span class="pre">True</span></code> <em>o</em> <code class="docutils literal notranslate"><span class="pre">False</span></code> <em>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">mayor_al_promedio</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">indice</span><span class="p">):</span>
+    
+    <span class="n">salario_promedio</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salario (en USD)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">salario_indice</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indice</span><span class="p">][</span><span class="s1">&#39;Salario (en USD)&#39;</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">salario_indice</span> <span class="o">&gt;</span> <span class="n">salario_promedio</span><span class="p">:</span>
+        <span class="n">respuesta</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">respuesta</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">respuesta</span>
+
+<span class="n">mayor_al_promedio</span><span class="p">(</span><span class="n">empleados</span><span class="p">,</span> <span class="s1">&#39;Juan&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Test paremters</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">28</span><span class="p">,</span><span class="s2">&quot;Quito&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="mi">3200</span> <span class="p">]</span>
+<span class="n">e3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">22</span><span class="p">,</span><span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">1700</span><span class="p">]</span>
+<span class="n">e4</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Santiago&quot;</span><span class="p">,</span> <span class="mi">1100</span> <span class="p">]</span>
+<span class="n">e5</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">41</span><span class="p">,</span><span class="s2">&quot;Buenos Aires&quot;</span><span class="p">,</span> <span class="mi">3900</span><span class="p">]</span>
+<span class="n">e6</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">58</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="mi">5500</span> <span class="p">]</span>
+<span class="n">e7</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">22</span><span class="p">,</span><span class="s2">&quot;Brasilia&quot;</span><span class="p">,</span> <span class="mi">2100</span><span class="p">]</span>
+<span class="n">e8</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">2500</span> <span class="p">]</span>
+
+<span class="n">empleados_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">,</span> <span class="n">e4</span><span class="p">,</span> <span class="n">e5</span><span class="p">,</span> <span class="n">e6</span><span class="p">,</span> <span class="n">e7</span><span class="p">,</span> <span class="n">e8</span><span class="p">],</span>
+                              <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="s2">&quot;Felipe&quot;</span><span class="p">,</span> <span class="s2">&quot;Luisa&quot;</span><span class="p">,</span> <span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;Camila&quot;</span><span class="p">],</span> 
+                              <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Edad&quot;</span><span class="p">,</span> <span class="s2">&quot;Ciudad Residencia&quot;</span><span class="p">,</span> <span class="s2">&quot;Salario (en USD)&quot;</span><span class="p">])</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mayor_al_promedio</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mayor_al_promedio</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada mayor_al_promedio.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mayor_al_promedio</span><span class="p">(</span><span class="n">empleados</span><span class="p">,</span> <span class="s1">&#39;Juan&#39;</span><span class="p">)</span>
+    <span class="n">mayor_al_promedio</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">,</span> <span class="s1">&#39;Luisa&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un boolean</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mayor_al_promedio</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">,</span> <span class="s1">&#39;Luisa&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>    
+
+<span class="c1"># Caso 4: procedimiento incorrecto</span>
+<span class="k">assert</span> <span class="n">mayor_al_promedio</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">,</span> <span class="s1">&#39;Luisa&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta para una instancia diferente. Utiliza los parámetros.&quot;</span>
+
+<span class="c1"># Caso 5: retorna un numero distinto del esperado</span>
+<span class="k">assert</span> <span class="n">mayor_al_promedio</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">,</span> <span class="s1">&#39;Luisa&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+<span class="k">assert</span> <span class="n">mayor_al_promedio</span><span class="p">(</span><span class="n">empleados</span><span class="p">,</span> <span class="s1">&#39;Juan&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-5">
+<h3>Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">modificar</span></code> que reciba un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> por parámetro, elimine la segunda fila, cambie el nombre de la columna ‘Salario (en USD)’ a ‘Sueldo (en USD)’ y retorne un nuevo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con las modificaciones realizadas.</p>
+<p><em>Esta función debe retornar un</em> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <em>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">modificar</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Salario (en USD)&quot;</span><span class="p">:</span> <span class="s2">&quot;Sueldo (en USD)&quot;</span><span class="p">})</span>
+        
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">modificar</span><span class="p">(</span><span class="n">empleados</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Test paremters</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">28</span><span class="p">,</span><span class="s2">&quot;Quito&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="mi">3200</span> <span class="p">]</span>
+<span class="n">e3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">22</span><span class="p">,</span><span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">1700</span><span class="p">]</span>
+<span class="n">e4</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Santiago&quot;</span><span class="p">,</span> <span class="mi">1100</span> <span class="p">]</span>
+<span class="n">e5</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">41</span><span class="p">,</span><span class="s2">&quot;Buenos Aires&quot;</span><span class="p">,</span> <span class="mi">3900</span><span class="p">]</span>
+<span class="n">e6</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">58</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="mi">5500</span> <span class="p">]</span>
+<span class="n">e7</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">22</span><span class="p">,</span><span class="s2">&quot;Brasilia&quot;</span><span class="p">,</span> <span class="mi">2100</span><span class="p">]</span>
+<span class="n">e8</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">2500</span> <span class="p">]</span>
+
+<span class="n">empleados_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">,</span> <span class="n">e4</span><span class="p">,</span> <span class="n">e5</span><span class="p">,</span> <span class="n">e6</span><span class="p">,</span> <span class="n">e7</span><span class="p">,</span> <span class="n">e8</span><span class="p">],</span>
+                              <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;Diego&quot;</span><span class="p">,</span> <span class="s2">&quot;Ariel&quot;</span><span class="p">,</span> <span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="s2">&quot;Felipe&quot;</span><span class="p">,</span> <span class="s2">&quot;Luisa&quot;</span><span class="p">,</span> <span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;Camila&quot;</span><span class="p">],</span> 
+                              <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Edad&quot;</span><span class="p">,</span> <span class="s2">&quot;Ciudad Residencia&quot;</span><span class="p">,</span> <span class="s2">&quot;Salario (en USD)&quot;</span><span class="p">])</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">modificar</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">modificar</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada modificar.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">modificar</span><span class="p">(</span><span class="n">empleados</span><span class="p">)</span>
+    <span class="n">modificar</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un dataframe</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">modificar</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>    
+
+<span class="c1"># Caso 4: Cambio de nombre correcto</span>
+<span class="k">assert</span> <span class="n">modificar</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sueldo (en USD)&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta. Recuerda modificar el nombre de la columna &#39;Salario (en USD)&#39;&quot;</span>
+
+<span class="c1"># Caso 5: Elimino la fila</span>
+<span class="n">modificar</span><span class="p">(</span><span class="n">empleados_test</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="s1">&#39;Ariel&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta. Recuerda eliminar la segunda fila del DataFrame.&quot;</span>
+
+<span class="c1"># Caso 6: los cambios son estrictamente correctos</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">modificar</span><span class="p">(</span><span class="n">empleados</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sueldo (en USD)&#39;</span>
+    <span class="k">assert</span> <span class="n">modificar</span><span class="p">(</span><span class="n">empleados</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="s1">&#39;Ana&#39;</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lista-de-paises">
+<h2>Lista de países<a class="headerlink" href="#lista-de-paises" title="Permalink to this headline">¶</a></h2>
+<p>A continuación encuentras un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con un listado de países con su respectivo nombre en inglés y en español.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable.</span>
+
+<span class="n">paises</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Archivos/DiccionarioPaises.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">paises</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-6">
+<h3>Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">dif_longitud</span></code> que reciba un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> por parámetro, elimine los países cuya traducción cambie en longitud  y retorne un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con las modificaciones realizadas.</p>
+<p><em>Esta función debe retornar un</em> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <em>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+<span class="k">def</span> <span class="nf">dif_longitud</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;diferencia_long&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;País en español&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;País en inglés&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;diferencia_long&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;diferencia_long&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">dif_longitud</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">paises</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Archivos/DiccionarioPaises.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;País en español&#39;</span><span class="p">,</span> <span class="s1">&#39;País en inglés&#39;</span><span class="p">]</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dif_longitud</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">dif_longitud</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada dif_longitud.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dif_longitud</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">dif_longitud</span><span class="p">(</span><span class="n">paises</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">paises</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">dif_longitud</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="n">nombre_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos nombres no coinciden con los de los datos del archivo. Asegurate de estar filtrando las columnas indicadas.&quot;</span>
+
+<span class="c1"># Caso 5: devuelve un dataframe con cantidad de filas errada.</span>
+<span class="k">assert</span> <span class="n">dif_longitud</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">127</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 6: No elimina las filas correctas</span>
+<span class="k">assert</span> <span class="nb">sum</span><span class="p">((</span><span class="n">dif_longitud</span><span class="p">(</span><span class="n">paises</span><span class="p">)[</span><span class="s1">&#39;País en español&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">dif_longitud</span><span class="p">(</span><span class="n">paises</span><span class="p">)[</span><span class="s1">&#39;País en inglés&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu función no elimina las filas correctas del DataFrame.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+
+<span class="k">def</span> <span class="nf">dif_longitud_sol</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="n">a_eliminar</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;País en inglés&#39;</span><span class="p">])):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]):</span>
+            <span class="n">a_eliminar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">a_eliminar</span><span class="p">)</span>              
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">students</span> <span class="o">=</span> <span class="n">dif_longitud</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+
+<span class="n">paises</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Archivos/DiccionarioPaises.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+<span class="n">ours</span> <span class="o">=</span> <span class="n">dif_longitud_sol</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="n">ours</span><span class="p">)</span>
+
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-7">
+<h3>Ejercicio 7<a class="headerlink" href="#ejercicio-7" title="Permalink to this headline">¶</a></h3>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">paises_por_a</span></code> que reciba un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> por parámetro y retorne el mismo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con los países cuyo nombre en español inicia con la letra <code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code>.</p>
+<p><em>Esta función debe retornar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def paises_por_a(df):</span>
+<span class="sd">    a = df</span>
+<span class="sd">    no_a = []</span>
+<span class="sd">    </span>
+<span class="sd">    for i in range(len(df[&#39;País en español&#39;])):</span>
+<span class="sd">        if str(df.iloc[i, 0])[0] != &#39;A&#39;:</span>
+<span class="sd">            no_a.append(i)</span>
+<span class="sd">    </span>
+<span class="sd">    a = df.drop(no_a)</span>
+<span class="sd">    </span>
+<span class="sd">    return a</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1"># your code here</span>
+<span class="k">def</span> <span class="nf">paises_por_a</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;País en español&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">]</span>
+
+<span class="n">paises_por_a</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">paises</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Archivos/DiccionarioPaises.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;País en español&#39;</span><span class="p">,</span> <span class="s1">&#39;País en inglés&#39;</span><span class="p">]</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">paises_por_a</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">paises_por_a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada paises_por_a.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">paises_por_a</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un dataframe.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">paises_por_a</span><span class="p">(</span><span class="n">paises</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">paises</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>    
+
+<span class="c1"># Caso 4: devuelve un dataframe cuyas columnas tienen nombre distinto de lo esperado</span>
+<span class="k">assert</span> <span class="p">[</span><span class="o">*</span><span class="n">paises_por_a</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">==</span> <span class="n">nombre_columnas</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con columnas cuyos nombres no coinciden con los de los datos del archivo. Asegurate de estar filtrando las columnas indicadas.&quot;</span>
+
+<span class="c1"># Caso 5: devuelve un dataframe con cantidad de filas errada.</span>
+<span class="k">assert</span> <span class="n">paises_por_a</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;Tu función retorna un DataFrame con cantidad de filas errada.&quot;</span>
+
+<span class="c1"># Caso 6: No elimina las filas correctas</span>
+<span class="n">lista_a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Afganistán&#39;</span><span class="p">,</span> <span class="s1">&#39;Albania&#39;</span><span class="p">,</span> <span class="s1">&#39;Alemania&#39;</span><span class="p">,</span> <span class="s1">&#39;Andorra&#39;</span><span class="p">,</span> <span class="s1">&#39;Angola&#39;</span><span class="p">,</span> <span class="s1">&#39;Antigua y Barbuda&#39;</span><span class="p">,</span> <span class="s1">&#39;Arabia Saudí&#39;</span><span class="p">,</span> <span class="s1">&#39;Argelia&#39;</span><span class="p">,</span> <span class="s1">&#39;Argentina&#39;</span><span class="p">,</span> <span class="s1">&#39;Armenia&#39;</span><span class="p">,</span> <span class="s1">&#39;Australia&#39;</span><span class="p">,</span> <span class="s1">&#39;Austria&#39;</span><span class="p">,</span> <span class="s1">&#39;Azerbaiyán&#39;</span><span class="p">]</span>
+
+<span class="k">assert</span> <span class="n">lista_a</span> <span class="o">==</span> <span class="p">[</span><span class="o">*</span><span class="n">paises_por_a</span><span class="p">(</span><span class="n">paises</span><span class="p">)[</span><span class="s1">&#39;País en español&#39;</span><span class="p">]],</span> <span class="s2">&quot;Tu función no elimina las filas correctas del DataFrame.&quot;</span>
+
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+
+<span class="k">def</span> <span class="nf">paises_por_a_sol</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">df</span>
+    <span class="n">no_a</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;País en español&#39;</span><span class="p">])):</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span>
+            <span class="n">no_a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">no_a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">students</span> <span class="o">=</span> <span class="n">paises_por_a</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+<span class="n">ours</span> <span class="o">=</span> <span class="n">paises_por_a_sol</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="n">ours</span><span class="p">)</span>
+    
+<span class="c1">### END HIDDEN TESTS</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-8">
+<h3>Ejercicio 8<a class="headerlink" href="#ejercicio-8" title="Permalink to this headline">¶</a></h3>
+<p>A continuación encuentras una tupla con las letras del alfabeto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable.</span>
+
+<span class="n">alfabeto</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="s1">&#39;K&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;Ñ&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;Q&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">inicia_con</span></code> que reciba un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> por parámetro y retorne un diccionario cuyas llaves sean las letras del abecedario y el valor de cada llave sea el número de países cuyo nombre en inglés inicia con la respectiva letra.</p>
+<p><em>Esta función debe retornar un diccionario</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">inicia_con</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+
+    <span class="n">respuesta</span> <span class="o">=</span> <span class="p">{</span><span class="n">letra</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">paises</span><span class="p">[</span><span class="s1">&#39;País en inglés&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">letra</span><span class="p">)</span> <span class="k">for</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">alfabeto</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">respuesta</span>
+
+<span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">paises</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Archivos/DiccionarioPaises.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">nombre_columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;País en español&#39;</span><span class="p">,</span> <span class="s1">&#39;País en inglés&#39;</span><span class="p">]</span>
+<span class="n">alfabeto</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="s1">&#39;K&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;Ñ&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;Q&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">inicia_con</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">inicia_con</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada inicia_con.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un diccionario.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">({}),</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">({})</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>    
+
+<span class="c1"># Caso 4: Llaves son el abecedario</span>
+<span class="k">assert</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="n">alfabeto</span><span class="p">,</span> <span class="s2">&quot;Tu diccionario tiene llaves diferentes al abecedario.&quot;</span>
+
+<span class="c1"># Caso 5: Comparamos las que son iguales a cero y otros valores.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Ñ&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">18</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">inicia_con</span><span class="p">(</span><span class="n">paises</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">24</span>
+
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu respuesta es incorrecta. Revisa tu procedimiento&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es):</strong> Camilo Falla Moreno, Juan David Reyes Jaimes, Alejandro Mantilla Redondo, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización:</strong> 17/09/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TA1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

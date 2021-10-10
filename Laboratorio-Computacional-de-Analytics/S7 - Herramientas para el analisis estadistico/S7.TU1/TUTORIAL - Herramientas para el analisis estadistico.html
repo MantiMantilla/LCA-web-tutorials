@@ -1,0 +1,1309 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundamentos de ciencia de datos utilizando el paquete scikit-Learn &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S7 - Herramientas para el analisis estadistico/S7.TU1/TUTORIAL - Herramientas para el analisis estadistico.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S7 - Herramientas para el analisis estadistico/S7.TU1/TUTORIAL - Herramientas para el analisis estadistico.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S7 - Herramientas para el analisis estadistico/S7.TU1/TUTORIAL - Herramientas para el analisis estadistico.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requisitos">
+   Requisitos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivos">
+   Objetivos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-de-machine-learning">
+   1. Modelos de
+   <em>
+    machine learning
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pasos-tipicos-para-desarrollar-un-modelo-en-el-paquete-scikit-learn">
+     1.1. Pasos típicos para desarrollar un modelo en el paquete scikit-learn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-de-regresion">
+   2. Modelos de regresión
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regresion-lineal-simple">
+     2.1. Regresión lineal simple
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-1">
+       Ejemplo 1
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regresion-lineal-multiple">
+     2.2. Regresión lineal múltiple
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-2">
+       Ejemplo 2.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regresion-logistica">
+     2.3. Regresión logística
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplos-de-situaciones-que-se-pueden-resolver-con-regresion-logistica">
+       Ejemplos de situaciones que se pueden resolver con regresión logística:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-3">
+       Ejemplo 3
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos-de-modelos-comunes-de-machine-learning">
+   3. Ejemplos de modelos comunes de
+   <em>
+    machine learning
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-ejemplo-de-clasificacion-para-los-datos-iris">
+     3.1. Un ejemplo de clasificación para los datos Iris
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#el-conjunto-de-datos-iris-contenido-en-el-paquete-seaborn">
+       El conjunto de datos Iris (contenido en el paquete Seaborn)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exploracion-visual-con-seaborn">
+       Exploración visual con Seaborn
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variables-independientes">
+       Variables independientes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variable-dependiente">
+       Variable dependiente
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#crear-el-modelo-de-clasificacion">
+       Crear el modelo de clasificación
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analisis-de-componentes-principales">
+     3.2 Análisis de Componentes Principales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-de-clustering-para-iris">
+     3.3 Modelo de
+     <em>
+      clustering
+     </em>
+     para Iris
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-adicional">
+   Material adicional
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x> 
+<div class="section" id="fundamentos-de-ciencia-de-datos-utilizando-el-paquete-scikit-learn">
+<h1>Fundamentos de ciencia de datos utilizando el paquete scikit-Learn<a class="headerlink" href="#fundamentos-de-ciencia-de-datos-utilizando-el-paquete-scikit-learn" title="Permalink to this headline">¶</a></h1>
+<p>Al desarrollar un proyecto de analítica de datos, queremos estudiar la existencia de relaciones entre variable. Por ejemplo, si tenemos una base de datos de estudiantes de una universidad, nos podría interesar encontrar alguna relación entre el promedio académico del estudiante y variables como la calidad del colegio donde estudió, si esta realizando doble programa, la cantidad de actividades extracurriculares que tiene, etc. Para esto, utilizamos modelos que nos permitan entender las relaciones que existen entre las variables estudiadas y predecir el comportamiento que tendrá una variable específica dependiendo del valor de las otras variables del sistema.</p>
+<p>En este tutorial establecemos nociones fundamentales sobre el uso de la librería <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> (scikit-learn) para integrarlas en procesos de análisis de datos.</p>
+<div class="section" id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<p>Para desarrollar este tutorial necesitarás:</p>
+<ul class="simple">
+<li><p>Declarar y manipular objetos de tipo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+<li><p>Crear visualizaciones en <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> y <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+<p>Al final de este tutorial podrás:</p>
+<p><strong>1.</strong> Diferenciar los tipos de modelos de <em>machine learning</em> que ofrece el paquete scikit-learn y sus casos de uso comunes.<br>
+<strong>2.</strong> Construir, entrenar y analizar los resultados de modelos básicos de <em>machine learning</em> en el paquete scikit-learn.</p>
+</div>
+<div class="section" id="modelos-de-machine-learning">
+<h2>1. Modelos de <em>machine learning</em><a class="headerlink" href="#modelos-de-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>El propósito de los modelos de <em>machine learning</em> es encontrar características en datos conocidos (del pasado), ya sea para comprender algún fenómeno o para hacer alguna estimación sobre datos nuevos (del futuro). En cualquier caso, estos modelos son “entrenados” con base en datos observados.</p>
+<p>Los modelos de <em>machine learning</em> comúnmente se clasifican en dos categorias: supervisados, los cuales cuentan con una variable de respuesta que se quiere predecir; no supervisados, los cuales se enfocan en encontrar relaciones subyacentes entre los datos sin necesidad de una variable de respuesta. Por ejemplo, si tenemos imágenes médicas acompañadas del diagnóstico de un profesional, quien indica si existe una patología o no, podriamos plantear un modelo de aprendizaje supervisado. Si clasificamos las observaciones en estas dos categorías (patología, no patología), podemos utilizarlas para “entrenar” nuestro modelo y posteriormente determinar, sin la ayuda del médico, si nuevas imágenes corresponden a la patología o no.</p>
+<br>
+<img src="Archivos/taxo.png" width=650x>
+<br>
+<center><b>Figura 1:</b> taxonomía general de modelos de <i>machine learning</i>
+</center>
+<p>El aprendizaje supervisado nos permite abordar dos tipos de problemas: regresión y clasificación. En los problemas de regresión el objetivo es predecir una variable de respuesta que toma valores continuos (p.ej., estimar el precio de una casa con base en sus características), mientras que en los problemas de clasificación el objetivo es predecir una variable de respuesta que toma valores discretos (p.ej., estimar si una imagen corresponde a un objeto u otro).</p>
+<p>El aprendizaje no supervisado nos permite abordar dos tipos de problemas: clustering y reducción de dimensionalidad. En los problemas de clustering el objetivo es encontrar conjuntos de observaciones con características similares que podrían pertenecer a una misma clase o grupo. En los problemas de reducción de dimensionalidad el objetivo es encontrar las características que representan la información relevante de un conjunto de datos de la manera más concisa.</p>
+<div class="section" id="pasos-tipicos-para-desarrollar-un-modelo-en-el-paquete-scikit-learn">
+<h3>1.1. Pasos típicos para desarrollar un modelo en el paquete scikit-learn<a class="headerlink" href="#pasos-tipicos-para-desarrollar-un-modelo-en-el-paquete-scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p>Scikit-learn es un paquete que provee implementaciones eficientes de muchos algoritmos comunes de <em>machine learning</em> con una API (interfaz de programación de aplicaciones) sencilla de utilizar. En general, llevamos a cabo los siguientes pasos al momento de crear un modelo:</p>
+<p><strong>1. Importar un módulo del paquete <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> que contiene el modelo que vamos a utilizar:</strong> por ejemplo, si queremos desarrollar un modelo de regresión lineal, debemos importar el módulo correspondiente: <code class="docutils literal notranslate"><span class="pre">linear_model</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+</pre></div>
+</div>
+<p><strong>2. Elegir los datos que queremos analizar:</strong> en general, podemos pensar en los datos de entrada de un modelo de <em>machine learning</em> como una matriz, que llamaremos <span class="math notranslate nohighlight">\(X\)</span>, con <span class="math notranslate nohighlight">\(m\)</span> filas y <span class="math notranslate nohighlight">\(n\)</span> columnas, donde <span class="math notranslate nohighlight">\(m\)</span> corresponde al número de muestras u observaciones (<em>samples</em>) y <span class="math notranslate nohighlight">\(n\)</span> corresponde al número de variables o características (<em>features</em>). En el caso de modelos no supervisados, esa matriz será suficiente. Para un modelo supervisado, requerimos una columna adicional de datos, <span class="math notranslate nohighlight">\(y\)</span> (con <span class="math notranslate nohighlight">\(m\)</span> filas, una por muestra), correspondientes a la variable de respuesta. Supongamos que contamos con un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (<code class="docutils literal notranslate"><span class="pre">DF</span></code>) en el que las columnas 0 a 4 son variables independientes (<em>features</em>) y la columna 5 es la variable de respuesta. La selección de datos para la regresión será:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">DF</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">DF</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>3. Crear conjuntos de datos para entrenamiento y prueba:</strong> luego de dividir los datos en <span class="math notranslate nohighlight">\(X\)</span> y en <span class="math notranslate nohighlight">\(y\)</span>, debemos crear un conjunto de datos de entrenamiento, con el cual se entrenará el modelo, y un conjunto de datos de prueba, con el cual se verificará la efectividad del modelo. Es fundamental llevar a cabo este paso ya que, de lo contrario, estaríamos entrenando y probando al modelo con el mismo set de datos, lo cual no nos permitiría saber si el modelo funciona correctamente o si simplemente se “aprendió” los resultados óptimos. Una analogía útil al momento de pensar en esta situación es la de un profesor que le muestra las respuestas de un parcial a sus estudiantes y luego los evalúa con las mismas preguntas. Normalmente utilizamos el 80% de los datos para entrenar el modelo y el 20% para probarlo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>4. Declarar una instancia del modelo:</strong> cada módulo dispone de diversos modelos. Por ejemplo, dentro de <code class="docutils literal notranslate"><span class="pre">linear_model</span></code> podemos encontrar la clase <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code>, que contiene los elementos necesarios para desarrollar un modelo de regresión lineal. Para proceder, debemos declarar un objeto de la clase <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> como se muestra a continuación.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mi_modelo</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>5. Entrenar el modelo:</strong> el objeto <code class="docutils literal notranslate"><span class="pre">mi_modelo</span></code> cuenta con los métodos y atributos necesarios para desarrollar un modelo de regresión. El método más común en los modelos de <em>machine learning</em> es <code class="docutils literal notranslate"><span class="pre">fit</span></code>, pues es el encargado de entrenar el modelo de acuerdo a los datos suministrados para encontrar los parámetros que mejor se ajustan. A contiuación vemos la instrucción para entrenar el modelo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mi_modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>6. Consultar los resultados del modelo:</strong> en el caso del modelo de regresión lineal, nos interesa conocer los coeficientes que acompañan a cada una de las variables del modelo. Cuando ejecutamos el método <code class="docutils literal notranslate"><span class="pre">fit</span></code>, estos valores son almacenados en el atributo <code class="docutils literal notranslate"><span class="pre">coef_</span></code>; el caracter ( _ ) es una convención para los atributos calculados internamente por el método <code class="docutils literal notranslate"><span class="pre">fit</span></code>. Así, podemos consultar estos valores de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mi_modelo</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>7. Utilizar el modelo para predecir:</strong> por lo general, queremos aplicar nuestro modelo entrenado a nuevas observaciones de datos. Para esto utilizamos el método <code class="docutils literal notranslate"><span class="pre">predict</span></code>, que recibe por parámetro las columnas correspondientes a variables independientes (<span class="math notranslate nohighlight">\(X\)</span>) y genera las predicciones correspondientes para la variable de respuesta (<span class="math notranslate nohighlight">\(y\)</span>). A continuación, utilizamos los datos de prueba (<code class="docutils literal notranslate"><span class="pre">X_test</span></code>) para predecir la variable de respuesta.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y_estimado</span> <span class="o">=</span> <span class="n">mi_modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>8. Evaluar el desempeño del modelo:</strong> es importante asegurarnos que el modelo que hemos entrenado se desempeña bien con datos nuevos y no se ha sobreajustado con los datos de entrenamiento. En este caso, lo usual es medir qué tan cercanas son las predicciones hechas por el modelo (<code class="docutils literal notranslate"><span class="pre">y_estimado</span></code>) a los valores reales de la variable de respuesta de los datos de prueba (<code class="docutils literal notranslate"><span class="pre">y_test</span></code>). En el caso de la regresión lineal, una métrica común es el <span class="math notranslate nohighlight">\(R^2\)</span>, el cual puede ser calculado con el método <code class="docutils literal notranslate"><span class="pre">r2_score</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>. Procedemos a importar la funcion y estimar la métrica:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="n">mi_r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_estimado</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>También podemos usar el método <code class="docutils literal notranslate"><span class="pre">score</span></code> para conocer la precisión del modelo a partir de los datos de prueba:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mi_r2</span> <span class="o">=</span> <span class="n">mi_modelo</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="modelos-de-regresion">
+<h2>2. Modelos de regresión<a class="headerlink" href="#modelos-de-regresion" title="Permalink to this headline">¶</a></h2>
+<p>Un modelo de regresión es un modelo matemático que busca determinar la relación de una variable dependiente <span class="math notranslate nohighlight">\(Y\)</span> con respecto a una o más variables independientes <span class="math notranslate nohighlight">\(X\)</span>. Para ello debemos postular una ecuación que relacione estas variables. Por ejemplo, queremos saber si el rendimiento de un producto químico está relacionado con su temperatura. Podemos construir un modelo de regresión para identificar la relación que existe entre las variables y predecir el rendimiento de un producto dada una temperatura.</p>
+<p>Veremos tres tipos de modelos de regresión:</p>
+<ol class="simple">
+<li><p>Regresión lineal simple</p></li>
+<li><p>Regresión múltiple</p></li>
+<li><p>Regresión logística</p></li>
+</ol>
+<p>En este tutorial veremos cómo implementar estos modelos en el contexto de analítica de datos sin explicar su trasfondo estadístico, veremos esta explicación en otros cursos de la Maestría.</p>
+<div class="section" id="regresion-lineal-simple">
+<h3>2.1. Regresión lineal simple<a class="headerlink" href="#regresion-lineal-simple" title="Permalink to this headline">¶</a></h3>
+<p>Una regresión lineal simple se basa en una sola variable independiente <span class="math notranslate nohighlight">\(X\)</span>, una variable dependiente <span class="math notranslate nohighlight">\(y\)</span> y supone que existe una relación lineal entre estas. La ecuación general para este tipo de regresión es la siguiente:$<span class="math notranslate nohighlight">\(y = β_0 + β_1X + e\)</span>$</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(β_0\)</span> es la altura a la que la recta corta al eje Y, la cual se denomina término independiente.</p></li>
+<li><p><span class="math notranslate nohighlight">\(β_1\)</span> es el incremento que se produce en la variable <span class="math notranslate nohighlight">\(y\)</span> cuando la variable <span class="math notranslate nohighlight">\(X\)</span> aumenta una unidad, el cual se denomina pendiente de la recta.</p></li>
+</ul>
+<p><a id='ej1'></a></p>
+<div class="section" id="ejemplo-1">
+<h4>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">¶</a></h4>
+<p>En este ejemplo utilizaremos los datos de vivienda en Boston y seguiremos los pasos vistos anteriormente, para llevar a cabo una regresión lineal que nos permita identificar cuál es la relación entre el precio de venta de una casa y el número de habitaciones que tiene.</p>
+<p>Empecemos cargando los datos y filtrando la información relevante:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">linear_model</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Importamos los datos</span>
+<span class="n">data_boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">()</span>
+
+<span class="c1"># Creamos un DataFrame para visualizarlos</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_boston</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data_boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CRIM</th>
+      <th>ZN</th>
+      <th>INDUS</th>
+      <th>CHAS</th>
+      <th>NOX</th>
+      <th>RM</th>
+      <th>AGE</th>
+      <th>DIS</th>
+      <th>RAD</th>
+      <th>TAX</th>
+      <th>PTRATIO</th>
+      <th>B</th>
+      <th>LSTAT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.00632</td>
+      <td>18.0</td>
+      <td>2.31</td>
+      <td>0.0</td>
+      <td>0.538</td>
+      <td>6.575</td>
+      <td>65.2</td>
+      <td>4.0900</td>
+      <td>1.0</td>
+      <td>296.0</td>
+      <td>15.3</td>
+      <td>396.90</td>
+      <td>4.98</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.02731</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0.0</td>
+      <td>0.469</td>
+      <td>6.421</td>
+      <td>78.9</td>
+      <td>4.9671</td>
+      <td>2.0</td>
+      <td>242.0</td>
+      <td>17.8</td>
+      <td>396.90</td>
+      <td>9.14</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.02729</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0.0</td>
+      <td>0.469</td>
+      <td>7.185</td>
+      <td>61.1</td>
+      <td>4.9671</td>
+      <td>2.0</td>
+      <td>242.0</td>
+      <td>17.8</td>
+      <td>392.83</td>
+      <td>4.03</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.03237</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0.0</td>
+      <td>0.458</td>
+      <td>6.998</td>
+      <td>45.8</td>
+      <td>6.0622</td>
+      <td>3.0</td>
+      <td>222.0</td>
+      <td>18.7</td>
+      <td>394.63</td>
+      <td>2.94</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.06905</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0.0</td>
+      <td>0.458</td>
+      <td>7.147</td>
+      <td>54.2</td>
+      <td>6.0622</td>
+      <td>3.0</td>
+      <td>222.0</td>
+      <td>18.7</td>
+      <td>396.90</td>
+      <td>5.33</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>501</td>
+      <td>0.06263</td>
+      <td>0.0</td>
+      <td>11.93</td>
+      <td>0.0</td>
+      <td>0.573</td>
+      <td>6.593</td>
+      <td>69.1</td>
+      <td>2.4786</td>
+      <td>1.0</td>
+      <td>273.0</td>
+      <td>21.0</td>
+      <td>391.99</td>
+      <td>9.67</td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td>0.04527</td>
+      <td>0.0</td>
+      <td>11.93</td>
+      <td>0.0</td>
+      <td>0.573</td>
+      <td>6.120</td>
+      <td>76.7</td>
+      <td>2.2875</td>
+      <td>1.0</td>
+      <td>273.0</td>
+      <td>21.0</td>
+      <td>396.90</td>
+      <td>9.08</td>
+    </tr>
+    <tr>
+      <td>503</td>
+      <td>0.06076</td>
+      <td>0.0</td>
+      <td>11.93</td>
+      <td>0.0</td>
+      <td>0.573</td>
+      <td>6.976</td>
+      <td>91.0</td>
+      <td>2.1675</td>
+      <td>1.0</td>
+      <td>273.0</td>
+      <td>21.0</td>
+      <td>396.90</td>
+      <td>5.64</td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td>0.10959</td>
+      <td>0.0</td>
+      <td>11.93</td>
+      <td>0.0</td>
+      <td>0.573</td>
+      <td>6.794</td>
+      <td>89.3</td>
+      <td>2.3889</td>
+      <td>1.0</td>
+      <td>273.0</td>
+      <td>21.0</td>
+      <td>393.45</td>
+      <td>6.48</td>
+    </tr>
+    <tr>
+      <td>505</td>
+      <td>0.04741</td>
+      <td>0.0</td>
+      <td>11.93</td>
+      <td>0.0</td>
+      <td>0.573</td>
+      <td>6.030</td>
+      <td>80.8</td>
+      <td>2.5050</td>
+      <td>1.0</td>
+      <td>273.0</td>
+      <td>21.0</td>
+      <td>396.90</td>
+      <td>7.88</td>
+    </tr>
+  </tbody>
+</table>
+<p>506 rows × 13 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Elegimos los datos que queremos analizar</span>
+
+<span class="c1"># Definimos la variable independiente como el número de habitaciones (columna 5 de los datos)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data_boston</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Definimos la variable de respuesta utilizando el atributo target del dataset de sklearn</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data_boston</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, visualicemos los datos para darnos una idea de si existe una relación lineal entre las variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graficamos los datos correspondientes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Número de habitaciones&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Precio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_13_0.png" src="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_13_0.png" />
+</div>
+</div>
+<p>Después, creamos el modelo de regresión siguiendo los pasos vistos anteriormente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Creamos conjuntos de datos para entrenamiento y prueba</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Declaramos una instancia del modelo</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos el modelo</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Utilizamos el modelo para predecir</span>
+<span class="n">y_estimado</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Graficamos los datos y las predicciones hechas por el modelo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_estimado</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Número de habitaciones&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Precio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_15_0.png" src="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_15_0.png" />
+</div>
+</div>
+<p>Como podemos ver, parece que el modelo de regresión se ajusta bien a los datos de vivienda de Boston. Para comprobarlo, evaluemos el desempeño del modelo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.45484052744072845
+</pre></div>
+</div>
+</div>
+</div>
+<p>El desempeño del modelo no es muy alto. Esto nos indica que, aunque a simple vista pareciera que el número de habitaciones es suficiente para estimar el precio de una vivienda, es probable que necesitemos considerar más variables con el fin de encontrar una mejor aproximación del precio de una casa.</p>
+</div>
+</div>
+<div class="section" id="regresion-lineal-multiple">
+<h3>2.2. Regresión lineal múltiple<a class="headerlink" href="#regresion-lineal-multiple" title="Permalink to this headline">¶</a></h3>
+<p>Una regresión lineal múltiple es el caso de una regresión lineal simple con múltiples variables independientes <span class="math notranslate nohighlight">\(X\)</span>. La ecuación general para este tipo de regresión es la siguiente:$<span class="math notranslate nohighlight">\(y = β_0 + β_1X_1 + β_2X_2 + ... + β_nX_n + e\)</span>$</p>
+<p>El objetivo de este tipo de regresión es incorporar la información de varias variables para explicar conjuntamente el comportamiento de la variable de respuesta.</p>
+<div class="section" id="ejemplo-2">
+<h4>Ejemplo 2.<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">¶</a></h4>
+<p>Retomemos el <a class="reference external" href="#ej1">Ejemplo 1</a>. Esta vez queremos predecir el precio de una casa a partir de múltiples variables. Para esto usaremos todas las variables que existen en el set de datos de vivienda de Boston. Entre estas variables encontramos el número de habitaciones de la vivienda, número de crímenes en el área cercana, costo de impuestos, y algunas más.</p>
+<p>De este modo, empezaremos cargando el set de datos y separando la variable de interes de las otras variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">linear_model</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#Importamos los datos</span>
+<span class="n">data_boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">()</span>
+
+<span class="c1"># Elegimos los datos que queremos analizar</span>
+
+<span class="c1"># Definimos todas las variables como variables independientes</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data_boston</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># Definimos la variable de respuesta utilizando el atributo target del dataset de sklearn</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data_boston</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, debemos crear el modelo de la misma manera que en la regresión lineal simple.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Creamos conjuntos de datos para entrenamiento y prueba</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Declaramos una instancia del modelo</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos el modelo</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Utilizamos el modelo para predecir</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, evaluemos el desempeño del modelo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7396309002235383
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos observar, el modelo obtuvo una precisión mucho mayor que cuando solo se usó el número de habitaciones. A partir de este resultado, podemos concluir que el precio de una casa en Boston puede ser explicado conjuntamente por numerosos factores y no por uno en particular.</p>
+</div>
+</div>
+<div class="section" id="regresion-logistica">
+<h3>2.3. Regresión logística<a class="headerlink" href="#regresion-logistica" title="Permalink to this headline">¶</a></h3>
+<p>Una regresión logística se basa en una una o varias variables independientes <span class="math notranslate nohighlight">\(X\)</span> y una variable dependiente <span class="math notranslate nohighlight">\(y\)</span>. La variable <span class="math notranslate nohighlight">\(y\)</span> es binaria y nos permite resolver problemas de clasificación en los cuales queremos determinar si un registro pertenece a una categoría u otra. Por ejemplo, si quisieramos determinar si una fruta es una manzana o una pera dadas sus características, podríamos usar una regresión logística para calcular la probabilidad de que esta sea una manzana o una pera.</p>
+<img src="Archivos/logistica.png" alt="Drawing" style="width: 540px;"/><div class="section" id="ejemplos-de-situaciones-que-se-pueden-resolver-con-regresion-logistica">
+<h4>Ejemplos de situaciones que se pueden resolver con regresión logística:<a class="headerlink" href="#ejemplos-de-situaciones-que-se-pueden-resolver-con-regresion-logistica" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Determinar la probabilidad de que una persona reciba o no un crédito.</p></li>
+<li><p>Determinar la probabilidad de que un estudiante sea admitido o no en una universidad.</p></li>
+<li><p>Determinar la probabilidad de que un paciente tenga una enfermedad o no</p></li>
+</ul>
+</div>
+<div class="section" id="ejemplo-3">
+<h4>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">¶</a></h4>
+<p>Calculemos la probabilidad de que una persona sea admitida en una prestigiosa universidad dado su puntaje en la prueba GMAT, su promedio del pregrado y sus años de experiencia laboral. Si la persona fue admitida, la variable de respuesta la clasificará con el número 1; de lo contrario, la variable tomará el valor de 0. Comenzaremos cargando los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosLogistica.xlsx&quot;</span><span class="p">)</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Admitido</th>
+      <th>GMAT</th>
+      <th>Promedio</th>
+      <th>Experiencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>780</td>
+      <td>4.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>750</td>
+      <td>3.9</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0</td>
+      <td>690</td>
+      <td>3.3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1</td>
+      <td>710</td>
+      <td>3.7</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0</td>
+      <td>680</td>
+      <td>3.9</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>1</td>
+      <td>730</td>
+      <td>3.7</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>0</td>
+      <td>690</td>
+      <td>2.3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>1</td>
+      <td>720</td>
+      <td>3.3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>1</td>
+      <td>740</td>
+      <td>3.3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>0</td>
+      <td>690</td>
+      <td>1.7</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Después de cargar los datos debemos separar la variable de interés, es decir si fue admitido o no, del resto de las variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Elegimos los datos que queremos analizar</span>
+
+<span class="c1"># Definimos todas las variables como variables independientes</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[[</span><span class="s2">&quot;GMAT&quot;</span><span class="p">,</span> <span class="s2">&quot;Promedio&quot;</span><span class="p">,</span> <span class="s2">&quot;Experiencia&quot;</span><span class="p">]]</span>
+
+<span class="c1"># Definimos la variable de respuesta</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[[</span><span class="s2">&quot;Admitido&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, crearemos el modelo de regresión logística:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Creamos conjuntos de datos para entrenamiento y prueba</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Declaramos una instancia del modelo</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos el modelo</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Utilizamos el modelo para predecir</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Camilo\Anaconda3\lib\site-packages\sklearn\linear_model\logistic.py:432: FutureWarning: Default solver will be changed to &#39;lbfgs&#39; in 0.22. Specify a solver to silence this warning.
+  FutureWarning)
+C:\Users\Camilo\Anaconda3\lib\site-packages\sklearn\utils\validation.py:724: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, verificaremos la precisión del modelo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.625
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos ver, el modelo acierta más del 60% de las veces, lo cual nos indica que es probable que estás variables sean pertinentes al momento de predecir si una persona ingresará a una universidad prestigiosa. Sin embargo, se deben tener en cuenta más variables en el modelo para aumentar su precisión.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplos-de-modelos-comunes-de-machine-learning">
+<h2>3. Ejemplos de modelos comunes de <em>machine learning</em><a class="headerlink" href="#ejemplos-de-modelos-comunes-de-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>Los siguientes ejemplos corresponden a una adaptación del material del libro <em>Python Data Science Handbook: Essential Tools for Working with Data</em> de Jake VanderPlas. Son ejemplos ampliamente usados en documentación y no corresponden a implementaciones originales, salvo explicaciones agregadas.</p>
+<div class="section" id="un-ejemplo-de-clasificacion-para-los-datos-iris">
+<h3>3.1. Un ejemplo de clasificación para los datos Iris<a class="headerlink" href="#un-ejemplo-de-clasificacion-para-los-datos-iris" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="el-conjunto-de-datos-iris-contenido-en-el-paquete-seaborn">
+<h4>El conjunto de datos Iris (contenido en el paquete Seaborn)<a class="headerlink" href="#el-conjunto-de-datos-iris-contenido-en-el-paquete-seaborn" title="Permalink to this headline">¶</a></h4>
+<p>El conjunto de datos Iris contiene observaciones de diferentes especies de flores. Para cada observación, se tiene la longitud y ancho de sus sépalos, así como la longitud y ancho de sus pétalos. Adicionalmente, se cuenta con una etiqueta que representa la especie de cada flor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+<span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="exploracion-visual-con-seaborn">
+<h4>Exploración visual con Seaborn<a class="headerlink" href="#exploracion-visual-con-seaborn" title="Permalink to this headline">¶</a></h4>
+<p>Al pasar la columna “species” al parámetro “hue” del método pairplot obtenemos una visualización diferenciada con dispersiones separadas por color.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x27de7052c48&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_46_1.png" src="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_46_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="variables-independientes">
+<h4>Variables independientes<a class="headerlink" href="#variables-independientes" title="Permalink to this headline">¶</a></h4>
+<p>La longitud y ancho de sus sépalos y pétalos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X_iris</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(150, 4)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-dependiente">
+<h4>Variable dependiente<a class="headerlink" href="#variable-dependiente" title="Permalink to this headline">¶</a></h4>
+<p>Etiqueta que representa la especie de cada flor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
+<span class="n">y_iris</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(150,)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="crear-el-modelo-de-clasificacion">
+<h4>Crear el modelo de clasificación<a class="headerlink" href="#crear-el-modelo-de-clasificacion" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Creamos conjuntos de datos para entrenamiento y prueba</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_iris</span><span class="p">,</span> <span class="n">y_iris</span><span class="p">,</span>
+                                                <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Uno de los modelos más sencillos y comunes de clasificación es el <em>Gaussian naive Bayes classifier</em> y, aunque la discusión de la lógica del modelo excede el alcance de este tutorial, su implementación en el paquete scikit-learn es muy sencilla. Por esta razón, lo usaremos a manera de caja negra con el propósito de ilustrar el potencial de este paquete.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span> 
+
+<span class="c1"># Declaramos una instancia del modelo</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos el modelo</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Utilizamos el modelo para predecir</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por último, evaluamos el desempeño del modelo. Recurramos al módulo <code class="docutils literal notranslate"><span class="pre">metrics</span></code> para importar la función <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9736842105263158
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, obtenemos un desempeño superior al 97%, el cual es sorprendentemente alto, pues en la práctica es difícil lograr tal nivel de ajuste.</p>
+</div>
+</div>
+<div class="section" id="analisis-de-componentes-principales">
+<h3>3.2 Análisis de Componentes Principales<a class="headerlink" href="#analisis-de-componentes-principales" title="Permalink to this headline">¶</a></h3>
+<p>El análisis de componentes principales, frecuentemente usado en reducción de dimensionalidad, consiste en encontrar las direcciones en las que se encuentra la mayor variabilidad del conjunto de datos con base en sus valores y vectores propios. La discusión del método en profundidad excede el alcance de este tutorial, pero su implementación con el paquete scikit-learn es sencilla. En este caso, tenemos cuatro variables independientes y queremos reducir esas dimensiones a dos, por lo cual aplicaremos el método indicando que nos interesan dos componentes principales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>  <span class="c1"># 1. Elegir el modelo deseado de la clase correspondiente en Scikit Learn</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>            <span class="c1"># 2. Instanciar el modelo (con los hiper-parámetros deseados; </span>
+                                       <span class="c1">#    en este caso, queremos dos de las componentes principales)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_iris</span><span class="p">)</span>                      <span class="c1"># 3. Ajustar el modelo (basta con incluir X)</span>
+<span class="n">X_2D</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_iris</span><span class="p">)</span>         <span class="c1"># 4. Transformar el modelo a dos dimensiones </span>
+                                       <span class="c1"># (se usa transformar en lugar de predecir por el tipo de modelo en cuestión)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mediante PCA, cambiamos el espacio de variables. En lugar de expresar el problema en términos de las cuatro variables correspondientes a las medidas de los sépalos y pétalos, lo expresamos en función de dos variables auxiliares (<code class="docutils literal notranslate"><span class="pre">&quot;PCA1&quot;</span></code> y <code class="docutils literal notranslate"><span class="pre">&quot;PCA2&quot;</span></code>) que no hacen parte del conjunto de variables originales sino que responden a alguna combinación de ellas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;PCA1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_2D</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">iris</span><span class="p">[</span><span class="s1">&#39;PCA2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_2D</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s2">&quot;PCA1&quot;</span><span class="p">,</span> <span class="s2">&quot;PCA2&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_61_0.png" src="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_61_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="modelo-de-clustering-para-iris">
+<h3>3.3 Modelo de <em>clustering</em> para Iris<a class="headerlink" href="#modelo-de-clustering-para-iris" title="Permalink to this headline">¶</a></h3>
+<p>Los modelos de clustering buscan encontrar grupos “naturales” en el conjunto de datos. Un modelo común es el modelo de mezcla Gaussiana (GMM: Gaussian Mixture Model), al cual debe pasársele como parámetro el número de <em>clusters</em> o grupos que se desean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span> <span class="k">as</span> <span class="n">GMM</span> <span class="c1"># 1. Importar el modelo deseado a partir de la clase respectiva</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GMM</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">covariance_type</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)</span>  <span class="c1"># 2. Instanciar el modelo con parámetros deseados</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_iris</span><span class="p">)</span>                    <span class="c1"># 3. Entrenar (no hace falta Y por ser modelo no supervisado)</span>
+<span class="n">y_gmm</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_iris</span><span class="p">)</span>        <span class="c1"># 4. Determinar los grupos o clusters</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, nos interesa visualizar los resultados. Como el problema original está en cuatro dimensiones y no podríamos graficarlo, optamos por graficarlo en una proyección a dos variables, aprovechando que ya contábamos con una transformación a dos variables a partir del ejercicio de componentes principales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_gmm</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s2">&quot;PCA1&quot;</span><span class="p">,</span> <span class="s2">&quot;PCA2&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">iris</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;species&#39;</span><span class="p">,</span>
+           <span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;cluster&#39;</span><span class="p">,</span> <span class="n">fit_reg</span> <span class="o">=</span> <span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_65_0.png" src="../../../_images/TUTORIAL - Herramientas para el analisis estadistico_65_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="material-adicional">
+<h2>Material adicional<a class="headerlink" href="#material-adicional" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>scikit-learn org. (2020). Machine Learning in Python. 2 de Diciembre de 2020, de scikit-learn Sitio web: <a class="reference external" href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a></p></li>
+</ul>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>J. VanderPlas (2016) <em>Python Data Science Handbook: Essential Tools for Working with Data</em> O’Reilly Media, Inc.</p></li>
+<li><p>scikit-learn developers . (2020). Demo of DBSCAN clustering algorithm. 11 Diciembre 2020, de scikit-learn Sitio web: <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html#sphx-glr-auto-examples-cluster-plot-dbscan-py">https://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html#sphx-glr-auto-examples-cluster-plot-dbscan-py</a></p></li>
+</ul>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Camilo Hernando Gomez Castro, Ariadna de Ávila, Camilo Falla Moreno, Juan David Reyes, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización</strong>: 01/09/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S7 - Herramientas para el analisis estadistico/S7.TU1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

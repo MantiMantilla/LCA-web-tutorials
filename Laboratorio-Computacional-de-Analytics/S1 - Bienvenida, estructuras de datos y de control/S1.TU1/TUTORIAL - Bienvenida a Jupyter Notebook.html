@@ -1,0 +1,939 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celdas, variables y tipos de datos, importación de paquetes, y errores &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU1/TUTORIAL - Bienvenida a Jupyter Notebook.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU1/TUTORIAL - Bienvenida a Jupyter Notebook.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU1/TUTORIAL - Bienvenida a Jupyter Notebook.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Celdas, variables y tipos de datos, importación de paquetes, y errores
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requisitos">
+     Requisitos
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objetivos">
+     Objetivos
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#celdas">
+     1. Celdas
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#seleccionar-una-celda">
+       Seleccionar una celda
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#agregar-una-celda">
+       Agregar una celda
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eliminar-una-celda">
+       Eliminar una celda
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejecutar-el-contenido-de-una-celda">
+       Ejecutar el contenido de una celda
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#markdown">
+       1.1. Markdown
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#acceder-al-codigo-de-una-celda-markdown">
+         Acceder al código de una celda Markdown
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#titulos">
+         Títulos
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilizamos-el-primer-nivel-de-jerarquia-para-el-titulo-del-notebook">
+   Utilizamos el primer nivel de jerarquía para el título del Notebook.
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utilizamos-el-segundo-nivel-de-jerarquia-para-los-titulos-de-las-secciones">
+     Utilizamos el segundo nivel de jerarquía para los títulos de las secciones.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#utilizamos-el-tercer-nivel-de-jerarquia-para-los-titulos-de-las-subsecciones">
+       Utilizamos el tercer nivel de jerarquía para los títulos de las subsecciones.
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#utilizamos-el-cuarto-nivel-de-jerarquia-para-escribir-un-texto-en-negrilla">
+         Utilizamos el cuarto nivel de jerarquía para escribir un texto en negrilla.
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#utilizamos-el-quinto-nivel-de-jerarquia-para-escribir-un-texto-en-negrilla-y-cursiva">
+           Utilizamos el quinto nivel de jerarquía para escribir un texto en negrilla y cursiva.
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#formulas">
+         Fórmulas
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#imagenes">
+         Imágenes
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#quieres-intentarlo-accede-a-esta-celda-pega-una-imagen-y-ejecuta-la-celda-para-visualizarla">
+           ¿Quieres intentarlo? Accede a esta celda, pega una imagen y ejecuta la celda para visualizarla.
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code">
+       1.2. Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variables-y-tipos-de-datos">
+     2. Variables y tipos de datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variables">
+       2.1. Variables
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#declaracion">
+         Declaración
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#obtener-el-tipo-de-una-variable">
+         Obtener el tipo de una variable
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cadenas-de-caracteres">
+       2.2. Cadenas de caracteres
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numeros">
+       2.3. Números
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#operaciones-con-numeros">
+         Operaciones con números
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#imprimir-una-cadena-de-caracteres-y-una-variable-con-un-solo-print">
+         Imprimir una cadena de caracteres y una variable con un solo
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           print
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#valores-logicos">
+       2.4. Valores lógicos
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#cambio-de-tipo-de-una-variable">
+         Cambio de tipo de una variable
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importar-paquetes">
+     3. Importar paquetes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#erorres">
+     4. Erorres
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nameerror">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         NameError
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#zerodivisionerror">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ZeroDivisionError
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tips">
+     Tips
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tip-1">
+       Tip 1
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tip-2">
+       Tip 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recursos-adicionales">
+     Recursos adicionales
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creditos">
+     Créditos
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="celdas-variables-y-tipos-de-datos-importacion-de-paquetes-y-errores">
+<h1>Celdas, variables y tipos de datos, importación de paquetes, y errores<a class="headerlink" href="#celdas-variables-y-tipos-de-datos-importacion-de-paquetes-y-errores" title="Permalink to this headline">¶</a></h1>
+<p>Al iniciar el desarrollo de un proyecto de analítica de datos debemos elegir el lenguaje de programación y la aplicación que utilizaremos para aplicar dicho lenguaje. En este tutorial exploraremos como utilizar el lenguaje Python en la aplicación Jupyter Notebook.</p>
+<div class="section" id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<p>Para desarrollar este tutorial necesitarás:</p>
+<ul class="simple">
+<li><p>Descargar e instalar la aplicación Jupyter Notebook.</p></li>
+</ul>
+</div>
+<div class="section" id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+<p>Al final de este tutorial podrás:</p>
+<p><strong>1.</strong> Comprender los usos y las características principales de algunos tipos de celdas que puedes crear en un Jupyter Notebook.<br>
+<strong>2.</strong> Declarar una variable e identificar su tipo.<br>
+<strong>3.</strong> Importar y utilizar paquetes.<br>
+<strong>4.</strong> Comprender algunos de los tipos de errores que te pueden ocurrir.<br></p>
+</div>
+<div class="section" id="celdas">
+<h2>1. Celdas<a class="headerlink" href="#celdas" title="Permalink to this headline">¶</a></h2>
+<p>En un Jupyter Notebook podemos insertar diversos tipos de celdas. En este tutorial nos enfocaremos en los tipos Code y Markdown.</p>
+<div class="section" id="seleccionar-una-celda">
+<h3>Seleccionar una celda<a class="headerlink" href="#seleccionar-una-celda" title="Permalink to this headline">¶</a></h3>
+<p>Para seleccionar una celda damos un clic sobre esta.</p>
+</div>
+<div class="section" id="agregar-una-celda">
+<h3>Agregar una celda<a class="headerlink" href="#agregar-una-celda" title="Permalink to this headline">¶</a></h3>
+<p>Para agregar una celda tenemos múltiples opciones. Una de ellas es a través de comandos en el teclado: selecccionamos una celda y luego oprimimos la tecla “A” o “B” para agregar una celda arriba o abajo de la seleccionada, respectivamente. De manera predeterminada, el tipo de la celda agregada es Code. Por lo tanto, si queremos cambiar su tipo a Markdown, oprimimos las teclas “Esc+M”. Si queremos que la celda vuelva a ser tipo Code, oprimimos las teclas “Esc+Y”.</p>
+</div>
+<div class="section" id="eliminar-una-celda">
+<h3>Eliminar una celda<a class="headerlink" href="#eliminar-una-celda" title="Permalink to this headline">¶</a></h3>
+<p>Para eliminar una celda tenemos múltiples opciones. Una de ellas es a través de comandos en el teclado: selecccionamos la celda a eliminar y luego oprimimos dos veces la tecla “D”.</p>
+</div>
+<div class="section" id="ejecutar-el-contenido-de-una-celda">
+<h3>Ejecutar el contenido de una celda<a class="headerlink" href="#ejecutar-el-contenido-de-una-celda" title="Permalink to this headline">¶</a></h3>
+<p>Para ejecutar el contenido de una celda seleccionamos la celda que queremos ejecutar y oprimimos las teclas “Shift+enter”. Al ejecutarla, obtenemos el resultado o la salida correspondiente a la celda seleccionada y automáticamente la celda seleccionada pasa a ser la siguiente.</p>
+</div>
+<div class="section" id="markdown">
+<h3>1.1. Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h3>
+<p>Utilizamos este tipo de celdas para escribir texto. Podemos agregar títulos para establecer orden y jerarquía en nuestro Notebook. Asimismo, podemos agregar fórmulas en lenguaje LaTeX y añadir imágenes.</p>
+<div class="section" id="acceder-al-codigo-de-una-celda-markdown">
+<h4>Acceder al código de una celda Markdown<a class="headerlink" href="#acceder-al-codigo-de-una-celda-markdown" title="Permalink to this headline">¶</a></h4>
+<p>Cuando ejecutamos una celda de tipo Markdown, pasamos de ver el código escrito en la celda a ver el resultado de su compilación. Para volver a acceder al código escrito en la celda damos doble clic sobre esta.</p>
+<p><strong>Nota:</strong> te recomendamos acceder a las celdas Markdown de este Notebook para ver la sintaxis correspondiente.</p>
+</div>
+<div class="section" id="titulos">
+<h4>Títulos<a class="headerlink" href="#titulos" title="Permalink to this headline">¶</a></h4>
+<p>Para agregar un título a nuestro Notebook escribimos el símbolo numeral (#) antes del texto que corresponde al título. Podemos agregar desde uno hasta cinco niveles de jerarquía, dependiendo de la cantidad de numerales que antepongamos al título. A continuación encuentras un ejemplo del uso de los niveles de jerarquización de títulos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="utilizamos-el-primer-nivel-de-jerarquia-para-el-titulo-del-notebook">
+<h1>Utilizamos el primer nivel de jerarquía para el título del Notebook.<a class="headerlink" href="#utilizamos-el-primer-nivel-de-jerarquia-para-el-titulo-del-notebook" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="utilizamos-el-segundo-nivel-de-jerarquia-para-los-titulos-de-las-secciones">
+<h2>Utilizamos el segundo nivel de jerarquía para los títulos de las secciones.<a class="headerlink" href="#utilizamos-el-segundo-nivel-de-jerarquia-para-los-titulos-de-las-secciones" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="utilizamos-el-tercer-nivel-de-jerarquia-para-los-titulos-de-las-subsecciones">
+<h3>Utilizamos el tercer nivel de jerarquía para los títulos de las subsecciones.<a class="headerlink" href="#utilizamos-el-tercer-nivel-de-jerarquia-para-los-titulos-de-las-subsecciones" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="utilizamos-el-cuarto-nivel-de-jerarquia-para-escribir-un-texto-en-negrilla">
+<h4>Utilizamos el cuarto nivel de jerarquía para escribir un texto en negrilla.<a class="headerlink" href="#utilizamos-el-cuarto-nivel-de-jerarquia-para-escribir-un-texto-en-negrilla" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="utilizamos-el-quinto-nivel-de-jerarquia-para-escribir-un-texto-en-negrilla-y-cursiva">
+<h5>Utilizamos el quinto nivel de jerarquía para escribir un texto en negrilla y cursiva.<a class="headerlink" href="#utilizamos-el-quinto-nivel-de-jerarquia-para-escribir-un-texto-en-negrilla-y-cursiva" title="Permalink to this headline">¶</a></h5>
+</div>
+</div>
+<div class="section" id="formulas">
+<h4>Fórmulas<a class="headerlink" href="#formulas" title="Permalink to this headline">¶</a></h4>
+<p>Para agregar una fórmula en lenguaje LaTeX es necesario abrirla y cerrarla con el símbolo peso ($).</p>
+<p>Tenemos dos opciones para agregar fórmulas:</p>
+<ol>
+<li><p>Si escribimos un solo símbolo peso al abrir y cerrar la fórmula, esta mantiene su posición dentro del texto. Ejemplo:</p>
+<p>La ecuación general de una recta es <span class="math notranslate nohighlight">\(y = mx + b\)</span>.</p>
+</li>
+<li><p>Si escribimos dos símbolos peso al abrir y cerrar la fórmula, esta aparecerá centrada en la siguiente línea. Ejemplo:</p>
+<p>La ecuación general de una recta es la siguiente: $<span class="math notranslate nohighlight">\(y = mx + b\)</span>$</p>
+</li>
+</ol>
+<p>Asimismo, podemos agregar fórmulas más complejas como esta: <span class="math notranslate nohighlight">\(\sum\limits_{t=1}^{N}\frac{\pi}{1-e^{-\kappa t}}\)</span></p>
+</div>
+<div class="section" id="imagenes">
+<h4>Imágenes<a class="headerlink" href="#imagenes" title="Permalink to this headline">¶</a></h4>
+<p>Para agregar una imagen podemos copiarla y pegarla en la celda.</p>
+<p><img alt="image-5.png" src="Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU1/attachment:image-5.png" /></p>
+<div class="section" id="quieres-intentarlo-accede-a-esta-celda-pega-una-imagen-y-ejecuta-la-celda-para-visualizarla">
+<h5>¿Quieres intentarlo? Accede a esta celda, pega una imagen y ejecuta la celda para visualizarla.<a class="headerlink" href="#quieres-intentarlo-accede-a-esta-celda-pega-una-imagen-y-ejecuta-la-celda-para-visualizarla" title="Permalink to this headline">¶</a></h5>
+</div>
+</div>
+</div>
+<div class="section" id="code">
+<h3>1.2. Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<p>Utilizamos este tipo de celdas para escribir y ejecutar código en el lenguaje Python. Cada celda de código se compone de dos partes:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">In</span></code>: en esta parte de la celda se escribe el código a ejecutar con sus respectivos comentarios; un comentario es una línea de texto que describe el código y no se ejecuta. Con el símbolo numeral (<code class="docutils literal notranslate"><span class="pre">#</span></code>) podemos escribir estos comentarios dentro del código.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Out</span></code>: en esta parte de la celda se visualiza el resultado de ejecutar el código escrito en la parte <code class="docutils literal notranslate"><span class="pre">In</span></code>. Para visualizar el valor de una o varias variables, utilizamos el método <code class="docutils literal notranslate"><span class="pre">print</span></code>. En la sección 2, profundizamos en el uso de este método.</p></li>
+</ol>
+<p><strong>Nota:</strong> cuando la variable a visualizar esta escrita en la última línea de código no es necesario utilizar el método <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
+<p>A continuación se muestra un ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s2">&quot;Con print&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+
+<span class="n">variable2</span> <span class="o">=</span> <span class="s2">&quot;Sin print&quot;</span>
+<span class="n">variable2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variables-y-tipos-de-datos">
+<h2>2. Variables y tipos de datos<a class="headerlink" href="#variables-y-tipos-de-datos" title="Permalink to this headline">¶</a></h2>
+<p>Cuando programamos, declaramos variables para almacenar diversos tipos de datos tales como cadenas de caracteres, números, entre otros. Al declarar una variable, Python identifica de manera automática el tipo de dato al que corresponde. En esta sección, veremos los principales tipos de datos que existen en Python.</p>
+<div class="section" id="variables">
+<h3>2.1. Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="declaracion">
+<h4>Declaración<a class="headerlink" href="#declaracion" title="Permalink to this headline">¶</a></h4>
+<p>Para declarar una variable debes definir el nombre que tendrá tu variable y escribirlo. Luego, con el símbolo igual (<code class="docutils literal notranslate"><span class="pre">=</span></code>) asignas el valor que quieres guardar en la variable. En la siguiente celda puedes ver un ejemplo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s2">&quot;valor a guardar&quot;</span>
+<span class="n">variable</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="obtener-el-tipo-de-una-variable">
+<h4>Obtener el tipo de una variable<a class="headerlink" href="#obtener-el-tipo-de-una-variable" title="Permalink to this headline">¶</a></h4>
+<p>Para obtener el tipo de una variable utilizamos el método <code class="docutils literal notranslate"><span class="pre">type</span></code>. En la subsección “2.2. Cadenas de caracteres” veremos explícitamente como se utiliza este método.</p>
+</div>
+</div>
+<div class="section" id="cadenas-de-caracteres">
+<h3>2.2. Cadenas de caracteres<a class="headerlink" href="#cadenas-de-caracteres" title="Permalink to this headline">¶</a></h3>
+<p>El tipo de dato que Python asigna a las variables que almacenan cadenas texto se llama <code class="docutils literal notranslate"><span class="pre">str</span></code>. Al escribir una cadena de caracteres debes utilizar comillas simples (<code class="docutils literal notranslate"><span class="pre">''</span></code>) o dobles (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>). En la siguiente celda declaramos una variable que guarda una cadena de caracteres y mostramos su valor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable_str</span> <span class="o">=</span> <span class="s2">&quot;Cadena de caracteres&quot;</span>
+<span class="n">variable_str</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al revisar el tipo de la variable <code class="docutils literal notranslate"><span class="pre">variable_str</span></code> obtenemos que efectivamente es una variable de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">variable_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos concatenar variables de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code> con el operador de suma (<code class="docutils literal notranslate"><span class="pre">+</span></code>). Veamos un ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saludo</span> <span class="o">=</span> <span class="s2">&quot;Hola&quot;</span>
+<span class="n">union</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span>
+<span class="n">pregunta</span> <span class="o">=</span> <span class="s2">&quot;¿cómo vas?&quot;</span>
+
+<span class="n">concatenado</span> <span class="o">=</span> <span class="n">saludo</span> <span class="o">+</span> <span class="n">union</span> <span class="o">+</span> <span class="n">pregunta</span>
+<span class="n">concatenado</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>De manera alternativa, el método <code class="docutils literal notranslate"><span class="pre">print</span></code> nos permite concatenar cadenas de caracteres dentro de él.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">saludo</span> <span class="o">+</span> <span class="n">union</span> <span class="o">+</span> <span class="n">pregunta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="numeros">
+<h3>2.3. Números<a class="headerlink" href="#numeros" title="Permalink to this headline">¶</a></h3>
+<p>Python asigna uno de dos tipos de datos a las variables que almacenan números. Para números enteros asigna el tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>, mientras que para números con decimales asigna el tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<p><strong>Nota:</strong> el separador decimal de Python es el punto.</p>
+<p>En la siguiente celda declaramos una variable que guarda un número entero y otra variable que guarda un número con decimales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero_entero</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">numero_con_decimales</span> <span class="o">=</span> <span class="mf">8.75</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Revisemos el tipo de cada variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">numero_entero</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">numero_con_decimales</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al sumar o restar una variable <code class="docutils literal notranslate"><span class="pre">int</span></code> y una variable <code class="docutils literal notranslate"><span class="pre">float</span></code>, el resultado será <code class="docutils literal notranslate"><span class="pre">float</span></code>. Lo mismo sucede con la mulplicación y la división.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suma</span> <span class="o">=</span> <span class="n">numero_entero</span> <span class="o">+</span> <span class="n">numero_con_decimales</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">suma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">0</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="operaciones-con-numeros">
+<h4>Operaciones con números<a class="headerlink" href="#operaciones-con-numeros" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><center>Operación<center></p></th>
+<th class="text-align:center head"><p><center>Operador<center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Suma</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Resta</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Multiplicación</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Potencia</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>División</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>División entera</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Módulo o residuo<br/>de una división entera</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Veamos algunos ejemplos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero_con_decimales</span><span class="o">/</span><span class="n">numero_entero</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero_con_decimales</span><span class="o">//</span><span class="n">numero_entero</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='Seccion'></a></p>
+</div>
+<div class="section" id="imprimir-una-cadena-de-caracteres-y-una-variable-con-un-solo-print">
+<h4>Imprimir una cadena de caracteres y una variable con un solo <code class="docutils literal notranslate"><span class="pre">print</span></code><a class="headerlink" href="#imprimir-una-cadena-de-caracteres-y-una-variable-con-un-solo-print" title="Permalink to this headline">¶</a></h4>
+<p>Para poder imprimir una cadena de caracteres y una variable con un solo <code class="docutils literal notranslate"><span class="pre">print</span></code>, debemos escribir la letra <code class="docutils literal notranslate"><span class="pre">f</span></code> antes de la cadena de caracteres y escribir la variable entre llaves (<code class="docutils literal notranslate"><span class="pre">{}</span></code>), como si fuera parte de la cadena de caracteres.</p>
+<p>A continuación se muestra un ejemplo de lo anterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residuo</span> <span class="o">=</span> <span class="n">numero_con_decimales</span><span class="o">%</span><span class="k">numero_entero</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El residuo de la división entera de 8.75 sobre 3 es igual a: </span><span class="si">{</span><span class="n">residuo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="valores-logicos">
+<h3>2.4. Valores lógicos<a class="headerlink" href="#valores-logicos" title="Permalink to this headline">¶</a></h3>
+<p>El tipo de dato que Python asigna a las variables que almacenan valores lógicos se llama <code class="docutils literal notranslate"><span class="pre">bool</span></code>. En Python, los dos posibles valores lógicos son <code class="docutils literal notranslate"><span class="pre">True</span></code> y <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p><strong>Nota:</strong> la mayúscula en la primera letra de cada uno de los valores lógicos es escencial para que Python los identifique.</p>
+<p>En la siguiente celda declaramos una variable que guarda un valor lógico y revisamos su tipo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valor_logico</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">valor_logico</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cambio-de-tipo-de-una-variable">
+<h4>Cambio de tipo de una variable<a class="headerlink" href="#cambio-de-tipo-de-una-variable" title="Permalink to this headline">¶</a></h4>
+<p>En caso de ser necesario, podemos utilizar los métodos <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> y <code class="docutils literal notranslate"><span class="pre">float</span></code> para cambiarle el tipo a nuestras variables.</p>
+<p>Retomemos el ejemplo de la subsección <a class="reference external" href="#Seccion">Imprimir una cadena de caracteres y una variable con un solo print</a>. Una alternativa para visualizar el mismo resultado es la siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residuo</span> <span class="o">=</span> <span class="n">numero_con_decimales</span><span class="o">%</span><span class="k">numero_entero</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El residuo de la división entera de 8.75 sobre 3 es igual a: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">residuo</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="importar-paquetes">
+<h2>3. Importar paquetes<a class="headerlink" href="#importar-paquetes" title="Permalink to this headline">¶</a></h2>
+<p>Frecuentemente es necesario apoyarse de paquetes para realizar tareas específicas, dado que estos contienen variables y funciones que son de ayuda a la hora de realizar código. Así, evitamos invertir tiempo en implementar código ya existente. Adicionalmente, los podemos utilizar para acceder rápidamente a valores conocidos tales como las constantes matemáticas. Por ejemplo:</p>
+<ul class="simple">
+<li><p>Existe la función <code class="docutils literal notranslate"><span class="pre">random</span></code> dentro del paquete <code class="docutils literal notranslate"><span class="pre">random</span></code>.</p></li>
+<li><p>Existen las funciones <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> y <code class="docutils literal notranslate"><span class="pre">exp</span></code> dentro del paquete <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p></li>
+</ul>
+<p>En Python hay diversas formas de importar funciones de paquetes. Primero, para importar una única función de un paquete escribimos <code class="docutils literal notranslate"><span class="pre">from</span></code> seguido del nombre del paquete y luego <code class="docutils literal notranslate"><span class="pre">import</span></code> seguido del nombre de la función. En la siguiente celda importamos y utilizamos una función.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="n">aleatorio</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">random</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tu número de la suerte es &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">aleatorio</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Asimismo, podemos importar múltiples funciones de un paquete de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span><span class="n">exp</span>
+
+<span class="n">raiz</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> 
+<span class="n">expo</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La raiz cuadrada de 9 es: </span><span class="si">{</span><span class="n">raiz</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La constante de euler (e) elevada al cubo es: </span><span class="si">{</span><span class="n">expo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por otro lado, existe la opción de importar todo el paquete y acceder a sus funciones como se muestra a continuación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> 
+
+<span class="n">raiz</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">expo</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La raiz cuadrada de 9 es: </span><span class="si">{</span><span class="n">raiz</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La constante de euler (e) elevada al cubo es: </span><span class="si">{</span><span class="n">expo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Adicionalmente, al importar todo un paquete puedes ponerle un alias para abreviar el nombre del paquete al utilizar sus funciones. En la siguiente celda podrás ver un ejemplo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+
+<span class="n">raiz</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">expo</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La raiz cuadrada de 9 es: </span><span class="si">{</span><span class="n">raiz</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La constante de euler (e) elevada al cubo es: </span><span class="si">{</span><span class="n">expo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="erorres">
+<h2>4. Erorres<a class="headerlink" href="#erorres" title="Permalink to this headline">¶</a></h2>
+<p>Cuando Python no es capaz de ejecutar el código escrito en una celda, nos aparece una excepción en el <code class="docutils literal notranslate"><span class="pre">Out</span></code> indicandonos que línea esta generando el error, el tipo de error, y generalmente su causa. Esta información es útil, ya que nos da indicios de como corregir el error.</p>
+<div class="section" id="nameerror">
+<h3><code class="docutils literal notranslate"><span class="pre">NameError</span></code><a class="headerlink" href="#nameerror" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">suma</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">suma</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La anterior excepción nos muestra que el error se produjo en la segunda línea del código, en la cual estamos realizando la suma de <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>. Adicionalmente, el error nos explica que el error se debe a que la variable <code class="docutils literal notranslate"><span class="pre">b</span></code> no está definida. Después de interpretar la excepción, podemos corregir este error de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">suma</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">suma</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="zerodivisionerror">
+<h3><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code><a class="headerlink" href="#zerodivisionerror" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">division</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="n">d</span>
+<span class="n">division</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, la excepción se debe a que la división entre 0 no es posible. Podemos corregir este error de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">division</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="n">d</span>
+<span class="n">division</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tip-1">
+<h3>Tip 1<a class="headerlink" href="#tip-1" title="Permalink to this headline">¶</a></h3>
+<p>Cuando te salga un error que no entiendas, te recomendamos copiar la última línea del error y pegarla en tu buscador web de preferencia. En internet hay una gran variedad de foros en los que se explican la mayoría de los errores que te pueden ocurrir. Te recomendamos acceder a los enlaces de la página Stack Overflow.</p>
+</div>
+<div class="section" id="tip-2">
+<h3>Tip 2<a class="headerlink" href="#tip-2" title="Permalink to this headline">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">help</span></code> de Python te permite consultar la documentación de cualquier método/función.</p>
+</div>
+</div>
+<div class="section" id="recursos-adicionales">
+<h2>Recursos adicionales<a class="headerlink" href="#recursos-adicionales" title="Permalink to this headline">¶</a></h2>
+<p>Para finalizar nuestro primer tutorial, te invitamos a reforzar y complementar tu conocimiento con los siguientes recursos:</p>
+<ul class="simple">
+<li><p>La página de iPython donde se encuentra la documentación, ejemplos y una variedad de recursos. <a class="reference external" href="http://ipython.org/">http://ipython.org/</a></p></li>
+<li><p>La página nbviewer donde se encuentran ejemplos y tutoriales de Jupyter Notebooks. <a class="reference external" href="https://nbviewer.jupyter.org/">https://nbviewer.jupyter.org/</a></p></li>
+<li><p>El libro del curso: <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">https://jakevdp.github.io/PythonDataScienceHandbook/</a></p></li>
+</ul>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Juan Felipe Rengifo Méndez, Ariadna Sofía de Ávila Bula, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización</strong>: 06/08/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

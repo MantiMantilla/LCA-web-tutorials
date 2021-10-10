@@ -1,0 +1,1222 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualización &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requisitos">
+   Requisitos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivos">
+   Objetivos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libreria-plotly">
+   1. Librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plotly
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declarar-una-figura-en-plotly">
+     1.1. Declarar una figura en
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       plotly
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#declarar-una-figura-como-un-diccionario">
+       Declarar una figura como un diccionario
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#declarar-una-figura-como-un-objeto-grafico">
+       Declarar una figura como un objeto gráfico
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tipos-de-visualizaciones">
+     1.2. Tipos de visualizaciones
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#principales-tipos-de-visualizaciones">
+       Principales tipos de visualizaciones
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#grafico-de-linea">
+       Gráfico de línea
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#serie-de-tiempo">
+       Serie de tiempo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#diagrama-de-caja">
+       Diagrama de caja
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libreria-ipywidgets">
+   2. Librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tabla-con-los-principales-tipos-de-controles">
+     Tabla con los principales tipos de controles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controles-simples">
+     2.1. Controles simples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#barra-deslizante">
+       Barra deslizante
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#casilla-de-verificacion">
+       Casilla de verificación
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integracion-con-bases-de-datos">
+     2.2.  Integración con bases de datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#filtrar-valores-en-una-base-de-datos">
+       Filtrar valores en una base de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#controles-con-interactive">
+       Controles con
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         interactive
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotly-con-ipywidgets">
+   3.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plotly
+    </span>
+   </code>
+   con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="visualizacion">
+<h1>Visualización<a class="headerlink" href="#visualizacion" title="Permalink to this headline">¶</a></h1>
+<p>Cuando abordamos un proyecto de analítica de datos nos enfrentamos al siguiente reto: ¿Cómo generar valor a partir de grandes volúmenes de información recolectada? Visualizar la información a través de mapas o gráficos simplifica este reto, ya que facilita la identificación de tendencias, patrones y valores atípicos. Usualmente utilizamos las visualizaciones para decidir cómo orientar nuestro análisis.</p>
+<p>En este tutorial establecemos nociones fundamentales sobre el uso de las librerías <code class="docutils literal notranslate"><span class="pre">plotly</span></code> y <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> para integrarlas en procesos de visualización de datos.</p>
+<div class="section" id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<p>Para desarrollar este tutorial necesitarás:</p>
+<ul class="simple">
+<li><p>Utilizar estructuras de datos.</p></li>
+<li><p>Implementar estructuras de control.</p></li>
+<li><p>Utilizar la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+<p>Al final de este tutorial podrás:</p>
+<p><strong>1.</strong> Crear diferentes tipos de visualizaciones en <code class="docutils literal notranslate"><span class="pre">plotly</span></code> y personalizarlas de manera amigable. <br />
+<strong>2.</strong> Utilizar <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> para explorar datos de forma interactiva. <br />
+<strong>3.</strong> Crear visualizaciones interactivas en <code class="docutils literal notranslate"><span class="pre">plotly</span></code> con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code>.</p>
+</div>
+<div class="section" id="libreria-plotly">
+<h2>1. Librería <code class="docutils literal notranslate"><span class="pre">plotly</span></code><a class="headerlink" href="#libreria-plotly" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">plotly</span></code> es una librería interactiva de uso abierto para el lenguaje Python, que soporta más de 40 tipos de visualizaciones únicas. Estas cubren una amplia gama de casos de uso estadístico, financiero, geográfico y científico. Esta librería nos permite crear visualizaciones interactivas que podemos mostrar en Jupyter Notebook, guardar en archivos HTML o utilizar como parte de aplicaciones web construidas con Python utilizando Dash.</p>
+<div class="section" id="declarar-una-figura-en-plotly">
+<h3>1.1. Declarar una figura en <code class="docutils literal notranslate"><span class="pre">plotly</span></code><a class="headerlink" href="#declarar-una-figura-en-plotly" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="declarar-una-figura-como-un-diccionario">
+<h4>Declarar una figura como un diccionario<a class="headerlink" href="#declarar-una-figura-como-un-diccionario" title="Permalink to this headline">¶</a></h4>
+<p>Declarar una figura haciendo uso de una estructura de datos conocida como un diccionario es el primer paso para entender el funcionamiento de <code class="docutils literal notranslate"><span class="pre">plotly</span></code>. Te recomendamos importar el módulo <code class="docutils literal notranslate"><span class="pre">plotly.io</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">pio</span></code>(su alias más frecuentemente usado), como se muestra a continuación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación definimos los componentes necesarios para declarar una figura haciendo uso de un diccionario.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declaramos una figura.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="c1"># Definimos los datos para crear una figura.</span>
+        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="c1"># Definimos la primera serie de datos de nuestra figura.</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>   <span class="c1"># Tipo de visualización. En este caso definimos un gráfico de barras.</span>
+                        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>  <span class="c1"># Eje x. En este caso corresponde a los nombres de las categorías del eje.</span>
+                        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>   <span class="c1"># Eje y. En este caso corresponde a la frecuencia observada para cada categoría.</span>
+                    <span class="p">},</span> 
+            
+                    <span class="c1"># Definimos la segunda serie de datos de nuestra figura.</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+       <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Después de definir la figura utilizamos la función <code class="docutils literal notranslate"><span class="pre">show</span></code> para mostrarla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pio</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="declarar-una-figura-como-un-objeto-grafico">
+<h4>Declarar una figura como un objeto gráfico<a class="headerlink" href="#declarar-una-figura-como-un-objeto-grafico" title="Permalink to this headline">¶</a></h4>
+<p>Declarar una figura haciendo uso de un objeto gráfico tiene ventajas frente a declararla como un diccionario. De esta manera, podemos:</p>
+<ol class="simple">
+<li><p>Realizar una validación de los datos de manera precisa.</p></li>
+<li><p>Acceder a las propiedades de los objetos gráficos utilizando dos tipos de sintaxis: la de los diccionarios (e. g., <code class="docutils literal notranslate"><span class="pre">fig['layout']</span></code>) y la de las clases (e. g., <code class="docutils literal notranslate"><span class="pre">fig.layout</span></code>).</p></li>
+<li><p>Acceder a funciones útiles al momento de modificar figuras (e. g., <code class="docutils literal notranslate"><span class="pre">add_trace</span></code> y <code class="docutils literal notranslate"><span class="pre">update_layout</span></code>).</p></li>
+</ol>
+<p>Para declarar una figura haciendo uso de un objeto gráfico, te recomendamos importar el módulo <code class="docutils literal notranslate"><span class="pre">plotly.graph_objects</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">go</span></code> (su alias más frecuentemente usado), como se muestra a continuación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación definimos los componentes necesarios para declarar una figura haciendo uso de un objeto gráfico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declaramos una figura.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
+                <span class="c1"># Definimos los datos para crear una figura.</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="c1"># Definimos la primera serie de datos de nuestra figura.</span>
+                        <span class="c1"># Tipo de visualización. En este caso definimos un gráfico de barras.</span>
+                        <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+                                <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="c1"># Eje x. En este caso corresponde a los nombres de las categorias del eje.</span>
+                                <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># Eje y. En este caso corresponde a la frecuencia observada para cada categoria.</span>
+                              <span class="p">),</span>
+
+                        <span class="c1"># Definimos la segunda serie de datos de nuestra figura.</span>
+                        <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+                                <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+                                <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+                              <span class="p">)</span>
+                       <span class="p">]</span>
+                <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Despúes de definir la figura, utilizamos el método <code class="docutils literal notranslate"><span class="pre">show</span></code> para mostrarla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tipos-de-visualizaciones">
+<h3>1.2. Tipos de visualizaciones<a class="headerlink" href="#tipos-de-visualizaciones" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="principales-tipos-de-visualizaciones">
+<h4>Principales tipos de visualizaciones<a class="headerlink" href="#principales-tipos-de-visualizaciones" title="Permalink to this headline">¶</a></h4>
+<p>La siguiente tabla asocia algunos de los métodos del módulo <code class="docutils literal notranslate"><span class="pre">go</span></code> con el respectivo tipo de visualización que genera.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><center>Método<center></p></th>
+<th class="text-align:left head"><p><center>Tipo de visualización<center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Scatter</span></code></p></td>
+<td class="text-align:left"><p>Gráfico de línea, dispersión y burbuja</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Hist</span></code></p></td>
+<td class="text-align:left"><p>Histogramas</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Bar</span></code></p></td>
+<td class="text-align:left"><p>Gráfico de barras</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Waterfall</span></code></p></td>
+<td class="text-align:left"><p>Gráfico de cascada</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Pie</span></code></p></td>
+<td class="text-align:left"><p>Diagrama de torta</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Box</span></code></p></td>
+<td class="text-align:left"><p>Diagrama de caja</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Splom</span></code></p></td>
+<td class="text-align:left"><p>Matriz de dispersión</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="grafico-de-linea">
+<h4>Gráfico de línea<a class="headerlink" href="#grafico-de-linea" title="Permalink to this headline">¶</a></h4>
+<p>Para crear un gráfico de línea utilizamos colecciones de objetos llamadas trazos (<code class="docutils literal notranslate"><span class="pre">traces</span></code>). En primer lugar, creamos un objeto figura. Posteriormente, utilizamos el método <code class="docutils literal notranslate"><span class="pre">add_trace</span></code> para agregar un trazo por cada una de las series de datos que queremos mostrar en nuestra figura. Para finalizar, modificaremos el gráfico añadiéndole títulos y leyendas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos el objeto figura.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="c1"># Agregamos el primer trazo.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+                    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2017</span><span class="p">,</span><span class="mi">2018</span><span class="p">,</span><span class="mi">2019</span><span class="p">,</span><span class="mi">2020</span><span class="p">],</span> <span class="c1"># Coordenadas en el eje x.</span>
+                    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">],</span>         <span class="c1"># Coordenadas en el eje y.</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>                 <span class="c1"># Nombre de la serie.</span>
+                  <span class="p">)</span>
+            <span class="p">)</span>
+
+<span class="c1"># Agregamos el segundo trazo.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+                    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2017</span><span class="p">,</span><span class="mi">2018</span><span class="p">,</span><span class="mi">2019</span><span class="p">,</span><span class="mi">2020</span><span class="p">],</span> <span class="c1"># Coordenadas en el eje x.</span>
+                    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">38</span><span class="p">],</span>         <span class="c1"># Coordenadas en el eje y.</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span>                 <span class="c1"># Nombre de la serie.</span>
+                  <span class="p">)</span>
+            <span class="p">)</span>
+
+<span class="c1"># Modificamos el estilo del diseño.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="c1"># Definimos el título del gráfico.</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Unidades Vendidas entre 2017 y 2020&quot;</span><span class="p">,</span>
+        <span class="c1"># Definimos el título del eje x.</span>
+        <span class="n">xaxis_title</span> <span class="o">=</span> <span class="s2">&quot;Año&quot;</span><span class="p">,</span>
+        <span class="c1"># Definimos el título del eje y.</span>
+        <span class="n">yaxis_title</span> <span class="o">=</span> <span class="s2">&quot;Unidades Vendidas&quot;</span><span class="p">,</span>
+        <span class="c1"># Definimos el título de la leyenda.</span>
+        <span class="n">legend_title</span> <span class="o">=</span> <span class="s2">&quot;Producto&quot;</span><span class="p">,</span>
+        <span class="c1"># Agregamos los años como etiquetas del eje x.</span>
+        <span class="n">xaxis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                      <span class="n">tickmode</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="c1"># Modo de las etiquetas.</span>
+                      <span class="n">tick0</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">,</span>        <span class="c1"># Etiqueta de inicio. En este caso, 2017.</span>
+                      <span class="n">dtick</span> <span class="o">=</span> <span class="mi">1</span>            <span class="c1"># Aumento entre etiquetas. En este caso, 1.</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+<span class="c1"># Mostramos la figura.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="serie-de-tiempo">
+<h4>Serie de tiempo<a class="headerlink" href="#serie-de-tiempo" title="Permalink to this headline">¶</a></h4>
+<p>A continuación, crearemos una serie de tiempo y modificaremos los siguientes elementos del gráfico: el color de la línea, el color de fondo del área del gráfico y los colores de los ejes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos la librería de números aleatorios.</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># Declaramos una figura.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="c1"># Tipo de visualización. En este caso definimos una serie de tiempo.</span>
+                        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+                                    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>              <span class="c1"># Coordenadas en el eje x. Estas se encuentran entre 0 y 100.</span>
+                                    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">random</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>   <span class="c1"># Coordenadas en el eje y. Estas de detrminan de manera aleatoria.</span>
+                                    <span class="n">line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">scatter</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;#228b22&quot;</span><span class="p">)</span> <span class="c1"># Modificamos el color de la línea. Código HEX. </span>
+                                  <span class="p">)</span>
+                       <span class="p">],</span>
+                <span class="c1"># Modificamos el estilo del diseño.       </span>
+                <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
+                                    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Serie de tiempo&quot;</span><span class="p">,</span>  <span class="c1"># Definimos el título del gráfico.</span>
+                                    <span class="n">plot_bgcolor</span> <span class="o">=</span> <span class="s2">&quot;#1a2421&quot;</span><span class="p">,</span>   <span class="c1"># Modificamos el fondo del área del gráfico. Código HEX.</span>
+                                  <span class="p">)</span>
+                <span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">gridcolor</span> <span class="o">=</span> <span class="s1">&#39;#d3d3d3&#39;</span><span class="p">)</span> <span class="c1"># Modificamos los colores del eje x. Código HEX.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">gridcolor</span> <span class="o">=</span> <span class="s1">&#39;#d3d3d3&#39;</span><span class="p">)</span> <span class="c1"># Modificamos los colores del eje y. Código HEX.</span>
+
+<span class="c1"># Mostramos la figura.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="diagrama-de-caja">
+<h4>Diagrama de caja<a class="headerlink" href="#diagrama-de-caja" title="Permalink to this headline">¶</a></h4>
+<p>A continuación crearemos una diagrama de caja.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declaramos una figura.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">[</span> 
+                    <span class="c1"># Tipo de visualización. En este caso definimos un diagrama de caja.</span>
+                    <span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span>
+                            <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">random</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span> <span class="c1"># Definimos los valores de la serie de datos.</span>
+                            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Grupo 1&quot;</span><span class="p">,</span>                       <span class="c1"># Definimos nombre de la serie de datos.</span>
+                            <span class="n">marker_color</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span>                 <span class="c1"># Definimos el color del diagrama.</span>
+                               <span class="p">),</span>
+                    <span class="c1"># Tipo de visualización. En este caso definimos un diagrama de caja.</span>
+                    <span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span>
+                            <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">random</span><span class="p">()</span><span class="o">-</span><span class="mf">.5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span> <span class="c1"># Definimos los valores de la serie de datos.</span>
+                            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Grupo 2&quot;</span><span class="p">,</span>                        <span class="c1"># Definimos nombre de la serie de datos.</span>
+                            <span class="n">marker_color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>                   <span class="c1"># Definimos color del diagrama.</span>
+                               <span class="p">)</span> 
+                       <span class="p">],</span>
+                <span class="c1"># Modificamos el estilo del diseño.</span>
+                <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
+                                    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Distribución valores&quot;</span><span class="p">,</span>  <span class="c1"># Definimos el título del gráfico.</span>
+                                    <span class="n">xaxis_title</span> <span class="o">=</span> <span class="s2">&quot;Grupos&quot;</span><span class="p">,</span>          <span class="c1"># Definimos el título del eje x.</span>
+                                    <span class="n">yaxis_title</span> <span class="o">=</span> <span class="s2">&quot;Valor&quot;</span>            <span class="c1"># Definimos el título del eje y.</span>
+                                  <span class="p">)</span>
+                <span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="libreria-ipywidgets">
+<h2>2. Librería <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#libreria-ipywidgets" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> es una librería de controles HTML interactivos para Jupyter Notebook. Esta librería agrega interactividad a los gráficos y al manejo de datos, al otorgar control a los usuarios por medio de controles. Te recomendamos importar la librería <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">widgets</span></code> (su alias más frecuentemente usado), como se muestra a continuación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tabla-con-los-principales-tipos-de-controles">
+<h3>Tabla con los principales tipos de controles<a class="headerlink" href="#tabla-con-los-principales-tipos-de-controles" title="Permalink to this headline">¶</a></h3>
+<p>A continuación se presenta una tabla que asocia algunos de los principales métodos del objeto <code class="docutils literal notranslate"><span class="pre">widgets</span></code>, que importamos anteriormente, con su respectivo tipo de control.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><center>Método<center></p></th>
+<th class="text-align:left head"><p><center>Tipo de control<center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">IntSlider*</span></code></p></td>
+<td class="text-align:left"><p>Control deslizante</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">IntRangeSlider*</span></code></p></td>
+<td class="text-align:left"><p>Control deslizante (selecciona un rango)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">IntProgress*</span></code></p></td>
+<td class="text-align:left"><p>Barra que muestra el progreso dentro de un total</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">ToggleButton</span></code></p></td>
+<td class="text-align:left"><p>Botón de activación</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Checkbox</span></code></p></td>
+<td class="text-align:left"><p>Caja de selección</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Dropdown</span></code></p></td>
+<td class="text-align:left"><p>Lista desplegable</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">RadioButtons</span></code></p></td>
+<td class="text-align:left"><p>Botón para seleccionar entre múltiples opciones</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Select</span></code></p></td>
+<td class="text-align:left"><p>Cuadro de selección</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">SelectMultiple</span></code></p></td>
+<td class="text-align:left"><p>Cuadro de selección múltiple</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">SelectionSlider</span></code></p></td>
+<td class="text-align:left"><p>Control deslizante de selección entre múltiples opciones</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Text</span></code></p></td>
+<td class="text-align:left"><p>Cuadro de texto</p></td>
+</tr>
+</tbody>
+</table>
+<p>*Este método se utiliza para números enteros, para el caso de números decimales reemplazamos <code class="docutils literal notranslate"><span class="pre">Int</span></code> por <code class="docutils literal notranslate"><span class="pre">Float</span></code>. Por ejemplo, el método <code class="docutils literal notranslate"><span class="pre">IntSlider</span></code> para números decimales es <code class="docutils literal notranslate"><span class="pre">FloatSlider</span></code>.</p>
+</div>
+<div class="section" id="controles-simples">
+<h3>2.1. Controles simples<a class="headerlink" href="#controles-simples" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="barra-deslizante">
+<h4>Barra deslizante<a class="headerlink" href="#barra-deslizante" title="Permalink to this headline">¶</a></h4>
+<p>A continuación, crearemos una barra deslizante (<code class="docutils literal notranslate"><span class="pre">slider</span></code>) y posteriormente, capturaremos su valor para mostrarlo. En primer lugar, declaramos la barra deslizante. Esta tiene un valor mínimo de 1, un valor máximo de 10 y va de 1 en 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barra_deslizante</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, capturamos el valor seleccionado de la barra deslizante en la variable <code class="docutils literal notranslate"><span class="pre">seleccion</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seleccion</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, definimos una función que actualice el valor de la barra deslizante de acuerdo con la <code class="docutils literal notranslate"><span class="pre">seleccion</span></code> y lo muestre en un mensaje.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">funcion_a_correr_tras_cambio</span><span class="p">(</span><span class="n">info_control</span><span class="p">):</span> 
+    <span class="c1"># Reestablecemos la variable seleccion.</span>
+    <span class="n">seleccion</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="c1"># Cuando seleccion toma un nuevo valor.</span>
+    <span class="k">with</span> <span class="n">seleccion</span><span class="p">:</span>
+        <span class="c1"># Mostramos un mensaje con el valor del control.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La barra deslizante toma un valor de &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">info_control</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Posteriormente, vinculamos la barra deslizante con la función definida.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barra_deslizante</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">funcion_a_correr_tras_cambio</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualicemos la barra deslizante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">barra_deslizante</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, verificamos nuestra implementación mostrando el valor de la barra deslizante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">seleccion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="casilla-de-verificacion">
+<h4>Casilla de verificación<a class="headerlink" href="#casilla-de-verificacion" title="Permalink to this headline">¶</a></h4>
+<p>A continuación, crearemos una casilla de verificación (<code class="docutils literal notranslate"><span class="pre">checkbox</span></code>) y posteriormente, capturaremos su valor para mostrarlo. En primer lugar, declaramos la casilla de verificación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">casilla_verificacion</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Acepto&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, capturamos la selección de la casilla de verificación en la variable <code class="docutils literal notranslate"><span class="pre">seleccion</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seleccion</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, definimos una función que actualice el valor de la casilla de verificación de acuerdo con la <code class="docutils literal notranslate"><span class="pre">seleccion</span></code> y muestre un mensaje.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">actualizacion</span><span class="p">(</span><span class="n">info_control</span><span class="p">):</span>  
+    <span class="c1"># Reestablecemos la variable seleccion.</span>
+    <span class="n">seleccion</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="c1"># Cuando seleccion toma un nuevo valor.</span>
+    <span class="k">with</span> <span class="n">seleccion</span><span class="p">:</span>
+        <span class="c1"># Cuando se selecciona la casilla de verificación.</span>
+        <span class="k">if</span> <span class="n">info_control</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La persona aceptó&quot;</span><span class="p">)</span>
+        <span class="c1"># De lo contario.    </span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La persona NO aceptó&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Posteriormente, vinculamos la casilla de verificación con la función definida.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">casilla_verificacion</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">actualizacion</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualicemos la casilla de verificación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">casilla_verificacion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, verificamos nuestra implementación mostrando el mensaje definido.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">seleccion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="integracion-con-bases-de-datos">
+<h3>2.2.  Integración con bases de datos<a class="headerlink" href="#integracion-con-bases-de-datos" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="filtrar-valores-en-una-base-de-datos">
+<h4>Filtrar valores en una base de datos<a class="headerlink" href="#filtrar-valores-en-una-base-de-datos" title="Permalink to this headline">¶</a></h4>
+<p>A continuación, filtraremos valores en una base de datos. Para esto, utilizamos una base de datos que contiene la oferta de alojamientos de Airbnb en Nueva York para el año 2019. En primer lugar, importamos la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para el manejo de la base datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, importamos la base de datos de la oferta de alojamientos de Airbnb en Nueva York y realizamos una breve exploración de esta.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Archivos/AB_NYC_2019.csv&quot;</span><span class="p">)</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las variables que utilizaremos se encuentran en la siguiente tabla:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><center>Variable<center></p></th>
+<th class="text-align:left head"><p><center>Descripción<center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">neighbourhood_group</span></code></p></td>
+<td class="text-align:left"><p>Distrito</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">room_type</span></code></p></td>
+<td class="text-align:left"><p>Tipo de alojamiento</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">price</span></code></p></td>
+<td class="text-align:left"><p>Precio de una noche de hospedaje</p></td>
+</tr>
+</tbody>
+</table>
+<p>Definimos una función que retorne una lista con los valores únicos de una columna cualquiera.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">valores_filtro_columna</span><span class="p">(</span><span class="n">columna</span><span class="p">):</span>
+    <span class="n">columna</span> <span class="o">=</span> <span class="n">columna</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>       <span class="c1"># Convertimos en str los valores de la columna que entra por parámetro.</span>
+    <span class="n">valores</span> <span class="o">=</span> <span class="n">columna</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># Guardamos una lista con los valores únicos de la columna que entra por parámetro.</span>
+    <span class="n">valores</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">valores</span><span class="p">)</span>           <span class="c1"># Organizamos la lista de valores únicos de manera ascedente.</span>
+    <span class="n">valores</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Todos&quot;</span><span class="p">)</span>          <span class="c1"># Agregamos el elemento &quot;Todos&quot; en la primera posición de la lista.</span>
+    <span class="k">return</span> <span class="n">valores</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creamos una lista desplegable (<code class="docutils literal notranslate"><span class="pre">dropdown</span></code>) dónde las opciones sean los valores únicos de la columna <code class="docutils literal notranslate"><span class="pre">neighbourhood_group</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">menu</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="n">valores_filtro_columna</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="s2">&quot;neighbourhood_group&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, capturamos el valor seleccionado de la lista desplegable en la variable <code class="docutils literal notranslate"><span class="pre">seleccion</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seleccion</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, definimos una función que filtre los valores del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> de acuerdo con la <code class="docutils literal notranslate"><span class="pre">seleccion</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">accion_cambio_menu</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="c1"># Reestablecemos la variable seleccion.</span>
+    <span class="n">seleccion</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span> 
+    <span class="c1"># Cuando seleccion toma un nuevo valor.</span>
+    <span class="k">with</span> <span class="n">seleccion</span><span class="p">:</span>
+        <span class="c1"># Si el nuevo valor es &quot;Todos&quot;.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Todos&quot;</span><span class="p">):</span>
+            <span class="c1"># Muestre todos los registros.</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+        <span class="c1"># Si el nuevo valor es diferente de &quot;Todos&quot;.  </span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Muestre los registros correspondientes al nuevo valor. </span>
+            <span class="n">display</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span> <span class="n">datos</span><span class="p">[</span><span class="s2">&quot;neighbourhood_group&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span> <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Posteriormente, vinculamos la lista desplegable con la función definida.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">menu</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">accion_cambio_menu</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, visualizamos la lista desplegable y los registros según la selección.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">menu</span><span class="p">,</span> <span class="n">seleccion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="controles-con-interactive">
+<h4>Controles con <code class="docutils literal notranslate"><span class="pre">interactive</span></code><a class="headerlink" href="#controles-con-interactive" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">interactive</span></code> es una función que nos permite agregarle interactividad a la exploración de los datos. Para usar esta función, en primer lugar, debemos importar el módulo <code class="docutils literal notranslate"><span class="pre">interactive</span></code> de <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interactive</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos una función para filtrar los registros de la base datos de la oferta de alojamientos de Airbnb en Nueva York de acuerdo a múltiples criterios. Queremos que el usuario defina los siguientes criterios: el distrito donde se ubica el alojamiento, el tipo de alojamiento y el precio máximo que está dispuesto a pagar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filtrar</span><span class="p">(</span><span class="n">Distrito</span><span class="p">,</span> <span class="n">Tipo_Alojamiento</span><span class="p">,</span> <span class="n">Precio_Maximo</span><span class="p">):</span>
+    <span class="c1"># Guardamos las columnas de interés en un nuevo DataFrame.</span>
+    <span class="n">DF</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;host_name&#39;</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">,</span> <span class="s1">&#39;room_type&#39;</span><span class="p">]]</span>
+    <span class="c1"># Los siguientes cuatro casos ajustan los registros a mostrar de acuerdo con la selección del usuario.</span>
+    <span class="k">if</span>  <span class="n">Distrito</span> <span class="o">!=</span> <span class="s2">&quot;Todos&quot;</span> <span class="ow">and</span> <span class="n">Tipo_Alojamiento</span> <span class="o">!=</span> <span class="s2">&quot;Todos&quot;</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">DF</span><span class="p">[(</span><span class="n">DF</span><span class="p">[</span><span class="s2">&quot;neighbourhood_group&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Distrito</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">DF</span><span class="p">[</span><span class="s2">&quot;room_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Tipo_Alojamiento</span><span class="p">)</span>
+                   <span class="o">&amp;</span> <span class="p">(</span><span class="n">DF</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Precio_Maximo</span><span class="p">)])</span>
+    <span class="k">elif</span> <span class="n">Distrito</span> <span class="o">==</span> <span class="s2">&quot;Todos&quot;</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">DF</span><span class="p">[(</span><span class="n">DF</span><span class="p">[</span><span class="s2">&quot;room_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Tipo_Alojamiento</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">DF</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Precio_Maximo</span><span class="p">)])</span>
+    <span class="k">elif</span> <span class="n">Tipo_Alojamiento</span> <span class="o">==</span> <span class="s2">&quot;Todos&quot;</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">DF</span><span class="p">[(</span><span class="n">DF</span><span class="p">[</span><span class="s2">&quot;neighbourhood_group&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Distrito</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">DF</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Precio_Maximo</span><span class="p">)])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">DF</span><span class="p">[(</span><span class="n">DF</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Precio_Maximo</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, utilizamos el método <code class="docutils literal notranslate"><span class="pre">interactive</span></code> para definir el objeto <code class="docutils literal notranslate"><span class="pre">interactive_plot</span></code>. Este método recibe por parámetro la función <code class="docutils literal notranslate"><span class="pre">filtrar</span></code> y la lista de valores que puede tomar el control asocidado a cada uno de sus parámetros (<code class="docutils literal notranslate"><span class="pre">Distrito</span></code>, <code class="docutils literal notranslate"><span class="pre">Tipo_Alojamiento</span></code> y <code class="docutils literal notranslate"><span class="pre">Precio_Maximo</span></code>). Para esto, utilizamos la función <code class="docutils literal notranslate"><span class="pre">valores_filtro_columna</span></code> definida previamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interactive_plot</span> <span class="o">=</span> <span class="n">interactive</span><span class="p">(</span>
+                                <span class="n">filtrar</span><span class="p">,</span> 
+                                <span class="n">Distrito</span> <span class="o">=</span> <span class="n">valores_filtro_columna</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="s2">&quot;neighbourhood_group&quot;</span><span class="p">]),</span>
+                                <span class="n">Tipo_Alojamiento</span> <span class="o">=</span> <span class="n">valores_filtro_columna</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="s2">&quot;room_type&quot;</span><span class="p">]),</span>
+                                <span class="n">Precio_Maximo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+                              <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, visualizamos los controles y los registros según la selección.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">interactive_plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotly-con-ipywidgets">
+<h2>3. <code class="docutils literal notranslate"><span class="pre">plotly</span></code> con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#plotly-con-ipywidgets" title="Permalink to this headline">¶</a></h2>
+<p>Al combinar las librerías <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> y <code class="docutils literal notranslate"><span class="pre">plotly</span></code> obtenemos gráficos visualmente agradables e interactivos, los cuales nos facilitan el filtrado de datos para su respectivo análisis. A continuación, crearemos un gráfico interactivo a partir de una base de datos de la oferta de alojamientos de Airbnb en Buenos Aires. Este gráfico se actualizará de acuerdo con los filtros aplicados a los registros de la base de datos. Aplicaremos filtros al tipo de alojamiento, barrio de la ciudad y número de huéspedes por alojamiento.</p>
+<p>Importamos las librerías <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y el módulo <code class="docutils literal notranslate"><span class="pre">plotly.graph_objects</span></code> de <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, importamos la base de datos de la oferta de alojamientos de Airbnb en Buenos Aires y realizamos una breve exploración de esta.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Archivos/listings.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Asimismo, las variables que utilizaremos se encuentran en la siguiente tabla:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><center> Variable <center></p></th>
+<th class="text-align:left head"><p><center> Descripción <center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">price</span></code></p></td>
+<td class="text-align:left"><p>Precio de una noche de hospedaje</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">room_type</span></code></p></td>
+<td class="text-align:left"><p>Tipo de alojamiento</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">neighbourhood_cleansed</span></code></p></td>
+<td class="text-align:left"><p>Barrio de la ciudad</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">accommodates</span></code></p></td>
+<td class="text-align:left"><p>Máximo de huéspedes por alojamiento</p></td>
+</tr>
+</tbody>
+</table>
+<p>Es de nuestro interés conocer qué barrios hay en Buenos Aires. Para esto, exploramos los registros únicos de la variable <code class="docutils literal notranslate"><span class="pre">neighbourhood_cleansed</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;neighbourhood_cleansed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Declaramos la barra deslizante y las listas desplegables. En primer lugar, declaramos la barra deslizante que hace referencia al número de huéspedes por alojamiento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_huespedes</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mf">16.0</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En segundo lugar, declaramos la lista desplegable de tipos de alojamiento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tipo</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+                        <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Tipo Alojamiento:&#39;</span><span class="p">,</span>
+                        <span class="n">options</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                        <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>       <span class="c1"># Mostrar el nombre completo.</span>
+                       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En tercer lugar, declaramos la lista desplegable de barrios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrio</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+                            <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Barrio:&#39;</span><span class="p">,</span>
+                            <span class="n">options</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;neighbourhood_cleansed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                            <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>                    <span class="c1"># Mostrar el nombre completo.</span>
+                         <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Declaramos la figura y sus componentes. Como es una figura interactiva, utilizamos el método <code class="docutils literal notranslate"><span class="pre">FigureWidget</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">plotly.graph_objects</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">FigureWidget</span><span class="p">(</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Precio&#39;</span><span class="p">),</span>  
+    
+                        <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
+                                            <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Acomodación en Buenos Aires&#39;</span><span class="p">,</span>
+                                            <span class="n">xaxis_title</span> <span class="o">=</span> <span class="s1">&#39;Precio en pesos argentinos&#39;</span><span class="p">,</span>
+                                            <span class="n">yaxis_title</span> <span class="o">=</span> <span class="s1">&#39;Número de alojamientos&#39;</span><span class="p">,</span>
+                                          <span class="p">)</span>
+                     <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, le agregamos funcionalidad e interactividad al gráfico. En primer lugar, definimos la función <code class="docutils literal notranslate"><span class="pre">filtrar</span></code> que filtre los datos de acuerdo con lo seleccionado por el usuario.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filtrar</span><span class="p">():</span>
+    <span class="n">filtrar_lista</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="ow">and</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">k</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                                                        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;accommodates&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">num_huespedes</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> 
+                                                        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tipo</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                                                        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;neighbourhood_cleansed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">barrio</span><span class="o">.</span><span class="n">value</span>
+                                                     <span class="p">)</span>
+                    <span class="p">]</span>
+    
+    <span class="n">df_temporal</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtrar_lista</span><span class="p">]</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">df_temporal</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="c1"># Establecemos los datos en el eje x.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En segundo lugar, definimos una función que guarda los cambios en el gráfico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">respuesta</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">filtrar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Posteriormente, vinculamos los controles con la función de <code class="docutils literal notranslate"><span class="pre">respuesta</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrio</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">respuesta</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">tipo</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">respuesta</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">num_huespedes</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">respuesta</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inicializamos los valores del gráfico invocando la función <code class="docutils literal notranslate"><span class="pre">filtrar</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtrar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos los componentes de la parte superior del gráfico. Utilizamos las funciones <code class="docutils literal notranslate"><span class="pre">HBox</span></code> y <code class="docutils literal notranslate"><span class="pre">Label</span></code> de <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> para definir estos componentes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parte_superior</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Acomodacion para:&#39;</span><span class="p">),</span> <span class="n">num_huespedes</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos los componentes de la parte inferior del gráfico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parte_inferior</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">barrio</span><span class="p">,</span> <span class="n">tipo</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego, enlazamos los controles usando la función <code class="docutils literal notranslate"><span class="pre">VBox</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizacion</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span>
+              <span class="p">[</span><span class="n">parte_superior</span><span class="p">,</span>
+              <span class="n">parte_inferior</span><span class="p">,</span>
+              <span class="n">fig</span><span class="p">]</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, visualizamos los controles y podemos interactuar con el gráfico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">visualizacion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p>Analytiks (2020). Why Data Visualization Is Important. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://analytiks.co/importance-of-data-visualization/">https://analytiks.co/importance-of-data-visualization/</a></p>
+<p>Inside Airbnb (2021). Buenos Aires. Recuperado el 11 de febrero de 2021 de:
+<a class="reference external" href="http://data.insideairbnb.com/argentina/ciudad-aut%C3%B3noma-de-buenos-aires/buenos-aires/2021-01-29/visualisations/listings.csv">http://data.insideairbnb.com/argentina/ciudad-autónoma-de-buenos-aires/buenos-aires/2021-01-29/visualisations/listings.csv</a></p>
+<p>Dgomonov (2021). New York City Airbnb Open Data. Recuperado el 11 de febrero de 2021 de:
+<a class="reference external" href="https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data">https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data</a></p>
+<p>Jupyter Widgets (2021). Simple Widget Introduction. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html">https://ipywidgets.readthedocs.io/en/stable/examples/Widget Basics.html</a></p>
+<p>Jupyter Widgets (2021). Simple Widget Introduction. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html">https://ipywidgets.readthedocs.io/en/stable/examples/Widget List.html</a></p>
+<p>Plotly (2021). Creating and Updating Figures in Python. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://plotly.com/python/creating-and-updating-figures/">https://plotly.com/python/creating-and-updating-figures/</a></p>
+<p>Plotly (2021). The Figure Data Structure in Python. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://plotly.com/python/figure-structure/">https://plotly.com/python/figure-structure/</a></p>
+<p>Plotly (2021). Interactive Data Analysis with FigureWidget ipywidgets in Python. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://plotly.com/python/figurewidget-app/">https://plotly.com/python/figurewidget-app/</a></p>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es):</strong> Juan David Reyes Jaimes, Alejandro Mantilla Redondo, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización:</strong> 04/09/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

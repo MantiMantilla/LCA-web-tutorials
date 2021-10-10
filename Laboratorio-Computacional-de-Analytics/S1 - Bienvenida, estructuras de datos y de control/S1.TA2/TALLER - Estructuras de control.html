@@ -1,0 +1,2169 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estructuras de control: condicionales y ciclos &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TA2/TALLER - Estructuras de control.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TA2/TALLER - Estructuras de control.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TA2/TALLER - Estructuras de control.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#habilidades-en-practica">
+   Habilidades en práctica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrucciones">
+   Instrucciones
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo">
+     Ejemplo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1">
+     Ejercicio 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2">
+     Ejercicio 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-3">
+     Ejercicio 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-4">
+     Ejercicio 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-5">
+     Ejercicio 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-6">
+     Ejercicio 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-7">
+     Ejercicio 7
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-8">
+     Ejercicio 8
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-9">
+     Ejercicio 9
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-10">
+     Ejercicio 10
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-11">
+     Ejercicio 11
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-12">
+     Ejercicio 12
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-13">
+     Ejercicio 13
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="estructuras-de-control-condicionales-y-ciclos">
+<h1>Estructuras de control: condicionales y ciclos<a class="headerlink" href="#estructuras-de-control-condicionales-y-ciclos" title="Permalink to this headline">¶</a></h1>
+<p>En este taller utilizarás condicionales simples y compuestos, y ciclos para resolver diversos problemas.</p>
+<div class="section" id="habilidades-en-practica">
+<h2>Habilidades en práctica<a class="headerlink" href="#habilidades-en-practica" title="Permalink to this headline">¶</a></h2>
+<p>Al desarrollar este taller podrás verificar tu progreso para:</p>
+<p><strong>1.</strong> Utilizar los tres tipos de operadores más frecuentes para construir expresiones lógicas.<br>
+<strong>2.</strong> Implementar condicionales simples y compuestos.<br>
+<strong>3.</strong> Implementar diferentes tipos de ciclos según su condición de parada.<br></p>
+</div>
+<div class="section" id="instrucciones">
+<h2>Instrucciones<a class="headerlink" href="#instrucciones" title="Permalink to this headline">¶</a></h2>
+<p>En cada uno de los siguientes ejercicios deberás escribir el código solicitado estrictamente en las celdas indicadas para ello, teniendo en cuenta las siguientes recomendaciones:</p>
+<ul class="simple">
+<li><p>No crear, eliminar o modificar celdas de este Notebook (salvo lo que se te indique), pues puede verse afectado el proceso de calificación automática.</p></li>
+<li><p>La calificación se realiza de manera automática con datos diferentes a los proporcionados en este taller. Por consiguiente, tu código debe funcionar para diferentes instancias de cada uno de los ejercicios; una instancia hace referencia al valor de los parámetros.</p></li>
+<li><p>La calificación de cada ejercicio depende del valor que tome la variable especificada en su enunciado. Por lo tanto, aunque declares variables adicionales en tu código, es escencial que utilices los nombres de las variables propuestas en los enunciados de los ejercicios para guardar el resultado final.</p></li>
+</ul>
+<p>A continuación puedes ver un ejemplo de los ejercicios que encontrarás en este taller.</p>
+<div class="section" id="ejemplo">
+<h3>Ejemplo<a class="headerlink" href="#ejemplo" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras la edad de Diego y de Felipe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">Diego</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">Felipe</span> <span class="o">=</span> <span class="mi">23</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Almacena el nombre del mayor entre Diego y Felipe en una variable llamada <code class="docutils literal notranslate"><span class="pre">resp</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">if</span> <span class="n">Diego</span> <span class="o">&gt;</span> <span class="n">Felipe</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="s2">&quot;Diego&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="s2">&quot;Felipe&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1">
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declaradas dos variables que almacenan números enteros.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">num_1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">num_2</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Almacena en una variable, con nombre <code class="docutils literal notranslate"><span class="pre">mayor</span></code>, el mayor número entre los valores de las variables <code class="docutils literal notranslate"><span class="pre">num_1</span></code> y <code class="docutils literal notranslate"><span class="pre">num_2</span></code>. Si ambas variables tienen el mismo valor, puedes escoger almacenar el valor de <code class="docutils literal notranslate"><span class="pre">num_1</span></code> o <code class="docutils literal notranslate"><span class="pre">num_2</span></code> en la variable <code class="docutils literal notranslate"><span class="pre">mayor</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">if</span> <span class="n">num_1</span> <span class="o">&gt;</span> <span class="n">num_2</span><span class="p">:</span>
+    <span class="n">mayor</span> <span class="o">=</span> <span class="n">num_1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">mayor</span> <span class="o">=</span> <span class="n">num_2</span>
+
+<span class="n">mayor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">num_1</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">num_2</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">mayor</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada mayor.&quot;</span><span class="p">,)</span>
+        
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">student_code</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">num_1</span> <span class="o">==</span> <span class="mi">7</span>
+        <span class="k">assert</span> <span class="n">num_2</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es de tipo int.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mayor</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable mayor no es de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza las variables num_1 y num_2</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;num_1&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable num_1.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;num_2&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable num_2.&quot;</span>
+
+    <span class="c1"># Caso 6: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">mayor</span> <span class="o">==</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando num_1 es mayor a num_2.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_1</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">num_2</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_1</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">num_2</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">num_1</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">num_2</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 2: no es de tipo int.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mayor</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable mayor no es de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 3: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">mayor</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando num_2 es mayor a num_1.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_1</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">num_2</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_1</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">num_2</span> <span class="o">=</span> <span class="mi">3</span>   
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 3</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">num_1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">num_2</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 2: no es de tipo int.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mayor</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable mayor no es de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 3: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">mayor</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando num_1 y num_2 son iguales.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_1</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">num_2</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_1</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">num_2</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarado un elemento y una lista.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">elemento</span> <span class="o">=</span> <span class="s2">&quot;e&quot;</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si <code class="docutils literal notranslate"><span class="pre">elemento</span></code> no pertenece a <code class="docutils literal notranslate"><span class="pre">lista</span></code>, agrégalo. En caso contrario, no modifiques la lista <code class="docutils literal notranslate"><span class="pre">lista</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">if</span> <span class="n">elemento</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+    <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+
+<span class="n">lista</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">lista</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una variable llamada lista.&quot;</span><span class="p">,)</span>
+        
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">elemento</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span>
+        <span class="k">assert</span> <span class="n">lista</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable lista no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    
+    <span class="c1"># Caso 5: el código no utiliza las variables lista y elemento</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;lista&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable lista.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;elemento&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable elemento.&quot;</span>
+        
+    <span class="c1"># Caso 6: la lista contiene valores de tipo incorrecto</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu lista contiene valores que no son de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 7: la lista no contiene los valores correctos</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu lista no contiene los valores correctos.&quot;</span><span class="p">,)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="c1"># Caso 8: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Tu lista tiene un tamaño mayor al esperado.&quot;</span>
+
+    <span class="c1"># Caso 9: la lista es correcta</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;z&#39;</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los valores de tu lista están desordenados.&quot;</span><span class="p">,)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">elemento</span> <span class="o">=</span> <span class="s2">&quot;e&quot;</span>
+    <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">elemento</span> <span class="o">=</span> <span class="s2">&quot;e&quot;</span>
+    <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="s2">&quot;v&quot;</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 2: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable lista no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+        
+    <span class="c1"># Caso 3: la lista contiene valores de tipo incorrecto</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu lista contiene valores que no son de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 4: la lista no contiene los valores correctos</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu lista no contiene los valores correctos.&quot;</span><span class="p">,)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="c1"># Caso 5: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Tu lista tiene un tamaño mayor al esperado.&quot;</span>
+
+    <span class="c1"># Caso 6: la lista es correcta</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;z&#39;</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span>
+        <span class="k">assert</span> <span class="n">lista</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;v&#39;</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los valores de tu lista están desordenados.&quot;</span><span class="p">,)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">elemento</span> <span class="o">=</span> <span class="s2">&quot;e&quot;</span>
+    <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">elemento</span> <span class="o">=</span> <span class="s2">&quot;e&quot;</span>
+    <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-3">
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declaradas dos variables que almacenan números enteros.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">divisor</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si el resultado de la división entre <code class="docutils literal notranslate"><span class="pre">num</span></code> y <code class="docutils literal notranslate"><span class="pre">divisor</span></code> (<code class="docutils literal notranslate"><span class="pre">num</span></code>/<code class="docutils literal notranslate"><span class="pre">divisor</span></code>) es un número entero, almacénalo en una variable llamada <code class="docutils literal notranslate"><span class="pre">division_o_residuo</span></code>. De lo contrario, almacena en la variable <code class="docutils literal notranslate"><span class="pre">division_o_residuo</span></code> el residuo de la división.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">residuo</span> <span class="o">=</span> <span class="n">num</span><span class="o">%</span><span class="k">divisor</span>
+
+<span class="k">if</span> <span class="n">residuo</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">division_o_residuo</span> <span class="o">=</span> <span class="n">num</span><span class="o">/</span><span class="n">divisor</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">division_o_residuo</span> <span class="o">=</span> <span class="n">residuo</span>
+
+<span class="n">division_o_residuo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">divisor</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">division_o_residuo</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada division_o_residuo.&quot;</span><span class="p">,)</span>
+        
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">6</span>
+        <span class="k">assert</span> <span class="n">divisor</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es de tipo float.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">division_o_residuo</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable division_o_residuo no es de tipo </span><span class="si">{</span><span class="nb">float</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza las variables num y divisor</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable num.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;divisor&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable divisor.&quot;</span>
+
+    <span class="c1"># Caso 6: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">division_o_residuo</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el resultado de la división entre num y divisor es un número entero.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">divisor</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">divisor</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">divisor</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 2: no es de tipo int.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">division_o_residuo</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable division_o_residuo no es de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 3: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">division_o_residuo</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el resultado de la división entre num y divisor NO es un número entero.&quot;</span>
+    
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">divisor</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">divisor</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-4">
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras la velocidad (km/h) que registraron cuatro competidores en una carrera de atletismo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">vel_Camilo</span> <span class="o">=</span> <span class="mf">10.5</span>
+<span class="n">vel_Esteban</span> <span class="o">=</span> <span class="mf">9.3</span>
+<span class="n">vel_Alejandro</span> <span class="o">=</span> <span class="mf">9.8</span>
+<span class="n">vel_David</span> <span class="o">=</span> <span class="mf">10.2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Escribe el código que determina cuál fue el competidor más rápido de la carrera y  almacena su nombre en una variable llamada <code class="docutils literal notranslate"><span class="pre">mas_rapido</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">mayor_rapidez</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">vel_Camilo</span> <span class="o">&gt;</span> <span class="n">mayor_rapidez</span><span class="p">:</span>
+    <span class="n">mas_rapido</span> <span class="o">=</span> <span class="s2">&quot;Camilo&quot;</span>
+    <span class="n">mayor_rapidez</span> <span class="o">=</span> <span class="n">vel_Camilo</span>
+<span class="k">if</span> <span class="n">vel_Esteban</span> <span class="o">&gt;</span> <span class="n">mayor_rapidez</span><span class="p">:</span>
+    <span class="n">mas_rapido</span> <span class="o">=</span> <span class="s2">&quot;Esteban&quot;</span>
+    <span class="n">mayor_rapidez</span> <span class="o">=</span> <span class="n">vel_Esteban</span>
+<span class="k">if</span> <span class="n">vel_Alejandro</span> <span class="o">&gt;</span> <span class="n">mayor_rapidez</span><span class="p">:</span>
+    <span class="n">mas_rapido</span> <span class="o">=</span> <span class="s2">&quot;Alejandro&quot;</span>
+    <span class="n">mayor_rapidez</span> <span class="o">=</span> <span class="n">vel_Alejandro</span>
+<span class="k">if</span> <span class="n">vel_David</span> <span class="o">&gt;</span> <span class="n">mayor_rapidez</span><span class="p">:</span>
+    <span class="n">mas_rapido</span> <span class="o">=</span> <span class="s2">&quot;David&quot;</span>
+    <span class="n">mayor_rapidez</span> <span class="o">=</span> <span class="n">vel_David</span>
+
+<span class="n">mas_rapido</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">vel_Camilo</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">vel_Esteban</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">vel_Alejandro</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">vel_David</span> <span class="o">=</span> <span class="mf">9.5</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">mas_rapido</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada mas_rapido.&quot;</span><span class="p">,)</span>
+
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">vel_Camilo</span> <span class="o">==</span> <span class="mi">10</span>
+        <span class="k">assert</span> <span class="n">vel_Esteban</span> <span class="o">==</span> <span class="mi">11</span>
+        <span class="k">assert</span> <span class="n">vel_Alejandro</span> <span class="o">==</span> <span class="mi">9</span>
+        <span class="k">assert</span> <span class="n">vel_David</span> <span class="o">==</span> <span class="mf">9.5</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es de tipo str.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mas_rapido</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable mas_rapido no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza las variables vel_Camilo, vel_Alejandro, vel_David y vel_Esteban</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;vel_Camilo&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable vel_Camilo.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;vel_Esteban&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable vel_Esteban.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;vel_Alejandro&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable vel_Alejandro.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;vel_David&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable vel_David.&quot;</span>
+
+    <span class="c1"># Caso 6: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">mas_rapido</span> <span class="o">==</span> <span class="s1">&#39;Esteban&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vel_Camilo</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">vel_Esteban</span> <span class="o">=</span> <span class="mf">9.3</span>
+    <span class="n">vel_Alejandro</span> <span class="o">=</span> <span class="mf">9.8</span>
+    <span class="n">vel_David</span> <span class="o">=</span> <span class="mf">10.2</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vel_Camilo</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">vel_Esteban</span> <span class="o">=</span> <span class="mf">9.3</span>
+    <span class="n">vel_Alejandro</span> <span class="o">=</span> <span class="mf">9.8</span>
+    <span class="n">vel_David</span> <span class="o">=</span> <span class="mf">10.2</span>
+    
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">vel_Camilo</span> <span class="o">=</span> <span class="mf">10.5</span>
+<span class="n">vel_Esteban</span> <span class="o">=</span> <span class="mf">9.3</span>
+<span class="n">vel_Alejandro</span> <span class="o">=</span> <span class="mf">9.8</span>
+<span class="n">vel_David</span> <span class="o">=</span> <span class="mf">10.2</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">mas_rapido</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada mas_rapido.&quot;</span><span class="p">,)</span>
+
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">vel_Camilo</span> <span class="o">==</span> <span class="mf">10.5</span>
+        <span class="k">assert</span> <span class="n">vel_Esteban</span> <span class="o">==</span> <span class="mf">9.3</span>
+        <span class="k">assert</span> <span class="n">vel_Alejandro</span> <span class="o">==</span> <span class="mf">9.8</span>
+        <span class="k">assert</span> <span class="n">vel_David</span> <span class="o">==</span> <span class="mf">10.2</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es de tipo str.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">mas_rapido</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable mas_rapido no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza las variables vel_Camilo, vel_Alejandro, vel_David y vel_Esteban</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;vel_Camilo&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable vel_Camilo.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;vel_Esteban&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable vel_Esteban.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;vel_Alejandro&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable vel_Alejandro.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;vel_David&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable vel_David.&quot;</span>
+
+    <span class="c1"># Caso 6: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">mas_rapido</span> <span class="o">==</span> <span class="s1">&#39;Camilo&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vel_Camilo</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">vel_Esteban</span> <span class="o">=</span> <span class="mf">9.3</span>
+    <span class="n">vel_Alejandro</span> <span class="o">=</span> <span class="mf">9.8</span>
+    <span class="n">vel_David</span> <span class="o">=</span> <span class="mf">10.2</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vel_Camilo</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">vel_Esteban</span> <span class="o">=</span> <span class="mf">9.3</span>
+    <span class="n">vel_Alejandro</span> <span class="o">=</span> <span class="mf">9.8</span>
+    <span class="n">vel_David</span> <span class="o">=</span> <span class="mf">10.2</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-5">
+<h3>Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permalink to this headline">¶</a></h3>
+<p>El gerente de una tienda de ropa desea tener información acerca de la ocupación de su local. En la siguiente celda encuentras el número actual de visitantes y la capacidad máxima del local.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">num_actual</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">45</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Según las indicaciones del gerente, si el número actual de visitantes es menor o igual al 40% de la capacidad máxima, se considera que el nivel de ocupación es <code class="docutils literal notranslate"><span class="pre">&quot;Bajo”</span></code>; si el número actual de visitantes es mayor al 40% y menor o igual al 80% de la capacidad máxima, se considera que el nivel de ocupación es <code class="docutils literal notranslate"><span class="pre">&quot;Medio”</span></code>; y si el número actual de visitantes es mayor al 80% de la capacidad máxima, se considera que el nivel de ocupación es <code class="docutils literal notranslate"><span class="pre">&quot;Alto”</span></code>.</p>
+<p>Además, al gerente le interesa saber el valor de un indicador según el nivel de ocupación. Si el nivel de ocupación es <code class="docutils literal notranslate"><span class="pre">&quot;Bajo”</span></code>, le interesa saber el número actual de visitantes; si el nivel de ocupación es <code class="docutils literal notranslate"><span class="pre">&quot;Medio”</span></code>, le interesa saber el porcentaje de ocupación (<code class="docutils literal notranslate"><span class="pre">num_actual/cap_maxima</span></code>); y si el nivel de ocupación es <code class="docutils literal notranslate"><span class="pre">&quot;Alto”</span></code>, le interesa saber la diferencia entre la capacidad máxima y el número actual de visitantes.</p>
+<p>Almacena en una lista con nombre <code class="docutils literal notranslate"><span class="pre">info</span></code> los siguientes dos elementos en el orden en el que se presentan a continuación:</p>
+<ol class="simple">
+<li><p>El nivel de ocupación (<code class="docutils literal notranslate"><span class="pre">&quot;Bajo”</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Medio”</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Alto”</span></code>).</p></li>
+<li><p>El indicador de interés para el gerente según el nivel de ocupación.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">porcentaje_ocupacion</span> <span class="o">=</span> <span class="n">num_actual</span> <span class="o">/</span> <span class="n">cap_maxima</span>
+
+<span class="k">if</span> <span class="n">porcentaje_ocupacion</span> <span class="o">&lt;=</span> <span class="mf">0.4</span><span class="p">:</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bajo&quot;</span><span class="p">,</span> <span class="n">num_actual</span><span class="p">]</span>
+<span class="k">elif</span> <span class="n">porcentaje_ocupacion</span> <span class="o">&gt;</span> <span class="mf">0.4</span> <span class="ow">and</span> <span class="n">porcentaje_ocupacion</span> <span class="o">&lt;=</span> <span class="mf">0.8</span><span class="p">:</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Medio&quot;</span><span class="p">,</span> <span class="n">porcentaje_ocupacion</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alto&quot;</span><span class="p">,</span> <span class="n">cap_maxima</span> <span class="o">-</span> <span class="n">num_actual</span><span class="p">]</span>
+    
+<span class="n">info</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">num_actual</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">info</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada info.&quot;</span><span class="p">,)</span>
+    
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">num_actual</span> <span class="o">==</span> <span class="mi">35</span>
+        <span class="k">assert</span> <span class="n">cap_maxima</span> <span class="o">==</span> <span class="mi">40</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable info no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    
+    <span class="c1"># Caso 5: el código no utiliza las variables num_actual y cap_maxima</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;num_actual&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable num_actual.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cap_maxima&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable cap_maxima.&quot;</span>
+    
+    <span class="c1"># Caso 6: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tu lista no tiene el tamaño correcto.&quot;</span>
+        
+    <span class="c1"># Caso 7: la lista contiene valores de tipo incorrecto</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;La primera posición de tu lista contiene un valor que no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;La segunda posición de tu lista contiene un valor que no es de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 8: la lista es correcta</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Alto&#39;</span><span class="p">,</span> <span class="s2">&quot;El nivel de ocupación de tu respuesta es incorrecto cuando el porcentaje de ocupación es mayor al 80%.&quot;</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;El indicador de tu respuesta es incorrecto cuando el nivel de ocupación es: Alto.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_actual</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">45</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_actual</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">45</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">num_actual</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 2: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable info no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    
+    <span class="c1"># Caso 3: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tu lista no tiene el tamaño correcto.&quot;</span>
+        
+    <span class="c1"># Caso 4: la lista contiene valores de tipo incorrecto</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;La primera posición de tu lista contiene un valor que no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="nb">float</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;La segunda posición de tu lista contiene un valor que no es de tipo </span><span class="si">{</span><span class="nb">float</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: la lista es correcta</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s2">&quot;El nivel de ocupación de tu respuesta es incorrecto cuando el porcentaje de ocupación es mayor al 40% y menor o igual al 80%.&quot;</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;El indicador de tu respuesta es incorrecto cuando el nivel de ocupación es: Medio.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_actual</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">45</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_actual</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">45</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 3</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">num_actual</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 2: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable info no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    
+    <span class="c1"># Caso 3: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tu lista no tiene el tamaño correcto.&quot;</span>
+        
+    <span class="c1"># Caso 4: la lista contiene valores de tipo incorrecto</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;La primera posición de tu lista contiene un valor que no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;La segunda posición de tu lista contiene un valor que no es de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: la lista es correcta</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Bajo&#39;</span><span class="p">,</span> <span class="s2">&quot;El nivel de ocupación de tu respuesta es incorrecto cuando el porcentaje de ocupación es menor o igual al 40%.&quot;</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;El indicador de tu respuesta es incorrecto cuando el nivel de ocupación es: Bajo.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_actual</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">45</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">num_actual</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">cap_maxima</span> <span class="o">=</span> <span class="mi">45</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-6">
+<h3>Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permalink to this headline">¶</a></h3>
+<p>Pizzeria Uniandes tiene dos tipos de ingredientes para sus pizzas:</p>
+<ol class="simple">
+<li><p>Vegetarianos</p></li>
+<li><p>No-vegetarianos</p></li>
+</ol>
+<p>Un cliente puede pedir tres ingredientes para su pizza. Si ninguno de los ingredientes es vegetariano, la pizza se categoriza como <code class="docutils literal notranslate"><span class="pre">'No</span> <span class="pre">vegetariana'</span></code>; si uno o dos de los ingredientes es vegetariano, la pizza se clasifica como <code class="docutils literal notranslate"><span class="pre">'Semi</span> <span class="pre">vegetariana'</span></code>; y si todos ingredientes son vegetarianos, la pizza se clasifica como <code class="docutils literal notranslate"><span class="pre">'Vegetariana'</span></code>.</p>
+<p>En la siguiente celda encuentras las dos listas de ingredientes y tres ingredientes para crear una pizza.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Cebolla&#39;</span><span class="p">]</span>
+<span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+
+<span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Champiñones&#39;</span>
+<span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Pollo&#39;</span>
+<span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Cebolla&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Almacena en una variable, con nombre <code class="docutils literal notranslate"><span class="pre">tipo</span></code>, la categoría (<code class="docutils literal notranslate"><span class="pre">'No</span> <span class="pre">vegetariana'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Semi</span> <span class="pre">vegetariana'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Vegetariana'</span></code>) correspondiente a la pizza creada a partir de los tres ingredientes declarados en la celda anterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">if</span> <span class="n">ingrediente_1</span> <span class="ow">in</span> <span class="n">no_vegetarianos</span> <span class="ow">and</span> <span class="n">ingrediente_2</span> <span class="ow">in</span> <span class="n">no_vegetarianos</span> <span class="ow">and</span> <span class="n">ingrediente_3</span> <span class="ow">in</span> <span class="n">no_vegetarianos</span><span class="p">:</span>
+    <span class="n">tipo</span> <span class="o">=</span> <span class="s1">&#39;No vegetariana&#39;</span>
+<span class="k">elif</span> <span class="n">ingrediente_1</span> <span class="ow">in</span> <span class="n">no_vegetarianos</span> <span class="ow">or</span> <span class="n">ingrediente_2</span> <span class="ow">in</span> <span class="n">no_vegetarianos</span> <span class="ow">or</span> <span class="n">ingrediente_3</span> <span class="ow">in</span> <span class="n">no_vegetarianos</span><span class="p">:</span>
+    <span class="n">tipo</span> <span class="o">=</span> <span class="s1">&#39;Semi vegetariana&#39;</span>
+<span class="k">elif</span> <span class="n">ingrediente_1</span> <span class="ow">in</span> <span class="n">vegetarianos</span> <span class="ow">and</span> <span class="n">ingrediente_2</span> <span class="ow">in</span> <span class="n">vegetarianos</span> <span class="ow">and</span> <span class="n">ingrediente_3</span> <span class="ow">in</span> <span class="n">vegetarianos</span><span class="p">:</span>   
+    <span class="n">tipo</span> <span class="o">=</span> <span class="s1">&#39;Vegetariana&#39;</span>
+
+<span class="n">tipo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Pimenton&#39;</span><span class="p">]</span>
+<span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Salami&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+
+<span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Pollo&#39;</span>
+<span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Salami&#39;</span>
+<span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Jamón&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tipo</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada tipo.&quot;</span><span class="p">,)</span>    
+
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">vegetarianos</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Pimenton&#39;</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">no_vegetarianos</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;Salami&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">ingrediente_1</span> <span class="o">==</span> <span class="s1">&#39;Pollo&#39;</span>
+        <span class="k">assert</span> <span class="n">ingrediente_2</span> <span class="o">==</span> <span class="s1">&#39;Salami&#39;</span>
+        <span class="k">assert</span> <span class="n">ingrediente_3</span> <span class="o">==</span> <span class="s1">&#39;Jamón&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+        
+    <span class="c1"># Caso 4: no es de tipo str.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">tipo</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable tipo no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza las variables ingrediente_1, ingrediente_2 e ingrediente_3</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ingrediente_1&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable ingrediente_1.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ingrediente_2&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable ingrediente_2.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ingrediente_3&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable ingrediente_3.&quot;</span>
+
+    <span class="c1"># Caso 6: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">tipo</span> <span class="o">==</span> <span class="s1">&#39;No vegetariana&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el tipo de una pizza es: No vegetariana.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Cebolla&#39;</span><span class="p">]</span>
+    <span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+    <span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Champiñones&#39;</span>
+    <span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Pollo&#39;</span>
+    <span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Cebolla&#39;</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Cebolla&#39;</span><span class="p">]</span>
+    <span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+    <span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Champiñones&#39;</span>
+    <span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Pollo&#39;</span>
+    <span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Cebolla&#39;</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Pimenton&#39;</span><span class="p">]</span>
+<span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Salami&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+
+<span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Pimenton&#39;</span>
+<span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Champiñones&#39;</span>
+<span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Tomate&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+        
+    <span class="c1"># Caso 2: no es de tipo str.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">tipo</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable tipo no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 3: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">tipo</span> <span class="o">==</span> <span class="s1">&#39;Vegetariana&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el tipo de una pizza es: Vegetariana.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Cebolla&#39;</span><span class="p">]</span>
+    <span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+    <span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Champiñones&#39;</span>
+    <span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Pollo&#39;</span>
+    <span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Cebolla&#39;</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Cebolla&#39;</span><span class="p">]</span>
+    <span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+    <span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Champiñones&#39;</span>
+    <span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Pollo&#39;</span>
+    <span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Cebolla&#39;</span>
+
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 3</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Pimenton&#39;</span><span class="p">]</span>
+<span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Salami&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+
+<span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Pimenton&#39;</span>
+<span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Salami&#39;</span>
+<span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Tomate&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+        
+    <span class="c1"># Caso 2: no es de tipo str.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">tipo</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable tipo no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 3: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">tipo</span> <span class="o">==</span> <span class="s1">&#39;Semi vegetariana&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el tipo de una pizza es: Semi vegetariana.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Cebolla&#39;</span><span class="p">]</span>
+    <span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+    <span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Champiñones&#39;</span>
+    <span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Pollo&#39;</span>
+    <span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Cebolla&#39;</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tomate&#39;</span><span class="p">,</span> <span class="s1">&#39;Champiñones&#39;</span><span class="p">,</span> <span class="s1">&#39;Cebolla&#39;</span><span class="p">]</span>
+    <span class="n">no_vegetarianos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Jamón&#39;</span><span class="p">]</span>
+    <span class="n">ingrediente_1</span> <span class="o">=</span> <span class="s1">&#39;Champiñones&#39;</span>
+    <span class="n">ingrediente_2</span> <span class="o">=</span> <span class="s1">&#39;Pollo&#39;</span>
+    <span class="n">ingrediente_3</span> <span class="o">=</span> <span class="s1">&#39;Cebolla&#39;</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-7">
+<h3>Ejercicio 7<a class="headerlink" href="#ejercicio-7" title="Permalink to this headline">¶</a></h3>
+<p>Utiliza un ciclo para almacenar los números pares del 1 al <code class="docutils literal notranslate"><span class="pre">n</span></code> (incluyéndolo) en una lista con nombre <code class="docutils literal notranslate"><span class="pre">pares</span></code>. La lista debe quedar ordenada ascendentemente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">pares</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> == 0:
+        <span class="n">pares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="n">pares</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pares</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada pares.&quot;</span><span class="p">,)</span>
+
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">300</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Caso 4: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">pares</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable pares no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    
+    <span class="c1"># Caso 5: el código no utiliza ciclos</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;for&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;while&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza ciclos.&quot;</span>
+
+    <span class="c1"># Caso 6: la lista contiene valores de tipo incorrecto</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pares</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu lista contiene valores que no son de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 7: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pares</span><span class="p">)</span> <span class="o">==</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&quot;Tu lista no tiene el tamaño correcto.&quot;</span>
+
+    <span class="c1"># Caso 8: la lista es correcta</span>
+    <span class="k">assert</span> <span class="n">pares</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">301</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-8">
+<h3>Ejercicio 8<a class="headerlink" href="#ejercicio-8" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarada una variable que almacena un número entero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">inicio</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Utiliza un ciclo para almacenar en una lista, con nombre <code class="docutils literal notranslate"><span class="pre">cuenta_regresiva</span></code>, los números desde el valor de la variable <code class="docutils literal notranslate"><span class="pre">inicio</span></code> hasta el 1. La lista debe estar ordenada descendemente y en caso de que el inicio sea menor a 1 debes devolver una lista vacía.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">cuenta_regresiva</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">inicio</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">inicio</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cuenta_regresiva</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada cuenta_regresiva.&quot;</span><span class="p">,)</span>
+    
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">inicio</span> <span class="o">==</span> <span class="mi">20</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Caso 4: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">cuenta_regresiva</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable cuenta_regresiva no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    
+    <span class="c1"># Caso 5: el código no utiliza la variable inicio o no utiliza ciclos</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;inicio&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable inicio.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;for&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;while&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza ciclos.&quot;</span>
+
+    <span class="c1"># Caso 6: la lista contiene valores de tipo incorrecto</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cuenta_regresiva</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu lista contiene valores que no son de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 7: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cuenta_regresiva</span><span class="p">)</span> <span class="o">==</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Tu lista no tiene el tamaño correcto.&quot;</span>
+
+    <span class="c1"># Caso 8: la lista es correcta</span>
+    <span class="k">assert</span> <span class="n">cuenta_regresiva</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="s2">&quot;Tu implementación presenta errores cuando el valor de la variable inicio es mayor o igual a 1.&quot;</span>
+    
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">inicio</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">inicio</span> <span class="o">=</span> <span class="mi">10</span>
+    
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">inicio</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Caso 2: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">cuenta_regresiva</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable cuenta_regresiva no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 3: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cuenta_regresiva</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el valor de la variable inicio es menor a 1.&quot;</span>
+
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">inicio</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">raise</span>
+    
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">inicio</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-9">
+<h3>Ejercicio 9<a class="headerlink" href="#ejercicio-9" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarada una lista y un elemento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">89</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">124</span><span class="p">,</span><span class="mi">122</span><span class="p">,</span><span class="mi">158</span><span class="p">,</span><span class="mi">835</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">89</span><span class="p">,</span><span class="mi">58</span><span class="p">]</span>
+<span class="n">a_buscar</span> <span class="o">=</span> <span class="mi">89</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Busca el número entero <code class="docutils literal notranslate"><span class="pre">a_buscar</span></code> en la lista <code class="docutils literal notranslate"><span class="pre">numeros</span></code> y guarda el índice en una variable con nombre <code class="docutils literal notranslate"><span class="pre">indice</span></code>. En caso de que el elemento se encuentre más de una vez en la lista <code class="docutils literal notranslate"><span class="pre">numeros</span></code>, debes almacenar el índice de la primera posición en la que lo encuentres. Por otro lado, si el elemento no se encuentra en la lista <code class="docutils literal notranslate"><span class="pre">numeros</span></code>, almacena -1 en la variable <code class="docutils literal notranslate"><span class="pre">indice</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">indice</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">numeros</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">a_buscar</span> <span class="o">==</span> <span class="n">numeros</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">indice</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">break</span>
+
+<span class="n">indice</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">a_buscar</span> <span class="o">=</span> <span class="mi">28</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">indice</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada indice.&quot;</span><span class="p">,)</span>
+        
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">a_buscar</span> <span class="o">==</span> <span class="mi">28</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es de tipo int.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">indice</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable mas_rapido no es de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza las variables a_buscar y numeros</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a_buscar&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable a_buscar.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;numeros&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable numeros.&quot;</span>
+
+    <span class="c1"># Caso 6: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">indice</span> <span class="o">==</span> <span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el valor de la variable a_buscar se encuentra al menos una vez en la lista numeros. Es posible que no hayas almacenado el índice asociado a la primera vez que aparece el valor de la variable a_buscar.&quot;</span>
+    
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">a_buscar</span> <span class="o">=</span> <span class="mi">89</span>
+    <span class="k">raise</span>
+    
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">a_buscar</span> <span class="o">=</span> <span class="mi">89</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">a_buscar</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">try</span><span class="p">:</span>
+    
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 2: no es de tipo int.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">indice</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable mas_rapido no es de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 3: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">indice</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el valor de la variable a_buscar no se encuentra en la lista numeros.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">a_buscar</span> <span class="o">=</span> <span class="mi">89</span>
+    <span class="k">raise</span>
+    
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">a_buscar</span> <span class="o">=</span> <span class="mi">89</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-10">
+<h3>Ejercicio 10<a class="headerlink" href="#ejercicio-10" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda encuentras declarada una variable que almacena una cadena de caracteres.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">cadena</span> <span class="o">=</span> <span class="s2">&quot;Me encanta programar, Python es mi pasión.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Almacena en un diccionario, con nombre <code class="docutils literal notranslate"><span class="pre">num_vocales</span></code>, la cantidad veces que aparece cada vocal en la cadena de caracteres <code class="docutils literal notranslate"><span class="pre">cadena</span></code>. Las llaves del diccionario deben ser las vocales, y los valores deben ser el número de veces que aparece cada vocal.</p>
+<p><strong>Nota:</strong> no tengas en cuenta vocales en mayúscula, ni con tíldes, ni con diéresis. Por ejemplo, el diccionario asociado a la cadena “El pingüino lingüístico.” es: <code class="docutils literal notranslate"><span class="pre">{'a':</span> <span class="pre">0,</span> <span class="pre">'e':</span> <span class="pre">0,</span> <span class="pre">'i':</span> <span class="pre">4,</span> <span class="pre">'o':</span> <span class="pre">2,</span> <span class="pre">'u':</span> <span class="pre">0}</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">vocales</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">)</span>
+<span class="n">num_vocales</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">vocal</span> <span class="ow">in</span> <span class="n">vocales</span><span class="p">:</span>
+    <span class="n">cuantas</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">caracter</span> <span class="ow">in</span> <span class="n">cadena</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">vocal</span> <span class="o">==</span> <span class="n">caracter</span><span class="p">:</span>
+            <span class="n">cuantas</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="n">num_vocales</span><span class="p">[</span><span class="n">vocal</span><span class="p">]</span> <span class="o">=</span> <span class="n">cuantas</span>
+
+<span class="n">num_vocales</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">cadena</span> <span class="o">=</span> <span class="s2">&quot;The world&#39;s most valuable resource is no longer oil, but data.&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe el diccionario.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">num_vocales</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una variable llamada num_vocales.&quot;</span><span class="p">,)</span>
+
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">cadena</span> <span class="o">==</span> <span class="s2">&quot;The world&#39;s most valuable resource is no longer oil, but data.&quot;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Caso 4: no es un diccionario.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">num_vocales</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable num_vocales no es de tipo </span><span class="si">{</span><span class="nb">dict</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza la variable candena</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cadena&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utilizala variable cadena.&quot;</span>
+
+    <span class="c1"># Caso 6: el diccionario contiene valores de tipo incorrecto</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">num_vocales</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu diccionario contiene llaves que no son de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">num_vocales</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu diccionario contiene valores que no son de tipo </span><span class="si">{</span><span class="nb">int</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 7: el diccionario tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">num_vocales</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Tu diccionario no tiene el tamaño correcto.&quot;</span>
+
+    <span class="c1"># Caso 8: el diccionario no contiene los valores/llaves correctos/as</span>
+    <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">num_vocales</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">},</span> <span class="s2">&quot;Las llaves de tu diccionario no son correctas.&quot;</span>
+    <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">num_vocales</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="s2">&quot;Los valores de tu diccionario no son correctos.&quot;</span>
+
+    <span class="c1"># Caso 9: el diccionario es correcto </span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">num_vocales</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+        <span class="k">assert</span> <span class="n">num_vocales</span><span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span>
+        <span class="k">assert</span> <span class="n">num_vocales</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+        <span class="k">assert</span> <span class="n">num_vocales</span><span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span>
+        <span class="k">assert</span> <span class="n">num_vocales</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span><span class="p">,)</span>
+        <span class="k">raise</span> <span class="n">e</span>      
+    
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">cadena</span> <span class="o">=</span> <span class="s2">&quot;Me encanta programar, Python es mi pasión.&quot;</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">cadena</span> <span class="o">=</span> <span class="s2">&quot;Me encanta programar, Python es mi pasión.&quot;</span>
+            
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-11">
+<h3>Ejercicio 11<a class="headerlink" href="#ejercicio-11" title="Permalink to this headline">¶</a></h3>
+<p>Jorge tiene un refugio de perros y realizará un evento de adopción en los próximos días. En estos eventos, las  personas están interesadas en perros con cierto rango de edad. Por lo tanto, es de interés presentar únicamente los perros que se encuentren en ese rango; en la siguiente celda se almacena el límite inferior del rango en la variable <code class="docutils literal notranslate"><span class="pre">lb</span></code> y el límite superior del rango en la variable <code class="docutils literal notranslate"><span class="pre">ub</span></code>. El diccionario <code class="docutils literal notranslate"><span class="pre">perros_refugio</span></code>, presentado en la siguiente celda, contiene los perros que pertenecen al refugio, donde las llaves son los nombres de los perros y los valores sus respectivas edades.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">lb</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ub</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">perros_refugio</span> <span class="o">=</span> <span class="p">{</span>
+                  <span class="s2">&quot;Bruno&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                  <span class="s2">&quot;Alex&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                  <span class="s2">&quot;Fiona&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                  <span class="s2">&quot;Salvador&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                  <span class="s2">&quot;Max&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s2">&quot;Copito&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                  <span class="s2">&quot;Joe&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s2">&quot;Maya&quot;</span><span class="p">:</span> <span class="mi">2</span>
+                  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A partir de las variables declaradas en la celda anterior, crea una lista, con nombre <code class="docutils literal notranslate"><span class="pre">perros_evento</span></code>, que contenga los nombres de los animales que se encuentren dentro del rango de edad.</p>
+<p><strong>Nota:</strong> los perros que tienen la edad especificada por los límites también deben ser incluidos en la lista <code class="docutils literal notranslate"><span class="pre">perros_evento</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">perros_evento</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">nombre</span><span class="p">,</span><span class="n">edad</span> <span class="ow">in</span> <span class="n">perros_refugio</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">edad</span> <span class="o">&lt;=</span> <span class="n">ub</span> <span class="ow">and</span> <span class="n">edad</span> <span class="o">&gt;=</span> <span class="n">lb</span><span class="p">:</span>
+        <span class="n">perros_evento</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+    
+<span class="n">perros_evento</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">lb</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ub</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">perros_evento</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada perros_evento.&quot;</span><span class="p">,)</span>
+    
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">lb</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">ub</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es una lista.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">perros_evento</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable perros_evento no es de tipo </span><span class="si">{</span><span class="nb">list</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    
+    <span class="c1"># Caso 5: la lista contiene valores de tipo incorrecto</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">perros_evento</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu lista contiene valores que no son de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+    
+    <span class="c1"># Caso 6: el código no utiliza las variables lb, ub y perros_refugio</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;lb&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable lb.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ub&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable ub.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;perros_refugio&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable perros_refugio.&quot;</span>
+    
+    <span class="c1"># Caso 7: la lista tiene el tamaño incorrecto</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">perros_evento</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Tu lista no tiene el tamaño correcto. Es posible que tengas problemas utilizando los límites del rango.&quot;</span>
+        
+    <span class="c1"># Caso 8: el diccionario es correcto </span>
+    <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">perros_evento</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;Alex&#39;</span><span class="p">,</span> <span class="s1">&#39;Maya&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Max&#39;</span><span class="p">},</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">lb</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">ub</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">lb</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">ub</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-12">
+<h3>Ejercicio 12<a class="headerlink" href="#ejercicio-12" title="Permalink to this headline">¶</a></h3>
+<p>Se dice que uno de los primeros ejemplos de cifrado en la historia fue inventado por Julio César, quien necesitaba enviar instrucciones escritas a sus generales, pero tenía que evitar que sus enemigos se enteraran de sus planes en caso de que los mensajes cayeran en sus manos. Para esto, desarrolló lo que ahora se conoce como el Cifrado César basándose en una idea muy simple: se define un corrimiento <code class="docutils literal notranslate"><span class="pre">corr</span></code> y luego, cada letra dentro del mensaje original se remplaza por la letra que esté <code class="docutils literal notranslate"><span class="pre">corr</span></code> posiciones más adelante en el alfabeto. Por ejemplo, con un <code class="docutils literal notranslate"><span class="pre">corr</span></code> igual a 3, la A se convierte en D, la B en E, y así sucesivamente. Las últimas tres letras en el alfabeto se vuelven las tres primeras: X se vuelve A, Y se vuelve B y Z se vuelve C. Para simplificar el ejercicio, el cifrado únicamente afectará caracteres que correspondan a letras minúsculas sin tíldes ni diéresis.</p>
+<p>En la siguiente celda encuentras la cadena de caracteres <code class="docutils literal notranslate"><span class="pre">cifrada</span></code> que contiene una frase para descifrar y se especifica el valor de la variable <code class="docutils literal notranslate"><span class="pre">corr</span></code>. Adicionalmente, encuentras una tupla con el alfabeto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">cifrada</span> <span class="o">=</span> <span class="s2">&quot;Aqxzxobjmp nmo bi kmoqb x ixp 5 ab ix qxoab&quot;</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">alfabeto</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;ñ&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obtén el mensaje descifrado y almacénalo en una variable llamada <code class="docutils literal notranslate"><span class="pre">descifrada</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">descifrada</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">longitud_alfabeto</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alfabeto</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">caracter</span> <span class="ow">in</span> <span class="n">cifrada</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">caracter</span> <span class="ow">in</span> <span class="n">alfabeto</span><span class="p">:</span>
+        <span class="n">indice</span> <span class="o">=</span> <span class="n">alfabeto</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">caracter</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">indice</span> <span class="o">+</span> <span class="n">corr</span> <span class="o">&lt;</span> <span class="n">longitud_alfabeto</span><span class="p">:</span>
+            <span class="n">letra_descifrada</span> <span class="o">=</span> <span class="n">alfabeto</span><span class="p">[</span><span class="n">indice</span> <span class="o">+</span> <span class="n">corr</span><span class="p">]</span>
+            <span class="n">descifrada</span> <span class="o">+=</span> <span class="n">letra_descifrada</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">letra_descifrada</span> <span class="o">=</span> <span class="n">alfabeto</span><span class="p">[</span><span class="n">indice</span> <span class="o">-</span> <span class="p">(</span><span class="n">longitud_alfabeto</span> <span class="o">-</span> <span class="n">corr</span><span class="p">)]</span>
+            <span class="n">descifrada</span> <span class="o">+=</span> <span class="n">letra_descifrada</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">descifrada</span> <span class="o">+=</span> <span class="n">caracter</span>
+        
+<span class="n">descifrada</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">cifrada</span> <span class="o">=</span> <span class="s2">&quot;Eg ikhwnz yzg zñlív zñ Pvwgk&quot;</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">descifrada</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada descifrada.&quot;</span><span class="p">,)</span>
+    
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">cifrada</span> <span class="o">==</span> <span class="s2">&quot;Eg ikhwnz yzg zñlív zñ Pvwgk&quot;</span>
+        <span class="k">assert</span> <span class="n">corr</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es de tipo str.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">descifrada</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable descifrada no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza las variables cifrada y corr</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cifrada&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable cifrada.&quot;</span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;corr&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable corr.&quot;</span>
+
+    <span class="c1"># Caso 6: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">descifrada</span> <span class="o">==</span> <span class="s1">&#39;El nombre del espía es Pablo&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta es incorrecta.&quot;</span>
+    
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">cifrada</span> <span class="o">=</span> <span class="s2">&quot;Aqxzxobjmp nmo bi kmoqb x ixp 5 ab ix qxoab&quot;</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">raise</span>
+    
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">cifrada</span> <span class="o">=</span> <span class="s2">&quot;Aqxzxobjmp nmo bi kmoqb x ixp 5 ab ix qxoab&quot;</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-13">
+<h3>Ejercicio 13<a class="headerlink" href="#ejercicio-13" title="Permalink to this headline">¶</a></h3>
+<p>Santiago ha pedido un catálogo de artículos con el fin de escoger un regalo de cumpleaños para su amiga Mariana. A Santiago se le olvido guardar dinero para el regalo y por consiguiente necesita escoger el artículo más barato disponible. El diccionario <code class="docutils literal notranslate"><span class="pre">catalogo</span></code> presentado en la siguiente celda tiene varias llaves que corresponden al nombre de los artículos. El valor asociado a cada llave es el precio del artículo (en COP).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No modifiques esta celda</span>
+
+<span class="n">catalogo</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Oso de peluche&quot;</span> <span class="p">:</span> <span class="mi">50000</span><span class="p">,</span>
+            <span class="s2">&quot;Perfume&quot;</span> <span class="p">:</span> <span class="mi">9800</span><span class="p">,</span>
+            <span class="s2">&quot;Aretes&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+            <span class="s2">&quot;Dulces&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+            <span class="s2">&quot;Blusa&quot;</span> <span class="p">:</span> <span class="mi">15000</span><span class="p">,</span>
+            <span class="s2">&quot;Bono de peluqueria&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+            <span class="s2">&quot;Libros&quot;</span> <span class="p">:</span> <span class="mi">60000</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Almacena el nombre del artículo más barato en una variable llamada <code class="docutils literal notranslate"><span class="pre">regalo</span></code>. Si Santiago encuentra un empate entre dos o más artículos, escribirá sus nombres en orden alfabético y eligirá el primero. Asimismo, si el artículo más barato vale más de COP 10000, Santiago no comprará nada y le escribirá una carta a su amiga. Si este es el caso, deberás almacenar la cadena de caracteres <code class="docutils literal notranslate"><span class="pre">&quot;Carta&quot;</span></code> en la variable <code class="docutils literal notranslate"><span class="pre">regalo</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="n">regalo</span> <span class="o">=</span> <span class="s2">&quot;Carta&quot;</span>
+
+<span class="n">menor_precio</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">catalogo</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="n">menor_precio</span> <span class="o">&lt;=</span> <span class="mi">10000</span><span class="p">:</span>
+    <span class="n">baratos</span> <span class="o">=</span> <span class="p">[</span><span class="n">nombre</span> <span class="k">for</span> <span class="n">nombre</span><span class="p">,</span><span class="n">precio</span> <span class="ow">in</span> <span class="n">catalogo</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">precio</span> <span class="o">==</span> <span class="n">menor_precio</span><span class="p">]</span>
+    <span class="n">baratos</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">regalo</span> <span class="o">=</span> <span class="n">baratos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">regalo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PRUEBAS</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 1</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">catalogo</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Peluche&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;Perfume&quot;</span> <span class="p">:</span> <span class="mi">9800</span><span class="p">,</span> <span class="s2">&quot;Cadena&quot;</span> <span class="p">:</span> <span class="mi">20000</span><span class="p">,</span> <span class="s2">&quot;Chocolates&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> 
+            <span class="s2">&quot;Zapatos&quot;</span> <span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;Flores&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Libro&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Caso 1: no existe la variable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">regalo</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No declaraste una variable llamada regalo.&quot;</span><span class="p">,)</span>
+        
+    <span class="c1"># Caso 2: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 3: el código modifica los parametros del problema</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">catalogo</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;Peluche&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;Perfume&quot;</span> <span class="p">:</span> <span class="mi">9800</span><span class="p">,</span> <span class="s2">&quot;Cadena&quot;</span> <span class="p">:</span> <span class="mi">20000</span><span class="p">,</span> <span class="s2">&quot;Chocolates&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;Zapatos&quot;</span> <span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;Flores&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Libro&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">}</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Tu código no debe modificar los datos del problema.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 4: no es de tipo str.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">regalo</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable regalo no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 5: el código no utiliza la variable catalogo </span>
+    <span class="k">assert</span> <span class="n">_i</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;catalogo&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tu código no utiliza la variable catalogo.&quot;</span>
+
+    <span class="c1"># Caso 6: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">regalo</span> <span class="o">==</span> <span class="s1">&#39;Chocolates&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el artículo más barato tiene un valor menor o igual a COP 10000. Es posible que no hayas manejado correctamente la regla de desempate.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">catalogo</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Oso de peluche&quot;</span> <span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s2">&quot;Perfume&quot;</span> <span class="p">:</span> <span class="mi">9800</span><span class="p">,</span><span class="s2">&quot;Aretes&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;Dulces&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+                <span class="s2">&quot;Blusa&quot;</span> <span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="s2">&quot;Bono de peluqueria&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Libros&quot;</span> <span class="p">:</span> <span class="mi">60000</span><span class="p">}</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">catalogo</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Oso de peluche&quot;</span> <span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s2">&quot;Perfume&quot;</span> <span class="p">:</span> <span class="mi">9800</span><span class="p">,</span><span class="s2">&quot;Aretes&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;Dulces&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+                <span class="s2">&quot;Blusa&quot;</span> <span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="s2">&quot;Bono de peluqueria&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Libros&quot;</span> <span class="p">:</span> <span class="mi">60000</span><span class="p">}</span>
+
+<span class="c1">#--------------</span>
+<span class="c1"># INSTANCIA 2</span>
+<span class="c1">#--------------</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">catalogo</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Peluche&quot;</span> <span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s2">&quot;Perfume&quot;</span> <span class="p">:</span> <span class="mi">98000</span><span class="p">,</span> <span class="s2">&quot;Cadena&quot;</span> <span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s2">&quot;Chocolates&quot;</span> <span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> 
+            <span class="s2">&quot;Zapatos&quot;</span> <span class="p">:</span> <span class="mi">1000000</span><span class="p">,</span> <span class="s2">&quot;Flores&quot;</span> <span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;Libro&quot;</span> <span class="p">:</span> <span class="mi">100000</span><span class="p">}</span>
+<span class="k">try</span><span class="p">:</span>
+    
+    <span class="c1"># Caso 1: el código se ejecuta con errores</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">_i</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu código produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Caso 2: no es de tipo str.</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">regalo</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu variable regalo no es de tipo </span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="c1"># Caso 3: la respuesta es correcta</span>
+    <span class="k">assert</span> <span class="n">regalo</span> <span class="o">==</span> <span class="s1">&#39;Carta&#39;</span><span class="p">,</span> <span class="s2">&quot;Tu implementación presenta errores cuando el artículo más barato vale más de COP 10000.&quot;</span>
+        
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">catalogo</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Oso de peluche&quot;</span> <span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s2">&quot;Perfume&quot;</span> <span class="p">:</span> <span class="mi">9800</span><span class="p">,</span><span class="s2">&quot;Aretes&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;Dulces&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+                <span class="s2">&quot;Blusa&quot;</span> <span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="s2">&quot;Bono de peluqueria&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Libros&quot;</span> <span class="p">:</span> <span class="mi">60000</span><span class="p">}</span>
+    <span class="k">raise</span>
+
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restaurar variables base originales</span>
+    <span class="n">catalogo</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Oso de peluche&quot;</span> <span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s2">&quot;Perfume&quot;</span> <span class="p">:</span> <span class="mi">9800</span><span class="p">,</span><span class="s2">&quot;Aretes&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;Dulces&quot;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+                <span class="s2">&quot;Blusa&quot;</span> <span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="s2">&quot;Bono de peluqueria&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Libros&quot;</span> <span class="p">:</span> <span class="mi">60000</span><span class="p">}</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p>Senecode. (2019). Problemas. 25 Noviembre 2020, de Uniandes Sitio web: <a class="reference external" href="https://senecode.virtual.uniandes.edu.co/problemas/buscar">https://senecode.virtual.uniandes.edu.co/problemas/buscar</a></p>
+<p>BootCamp Uniandes. (2016). Notas de clase. 25 Noviembre 2020, de GitHub Sitio web: <a class="reference external" href="https://github.com/PythonBootcampUniandes/notas-de-clase">https://github.com/PythonBootcampUniandes/notas-de-clase</a></p>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Camilo Falla Moreno, Juan Felipe Rengifo Méndez, Ariadna Sofía de Ávila Bula, Alejandro Mantilla Redondo, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización:</strong> 06/08/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TA2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

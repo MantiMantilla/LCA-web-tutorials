@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorar bases de datos &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requisitos">
+   Requisitos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivos">
+   Objetivos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexar-un-dataframe">
+   1. Indexar un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     DataFrame
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-1">
+     Ejemplo 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objeto-de-tipo-multiindex">
+     1.1. Objeto de tipo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MultiIndex
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-2">
+       Ejemplo 2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-3">
+       Ejemplo 3
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtrar-bases-de-datos-utilizando-la-libreria-pandas">
+   2. Filtrar bases de datos utilizando la librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtrado-de-posiciones-no-consecutivas">
+     2.1. Filtrado de posiciones no consecutivas
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-5">
+       Ejemplo 5
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-6">
+       Ejemplo 6
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtrado-por-niveles">
+     2.2. Filtrado por niveles
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-7">
+       Ejemplo 7
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtrado-condicional">
+     2.3. Filtrado condicional
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-8">
+       Ejemplo 8
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-9">
+       Ejemplo 9
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="explorar-bases-de-datos">
+<h1>Explorar bases de datos<a class="headerlink" href="#explorar-bases-de-datos" title="Permalink to this headline">¶</a></h1>
+<p>Explorar bases de datos es uno de los pasos esenciales en cualquier proyecto de analítica de datos, pues nos permite identificar aspectos útiles del caso de estudio.</p>
+<p>En este tutorial establecemos nociones fundamentales sobre el uso del paquete <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para explorar datos.</p>
+<div class="section" id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<p>Para desarrollar este tutorial necesitarás:</p>
+<ul class="simple">
+<li><p>Utilizar arreglos y operaciones básicas y vectorizadas en <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. <br></p></li>
+<li><p>Crear, consultar y utilizar métodos para explorar y manipular objetos tipo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+<p>Al final de este tutorial podrás:</p>
+<p><strong>1.</strong> Indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> empleando índices múltiples. <br>
+<strong>2.</strong> Aplicar distintos tipos de filtrado utilizando <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.<br></p>
+</div>
+<div class="section" id="indexar-un-dataframe">
+<h2>1. Indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#indexar-un-dataframe" title="Permalink to this headline">¶</a></h2>
+<p>Entre los aspectos a detallar al explorar una base de datos, se encuentra la llave o el <em>ID</em> que distingue un registro de otro. Esta llave no siempre se conoce de antemano o, en ocasiones, deseamos modificarla.</p>
+<p>Para distinguir una observación (o fila) de otra en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> define un objeto de tipo <code class="docutils literal notranslate"><span class="pre">Index</span></code> (o <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>).</p>
+<p>Al analizar datos generalmente requerimos que el índice de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> corresponda a una llave de la base de datos. Todo registro debe tener asignada una llave única, con el fin de distinguirlo de los demás registros. En ocasiones debemos usar más de una característica del registro para crear una llave, es decir, debemos definir un índice de múltiples niveles.</p>
+<p>Importamos el paquete <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos el siguiente ejemplo para considerar un caso en el que se necesite más de una columna para indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="section" id="ejemplo-1">
+<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">¶</a></h3>
+<p>En la siguiente celda de código declaramos un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contiene información de algunas personas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s2">&quot;Jorge&quot;</span><span class="p">,</span> <span class="s2">&quot;Suárez&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">],</span>
+                        <span class="p">[</span><span class="s2">&quot;Laura&quot;</span><span class="p">,</span> <span class="s2">&quot;Poveda&quot;</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span>  <span class="p">],</span>
+                        <span class="p">[</span><span class="s2">&quot;Pablo&quot;</span><span class="p">,</span> <span class="s2">&quot;Stecco&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span>  <span class="p">],</span>
+                        <span class="p">[</span><span class="s2">&quot;Jorge&quot;</span><span class="p">,</span> <span class="s2">&quot;Poveda&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">]],</span>
+                       <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;Apellido&quot;</span><span class="p">,</span> <span class="s2">&quot;Edad&quot;</span><span class="p">,</span> <span class="s2">&quot;Ciudad&quot;</span><span class="p">])</span>
+<span class="n">nombres</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si bien es posible utilizar la columna <code class="docutils literal notranslate"><span class="pre">&quot;nombre&quot;</span></code> para indexar la base de datos, este índice no sería una llave, puesto que uno de los valores del índice (<code class="docutils literal notranslate"><span class="pre">&quot;Jorge&quot;</span></code>) corresponde a más de un registro:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[&quot;Jorge&quot;,</span> <span class="pre">&quot;Suárez&quot;,</span> <span class="pre">28,</span> <span class="pre">&quot;Bogotá&quot;]</span></code> y</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[&quot;Jorge&quot;,</span> <span class="pre">&quot;Poveda&quot;,</span> <span class="pre">30,</span> <span class="pre">&quot;Bogotá&quot;]</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">nombres</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+<span class="n">nombres</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Jorge&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dado que queremos utilizar el nombre para construir la llave de nuestra base de datos, podemos agregar a cada valor del índice el apellido del registro y así evitar valores duplicados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres_indice</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">nombres</span><span class="p">[[</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;Apellido&quot;</span><span class="p">]])</span>
+<span class="n">nombres</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">nombres_indice</span>
+
+<span class="n">nombres</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con la modificación anterior podemos referirnos a la información de <code class="docutils literal notranslate"><span class="pre">&quot;Jorge</span> <span class="pre">Suárez&quot;</span></code> o de <code class="docutils literal notranslate"><span class="pre">&quot;Jorge</span> <span class="pre">Poveda&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span><span class="o">.</span><span class="n">loc</span><span class="p">[[(</span><span class="s2">&quot;Jorge&quot;</span><span class="p">,</span> <span class="s2">&quot;Poveda&quot;</span><span class="p">)]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="objeto-de-tipo-multiindex">
+<h3>1.1. Objeto de tipo <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#objeto-de-tipo-multiindex" title="Permalink to this headline">¶</a></h3>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> permite crear un índice múltiple para los registros de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> o un <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Podemos declarar objetos de tipo <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> a partir de métodos que reciben diferentes tipos de objeto por parámetro.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Métodos</p></th>
+<th class="text-align:left head"><p><center>Descripción</center></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">from_arrays</span></code></p></td>
+<td class="text-align:left"><p>A partir de un arreglo de arreglos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">from_product</span></code></p></td>
+<td class="text-align:left"><p>A partir del producto cartesiano de estructuras de datos</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">from_tuples</span></code></p></td>
+<td class="text-align:left"><p>A partir de una lista de tuplas</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">from_frame</span></code></p></td>
+<td class="text-align:left"><p>A partir de la lista actual con otra lista</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="ejemplo-2">
+<h4>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">¶</a></h4>
+<p>Creamos un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> a partir de las columnas <code class="docutils literal notranslate"><span class="pre">&quot;nombre&quot;</span></code> y <code class="docutils literal notranslate"><span class="pre">&quot;apellido&quot;</span></code>y lo utilizamos para indexar el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> contenido en la variable <code class="docutils literal notranslate"><span class="pre">nombres</span></code>.</p>
+<p>Usamos el método <code class="docutils literal notranslate"><span class="pre">from_arrays</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres_indice</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">([</span><span class="n">nombres</span><span class="p">[</span><span class="s2">&quot;Nombre&quot;</span><span class="p">],</span><span class="n">nombres</span><span class="p">[</span><span class="s2">&quot;Apellido&quot;</span><span class="p">]])</span>
+<span class="n">nombres_indice</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Después usamos el método <code class="docutils literal notranslate"><span class="pre">reindex</span></code> para asignar el nuevo <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">nombres_indice</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos nombrar columnas que tengan múltiples niveles a partir de un objeto <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>.</p>
+</div>
+<div class="section" id="ejemplo-3">
+<h4>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">¶</a></h4>
+<p>A continuación importamos una base de datos llamada <code class="docutils literal notranslate"><span class="pre">&quot;Bid-Cornell.csv&quot;</span></code> que reúne información sobre un grupo de ciudadanos y los medios de comunicación que utilizan para informarse sobre noticias generales o noticias acerca del COVID-19.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_covid_19</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Archivos/BID-Cornell.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> 
+<span class="n">df_covid_19</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los nombres de las columnas de <code class="docutils literal notranslate"><span class="pre">df_covid_19</span></code> están estructurados de la siguiente manera:</p>
+<ol class="simple">
+<li><p>Prefijo:</p>
+<ul class="simple">
+<li><p>Medios de comunicación (<code class="docutils literal notranslate"><span class="pre">&quot;medios&quot;</span></code>).</p></li>
+</ul>
+</li>
+<li><p>Contexto de la información:</p>
+<ul class="simple">
+<li><p>Noticias generales (<code class="docutils literal notranslate"><span class="pre">&quot;noti&quot;</span></code>).</p></li>
+<li><p>Noticias sobre el COVID-19 (<code class="docutils literal notranslate"><span class="pre">&quot;covid&quot;</span></code>).</p></li>
+</ul>
+</li>
+<li><p>Medio de comunicación empleado:</p>
+<ul class="simple">
+<li><p>Redes Sociales (<code class="docutils literal notranslate"><span class="pre">&quot;redessociales&quot;</span></code>).</p></li>
+<li><p>Chat (<code class="docutils literal notranslate"><span class="pre">&quot;chat&quot;</span></code>).</p></li>
+<li><p>Periodicos (<code class="docutils literal notranslate"><span class="pre">&quot;periodicos&quot;</span></code>).</p></li>
+<li><p>TV (<code class="docutils literal notranslate"><span class="pre">&quot;tv&quot;</span></code>).</p></li>
+<li><p>Radio (<code class="docutils literal notranslate"><span class="pre">&quot;radio&quot;</span></code>).</p></li>
+</ul>
+</li>
+</ol>
+<p>Por ejemplo, <code class="docutils literal notranslate"><span class="pre">&quot;medios_noti_redessociales&quot;</span></code> representa que el medio de comunicación utilizado para informarse acerca de noticias generales es las redes sociales.</p>
+<p>Podemos utilizar un objeto <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> para nombrar las columnas con un mejor orden, coherente con la estructura descrita. Seccionamos el nombre de cada columna donde coincidan guiones bajos (<code class="docutils literal notranslate"><span class="pre">&quot;_&quot;</span></code>) empleando métodos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para columnas con datos de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_covid_19</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df_covid_19</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span>
+<span class="n">indice_multiple_columnas</span> <span class="o">=</span> <span class="n">df_covid_19</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">expand</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">indice_multiple_columnas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_covid_19</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">indice_multiple_columnas</span>
+<span class="n">df_covid_19</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>De esta manera, si queremos tener acceso a la información sobre el uso de las redes sociales como medio de comunicación para informarse sobre el COVID-19, podemos usar el método <code class="docutils literal notranslate"><span class="pre">loc</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_covid_19</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="s1">&#39;covid&#39;</span><span class="p">,</span> <span class="s1">&#39;redessociales&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtrar-bases-de-datos-utilizando-la-libreria-pandas">
+<h2>2. Filtrar bases de datos utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#filtrar-bases-de-datos-utilizando-la-libreria-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="filtrado-de-posiciones-no-consecutivas">
+<h3>2.1. Filtrado de posiciones no consecutivas<a class="headerlink" href="#filtrado-de-posiciones-no-consecutivas" title="Permalink to this headline">¶</a></h3>
+<p>Si las posiciones que queremos seleccionar no son consecutivas, debemos representarlas en una lista. A continuación, vemos un ejemplo de esto.</p>
+<div class="section" id="ejemplo-5">
+<h4>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">¶</a></h4>
+<p>Se nos solicita mostrar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contenga únicamente las 10 primeras y las 10 últimas observaciones del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <code class="docutils literal notranslate"><span class="pre">df_covid_19</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">posiciones_filas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">df_10_y_10</span> <span class="o">=</span> <span class="n">df_covid_19</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">posiciones_filas</span><span class="p">,</span> <span class="p">:</span> <span class="p">]</span>
+<span class="n">df_10_y_10</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-6">
+<h4>Ejemplo 6<a class="headerlink" href="#ejemplo-6" title="Permalink to this headline">¶</a></h4>
+<p>Se nos solicita mostrar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contenga únicamente las 3 primeras columnas y de la columna 6 en adelante del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <code class="docutils literal notranslate"><span class="pre">df_covid_19</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">posiciones_columnas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_covid_19</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+<span class="n">df_3_y_6_en_adelante</span> <span class="o">=</span> <span class="n">df_covid_19</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span> <span class="p">:</span> <span class="p">,</span> <span class="n">posiciones_columnas</span><span class="p">]</span>
+<span class="n">df_3_y_6_en_adelante</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtrado-por-niveles">
+<h3>2.2. Filtrado por niveles<a class="headerlink" href="#filtrado-por-niveles" title="Permalink to this headline">¶</a></h3>
+<p>El objeto <code class="docutils literal notranslate"><span class="pre">IndexSlice</span></code> nos permite indicar, para cada nivel de un objeto <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>, qué elementos queremos incluir.</p>
+<div class="section" id="ejemplo-7">
+<h4>Ejemplo 7<a class="headerlink" href="#ejemplo-7" title="Permalink to this headline">¶</a></h4>
+<p>A partir de la base de datos del BID, nos solicitan seleccionar las columnas que tengan información de noticias generales (<code class="docutils literal notranslate"><span class="pre">&quot;noti&quot;</span></code>) sobre el uso del <code class="docutils literal notranslate"><span class="pre">&quot;chat&quot;</span></code> o <code class="docutils literal notranslate"><span class="pre">&quot;tv&quot;</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_covid_19</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span><span class="p">[</span><span class="s2">&quot;noti&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;chat&#39;</span><span class="p">,</span><span class="s1">&#39;tv&#39;</span><span class="p">)]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtrado-condicional">
+<h3>2.3. Filtrado condicional<a class="headerlink" href="#filtrado-condicional" title="Permalink to this headline">¶</a></h3>
+<p>El filtrado condicional nos permite indicarle a un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, mediante un arreglo de objetos tipo <code class="docutils literal notranslate"><span class="pre">bool</span></code>, cuales elementos incluir. Podemos declarar un arreglo de objetos tipo <code class="docutils literal notranslate"><span class="pre">bool</span></code> aplicando, término a término, los operadores relacionales (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>) o lógicos (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code>) que ya conoces.</p>
+<p>A continuación, encuentras un ejemplo utilizando un operador relacional:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">3</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">array</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>A continuación, encuentras un ejemplo utilizando un operador lógico:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Veamos un ejemplo de cómo aplicar filtrado condicional a las filas de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="section" id="ejemplo-8">
+<h4>Ejemplo 8<a class="headerlink" href="#ejemplo-8" title="Permalink to this headline">¶</a></h4>
+<p>Seleccionemos los registros correspondientes a personas menores de 35 años, oriundas de <code class="docutils literal notranslate"><span class="pre">&quot;Lima&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span><span class="p">[(</span><span class="n">nombres</span><span class="p">[</span><span class="s1">&#39;Edad&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">35</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">nombres</span><span class="p">[</span><span class="s1">&#39;Ciudad&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Lima&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos un ejemplo de cómo aplicar filtrado condicional a las columnas de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+</div>
+<div class="section" id="ejemplo-9">
+<h4>Ejemplo 9<a class="headerlink" href="#ejemplo-9" title="Permalink to this headline">¶</a></h4>
+<p>Seleccionemos los registros correspondientes a personas menores de 35 años, oriundas de <code class="docutils literal notranslate"><span class="pre">&quot;Lima&quot;</span></code>, exluyendo las columnas cuyo nombre tenga menos de 6 caracteres.</p>
+<p>Para esto, utilizamos el atributo <code class="docutils literal notranslate"><span class="pre">loc</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">nombres</span><span class="p">[</span><span class="s1">&#39;Edad&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">35</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">nombres</span><span class="p">[</span><span class="s1">&#39;Ciudad&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Lima&quot;</span><span class="p">),</span> <span class="n">nombres</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p>Pandas (2020). Documentación sobre el método .iloc(). Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html</a></p>
+<p>Pandas (2020). Documentación sobre el método .loc(). Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html</a></p>
+<p>Pandas (2020). Documentación sobre el método .IndexSlice() . Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.IndexSlice.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.IndexSlice.html</a></p>
+<p>BID (2020). Encuesta Coronavirus BID/Cornell. Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://data.iadb.org/DataCatalog/Dataset#DataCatalogID=11319/28452">https://data.iadb.org/DataCatalog/Dataset#DataCatalogID=11319/28452</a></p>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es):</strong> Juan David Reyes Jaimes, Jorge Esteban Camargo Forero, Alejandro Mantilla, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización:</strong> 26/08/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

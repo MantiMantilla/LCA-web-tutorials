@@ -1,0 +1,1244 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Librerías para manejo de datos: numpy y pandas &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requisitos">
+   Requisitos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivos">
+   Objetivos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libreria-numpy">
+   1. Librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     numpy
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declaracion-consulta-y-operaciones-basicas-con-arreglos">
+     1.1. Declaración, consulta y operaciones básicas con arreglos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#declaracion">
+       Declaración
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#consulta">
+       Consulta
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rebanado">
+       Rebanado
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#operaciones-basicas-con-arreglos-agregar-y-eliminar-elementos">
+       Operaciones básicas con arreglos: agregar y eliminar elementos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-comunes-con-arreglos-en-numpy">
+     1.2. Métodos comunes con arreglos en
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       numpy
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#suma">
+       Suma
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#promedio">
+       Promedio
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#maximo-y-minimo">
+       Máximo y mínimo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#concatenar">
+       Concatenar
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operaciones-basicas-sobre-vectores-con-numpy">
+     1.3. Operaciones básicas sobre vectores con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       numpy
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices">
+       Matrices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#suma-termino-a-termino">
+       Suma término a término
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiplicacion-termino-a-termino">
+       Multiplicación término a término
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiplicacion-matricial">
+       Multiplicación matricial
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matriz-transpuesta">
+       Matriz transpuesta
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#expresion-logica-termino-a-termino">
+       Expresión lógica término a término
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libreria-pandas">
+   2. Librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objeto-series">
+     2.1. Objeto
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Series
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Declaración
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Consulta
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Rebanado
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objeto-dataframe">
+     2.2. Objeto
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataFrame
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Declaración
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Consulta
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Rebanado
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declaracion-de-un-series-o-un-dataframe-desde-un-archivo">
+     2.3. Declaración de un
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Series
+      </span>
+     </code>
+     o un
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataFrame
+      </span>
+     </code>
+     desde un archivo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploracion-de-los-objetos-series-y-dataframe">
+     2.4. Exploración de los objetos
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Series
+      </span>
+     </code>
+     y
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataFrame
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulacion-de-series-y-dataframe">
+     2.5. Manipulación de
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Series
+      </span>
+     </code>
+     y
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataFrame
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="librerias-para-manejo-de-datos-numpy-y-pandas">
+<h1>Librerías para manejo de datos: <code class="docutils literal notranslate"><span class="pre">numpy</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#librerias-para-manejo-de-datos-numpy-y-pandas" title="Permalink to this headline">¶</a></h1>
+<p>En programación, una librería es un conjunto de funcionalidades que ya están escritas y podemos llamar para utilizarlas en nuestros programas. La librería <code class="docutils literal notranslate"><span class="pre">numpy</span></code> nos ofrece la posibilidad de crear arreglos y matrices multidimensionales, lo cual nos permite estructurar datos, con el fin de analizarlos más adelante. Por otro lado, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> es una librería de Python que ofrece la posibilidad de manipular y explorar datos que forma fácil y rápida.</p>
+<p>En este tutorial establecemos nociones fundamentales sobre el uso de las librerías <code class="docutils literal notranslate"><span class="pre">numpy</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, para integrarlos en procesos de análisis de datos.</p>
+<div class="section" id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<p>Para desarrollar este tutorial necesitarás:</p>
+<ul class="simple">
+<li><p>Utilizar estructuras de datos (listas, tuplas, diccionarios).</p></li>
+<li><p>Utilizar estructuras de control (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>).</p></li>
+</ul>
+</div>
+<div class="section" id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+<p>Al final de este tutorial podrás:</p>
+<p><strong>1.</strong> Utilizar arreglos y operaciones básicas y vectorizadas en <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. <br>
+<strong>2.</strong> Crear, consultar y utilizar métodos para explorar y manipular objetos tipo <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+</div>
+<div class="section" id="libreria-numpy">
+<h2>1. Librería <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#libreria-numpy" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> es una librería de uso abierto para el lenguaje de Python que permite crear vectores (arreglos) y matrices multidimensionales. Esta librería nos ofrece la posibilidad de llevar a cabo operaciones matemáticas de alto nivel y con una gran velocidad.</p>
+<p>Te recomendamos importar la libería <code class="docutils literal notranslate"><span class="pre">numpy</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">np</span></code> (su alias más frecuentemente usado), como se muestra a continuación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="declaracion-consulta-y-operaciones-basicas-con-arreglos">
+<h3>1.1. Declaración, consulta y operaciones básicas con arreglos<a class="headerlink" href="#declaracion-consulta-y-operaciones-basicas-con-arreglos" title="Permalink to this headline">¶</a></h3>
+<p>Los arreglos son la estructura principal que nos provee <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Estos nos permiten guardar información en un contenedor para aplicar operaciones sobre ellos posteriormente. Los arreglos de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> tienen más funcionalidades que las listas nativas de Python.</p>
+<div class="section" id="declaracion">
+<h4>Declaración<a class="headerlink" href="#declaracion" title="Permalink to this headline">¶</a></h4>
+<p>Para declarar un arreglo utilizamos el método <code class="docutils literal notranslate"><span class="pre">array</span></code> del paquete <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arreglo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">arreglo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="consulta">
+<h4>Consulta<a class="headerlink" href="#consulta" title="Permalink to this headline">¶</a></h4>
+<p>Accedemos a un elemento en un arreglo con la misma sintaxis que consultamos listas. A continuación vemos un ejemplo de cómo acceder al primer elemento del arreglo <code class="docutils literal notranslate"><span class="pre">arreglo</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elemento1</span> <span class="o">=</span> <span class="n">arreglo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El primer elemento del arreglo es &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">elemento1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rebanado">
+<h4>Rebanado<a class="headerlink" href="#rebanado" title="Permalink to this headline">¶</a></h4>
+<p>Utilizamos la misma notación de las listas nativas de Python para acceder a una porción de un arreglo. A continuación vemos un ejemplo de cómo acceder a los últimos dos elementos del arreglo <code class="docutils literal notranslate"><span class="pre">arreglo</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">porcion_arreglo</span> <span class="o">=</span> <span class="n">arreglo</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">porcion_arreglo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operaciones-basicas-con-arreglos-agregar-y-eliminar-elementos">
+<h4>Operaciones básicas con arreglos: agregar y eliminar elementos<a class="headerlink" href="#operaciones-basicas-con-arreglos-agregar-y-eliminar-elementos" title="Permalink to this headline">¶</a></h4>
+<p>Revisemos como añadir un elemento a un arreglo. Para esto, debemos especificar el arreglo y el elemento que queremos añadir al final del mismo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arreglo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arreglo</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">arreglo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, revisemos como eliminar un elemento de un arreglo. Para esto, debemos especificar el arreglo y la posición del elemento que queremos eliminar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arreglo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">arreglo</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">arreglo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metodos-comunes-con-arreglos-en-numpy">
+<h3>1.2. Métodos comunes con arreglos en <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#metodos-comunes-con-arreglos-en-numpy" title="Permalink to this headline">¶</a></h3>
+<p>La ventaja de utilizar arreglos de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> es que estos tienen un gran número de métodos que nos permiten llevar a cabo diversos tipos de análisis. A continuación, definiremos un arreglo de tipo numerico e implementaremos algunos de los métodos más utilizados. Recomendamos que revises la bibliografía para expandir el conocimiento acerca de otros métodos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arreglo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="suma">
+<h4>Suma<a class="headerlink" href="#suma" title="Permalink to this headline">¶</a></h4>
+<p>Calcula la suma de todos los elementos de un arreglo, siempre y cuando todos sean de tipo numerico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suma</span> <span class="o">=</span> <span class="n">arreglo</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La suma de todos los elementos es &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">suma</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="promedio">
+<h4>Promedio<a class="headerlink" href="#promedio" title="Permalink to this headline">¶</a></h4>
+<p>Calcula el promedio de todos los elementos de un arreglo, siempre y cuando todos sean de tipo numerico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">promedio</span> <span class="o">=</span> <span class="n">arreglo</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El promedio de todos los elementos es &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">promedio</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="maximo-y-minimo">
+<h4>Máximo y mínimo<a class="headerlink" href="#maximo-y-minimo" title="Permalink to this headline">¶</a></h4>
+<p>Calcula el máximo y mínimo elemento dentro de un arreglo, respectivamente, siempre y cuando todos los elementos sean de tipo numerico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maximo</span> <span class="o">=</span> <span class="n">arreglo</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El máximo elemento es &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">maximo</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minimo</span> <span class="o">=</span> <span class="n">arreglo</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El minimo elemento es &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">minimo</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concatenar">
+<h4>Concatenar<a class="headerlink" href="#concatenar" title="Permalink to this headline">¶</a></h4>
+<p>Concatena dos o más arreglos en uno.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arreglo_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">arreglo_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+
+<span class="n">arreglo_concat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">arreglo_1</span><span class="p">,</span> <span class="n">arreglo_2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">arreglo_concat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operaciones-basicas-sobre-vectores-con-numpy">
+<h3>1.3. Operaciones básicas sobre vectores con <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#operaciones-basicas-sobre-vectores-con-numpy" title="Permalink to this headline">¶</a></h3>
+<p>Otra gran funcionalidad que nos provee <code class="docutils literal notranslate"><span class="pre">numpy</span></code> es la posibilidad de realizar operaciones vectoriales de una manera sencilla y rápida. Para esto, veremos como crear matrices con <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<div class="section" id="matrices">
+<h4>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> provee la posibilidad de crear matrices multidimensionales a las cuales les podemos aplicar múltiples operaciones. La forma de crearlas en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> es la siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matriz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">matriz</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creemos dos matrices para aplicarles algunas operaciones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">mat_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">mat_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, procedamos a ver operaciones con matrices en <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:</p>
+</div>
+<div class="section" id="suma-termino-a-termino">
+<h4>Suma término a término<a class="headerlink" href="#suma-termino-a-termino" title="Permalink to this headline">¶</a></h4>
+<p>Para sumar cada elemento de <code class="docutils literal notranslate"><span class="pre">mat_1</span></code> con el elemento ubicado en la misma posición de <code class="docutils literal notranslate"><span class="pre">mat_2</span></code>, utilizamos el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suma_matrices</span> <span class="o">=</span> <span class="n">mat_1</span> <span class="o">+</span> <span class="n">mat_2</span>
+<span class="n">suma_matrices</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiplicacion-termino-a-termino">
+<h4>Multiplicación término a término<a class="headerlink" href="#multiplicacion-termino-a-termino" title="Permalink to this headline">¶</a></h4>
+<p>Para multiplicar cada elemento de <code class="docutils literal notranslate"><span class="pre">mat_1</span></code> con el elemento ubicado en la misma posición de <code class="docutils literal notranslate"><span class="pre">mat_2</span></code>, utilizamos el operador <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">producto_matrices</span> <span class="o">=</span> <span class="n">mat_1</span> <span class="o">*</span> <span class="n">mat_2</span>
+<span class="n">producto_matrices</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiplicacion-matricial">
+<h4>Multiplicación matricial<a class="headerlink" href="#multiplicacion-matricial" title="Permalink to this headline">¶</a></h4>
+<p>Para realizar una multiplicación matricial en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> utilizamos el método <code class="docutils literal notranslate"><span class="pre">dot()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat_1_por_mat_2</span> <span class="o">=</span> <span class="n">mat_1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat_2</span><span class="p">)</span>
+<span class="n">mat_1_por_mat_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat_2_por_mat_1</span> <span class="o">=</span> <span class="n">mat_2</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat_1</span><span class="p">)</span>
+<span class="n">mat_2_por_mat_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matriz-transpuesta">
+<h4>Matriz transpuesta<a class="headerlink" href="#matriz-transpuesta" title="Permalink to this headline">¶</a></h4>
+<p>Para transponer una matriz en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> utilizamos el método <code class="docutils literal notranslate"><span class="pre">transpose()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trans_matriz</span> <span class="o">=</span> <span class="n">mat_1</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">trans_matriz</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="expresion-logica-termino-a-termino">
+<h4>Expresión lógica término a término<a class="headerlink" href="#expresion-logica-termino-a-termino" title="Permalink to this headline">¶</a></h4>
+<p>Podemos aplicar los operadores lógicos <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code> y <code class="docutils literal notranslate"><span class="pre">~</span></code> (similares a <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> y <code class="docutils literal notranslate"><span class="pre">not</span></code>, respectivamente) a dos objetos tipo <code class="docutils literal notranslate"><span class="pre">array</span></code> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (que contengan valores de tipo <code class="docutils literal notranslate"><span class="pre">bool</span></code>), con el fin de evaluar término a término la condición lógica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arreglo_booleano</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+<span class="n">arreglo_booleano</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="libreria-pandas">
+<h2>2. Librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#libreria-pandas" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> es una librería abierta de Python que permite llevar a cabo manipulación y exploración de datos de forma sencilla. Sus estructuras básicas son llamadas <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, y nos permiten almacenar, limpiar y analizar datos.</p>
+<p>Te recomendamos importar la libería <code class="docutils literal notranslate"><span class="pre">pandas</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">pd</span></code> (su alias más frecuentemente usado), como se muestra a continuación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="objeto-series">
+<h3>2.1. Objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#objeto-series" title="Permalink to this headline">¶</a></h3>
+<p>Un <code class="docutils literal notranslate"><span class="pre">Series</span></code> es un objeto unidimensional similar a una columna de una matriz, en el cual podemos almacenar datos. Un <code class="docutils literal notranslate"><span class="pre">Series</span></code> esta compuesto por índices y datos almacenados.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Índice</p></th>
+<th class="text-align:center head"><p>Datos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>“A”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>“B”</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>3</p></td>
+<td class="text-align:center"><p>“C”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>4</p></td>
+<td class="text-align:center"><p>“D”</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>5</p></td>
+<td class="text-align:center"><p>“E”</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h4>Declaración<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Podemos declarar un <code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de diferentes estructuras de datos. A continuación, vemos un ejemplo de declaración a partir de una lista:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">])</span>
+
+<span class="n">serie</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos usar diccionarios para declarar <code class="docutils literal notranslate"><span class="pre">Series</span></code>, a continuación vemos un ejemplo de cómo hacerlo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s2">&quot;Colombia&quot;</span><span class="p">:</span><span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Argentina&quot;</span><span class="p">:</span> <span class="s2">&quot;Buenos Aires&quot;</span><span class="p">,</span> <span class="s2">&quot;Peru&quot;</span><span class="p">:</span> <span class="s2">&quot;Lima&quot;</span><span class="p">,</span> <span class="s2">&quot;Mexico&quot;</span><span class="p">:</span> <span class="s2">&quot;Ciudad de Mexico&quot;</span><span class="p">})</span>
+
+<span class="n">serie</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, veamos cómo darle valor a los índices y nombrar el <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">],</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Mi_serie&quot;</span><span class="p">)</span>
+
+<span class="n">serie</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Consulta<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Para acceder a un elemento de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> podemos hacer uso de su posición o del valor de su índice, utilizando los atributos <code class="docutils literal notranslate"><span class="pre">iloc</span></code> o <code class="docutils literal notranslate"><span class="pre">loc</span></code>, respectivamente. A continuación, veremos un ejemplo de cómo acceder al segundo elemento según su posición.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elem_2</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">elem_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También veremos un ejemplo de cómo acceder al segundo elemento según su índice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elem_2</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">elem_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Rebanado<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>De manera similar a cómo accedimos a un elemento, también podemos acceder a una porción de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> utilizando los atributos <code class="docutils literal notranslate"><span class="pre">iloc</span></code> y <code class="docutils literal notranslate"><span class="pre">loc</span></code>, y la sintaxis que ya hemos aprendido anteriormente para rebanar. Veremos cómo obtener los primeros dos elementos del <code class="docutils literal notranslate"><span class="pre">Series</span></code> <code class="docutils literal notranslate"><span class="pre">serie</span></code> usando un rebanado por posición:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parte_serie</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">parte_serie</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="objeto-dataframe">
+<h3>2.2. Objeto <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#objeto-dataframe" title="Permalink to this headline">¶</a></h3>
+<p>Un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> es una estructura de datos mutable de dos dimensiones: filas y columnas. Usualmente utilizamos un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> para registrar observaciones de variables o características. A cada observación le corresponde una fila y a cada característica una columna.</p>
+<p>Esta convención no es exclusiva de Python, generalmente los programas para el análisis de datos se manejan de la misma manera.</p>
+<p>Podemos ver en la siguiente tabla un ejemplo de como ordenamos observaciones en una tabla o <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Índice</p></th>
+<th class="text-align:center head"><p><center>Nombre</center></p></th>
+<th class="head"><p><center>Sexo</center></p></th>
+<th class="text-align:center head"><p>Estatura (metros)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td class="text-align:center"><p>Alejandro</p></td>
+<td><p>Masculino</p></td>
+<td class="text-align:center"><p>1.70</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td class="text-align:center"><p>Esteban</p></td>
+<td><p>Masculino</p></td>
+<td class="text-align:center"><p>1.75</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td class="text-align:center"><p>Manuela</p></td>
+<td><p>Femenino</p></td>
+<td class="text-align:center"><p>1.69</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td class="text-align:center"><p>Diego</p></td>
+<td><p>Masculino</p></td>
+<td class="text-align:center"><p>1.60</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td class="text-align:center"><p>Alejandra</p></td>
+<td><p>Femenino</p></td>
+<td class="text-align:center"><p>1.65</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td class="text-align:center"><p>Paula</p></td>
+<td><p>Femenino</p></td>
+<td class="text-align:center"><p>1.55</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id4">
+<h4>Declaración<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Podemos declarar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> a partir de diferentes estructuras de datos. A continuación, vemos un ejemplo de declaración a partir de una listas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jorge&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Laura&quot;</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Persona 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Persona 2&quot;</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;Edad&quot;</span><span class="p">,</span> <span class="s2">&quot;Ciudad Residencia&quot;</span><span class="p">])</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos declarar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> a partir de múltiples <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s2">&quot;Pais&quot;</span><span class="p">:</span><span class="s2">&quot;Colombia&quot;</span><span class="p">,</span> <span class="s2">&quot;Capital&quot;</span><span class="p">:</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">})</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s2">&quot;Pais&quot;</span><span class="p">:</span> <span class="s2">&quot;Argentina&quot;</span><span class="p">,</span> <span class="s2">&quot;Capital&quot;</span><span class="p">:</span> <span class="s2">&quot;Buenos Aires&quot;</span><span class="p">})</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s2">&quot;Pais&quot;</span><span class="p">:</span> <span class="s2">&quot;Peru&quot;</span><span class="p">,</span> <span class="s2">&quot;Capital&quot;</span><span class="p">:</span> <span class="s2">&quot;Lima&quot;</span><span class="p">})</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span> <span class="n">s3</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pais 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Pais 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Pais 3&quot;</span><span class="p">])</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>Consulta<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>De manera similar al filtrado por posiciones de un <code class="docutils literal notranslate"><span class="pre">Series</span></code>, para acceder a uno o más valores dentro de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, podemos hacer uso de su posición, del nombre de su índice o del nombre de su columna.</p>
+<p>Los atributos <code class="docutils literal notranslate"><span class="pre">loc</span></code> y <code class="docutils literal notranslate"><span class="pre">iloc</span></code> son estructuras iterables que nos permiten filtrar filas y columnas de manera simultánea.</p>
+<p>Por ejemplo, podemos utilizar los objetos <code class="docutils literal notranslate"><span class="pre">filas</span></code> y <code class="docutils literal notranslate"><span class="pre">columnas</span></code> para indicar las posiciones deseadas, como se muestra a continuación:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">filas</span><span class="p">,</span> <span class="n">columnas</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Si queremos seleccionar las primeras <span class="math notranslate nohighlight">\(n\)</span> filas y las columnas de la <span class="math notranslate nohighlight">\(m\)</span> en adelante, podemos hacerlo de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span> <span class="p">:</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>A continuación accedemos a los valores de la columna llamada <code class="docutils literal notranslate"><span class="pre">&quot;Pais&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">paises</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Pais&quot;</span><span class="p">]</span>
+
+<span class="n">paises</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos ahora como acceder a los valores de una fila utilizando su posición.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">primer_pais</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">primer_pais</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También, podemos acceder a esta misma información utilizando el nombre del índice de la fila consultada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">primer_pais</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Pais 1&quot;</span><span class="p">]</span>
+
+<span class="n">primer_pais</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, accedemos a un elemento en específico utlizando el nombre de su índice y su columna.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">capital_pais_1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Pais 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Capital&quot;</span><span class="p">]</span>
+
+<span class="n">capital_pais_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Rebanado<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>De manera similar a cómo accedimos a un elemento, también podemos acceder a una porción de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> utilizando los atributos <code class="docutils literal notranslate"><span class="pre">iloc</span></code> y <code class="docutils literal notranslate"><span class="pre">loc</span></code>, y la sintaxis que ya hemos aprendido anteriormente para rebanar. Veremos cómo obtener las primeras dos filas del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <code class="docutils literal notranslate"><span class="pre">df</span></code> usando un rebanado por posición:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filas_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">filas_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación mostramos como obtener la segunda columna del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columnas_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">columnas_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Además, veamos como obtener la porción que contiene únicamente la capital de los dos primero países.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">porcion_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">porcion_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si las posiciones que queremos rebanar no son consecutivas, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> nos permite indicarlas en una lista.
+A continuación, vemos una manera de mostrar únicamente la primera y última fila de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="p">:</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="declaracion-de-un-series-o-un-dataframe-desde-un-archivo">
+<h3>2.3. Declaración de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> o un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> desde un archivo<a class="headerlink" href="#declaracion-de-un-series-o-un-dataframe-desde-un-archivo" title="Permalink to this headline">¶</a></h3>
+<p>Un <code class="docutils literal notranslate"><span class="pre">Series</span></code> y un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> también pueden ser declarados a partir de archivos externos, tales como archivos de Excel (.xlsx), CSV (.csv), JSON (.json) y muchos más.
+Para declarar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> a partir de un archivo de Excel usamos la siguiente sintaxis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/ArchivoSoporteS3TU1.xlsx&quot;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La forma en la que se leen otros tipos de archivos es completamente análoga a esta. Por ejemplo:</p>
+<ul class="simple">
+<li><p>CSV: <code class="docutils literal notranslate"><span class="pre">pd.read_csv(&quot;Nombre</span> <span class="pre">archivo&quot;)</span></code></p></li>
+<li><p>JSON: <code class="docutils literal notranslate"><span class="pre">pd.read_json(&quot;Nombre</span> <span class="pre">archivo&quot;)</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="exploracion-de-los-objetos-series-y-dataframe">
+<h3>2.4. Exploración de los objetos <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#exploracion-de-los-objetos-series-y-dataframe" title="Permalink to this headline">¶</a></h3>
+<p>A continuación, implementamos algunos de los métodos más utilizados para explorar <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Recomendamos que revises la documentación oficial de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para expandir el conocimiento acerca de otros métodos.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span></code>:
+muestra las primeras n filas.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span></code>:
+muestra las últimas n filas.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">columns</span></code>: muestra los nombres de las columnas del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">info</span></code>: muestra la información general del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">describe</span></code>: muestra medidas de tendencia de las columnas numéricas del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dtypes</span></code>: muestra el tipo de dato de cada columna del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unique</span></code>: muestra los datos únicos de una columna del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Ciudad Residencia&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max</span></code>: muestra el valor máximo de una columna de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Edad&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">min</span></code>: muestra el valor minimo de una columna de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Edad&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sum</span></code>: muestra la suma de todos los valores de una columna en específico.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Ingresos&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mean</span></code>: muestra el promedio de todos los valores de una columna en específico.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Ingresos&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="manipulacion-de-series-y-dataframe">
+<h3>2.5. Manipulación de <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#manipulacion-de-series-y-dataframe" title="Permalink to this headline">¶</a></h3>
+<p>A continuación, implementaremos algunos de los métodos más utilizados para manipular <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Recomendamos que revises la documentación oficial de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para expandir el conocimiento acerca de otros métodos. A continuación crearemos un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contiene información personal de tres personas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">persona_1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jorge&quot;</span><span class="p">,</span><span class="s2">&quot;Suaréz&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">]</span>
+<span class="n">persona_2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Laura&quot;</span><span class="p">,</span><span class="s2">&quot;Poveda&quot;</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">]</span>
+<span class="n">persona_3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pablo&quot;</span><span class="p">,</span> <span class="s2">&quot;Goméz&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Lima&quot;</span><span class="p">]</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">persona_1</span><span class="p">,</span> <span class="n">persona_2</span><span class="p">,</span> <span class="n">persona_3</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;Apellido&quot;</span><span class="p">,</span> <span class="s2">&quot;Edad&quot;</span><span class="p">,</span> <span class="s2">&quot;Ciudad&quot;</span><span class="p">])</span>
+
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">set_index</span></code>: permite establecer una columna como índice de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Nombre&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">drop</span></code>: permite eliminar filas o columnas de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<p>Eliminar filas por posición:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eliminar columnas por nombre:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ciudad&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rename</span></code>: permite renombrar elementos de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Ciudad&quot;</span><span class="p">:</span> <span class="s2">&quot;Residencia&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Camilo Falla Moreno, Juan David Reyes, Diego Alejandro Cely Gomez</p>
+<p><strong>Fecha última actualización</strong>: 06/08/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

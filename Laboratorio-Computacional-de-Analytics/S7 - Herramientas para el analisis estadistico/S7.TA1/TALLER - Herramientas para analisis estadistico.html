@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Herramientas para análisis estadístico &#8212; Repositorio de LCA</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S7 - Herramientas para el analisis estadistico/S7.TA1/TALLER - Herramientas para analisis estadistico.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S7 - Herramientas para el analisis estadistico/S7.TA1/TALLER - Herramientas para analisis estadistico.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S7 - Herramientas para el analisis estadistico/S7.TA1/TALLER - Herramientas para analisis estadistico.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#habilidades-en-practica">
+   Habilidades en práctica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrucciones">
+   Instrucciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicios">
+   Ejercicios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1">
+     Ejercicio 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2">
+     Ejercicio 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-3">
+     Ejercicio 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-4">
+     Ejercicio 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-5">
+     Ejercicio 5
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creditos">
+   Créditos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="Archivos/miad4.png" width=800x>
+<div class="section" id="herramientas-para-analisis-estadistico">
+<h1>Herramientas para análisis estadístico<a class="headerlink" href="#herramientas-para-analisis-estadistico" title="Permalink to this headline">¶</a></h1>
+<p>En este taller implementarás modelos de <em>machine learning</em> para resolver diversos problemas.</p>
+<div class="section" id="habilidades-en-practica">
+<h2>Habilidades en práctica<a class="headerlink" href="#habilidades-en-practica" title="Permalink to this headline">¶</a></h2>
+<p>Al desarrollar este taller podrás verificar tu progreso para:</p>
+<p><strong>1.</strong> Diferenciar los tipos de modelos de <em>machine learning</em> que ofrece Scikit Learn y sus casos de uso comunes.<br>
+<strong>2.</strong> Construir, entrenar y analizar los resultados de modelos básicos de <em>machine learning</em> en Scikit Learn.</p>
+</div>
+<div class="section" id="instrucciones">
+<h2>Instrucciones<a class="headerlink" href="#instrucciones" title="Permalink to this headline">¶</a></h2>
+<p>En cada uno de los siguientes ejercicios deberás escribir el código solicitado estrictamente en las celdas indicadas para ello, teniendo en cuenta las siguientes recomendaciones:</p>
+<ul class="simple">
+<li><p>No crear, eliminar o modificar celdas de este Notebook (salvo lo que se te indique), pues puede verse afectado el proceso de calificación automática.</p></li>
+<li><p>La calificación se realiza de manera automática con datos diferentes a los proporcionados en este taller. Por consiguiente, tu código debe funcionar para diferentes instancias de cada uno de los ejercicios; una instancia hace referencia al valor de los parámetros.</p></li>
+<li><p>La calificación de cada ejercicio depende del valor que retorne la función especificada en su enunciado. Por lo tanto, aunque implementes funciones adicionales, es escencial que utilices los nombres propuestos en los enunciados de los ejercicios para implementar la función definitiva.</p></li>
+</ul>
+<p>Esta es una actividad calificada y, por lo tanto, debe ser resuelta individualmente.</p>
+</div>
+<div class="section" id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">¶</a></h2>
+<p>Importa todos los paquetes que consideres necesarios para el desarollo de este taller en la siguiente celda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda no es modificable</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1">
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">¶</a></h3>
+<p>A continuación, encuentras un archivo de Excel con el cual podrás probar tu solución.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">archivo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTaller.xlsx&quot;</span><span class="p">)</span>
+<span class="n">archivo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>x3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>9</td>
+      <td>6</td>
+      <td>3</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>8</td>
+      <td>1</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>6</td>
+      <td>2</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9</td>
+      <td>5</td>
+      <td>1</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>9</td>
+      <td>7</td>
+      <td>4</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>8</td>
+      <td>5</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>4</td>
+      <td>7</td>
+      <td>5</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>6</td>
+      <td>3</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>7</td>
+      <td>5</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3</td>
+      <td>6</td>
+      <td>4</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>7</td>
+      <td>5</td>
+      <td>4</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>6</td>
+      <td>3</td>
+      <td>4</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>8</td>
+      <td>5</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">dividir_datos</span></code> que reciba un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> por parámetro y retorne dos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> contenidos en una tupla de la forma (<span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(y\)</span>), donde <span class="math notranslate nohighlight">\(X\)</span> es un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> cuyas columnas son las variables independientes y <span class="math notranslate nohighlight">\(y\)</span> es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con la variable de respuesta.</p>
+<p><strong>Nota:</strong> la variable de respuesta se encuentra en la primera columna de los datos.</p>
+<p><em>Esta función debe retornar una tupla de la forma (<span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(y\)</span>) donde <span class="math notranslate nohighlight">\(X\)</span> es un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y <span class="math notranslate nohighlight">\(y\)</span> un <code class="docutils literal notranslate"><span class="pre">Series</span></code></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">dividir_datos</span><span class="p">(</span><span class="n">archivo</span><span class="p">):</span>
+    
+    <span class="n">y</span> <span class="o">=</span> <span class="n">archivo</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">archivo</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
+    
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="kn">import</span> <span class="nn">numpy.testing</span> <span class="k">as</span> <span class="nn">npt</span>
+<span class="n">archivo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTaller.xlsx&quot;</span><span class="p">)</span>
+<span class="n">archivo_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTallerTest.xlsx&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dividir_datos</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">dividir_datos</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada dividir_datos.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
+    <span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame como X.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar una tupla de con un objeto en su primera posición de tipo </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: no retorna un Series como y.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar una tupla de con un objeto en su segunda posición de tipo </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">())</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 5: respuesta y</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mf">5.857142857142857</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los datos de la variable de respuesta, y, son incorrectos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 6: respuesta X</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">3.357142857142857</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los datos de las variables explicativas, X, son incorrectos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 7: procedimiento incorrecto y</span>
+<span class="k">assert</span> <span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">==</span> <span class="mf">27.65</span> <span class="ow">and</span> <span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta de la variable de respuesta, y, es incorrecta para una instancia diferente de los datos.&quot;</span>
+
+<span class="c1"># Caso 8: procedimiento incorrecto X</span>
+<span class="k">assert</span> <span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">294.9</span> <span class="ow">and</span> <span class="n">dividir_datos</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;Tu respuesta para X es incorrecta para una instancia diferente de los datos.&quot;</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">¶</a></h3>
+<p>A continuación, encuentras una tupla (<span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(y\)</span>) con la cual podrás probar tu solución.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="n">datos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(   x1  x2  x3
+ 0   6   3  22
+ 1   8   1  35
+ 2   6   2  41
+ 3   4   2   3
+ 4   5   1  18
+ 5   7   4  18
+ 6   8   5   9,
+ 0    9
+ 1    1
+ 2    5
+ 3    3
+ 4    9
+ 5    9
+ 6    6
+ dtype: int64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">crear_train_test</span></code> que reciba una tupla (<span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(y\)</span>) por parámetro y realice una partición, 70% para entrenar al modelo y 30% para validarlo, con el fin de retornar una tupla de la forma (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>). Usa el parámetro <code class="docutils literal notranslate"><span class="pre">random_state</span> <span class="pre">=</span> <span class="pre">0</span></code> para que tus respuestas coincidan con las nuestras.</p>
+<p>Esta función debe retornar una tupla de la forma (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>) donde <code class="docutils literal notranslate"><span class="pre">X_train</span></code> y <code class="docutils literal notranslate"><span class="pre">X_test</span></code> son de tipo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y <code class="docutils literal notranslate"><span class="pre">y_train</span></code> y <code class="docutils literal notranslate"><span class="pre">y_test</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="n">archivo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTaller.xlsx&quot;</span><span class="p">)</span>
+<span class="n">archivo_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTallerTest.xlsx&quot;</span><span class="p">)</span>
+<span class="n">datos_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">crear_train_test</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">crear_train_test</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada crear_train_test.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+    <span class="n">crear_train_test</span><span class="p">((</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un DataFrame como X_train.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar una tupla cuyos primeros dos objetos sean de tipo </span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Caso 4: no retorna un Series como y.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; como y_train y y_test.&quot;</span>
+
+<span class="c1"># Caso 5: respuesta X_train</span>
+<span class="k">assert</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mf">15.25</span> <span class="ow">and</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Los valores de X_train son incorrectos.&quot;</span>
+
+<span class="c1"># Caso 6: respuesta X_test</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="mi">2</span><span class="p">],</span> <span class="mf">28.333333333333332</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los valores de X_test son incorrectos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 7: respuesta y_train</span>
+<span class="k">assert</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">==</span> <span class="mf">7.5</span> <span class="ow">and</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;La variable de respuesta y_train es incorrecta.&quot;</span>
+
+<span class="c1"># Caso 8: respuesta y_test</span>
+<span class="k">assert</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">==</span> <span class="mf">4.0</span> <span class="ow">and</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;La variable de respuesta y_test es incorrecta.&quot;</span>
+
+<span class="c1"># Caso 9: procedimiento incorrecto X_train</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="mi">2</span><span class="p">],</span> <span class="mf">27.555555555555557</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu respuesta para X_train es incorrecta para una instancia diferente de los datos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 10: procedimiento incorrecto y_train</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos_test</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mf">5.888888888888889</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">crear_train_test</span><span class="p">(</span><span class="n">datos_test</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Tu respuesta de la variable de respuesta y_train es incorrecta para una instancia diferente de los datos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-3">
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">¶</a></h3>
+<p>A continuación, encuentras una tupla de la forma (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>) con la cual podrás probar tu solución.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">47</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]))</span>
+<span class="n">datos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(   x1  x2  x3
+ 0   6   3  22
+ 1   8   1  35
+ 2   6   2  41
+ 3   4   2   3
+ 4   5   1  18
+ 5   7   4  18
+ 6   8   5   9,
+    x1  x2  x3
+ 0   7   5  47
+ 1   6   4  50
+ 2   5   4  11
+ 3   3   4  42
+ 4   5   4   1,
+ 0    9
+ 1    1
+ 2    5
+ 3    3
+ 4    9
+ 5    9
+ 6    6
+ dtype: int64,
+ 0    10
+ 1     3
+ 2     7
+ 3     6
+ 4     8
+ dtype: int64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">crear_modelo</span></code> que reciba una tupla de la forma (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>) por parámetro y cree un modelo de regresión lineal con el fin de explicar la variable de interés. Finalmente, retorna el modelo creado luego de entrenarlo con los datos recibidos por parámetro.</p>
+<p>Esta función debe retornar un modelo de la librería <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">crear_modelo</span><span class="p">(</span><span class="n">datos</span><span class="p">):</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">modelo</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">modelo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">47</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]))</span>
+<span class="n">archivo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTaller.xlsx&quot;</span><span class="p">)</span>
+<span class="n">archivo_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTallerTest.xlsx&quot;</span><span class="p">)</span>
+<span class="n">datos_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo_test</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">datos_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">datos_test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">datos_test</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">crear_modelo</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">crear_modelo</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada crear_modelo.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">crear_modelo</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+    <span class="c1">#crear_modelo(archivo_test)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna LinearRegression.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">crear_modelo</span><span class="p">(</span><span class="n">datos</span><span class="p">))</span> <span class="o">==</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="n">LinearRegression</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: respuesta coef_</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">crear_modelo</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mf">1.2195141060248855</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los coeficientes del modelo son incorrectos, revisa la implementación de la regresión.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 5: respuesta intercept_</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">crear_modelo</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="mf">7.996285638991168</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;El intercepto del modelo es incorrecto, revisa la implementación de la regresión.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 6: procedimiento incorrecto coef_</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">crear_modelo</span><span class="p">(</span><span class="n">datos_test</span><span class="p">)</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mf">1.953081558461383</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los coeficientes del modelo son incorrectos para una instancia diferente de los datos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 7: procedimiento incorrecto</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">crear_modelo</span><span class="p">(</span><span class="n">datos_test</span><span class="p">)</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="mf">37.752378744745855</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;El intercepto del modelo es incorrecto para una instancia diferente de los datos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-4">
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this headline">¶</a></h3>
+<p>A continuación, encuentras un modelo de regresión lineal entrenado y una tupla de la forma (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>) con la cual podrás probar tu solución. Para esto se usará la librería <code class="docutils literal notranslate"><span class="pre">pickle</span></code> la cual permite almacenar y cargar objetos de Python como modelos o estructuras de datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;Archivos/modeloTaller&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+
+<span class="n">datos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">47</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">predecir</span></code> que reciba un modelo entrenado y una tupla de la forma (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>) por parámetro y prediga la variable de interés a partir del conjunto de datos <code class="docutils literal notranslate"><span class="pre">X_test</span></code>. Finalmente, la función debe retornar el valor de la predicción hecha.</p>
+<p>Esta función debe retornar un arreglo de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> con las predicciones hechas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">):</span>
+    
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">y_pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;Archivos/modeloTaller&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">47</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>
+         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]))</span>
+<span class="n">archivo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTaller.xlsx&quot;</span><span class="p">)</span>
+<span class="n">archivo_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTallerTest.xlsx&quot;</span><span class="p">)</span>
+<span class="n">datos_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">datos_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">datos_test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">datos_test</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">predecir</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">predecir</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada predecir.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">)</span>
+    <span class="c1">#crear_modelo(archivo_test)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un arreglo.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">))</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: respuesta len()</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">))</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;La longitud del arreglo con los datos dados es incorrecta.&quot;</span>
+
+<span class="c1"># Caso 5: respuesta incorrecta</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mf">10.627099878205998</span><span class="p">)</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">)[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">13.866931147214054</span><span class="p">)</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">10.803128182847708</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los valores de la solución son incorrectos, revisa la implementación de la función.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 6: procedimiento incorrecto</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos_test</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mf">6.888353715429375</span><span class="p">)</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos_test</span><span class="p">)[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">9.123287939544587</span><span class="p">)</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos_test</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">6.917762337875083</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Los valores de la solución son incorrectos para una instancia diferente de los datos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">a75dc17c8ceb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="c1"># Caso 5: respuesta incorrecta</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">40</span>     <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mf">10.627099878205998</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">)[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">13.866931147214054</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">predecir</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">10.803128182847708</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;npt&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-5">
+<h3>Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permalink to this headline">¶</a></h3>
+<p>A continuación, encuentras en la variable <code class="docutils literal notranslate"><span class="pre">modelo</span></code> un modelo de regresión lineal entrenado y las variable <code class="docutils literal notranslate"><span class="pre">X_test</span></code> y <code class="docutils literal notranslate"><span class="pre">y_test</span></code> con las cuales podrás probar tu solución. Para esto se usará la librería <code class="docutils literal notranslate"><span class="pre">pickle</span></code> la cual permite almacenar y cargar objetos de Python como modelos o estructuras de datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;Archivos/modeloTaller&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">47</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa una función llamada <code class="docutils literal notranslate"><span class="pre">calcular_precision</span></code> que reciba un modelo entrenado, y una tupla de la forma (<span class="math notranslate nohighlight">\(X_{test}\)</span>, <span class="math notranslate nohighlight">\(y_{test}\)</span>) por parámetro y retorne el score <span class="math notranslate nohighlight">\(R^2\)</span> del modelo.</p>
+<p>Esta función debe retornar un valor númerico tipo float (<code class="docutils literal notranslate"><span class="pre">flt</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementa tu respuesta en esta celda</span>
+
+<span class="k">def</span> <span class="nf">calcular_precision</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+    
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">resp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## AUTO-CALIFICADOR</span>
+
+<span class="c1"># Base variables</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;Archivos/modeloTaller&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+                       <span class="s2">&quot;x2&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+                       <span class="s2">&quot;x3&quot;</span><span class="p">:[</span><span class="mi">47</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">archivo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTaller.xlsx&quot;</span><span class="p">)</span>
+<span class="n">archivo_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Archivos/datosTallerTest.xlsx&quot;</span><span class="p">)</span>
+<span class="n">datos_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">datos_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">datos_test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">datos_test</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Caso 1: no existe la función.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">calcular_precision</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">calcular_precision</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;No existe una función llamada calcular_precision.&quot;</span><span class="p">,)</span>
+    
+<span class="c1"># Caso 2: la función es interrumpida por errores durante su ejecución.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">calcular_precision</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="c1">#crear_modelo(archivo_test)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tu función produce un error al ejecutarse.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Caso 3: no retorna un float.</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">calcular_precision</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tu función debe retornar un objeto de tipo &#39;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+
+<span class="c1"># Caso 4: respuesta incorrecta</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">calcular_precision</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span> <span class="o">-</span><span class="mf">3.7894053047960226</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;La respuesta de la precisión es incorrecta.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Caso 5: procedimiento incorrecto</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">npt</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">calcular_precision</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">datos_test</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">datos_test</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="o">-</span><span class="mf">0.7120120937366505</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;El valor de la precisión es incorrecto para una instancia diferente de los datos.&quot;</span><span class="p">,)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+<span class="c1"># Mensaje de felicitaciones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Felicidades, realizaste este ejercicio correctamente.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felicidades, realizaste este ejercicio correctamente.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Autor(es)</strong>: Ariadna Sofía De Ávila Bula, Camilo Falla Moreno, Juan David Reyes Jaimes, Alejandro Mantilla Redondo, Diego Alejandro Cely Gómez</p>
+<p><strong>Fecha última actualización</strong>: 04/10/2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/S7 - Herramientas para el analisis estadistico/S7.TA1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
