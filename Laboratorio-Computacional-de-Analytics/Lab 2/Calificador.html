@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rúbrica de calificación - Laboratorio 2 &#8212; Repositorio de LCA</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/text-align.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo-uniandes.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Repositorio de LCA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  Tutoriales Módulo 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S1%20-%20Bienvenida%2C%20estructuras%20de%20datos%20y%20de%20control/S1.TU1/TUTORIAL%20-%20Bienvenida%20a%20Jupyter%20Notebook.html">
+   Celdas, variables y tipos de datos, importación de paquetes, y errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S1%20-%20Bienvenida%2C%20estructuras%20de%20datos%20y%20de%20control/S1.TU2/TUTORIAL%20-%20Estructuras%20de%20datos.html">
+   Estructuras de datos: listas, tuplas, conjuntos y diccionarios
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutoriales Módulo 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S3%20-%20Librerias%20para%20manejo%20de%20datos/S3.TU1/TUTORIAL%20-%20Librerias%20para%20manejo%20de%20datos.html">
+   Librerías para manejo de datos:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     numpy
+    </span>
+   </code>
+   y
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorio-Computacional-de-Analytics/Lab 2/Calificador.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/Lab 2/Calificador.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/Lab 2/Calificador.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mision-1">
+   Misión 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mision-2">
+   Misión 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mision-3">
+   Misión 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mision-4">
+   Misión 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilacion">
+   Compilación
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../../_images/miad4.png" /></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="rubrica-de-calificacion-laboratorio-2">
+<h1>Rúbrica de calificación - Laboratorio 2<a class="headerlink" href="#rubrica-de-calificacion-laboratorio-2" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">id_estudiante</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">notas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">realimentacion</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202124435
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mision-1">
+<h2>Misión 1<a class="headerlink" href="#mision-1" title="Permalink to this headline">¶</a></h2>
+<p>El propósito de esta misión es cargar y entender el contenido del archivo de datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mision</span> <span class="o">=</span> <span class="s2">&quot;Misión 1&quot;</span>
+<span class="n">notas</span><span class="p">[</span><span class="n">mision</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">criterios</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Obtener los datos a partir del archivo(s). Se califica que el Dataframe sea cargado correctamente.&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span>
+             <span class="s1">&#39;Inspeccionar el dataframe obtenido con el fin de determinar dimensiones (filas y columnas), tipos de datos y diagnóstico sobre datos erróneos o faltantes (incluyendo la definición y aplicación de una política para solventarlos). Se califica la impresión u otra forma de reporte de esta información.&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span>
+             <span class="s1">&#39;Interpretar el contenido de los datos en el contexto del problema dado. Se califican impresiones u otra forma de reporte sobre &quot;qué hay en los datos&quot; (pensando en el interés del stakeholder), por ejemplo: qué tipo de información hay en las variables, en qué categorías podrían dividirse, cuáles pueden ser redundantes.&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span>
+             <span class="s1">&#39;Seleccionar un sub-conjunto razonable de variables descartando aquellas que no tengan suficiente relevancia en el contexto dado. Se califica que se reemplace el (o se cree un) dataframe que conserve únicamente la porción de interés de los datos originales.&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span>
+            <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">criterios</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">notas</span><span class="p">[</span><span class="n">mision</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Asigne una nota de 0 a </span><span class="si">{</span><span class="n">criterios</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtener los datos a partir del archivo(s). Se califica que el Dataframe sea cargado correctamente.
+Asigne una nota de 0 a 0.25: 0.25
+
+Inspeccionar el dataframe obtenido con el fin de determinar dimensiones (filas y columnas), tipos de datos y diagnóstico sobre datos erróneos o faltantes (incluyendo la definición y aplicación de una política para solventarlos). Se califica la impresión u otra forma de reporte de esta información.
+Asigne una nota de 0 a 0.25: 0.125
+
+Interpretar el contenido de los datos en el contexto del problema dado. Se califican impresiones u otra forma de reporte sobre &quot;qué hay en los datos&quot; (pensando en el interés del stakeholder), por ejemplo: qué tipo de información hay en las variables, en qué categorías podrían dividirse, cuáles pueden ser redundantes.
+Asigne una nota de 0 a 0.25: 0.25
+
+Seleccionar un sub-conjunto razonable de variables descartando aquellas que no tengan suficiente relevancia en el contexto dado. Se califica que se reemplace el (o se cree un) dataframe que conserve únicamente la porción de interés de los datos originales.
+Asigne una nota de 0 a 0.25: 0.25
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># realimentacion[mision] = &#39;N/A&#39;</span>
+<span class="n">realimentacion</span><span class="p">[</span><span class="n">mision</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;N/A&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">realimentacion</span><span class="p">[</span><span class="n">mision</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N/A
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mision-2">
+<h2>Misión 2<a class="headerlink" href="#mision-2" title="Permalink to this headline">¶</a></h2>
+<p>El propósito de esta misión es caracterizar las variables de interés y las relaciones entre ellas (análisis univariado y bivariado primordialmente visual).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mision</span> <span class="o">=</span> <span class="s2">&quot;Misión 2&quot;</span>
+<span class="n">notas</span><span class="p">[</span><span class="n">mision</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">criterios</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Inspeccionar el comportamiento de variables individuales para aquellas que lo ameriten según el contexto (para esto es útil pensar: &quot;qué pregunta puedo responder al stakeholder con este análisis&quot;). Se califica que se presenten descriptivos básicos o preferiblemente visualizaciones de las distribuciones de variables clave.&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span>
+             <span class="s1">&#39;Inspeccionar las relaciones entre parejas de variables. Particularmente, interesa identificar: (1) cuáles variables socio-demográficas parecen tener incidencia en las que podrían ser variables dependientes de interés, (2) cuáles de las variables con incidencia en variable(s) dependiente(s) parecen estar correlacionadas entre sí, pues esto podría representar retos. Se califica prioritariamente la inspección a través de visualizaciones, por ejemplo, pairplots que permitan observar relaciones entre variables numéricas, boxplots o gráficas de violín que permitan observar medidas de tendencia central y dispersión para los grupos inducidos por variables categóricas importantes. Son bienvenidas las medidas de correlación y pruebas estadísticas, como forma rigurosa para poder sacar conclusiones del proceso de inspección, pero no son obligatorias por no hacer parte del contenido del curso.&#39;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">,</span>
+             <span class="s1">&#39;Seleccionar, si es el caso, un nuevo sub-conjunto con las variables más relevantes para los análisis solicitados en la MISIÓN 3. Se califica que la selección de estas variables tenga sentido en el contexto del problema y esté soportada en los hallazgos previos de esta misión. En caso de elegir modelos lineales en la MISIÓN 3, es importante evitar incluir variables correlacionadas entre si o, alternativamente, hacer explícito cómo se abordará ese reto posteriormente (e.g., selección iterativa de variables, Lasso, PCA, si se tiene el conocimiento).&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span>
+            <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">criterios</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">notas</span><span class="p">[</span><span class="n">mision</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Asigne una nota de 0 a </span><span class="si">{</span><span class="n">criterios</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inspeccionar el comportamiento de variables individuales para aquellas que lo ameriten según el contexto (para esto es útil pensar: &quot;qué pregunta puedo responder al stakeholder con este análisis&quot;). Se califica que se presenten descriptivos básicos o preferiblemente visualizaciones de las distribuciones de variables clave.
+Asigne una nota de 0 a 0.3: 0.3
+
+Inspeccionar las relaciones entre parejas de variables. Particularmente, interesa identificar: (1) cuáles variables socio-demográficas parecen tener incidencia en las que podrían ser variables dependientes de interés, (2) cuáles de las variables con incidencia en variable(s) dependiente(s) parecen estar correlacionadas entre sí, pues esto podría representar retos. Se califica prioritariamente la inspección a través de visualizaciones, por ejemplo, pairplots que permitan observar relaciones entre variables numéricas, boxplots o gráficas de violín que permitan observar medidas de tendencia central y dispersión para los grupos inducidos por variables categóricas importantes. Son bienvenidas las medidas de correlación y pruebas estadísticas, como forma rigurosa para poder sacar conclusiones del proceso de inspección, pero no son obligatorias por no hacer parte del contenido del curso.
+Asigne una nota de 0 a 0.4: 0.2
+
+Seleccionar, si es el caso, un nuevo sub-conjunto con las variables más relevantes para los análisis solicitados en la MISIÓN 3. Se califica que la selección de estas variables tenga sentido en el contexto del problema y esté soportada en los hallazgos previos de esta misión. En caso de elegir modelos lineales en la MISIÓN 3, es importante evitar incluir variables correlacionadas entre si o, alternativamente, hacer explícito cómo se abordará ese reto posteriormente (e.g., selección iterativa de variables, Lasso, PCA, si se tiene el conocimiento).
+Asigne una nota de 0 a 0.3: 0.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># realimentacion[mision] = &#39;N/A&#39;</span>
+<span class="n">realimentacion</span><span class="p">[</span><span class="n">mision</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Visualizaciones aceptables. Falto hacer observaciones de los gráficos.&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">realimentacion</span><span class="p">[</span><span class="n">mision</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Visualizaciones aceptables. Falto hacer observaciones de los gráficos.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mision-3">
+<h2>Misión 3<a class="headerlink" href="#mision-3" title="Permalink to this headline">¶</a></h2>
+<p>El propósito de esta misión es plantear, correr e interpretar al menos un modelo que busque relacionar variables socio-demográficas con el desempeño de las estudiantes en la prueba Saber11.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mision</span> <span class="o">=</span> <span class="s2">&quot;Misión 3&quot;</span>
+<span class="n">notas</span><span class="p">[</span><span class="n">mision</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">criterios</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Proponer una selección de variables y un tipo de modelo acorde al tipo de problema y tipo de variables. Se califica que la elección de variables y modelo tenga sentido en el contexto del problema y que obedezca a los hallazgos de la MISIÓN 2 y que, por lo menos, se tengan en consideración los supuestos básicos del modelo elegido.&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span>
+             <span class="s1">&#39;Utilizar alguno de los paquetes especializados en modelos estadísticos o de machine learning para definir y &quot;entrenar&quot; el  modelo elegido. Se califica la correcta utilización del paquete, incluyendo posibles pasos de pre-procesamiento que requiera el modelo (e.g., agregar término independiente, normalizar, separar datos de prueba).&#39;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">,</span>
+             <span class="s1">&#39;Reportar medidas de desempeño relevantes para el modelo propuesto (R^2, adj R^2, MSE, RMSE, MAE si el enfoque está en regresión, o &quot;accuracy&quot;, &quot;precision&quot;, &quot;recall&quot;, &quot;roc_auc&quot; si el enfoque está en clasificación). Se califican impresiones u otras formas de reportar estas métricas, así como la interpretación de las mismas (i.e., concluir sobre la validez del modelo y los posibles hallazgos que se podrían reportar al stakeholder).&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span>
+            <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">criterios</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">notas</span><span class="p">[</span><span class="n">mision</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Asigne una nota de 0 a </span><span class="si">{</span><span class="n">criterios</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proponer una selección de variables y un tipo de modelo acorde al tipo de problema y tipo de variables. Se califica que la elección de variables y modelo tenga sentido en el contexto del problema y que obedezca a los hallazgos de la MISIÓN 2 y que, por lo menos, se tengan en consideración los supuestos básicos del modelo elegido.
+Asigne una nota de 0 a 0.3: 0.3
+
+Utilizar alguno de los paquetes especializados en modelos estadísticos o de machine learning para definir y &quot;entrenar&quot; el  modelo elegido. Se califica la correcta utilización del paquete, incluyendo posibles pasos de pre-procesamiento que requiera el modelo (e.g., agregar término independiente, normalizar, separar datos de prueba).
+Asigne una nota de 0 a 0.4: 0.4
+
+Reportar medidas de desempeño relevantes para el modelo propuesto (R^2, adj R^2, MSE, RMSE, MAE si el enfoque está en regresión, o &quot;accuracy&quot;, &quot;precision&quot;, &quot;recall&quot;, &quot;roc_auc&quot; si el enfoque está en clasificación). Se califican impresiones u otras formas de reportar estas métricas, así como la interpretación de las mismas (i.e., concluir sobre la validez del modelo y los posibles hallazgos que se podrían reportar al stakeholder).
+Asigne una nota de 0 a 0.3: 0.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># realimentacion[mision] = &#39;N/A&#39;</span>
+<span class="n">realimentacion</span><span class="p">[</span><span class="n">mision</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;No hay explicación y justificación del modelo. Le falta complejidad.&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">realimentacion</span><span class="p">[</span><span class="n">mision</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No hay explicación y justificación del modelo. Le falta complejidad.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mision-4">
+<h2>Misión 4<a class="headerlink" href="#mision-4" title="Permalink to this headline">¶</a></h2>
+<p>El propósito de esta misión es identificar por lo menos un aspecto de los análisis anteriores (MISIONES 2 o 3) que pueda verse enriquecido al permitir interactividad al analista o stakeholder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mision</span> <span class="o">=</span> <span class="s2">&quot;Misión 4&quot;</span>
+<span class="n">notas</span><span class="p">[</span><span class="n">mision</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">criterios</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Identificar un parámetro que, según el contexto del problema, sería interesante poder modificar. Se califica la elección de dicho parámetro en términos de la pertinencia de la pregunta que el analista/stakeholder puede explorar al modificarlo.&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span>
+             <span class="s1">&#39;Elegir un tipo de control (widget) adecuado para el parámetro elegido. Se califica en términos de qué tan funcional resulta en términos de la experiencia del usuario.&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span>
+             <span class="s1">&#39;Implementar la(s) función(es) que permiten que se ejecuten adecuadamente el/los análisis elegido(s) como respuesta al uso de los controles. Se califica que la ejecución sea correcta.&#39;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">,</span>
+             <span class="s1">&#39;Proveer directa o indirectamente las instrucciones necesarias para que cualquier usuario pueda poner en práctica la herramienta. Se califica que la herramienta se pueda usar sin necesidad de supuestos o experiencia previa del usuario.&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span>
+            <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">criterios</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">notas</span><span class="p">[</span><span class="n">mision</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Asigne una nota de 0 a </span><span class="si">{</span><span class="n">criterios</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Identificar un parámetro que, según el contexto del problema, sería interesante poder modificar. Se califica la elección de dicho parámetro en términos de la pertinencia de la pregunta que el analista/stakeholder puede explorar al modificarlo.
+Asigne una nota de 0 a 0.2: 0.2
+
+Elegir un tipo de control (widget) adecuado para el parámetro elegido. Se califica en términos de qué tan funcional resulta en términos de la experiencia del usuario.
+Asigne una nota de 0 a 0.2: 0.2
+
+Implementar la(s) función(es) que permiten que se ejecuten adecuadamente el/los análisis elegido(s) como respuesta al uso de los controles. Se califica que la ejecución sea correcta.
+Asigne una nota de 0 a 0.4: 0.4
+
+Proveer directa o indirectamente las instrucciones necesarias para que cualquier usuario pueda poner en práctica la herramienta. Se califica que la herramienta se pueda usar sin necesidad de supuestos o experiencia previa del usuario.
+Asigne una nota de 0 a 0.2: 0.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">realimentacion</span><span class="p">[</span><span class="n">mision</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;N/A&#39;</span>
+<span class="c1"># realimentacion[mision] = &#39;Buenas visualizaciones. Faltó actualizar el boxplot con los cambios al widget.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">realimentacion</span><span class="p">[</span><span class="n">mision</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N/A
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compilacion">
+<h2>Compilación<a class="headerlink" href="#compilacion" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./grades_db.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;a+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">puntajes</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">notas</span><span class="p">)):</span>
+        <span class="n">puntajes</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">notas</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Misión </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+        <span class="n">puntajes</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">realimentacion</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Misión </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">id_estudiante</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">puntajes</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">if(len(f.readlines()) == 0):</span>
+<span class="sd">        titulos = &#39;&#39;</span>
+<span class="sd">        for i in range(len(notas)):</span>
+<span class="sd">            titulos += &#39;\t&#39;.join([str(i) for i in notas[f&#39;Misión {i + 1}&#39;].keys()])</span>
+<span class="sd">            titulos += &#39;\tRealimentación\t&#39;</span>
+<span class="sd">        f.write(&#39;Código\t&#39;+titulos+&#39;\n&#39;)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/LCA-web-tutorials",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorio-Computacional-de-Analytics/Lab 2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Equipo de LCA<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
