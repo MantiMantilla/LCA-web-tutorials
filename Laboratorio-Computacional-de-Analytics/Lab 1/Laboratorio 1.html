@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Laboratorio 1 &#8212; Repositorio de LCA</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/text-align.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -133,106 +147,223 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/Laboratorio-Computacional-de-Analytics/Lab 1/Laboratorio 1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/Lab 1/Laboratorio 1.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/Lab 1/Laboratorio 1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/Lab 1/Laboratorio 1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/Lab 1/Laboratorio 1.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Laboratorio-Computacional-de-Analytics/Lab 1/Laboratorio 1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hito-desarrollo-de-una-herramienta-analitica-usando-solo-python">
    Hito: desarrollo de una herramienta analítica usando solo Python
@@ -333,12 +464,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Laboratorio 1</h1>
@@ -455,14 +585,15 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <img src="Archivos/miad4.png" width=800x>
-<div class="tex2jax_ignore mathjax_ignore section" id="laboratorio-1">
-<h1>Laboratorio 1<a class="headerlink" href="#laboratorio-1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="hito-desarrollo-de-una-herramienta-analitica-usando-solo-python">
-<h2>Hito: desarrollo de una herramienta analítica usando solo Python<a class="headerlink" href="#hito-desarrollo-de-una-herramienta-analitica-usando-solo-python" title="Permalink to this headline">¶</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="laboratorio-1">
+<h1>Laboratorio 1<a class="headerlink" href="#laboratorio-1" title="Permalink to this headline">#</a></h1>
+<section id="hito-desarrollo-de-una-herramienta-analitica-usando-solo-python">
+<h2>Hito: desarrollo de una herramienta analítica usando solo Python<a class="headerlink" href="#hito-desarrollo-de-una-herramienta-analitica-usando-solo-python" title="Permalink to this headline">#</a></h2>
 <p>Este laboratorio busca evaluar las habilidades relacionadas con la primera parte del curso, correspondiente a las primeras tres semanas. Este enunciado estará disponible desde la semana 2 y deberá entregarse al final de la semana 5 en el enlace correspondiente. Su desarrollo corresponde al 33% de la calificación total del curso.</p>
 <p>Al desarrollar este laboratorio pondrás a prueba tus habilidades para:</p>
 <ol class="simple">
@@ -478,15 +609,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Te recomendamos leer por completo el enunciado del laboratorio antes de comenzar, de forma que tengas claro el propósito completo de la actividad, y puedas desarrollar tu solución apuntando a él desde el comienzo.</p></li>
 <li><p>En el contenido de Coursera encontrarás la lectura <em>Pistas</em>. En esta te damos algunas pautas que puedes usar si estás teniendo dificultades con alguna misión; evidentemente, tu experiencia será mucho más gratificante si logras desarrollar la actividad sin acudir a ellas.</p></li>
 </ul>
-</div>
-<div class="section" id="contexto-exploracion-del-potencial-para-asignar-becas-uniandes">
-<h2>Contexto: exploración del potencial para asignar becas Uniandes<a class="headerlink" href="#contexto-exploracion-del-potencial-para-asignar-becas-uniandes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="contexto-exploracion-del-potencial-para-asignar-becas-uniandes">
+<h2>Contexto: exploración del potencial para asignar becas Uniandes<a class="headerlink" href="#contexto-exploracion-del-potencial-para-asignar-becas-uniandes" title="Permalink to this headline">#</a></h2>
 <p>La Universidad de los Andes se ha caracterizado por su compromiso con la generación de impacto en la sociedad a través de diferentes programas de becas. Programas como Quiero Estudiar o Ser Pilo Paga, entre otros, han sido revolucionarios al permitir que estudiantes de bajos recursos puedan acceder a una de las universidades privadas más importantes del país.</p>
 <p>Actualmente, la universidad quiere evaluar el potencial impacto que tendrían algunos programas de <em>acción afirmativa</em> para asignación de becas, con base en información demográfica que ha obtenido a través de encuestas. Se cuenta con información respecto a la edad, género, estado civil, estrato socio-económico, región de proveniencia, desempeño académico y nivel de escolaridad de las personas que han respondido encuestas. Los encargados de diseñar el programa saben que utilizar criterios basados en este tipo de variables es un tema sensible, pero es necesario si se quieren focalizar las oportunidades en poblaciones menos representadas.</p>
 <p>El objetivo de este laboratorio es crear una herramienta computacional que permita a un tomador de decisiones explorar qué efecto podría tener el uso de diferentes reglas para seleccionar la población que sería beneficiaria de las becas. Puntualmente, se espera que, dadas unas reglas de selección (ej.: pertenecer a cierta región, rango de edad, etc.), la herramienta ofrezca información sobre la población potencialmente beneficiada, de forma que exista un sustento al momento de definir las reglas de selección.</p>
-</div>
-<div class="section" id="obtencion-e-inspeccion-de-archivos">
-<h2>1. Obtención e inspección de archivos<a class="headerlink" href="#obtencion-e-inspeccion-de-archivos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="obtencion-e-inspeccion-de-archivos">
+<h2>1. Obtención e inspección de archivos<a class="headerlink" href="#obtencion-e-inspeccion-de-archivos" title="Permalink to this headline">#</a></h2>
 <p>Los datos de encuestas fueron obtenidos como parte de un trabajo de campo, y por limitaciones tecnológicas, solo se cuenta con la información en archivos de texto plano. Cada archivo corresponde a uno de los atributos antes mencionados y están estructurados de forma que todos relacionan a las personas encuestadas en el mismo orden (i.e., la primera línea de todos los archivos corresponde a datos de la primera persona encuestada, la segunda línea a la segunda persona, etc.).</p>
 <p>Los archivos con los que se cuenta son:</p>
 <ul class="simple">
@@ -498,8 +629,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;region.txt&quot;</span></code>: un archivo ordenado con la región de proveniencia de cada persona de la población encuestada</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;promedio.txt&quot;</span></code>: un archivo ordenado con el promedio académico de cada persona de la población encuestada</p></li>
 </ul>
-<div class="section" id="mision-1">
-<h3>Misión 1<a class="headerlink" href="#mision-1" title="Permalink to this headline">¶</a></h3>
+<section id="mision-1">
+<h3>Misión 1<a class="headerlink" href="#mision-1" title="Permalink to this headline">#</a></h3>
 <p>Poner en variables de Python la información que está en los archivos listados arriba.</p>
 <ul class="simple">
 <li><p><em>Versión base</em>: escribe línea a línea el código necesario para poner en variables de Python la información de cada uno de los archivos.</p></li>
@@ -533,9 +664,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mision-2">
-<h3>Misión 2<a class="headerlink" href="#mision-2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mision-2">
+<h3>Misión 2<a class="headerlink" href="#mision-2" title="Permalink to this headline">#</a></h3>
 <p>Reportar las principales características en los datos.</p>
 <ul class="simple">
 <li><p><em>Versión base</em>: utilizar métricas básicas como conteos o promedios por categorías en los datos.</p></li>
@@ -592,30 +723,30 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="abordaje-de-la-pregunta-de-negocio">
-<h2>2. Abordaje de la pregunta de negocio<a class="headerlink" href="#abordaje-de-la-pregunta-de-negocio" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="abordaje-de-la-pregunta-de-negocio">
+<h2>2. Abordaje de la pregunta de negocio<a class="headerlink" href="#abordaje-de-la-pregunta-de-negocio" title="Permalink to this headline">#</a></h2>
 <p>El comité encargado de diseñar el programa de becas ha tenido dificultades para llegar a acuerdos. Algunos piensan que el criterio principal de selección debería ser respecto a lo económico y académico, sin importar otras características personales, mientras que otros piensan que considerar estas características es, de hecho, parte del espíritu del programa.</p>
 <ul class="simple">
 <li><p>El <em>primer grupo</em> sugiere que se deben tomar en orden ascendente los estratos y elegir, en cada uno de ellos, al 2% de personas con promedio académico superior en esa sub-población, hasta que se agoten las becas disponibles. En caso de quedar becas disponibles al final del proceso, se repite el mismo esquema, considerando que ya no se tienen en cuenta las personas que hayan sido elegidas en rondas anteriores.</p></li>
 <li><p>El <em>segundo grupo</em> sugiere que los recibidores de becas deben estar igualmente distribuidos entre las diferentes regiones y generos, considerando, por supuesto, que para cada una de esas sub-poblaciones, las personas elegidas sean las de mejores promedios académicos.</p></li>
 </ul>
 <p>Dado que las diferencias entre estos grupos obedecen a su entendimiento particular del problema, el presidente del comité propone utilizar los datos disponibles de las encuestas, sugiriendo que se analice qué características tendría la población de elegidos bajo cada uno de los dos criterios expuestos.</p>
-<div class="section" id="mision-3">
-<h3>Misión 3<a class="headerlink" href="#mision-3" title="Permalink to this headline">¶</a></h3>
+<section id="mision-3">
+<h3>Misión 3<a class="headerlink" href="#mision-3" title="Permalink to this headline">#</a></h3>
 <p>Defina la pregunta de negocio y la pregunta de <em>analytics</em> para esta situación.</p>
 <p><strong>respuesta en texto (solo leeremos los primeros 300 caracteres de la respuesta)</strong></p>
-</div>
-<div class="section" id="begin-solution">
-<h3>BEGIN SOLUTION<a class="headerlink" href="#begin-solution" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="begin-solution">
+<h3>BEGIN SOLUTION<a class="headerlink" href="#begin-solution" title="Permalink to this headline">#</a></h3>
 <p>pregunta_negocio = ‘qué criterios de asignación de becas ofrecen mejor relación ventajas/desventajas’</p>
 <p>pregunta_analytics = ‘cómo reportar fácilmente qué características describen la potencial población beneficiada en función de ciertas reglas de selección’</p>
-</div>
-<div class="section" id="end-solution">
-<h3>END SOLUTION<a class="headerlink" href="#end-solution" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="mision-4">
-<h4>Misión 4<a class="headerlink" href="#mision-4" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="end-solution">
+<h3>END SOLUTION<a class="headerlink" href="#end-solution" title="Permalink to this headline">#</a></h3>
+<section id="mision-4">
+<h4>Misión 4<a class="headerlink" href="#mision-4" title="Permalink to this headline">#</a></h4>
 <p>Desarrollar un algoritmo que permita conocer la población que sería becada según los criterios propuestos por el <em>primer grupo</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -661,9 +792,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mision-5">
-<h4>Misión 5<a class="headerlink" href="#mision-5" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="mision-5">
+<h4>Misión 5<a class="headerlink" href="#mision-5" title="Permalink to this headline">#</a></h4>
 <p>Desarrollar un algoritmo que permita conocer la población que sería becada según los criterios propuestos por el <em>segundo grupo</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,9 +841,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mision-6">
-<h4>Misión 6<a class="headerlink" href="#mision-6" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="mision-6">
+<h4>Misión 6<a class="headerlink" href="#mision-6" title="Permalink to this headline">#</a></h4>
 <p>Desarrollar un algoritmo, a partir de lo anterior, cuyo resultado permita al comité comparar fácilmente las características de las dos poblaciones hipotéticas que recibirían becas.</p>
 <p><em>Ayuda</em>: considere utilizar sus implementaciones de la <a class="reference external" href="#Misi%C3%B3n-2">Misión 2</a> para facilitar esta misión.</p>
 <div class="cell docutils container">
@@ -735,11 +866,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="desarrollo-de-una-solucion-analitica">
-<h2>3. Desarrollo de una solución analítica<a class="headerlink" href="#desarrollo-de-una-solucion-analitica" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="desarrollo-de-una-solucion-analitica">
+<h2>3. Desarrollo de una solución analítica<a class="headerlink" href="#desarrollo-de-una-solucion-analitica" title="Permalink to this headline">#</a></h2>
 <p>Reconociendo la complejidad de este problema (que no permite reducirlo a una dicotomía) y viendo el potencial del análisis de datos para enriquecer la discusión y los insumos para tomar decisiones, el comité ha solicitado una herramienta analítica. Sus requerimientos son:</p>
 <ul class="simple">
 <li><p>La herramienta debe permitir ingresar una política de selección de becados.</p>
@@ -750,8 +881,8 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li><p>La herramienta debe generar un resultado que permita al comité analizar las características de la población potencialmente elegida si se usara la política ingresada.</p></li>
 </ul>
-<div class="section" id="mision-7">
-<h3>Misión 7<a class="headerlink" href="#mision-7" title="Permalink to this headline">¶</a></h3>
+<section id="mision-7">
+<h3>Misión 7<a class="headerlink" href="#mision-7" title="Permalink to this headline">#</a></h3>
 <p>Desarrollar, a partir de lo construido hasta el momento, un algoritmo que permita cumplir con los requerimientos del comité.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -797,14 +928,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mision-8">
-<h3>Misión 8<a class="headerlink" href="#mision-8" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mision-8">
+<h3>Misión 8<a class="headerlink" href="#mision-8" title="Permalink to this headline">#</a></h3>
 <p>Proponer, con base en tu propio uso de la herramienta, una política de ingreso que consideres apropiada en este contexto. Si lo crees adecuado, explica en máximo 500 caracteres las virtudes de tu propuesta (esto puede estar soportado en los datos, o no).</p>
 <p><strong>respuesta en texto (solo leeremos los primeros 500 caracteres de la respuesta)</strong></p>
-</div>
-<div class="section" id="mision-9">
-<h3>Misión 9<a class="headerlink" href="#mision-9" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mision-9">
+<h3>Misión 9<a class="headerlink" href="#mision-9" title="Permalink to this headline">#</a></h3>
 <p>Ejecutar el algoritmo desarrollado en la <a class="reference external" href="#Misi%C3%B3n-7">Misión 7</a> sobre la política que sugieres proponer al comité. Explicar claramente tus conlusiones con el soporte de los resultados de la herramienta.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -813,10 +944,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Discriminación Positiva<br>
 <a class="reference external" href="https://es.wikipedia.org/wiki/Discriminaci%C3%B3n_positiva">https://es.wikipedia.org/wiki/Discriminación_positiva</a></p></li>
@@ -826,13 +957,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Acción afirmativa y equidad: un análisis desde la propuesta de Thomas Nagel<br>
 <a class="reference external" href="http://www.scielo.org.mx/scielo.php?script=sci_arttext&amp;pid=S2007-24062016000200049">http://www.scielo.org.mx/scielo.php?script=sci_arttext&amp;pid=S2007-24062016000200049</a></p></li>
 </ul>
-</div>
-<div class="section" id="creditos">
-<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">#</a></h2>
 <p><strong>Autor</strong>: Camilo Gomez</p>
 <p><strong>Fecha última actualización</strong>: 17/09/2021</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -856,28 +987,34 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Equipo de LCA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Equipo de LCA<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

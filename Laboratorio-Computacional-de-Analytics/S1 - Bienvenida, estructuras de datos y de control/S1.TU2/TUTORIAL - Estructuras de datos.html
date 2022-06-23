@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Estructuras de datos: listas, tuplas, conjuntos y diccionarios &#8212; Repositorio de LCA</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/text-align.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +63,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +86,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -135,106 +149,223 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU2/TUTORIAL - Estructuras de datos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU2/TUTORIAL - Estructuras de datos.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU2/TUTORIAL - Estructuras de datos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU2/TUTORIAL - Estructuras de datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU2/TUTORIAL - Estructuras de datos.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Laboratorio-Computacional-de-Analytics/S1 - Bienvenida, estructuras de datos y de control/S1.TU2/TUTORIAL - Estructuras de datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#requisitos">
    Requisitos
@@ -533,12 +664,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Estructuras de datos: listas, tuplas, conjuntos y diccionarios</h1>
@@ -853,44 +983,45 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <img src="Archivos/miad4.png" width=800x>
-<div class="tex2jax_ignore mathjax_ignore section" id="estructuras-de-datos-listas-tuplas-conjuntos-y-diccionarios">
-<h1>Estructuras de datos: listas, tuplas, conjuntos y diccionarios<a class="headerlink" href="#estructuras-de-datos-listas-tuplas-conjuntos-y-diccionarios" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="estructuras-de-datos-listas-tuplas-conjuntos-y-diccionarios">
+<h1>Estructuras de datos: listas, tuplas, conjuntos y diccionarios<a class="headerlink" href="#estructuras-de-datos-listas-tuplas-conjuntos-y-diccionarios" title="Permalink to this headline">#</a></h1>
 <p>Al inciar un proyecto de analítica de datos resulta fundamental almacenar información en la máquina con el fin de procesarla de una manera eficiente. Las estructuras de datos resuelven esta necesidad, pues nos proveen diferentes formas de representar información computacionalmente.</p>
-<div class="section" id="requisitos">
-<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<section id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">#</a></h2>
 <p>Para desarrollar este tutorial necesitarás:</p>
 <ul class="simple">
 <li><p>Aplicar las funcionalidades básicas de un Jupyter Notebook.</p></li>
 <li><p>Declarar y utilizar variables.</p></li>
 </ul>
-</div>
-<div class="section" id="objetivos">
-<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">#</a></h2>
 <p>Al final de este tutorial podrás:</p>
 <p><strong>1.</strong> Comprender los usos y características principales de las estructuras de datos más comunes.<br>
 <strong>2.</strong> Declarar estructuras de datos para almacenar información de una manera eficiente.<br>
 <strong>3.</strong> Consultar y modificar la información almacenada en las diferentes estructuras de datos.<br>
 <strong>4.</strong> Conocer métodos y particularidades para cada una de las estructuras de datos más comunes.<br></p>
-</div>
-<div class="section" id="listas">
-<h2>1. Listas<a class="headerlink" href="#listas" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="usos-y-caracteristicas-principales">
-<h3>1.1. Usos y características principales<a class="headerlink" href="#usos-y-caracteristicas-principales" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="listas">
+<h2>1. Listas<a class="headerlink" href="#listas" title="Permalink to this headline">#</a></h2>
+<section id="usos-y-caracteristicas-principales">
+<h3>1.1. Usos y características principales<a class="headerlink" href="#usos-y-caracteristicas-principales" title="Permalink to this headline">#</a></h3>
 <p>Una lista permite representar una colección ordenada de cualquier cantidad de elementos. Estos elementos pueden ser números, palabras, otras listas, etc. Una lista es una estructura de datos flexible debido a que no necesariamente todos sus elementos tienen que ser del mismo tipo. Adicionalmente, es mutable debido a que podemos modificar sus elementos.</p>
-</div>
-<div class="section" id="declaracion">
-<h3>1.2. Declaración<a class="headerlink" href="#declaracion" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="declaracion">
+<h3>1.2. Declaración<a class="headerlink" href="#declaracion" title="Permalink to this headline">#</a></h3>
 <p>Para declarar una lista inciamos abriendo un corchete (<code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>), escribimos uno a uno sus elementos separados por medio de comas (<code class="docutils literal notranslate"><span class="pre">,</span></code>) y finalizamos cerrando el corchete. En particular, notemos que es posible declarar listas vacías. A continuación, declaramos de forma general una lista y la almacenamos con el nombre <code class="docutils literal notranslate"><span class="pre">nombre_lista</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nombre_lista = [elemento_1, elemento_2, elemento_3]
 </pre></div>
 </div>
 <p><a id='Ej1'></a></p>
-<div class="section" id="ejemplo-1">
-<h4>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-1">
+<h4>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">#</a></h4>
 <p>Un agricultor quiere registrar la producción de su cultivo de sandías para los primeros cinco meses del año. Él produjo 25, 30, 15, 16 y 13 sandías en cada uno de estos meses, respectivamente. Para representar está información resulta útil declarar la siguiente lista:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -905,12 +1036,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="consulta-y-modificacion-de-elementos">
-<h3>1.3. Consulta y modificación de elementos<a class="headerlink" href="#consulta-y-modificacion-de-elementos" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="consulta">
-<h4>Consulta<a class="headerlink" href="#consulta" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="consulta-y-modificacion-de-elementos">
+<h3>1.3. Consulta y modificación de elementos<a class="headerlink" href="#consulta-y-modificacion-de-elementos" title="Permalink to this headline">#</a></h3>
+<section id="consulta">
+<h4>Consulta<a class="headerlink" href="#consulta" title="Permalink to this headline">#</a></h4>
 <p>Los elementos de una lista son almacenados de manera ordenada de acuerdo al orden en que se hayan declarado. Podemos consultar cada uno de ellos utilizando el índice único que Python le asigna con el fin de identificarlo. Es importante tener en cuenta que en Python los índices comienzan en el número 0. Así, el índice 0 se asigna al primer elemento de la lista, el índice 1 al segundo, etc. También es posible consultarlos utilizando una indexación negativa, en la cual el índice -1 se asigna a la última posición de la lista, el índice -2 a la penúltima, etc. La imagen a continuación ejemplifica estas dos maneras de consultar cada uno de los elementos de la lista <code class="docutils literal notranslate"><span class="pre">nombre_lista</span></code> que declaramos anteriormente.</p>
 <img src="Archivos/listas.png">
 <p>Para consultar un elemento de una lista escribimos el nombre de la lista seguido del índice del elemento que queremos consultar entre corchetes. Por ejemplo, para acceder al segundo elemento de la lista <code class="docutils literal notranslate"><span class="pre">nombre_lista</span></code> escribimos:</p>
@@ -921,8 +1052,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nombre_lista[-2]
 </pre></div>
 </div>
-<div class="section" id="ejemplo-2">
-<h5>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-2">
+<h5>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">#</a></h5>
 <p>El mismo agricultor de sandías del <a class="reference external" href="#Ej1">Ejemplo 1</a> desea saber la producción del último mes de su cultivo de sandías. Escribimos la siguiente instrucción para este propósito:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -954,16 +1085,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="modificacion">
-<h4>Modificación<a class="headerlink" href="#modificacion" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="modificacion">
+<h4>Modificación<a class="headerlink" href="#modificacion" title="Permalink to this headline">#</a></h4>
 <p>Como se mencionó anteriormente, una lista es una estructura de datos mutable. Para modificar un elemento, lo consultamos y con un signo igual (<code class="docutils literal notranslate"><span class="pre">=</span></code>) le asignamos un nuevo valor. Por ejemplo, para modificar el segundo elemento de la lista <code class="docutils literal notranslate"><span class="pre">nombre_lista</span></code> y asignarle el valor <code class="docutils literal notranslate"><span class="pre">nuevo_valor</span></code>, escribimos:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nombre_lista[1] = nuevo_valor
 </pre></div>
 </div>
-<div class="section" id="ejemplo-3">
-<h5>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-3">
+<h5>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">#</a></h5>
 <p>Volvamos a la lista <code class="docutils literal notranslate"><span class="pre">lista_produccion</span></code> declarada en el <a class="reference external" href="#Ej1">Ejemplo 1</a>, la cual registra la producción del cultivo de sandías del agricultor. Requerimos lo siguiente:</p>
 <ul class="simple">
 <li><p>Consultar la producción del primer y del tercer mes del año.</p></li>
@@ -1014,17 +1145,17 @@ La lista modificada es: [25, 30, 15, 16, 22]
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="metodos-y-particularidades">
-<h3>1.4. Métodos y particularidades<a class="headerlink" href="#metodos-y-particularidades" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="rebanado">
-<h4>Rebanado<a class="headerlink" href="#rebanado" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+</section>
+<section id="metodos-y-particularidades">
+<h3>1.4. Métodos y particularidades<a class="headerlink" href="#metodos-y-particularidades" title="Permalink to this headline">#</a></h3>
+<section id="rebanado">
+<h4>Rebanado<a class="headerlink" href="#rebanado" title="Permalink to this headline">#</a></h4>
 <p>En las estructuras de datos ordenadas como las listas es posible hacer referencia a una porción de los datos. Esto se conoce como rebanado (<em>slicing</em>) y consiste en seleccionar los elementos desde cierto índice inicial hasta cierto índice final, tomando una porción de los datos de alguna estructura de datos y no necesariamente su totalidad.</p>
 <p>Pensemos nuevamente en nuestra lista <code class="docutils literal notranslate"><span class="pre">nombre_lista</span></code> declarada anteriormente. Para aplicar una instrucción de rebanado sobre esta lista elegimos cuáles elementos queremos extraer de la lista original. Supongamos que queremos extraer únicamente los primeros dos elementos. Podemos hacerlo utilizando la siguiente instrucción: <code class="docutils literal notranslate"><span class="pre">nombre_lista[0:2]</span></code>, donde el número ubicado a la izquierda del caracter dos puntos (<code class="docutils literal notranslate"><span class="pre">:</span></code>) establece desde cuál índice realizamos nuestro rebanado (incluyéndolo), mientras que el número a la derecha establece hasta cuál índice realizamos nuestro rebanado (sin incluirlo). Si no escribimos el número a la izquierda del caracter dos puntos, el rebanado inicia desde el primer elemento. De la misma manera, si no escribimos el número a la derecha del caracter dos puntos, el rebanado finaliza en el último elemento.</p>
-<div class="section" id="ejemplo-4">
-<h5>Ejemplo 4<a class="headerlink" href="#ejemplo-4" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-4">
+<h5>Ejemplo 4<a class="headerlink" href="#ejemplo-4" title="Permalink to this headline">#</a></h5>
 <p>En la siguiente celda de código encuentras declarada una lista que contiene las 27 letras del abecedario. Basándonos en ella, queremos crear tres listas:</p>
 <ul class="simple">
 <li><p>Una lista que contenga las primeras cuatro letras del abecedario.</p></li>
@@ -1103,18 +1234,18 @@ La lista modificada es: [25, 30, 15, 16, 22]
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="listas-anidadas">
-<h4>Listas anidadas<a class="headerlink" href="#listas-anidadas" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="listas-anidadas">
+<h4>Listas anidadas<a class="headerlink" href="#listas-anidadas" title="Permalink to this headline">#</a></h4>
 <p>En Python, a una lista que se encuentra contenida dentro de otra se le denomina una lista anidada. De esta manera, podemos tener listas que contengan una o más listas con el fin de tener agrupaciones que tengan un sentido dentro del contexto de nuestro problema. Su declaración general sería así:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lista_anidada = [elemento_1, elemento_2, elemento_3]
 
 lista_contenedora = [elemento_4, lista_anidada, elemento_5, elemento_6]
 </pre></div>
 </div>
-<div class="section" id="ejemplo-5">
-<h5>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-5">
+<h5>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">#</a></h5>
 <p>Se nos solicita que declaremos una lista que contenga los números del 0 al 9, diferenciando los números naturales del cero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1144,10 +1275,10 @@ lista_contenedora = [elemento_4, lista_anidada, elemento_5, elemento_6]
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="consulta-y-modificacion-de-elementos-dentro-de-una-lista-anidada">
-<h4>Consulta y modificación de elementos dentro de una lista anidada.<a class="headerlink" href="#consulta-y-modificacion-de-elementos-dentro-de-una-lista-anidada" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="consulta-y-modificacion-de-elementos-dentro-de-una-lista-anidada">
+<h4>Consulta y modificación de elementos dentro de una lista anidada.<a class="headerlink" href="#consulta-y-modificacion-de-elementos-dentro-de-una-lista-anidada" title="Permalink to this headline">#</a></h4>
 <p>Para consultar o modificar un elemento dentro de una lista anidada, también utilizamos los corchetes que empleábamos al consultar un elemento de una lista convencional; esta vez debemos hacerlo recursivamente. Para ejemplificar esto, recordemos las listas <code class="docutils literal notranslate"><span class="pre">lista_anidada</span></code> y <code class="docutils literal notranslate"><span class="pre">lista_contenedora</span></code> declaradas anteriormente:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lista_anidada = [elemento_1, elemento_2, elemento_3]
 lista_contenedora = [elemento_4, lista_anidada, elemento_5, elemento_6]
@@ -1166,8 +1297,8 @@ lista_contenedora = [elemento_4, lista_anidada, elemento_5, elemento_6]
 </pre></div>
 </div>
 <p><a id='Ej6'></a></p>
-<div class="section" id="ejemplo-6">
-<h5>Ejemplo 6<a class="headerlink" href="#ejemplo-6" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-6">
+<h5>Ejemplo 6<a class="headerlink" href="#ejemplo-6" title="Permalink to this headline">#</a></h5>
 <p>Un periódico local sostiene sus operaciones principalmente con la publicidad que se encuentra en su página web y con las donaciones que recibe durante sus transmisiones en vivo, las cuales suelen durar tres horas. En la hora 1 únicamente recibieron dos donaciones de un dólar, en la hora 2 cinco donaciones de tres dólares, y en la hora 3 cuatro donaciones de siete dólares. La lista se encuentra declarada en la siguiente celda.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1190,10 +1321,10 @@ lista_contenedora = [elemento_4, lista_anidada, elemento_5, elemento_6]
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="operaciones-con-listas">
-<h4>Operaciones con listas<a class="headerlink" href="#operaciones-con-listas" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="operaciones-con-listas">
+<h4>Operaciones con listas<a class="headerlink" href="#operaciones-con-listas" title="Permalink to this headline">#</a></h4>
 <p>En Python es posible utilizar el operador de suma (<code class="docutils literal notranslate"><span class="pre">+</span></code>) y el de multiplicación (<code class="docutils literal notranslate"><span class="pre">*</span></code>) para concatenar y repetir las listas, respectivamente. Si tenemos dos listas y ubicamos el operador de suma en medio de las dos, la lista resultante tendrá todos los elementos de ambas listas.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lista_1 = [elemento_1_lista_1, elemento_2_lista_1, elemento_3_lista_1]
 lista_2 = [elemento_1_lista_2, elemento_2_lista_2, elemento_3_lista_2]
@@ -1212,8 +1343,8 @@ lista_3 = lista_1 + lista_2
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lista_4 =  [elemento_1, elemento_2, elemento_1, elemento_2, elemento_1, elemento_2]
 </pre></div>
 </div>
-<div class="section" id="ejemplo-7">
-<h5>Ejemplo 7<a class="headerlink" href="#ejemplo-7" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-7">
+<h5>Ejemplo 7<a class="headerlink" href="#ejemplo-7" title="Permalink to this headline">#</a></h5>
 <p>En la siguiente transmisión que realizó el periódico del <a class="reference external" href="#Ej6">Ejemplo 6</a>, en la hora 1 se registraron cinco donaciones de un dólar, en la hora 2 tres donaciones de nueve dólares, y en la hora 3 solo una donación de dos dólares. Se nos solicita que creemos esta lista usando los operadores de concatenación (<code class="docutils literal notranslate"><span class="pre">+</span></code>) y repetición (<code class="docutils literal notranslate"><span class="pre">*</span></code>). Ahora, el periodico nos indicó que ya no es necesario que las listas se encuentren anidadas por horas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1228,10 +1359,10 @@ lista_3 = lista_1 + lista_2
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="metodos-de-las-listas">
-<h4>Métodos de las listas<a class="headerlink" href="#metodos-de-las-listas" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="metodos-de-las-listas">
+<h4>Métodos de las listas<a class="headerlink" href="#metodos-de-las-listas" title="Permalink to this headline">#</a></h4>
 <p>Las listas cuentan con métodos base, los cuales nos permiten realizar una diversas operaciones. Los métodos pueden retornar una nueva lista, modificar la original, o retornar un valor de interés. La siguiente tabla contiene algunos de los métodos de las listas y su descripción.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1272,8 +1403,8 @@ lista_3 = lista_1 + lista_2
 </tr>
 </tbody>
 </table>
-<div class="section" id="ejemplo-8">
-<h5>Ejemplo 8<a class="headerlink" href="#ejemplo-8" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-8">
+<h5>Ejemplo 8<a class="headerlink" href="#ejemplo-8" title="Permalink to this headline">#</a></h5>
 <p>Seguimos con el periodico del <a class="reference external" href="#Ej6">Ejemplo 6</a>. Esta vez, el área de tesorería está interesada en obtener algunos indicadores sobre una lista que unifique las donaciones recibidas en sus dos últimas transmisiones. En particular nos solicita lo siguiente:</p>
 <ul class="simple">
 <li><p>Unir ambas listas (lista_donaciones y lista_donaciones_2).</p></li>
@@ -1364,17 +1495,17 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="tuplas">
-<h2>2. Tuplas<a class="headerlink" href="#tuplas" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>2.1. Usos y características principales<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+</section>
+</section>
+<section id="tuplas">
+<h2>2. Tuplas<a class="headerlink" href="#tuplas" title="Permalink to this headline">#</a></h2>
+<section id="id1">
+<h3>2.1. Usos y características principales<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>Las tuplas son otra estructura de datos ordenada que, al igual que las listas, pueden guardar diferentes tipos de datos o incluso elementos repetidos. No obstante, la principal diferencia es que son inmutables; esto significa que no se podemos añadir, alterar, ni eliminar elementos.</p>
-<div class="section" id="diferencias-y-similitudes-entre-tuplas-y-listas">
-<h4>Diferencias y similitudes entre tuplas y listas<a class="headerlink" href="#diferencias-y-similitudes-entre-tuplas-y-listas" title="Permalink to this headline">¶</a></h4>
+<section id="diferencias-y-similitudes-entre-tuplas-y-listas">
+<h4>Diferencias y similitudes entre tuplas y listas<a class="headerlink" href="#diferencias-y-similitudes-entre-tuplas-y-listas" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>Diferencias:</p>
 <ol class="simple">
@@ -1392,10 +1523,10 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </ol>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="id2">
-<h3>2.2. Declaración<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="id2">
+<h3>2.2. Declaración<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>Para declarar una tupla empleamos paréntesis (<code class="docutils literal notranslate"><span class="pre">()</span></code>) y separamos los elementos contenidos por medio de comas, como se muestra a continuación:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nombre_tupla = (elemento_1, elemento_2, elemento_3)
 </pre></div>
@@ -1405,8 +1536,8 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </pre></div>
 </div>
 <p><a id='Ej9'></a></p>
-<div class="section" id="ejemplo-9">
-<h4>Ejemplo 9<a class="headerlink" href="#ejemplo-9" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-9">
+<h4>Ejemplo 9<a class="headerlink" href="#ejemplo-9" title="Permalink to this headline">#</a></h4>
 <p>Para un proyecto se quiere realizar un pronóstico de la posición que ocupará cada país sudamericano en las eliminatorias de Catar 2022. Para ello, registremos en una tupla la tabla de posiciones de las pasadas eliminatorias de Rusia 2018. Eligimos almacenar esta tabla de posiciones en una tupla, ya que no existe una razón para agregar o quitar países, ni para modificar la posición de los países en la tabla.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1446,13 +1577,13 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="id3">
-<h3>2.3. Consulta<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="id3">
+<h3>2.3. Consulta<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>De la misma forma que en las listas, para una tupla de tamaño n, al primer elemento se le asigna el índice 0 y al último el índice n-1. También disponemos de la indexación negativa.</p>
-<img src="Archivos/tuplas.png"><div class="section" id="ejemplo-10">
-<h4>Ejemplo 10<a class="headerlink" href="#ejemplo-10" title="Permalink to this headline">¶</a></h4>
+<img src="Archivos/tuplas.png"><section id="ejemplo-10">
+<h4>Ejemplo 10<a class="headerlink" href="#ejemplo-10" title="Permalink to this headline">#</a></h4>
 <p>El líder del proyecto del <a class="reference external" href="#Ej9">Ejemplo 9</a> nos ha solicitado dos tareas:</p>
 <ul class="simple">
 <li><p>Conocer los últimos tres países de la tabla de posiciones de las eliminatorias de Rusia 2018.</p></li>
@@ -1485,12 +1616,12 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="id4">
-<h3>2.4. Métodos y particularidades<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="de-tuplas-a-listas-y-de-listas-a-tuplas">
-<h4>De tuplas a listas y de listas a tuplas<a class="headerlink" href="#de-tuplas-a-listas-y-de-listas-a-tuplas" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="id4">
+<h3>2.4. Métodos y particularidades<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<section id="de-tuplas-a-listas-y-de-listas-a-tuplas">
+<h4>De tuplas a listas y de listas a tuplas<a class="headerlink" href="#de-tuplas-a-listas-y-de-listas-a-tuplas" title="Permalink to this headline">#</a></h4>
 <p>Pese a que su sintaxis es parecida, una tupla y una lista no se deben confundir, puesto que son dos representaciones del sistema totalmente distintas. Como se mencionó, se diferencian principalmente por su inmutabilidad. Sin embargo, Python establece expresiones que nos permiten crear una lista a través de una tupla, y viceversa. Esto resulta útil si queremos volver inmutable la información contenida en una lista, o cuando tenemos argumentos de peso para modificar la información que antes considerábamos inmutable.</p>
 <p>Para generar una lista a partir de una tupla utilizamos la función <code class="docutils literal notranslate"><span class="pre">list</span></code> de Python.</p>
 <div class="cell docutils container">
@@ -1538,35 +1669,35 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="conjuntos">
-<h2>3. Conjuntos<a class="headerlink" href="#conjuntos" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id5">
-<h3>3.1. Usos y características principales<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="conjuntos">
+<h2>3. Conjuntos<a class="headerlink" href="#conjuntos" title="Permalink to this headline">#</a></h2>
+<section id="id5">
+<h3>3.1. Usos y características principales<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>Los conjuntos son una estructura de datos que no está indexada y tampoco está ordenada. Pese a que su contenido no puede ser modificado, tampoco son inmutables porque se les pueden añadir elementos. Vistas estas características, es muy difícil pensar un contexto en el que su uso sea preferible a una lista o a una tupla. Sin embargo, resulta necesario conocerlas para familiarizarse con las estructuras no ordenadas.</p>
-</div>
-<div class="section" id="id6">
-<h3>3.2. Declaración<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id6">
+<h3>3.2. Declaración<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Para declarar un conjunto utilizamos unas llaves (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) y separamos sus elementos con comas. Por ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conjunto_1 = {elemento_1, elemento_2, elemento_3}
 </pre></div>
 </div>
-</div>
-<div class="section" id="id7">
-<h3>3.3. Consulta<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id7">
+<h3>3.3. Consulta<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>De la misma forma que en una lista o en una tupla, los elementos de un conjunto pueden ser de cualquier tipo, un número, una lista, una tupla, una cadena de caracteres, entre otros. Siendo que los conjuntos no están indexados, no disponemos de un índice para encontrar un elemento específico de un conjunto, por lo que podemos limitarnos a consultar si un elemento existe dentro de un conjunto utilizando la siguiente sintaxis:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>elemento_1 in conjunto_1 
 </pre></div>
 </div>
 <p><strong>Nota:</strong> también podemos realizar este tipo de consulta con listas y tuplas.</p>
-</div>
-<div class="section" id="metodos-y-otras-caracteristicas">
-<h3>3.4. Métodos y otras características<a class="headerlink" href="#metodos-y-otras-caracteristicas" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="metodos-y-otras-caracteristicas">
+<h3>3.4. Métodos y otras características<a class="headerlink" href="#metodos-y-otras-caracteristicas" title="Permalink to this headline">#</a></h3>
 <p>Otra característica ya mencionada es que los conjuntos no son inmutables, por lo que se les puede adicionar elementos con los siguientes dos métodos: <code class="docutils literal notranslate"><span class="pre">add</span></code> y <code class="docutils literal notranslate"><span class="pre">update</span></code>. Con <code class="docutils literal notranslate"><span class="pre">add</span></code> se puede agregar un solo elemento al conjunto; similar al método <code class="docutils literal notranslate"><span class="pre">append</span></code> de las listas. Por otra parte, el método <code class="docutils literal notranslate"><span class="pre">update</span></code> cumple con una función similar al método <code class="docutils literal notranslate"><span class="pre">extend</span></code> de las listas, permitiéndonos agregar múltiples elementos al conjunto; a este método se le ingresa como parámetro una lista, una tupla, u otro conjunto.</p>
-<div class="section" id="ejemplo-11">
-<h4>Ejemplo 11<a class="headerlink" href="#ejemplo-11" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-11">
+<h4>Ejemplo 11<a class="headerlink" href="#ejemplo-11" title="Permalink to this headline">#</a></h4>
 <p>En la siguiente celda vas a encontrar un conjunto con algunas de las principales petroleras a nivel mundial. Se nos solicita lo siguiente:</p>
 <ul class="simple">
 <li><p>Consultar si “Shell” se encuentra en el conjunto.</p></li>
@@ -1627,13 +1758,13 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="diccionarios">
-<h2>4. Diccionarios<a class="headerlink" href="#diccionarios" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id8">
-<h3>4.1. Usos y características principales<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="diccionarios">
+<h2>4. Diccionarios<a class="headerlink" href="#diccionarios" title="Permalink to this headline">#</a></h2>
+<section id="id8">
+<h3>4.1. Usos y características principales<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
 <p>Los diccionarios son estructuras de datos no ordenadas que identifican relaciones de correspondencia entre llaves y valores. Los diccionarios buscan entonces indexar una colección de valores a una colección de llaves.</p>
 <ul class="simple">
 <li><p>Llaves:</p>
@@ -1652,18 +1783,18 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id9">
-<h3>4.2. Declaración<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id9">
+<h3>4.2. Declaración<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
 <p>Para declarar un diccionario utilizamos el caracter llave (<code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>) y separamos sus elementos por medio de comas. Cada elemento se compone de una llave y un valor, los cuales se separan por dos puntos (<code class="docutils literal notranslate"><span class="pre">:</span></code>). En este caso, a diferencia de las listas y las tuplas, no importa el orden de los elementos. De forma general, su representación sería la siguiente:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>diccionario = {llave_1: valor_1, llave_2: valor_2, llave_3: valor_3}
 </pre></div>
 </div>
-</div>
-<div class="section" id="consulta-y-modificacion">
-<h3>4.3. Consulta y modificación<a class="headerlink" href="#consulta-y-modificacion" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id10">
-<h4>Consulta<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="consulta-y-modificacion">
+<h3>4.3. Consulta y modificación<a class="headerlink" href="#consulta-y-modificacion" title="Permalink to this headline">#</a></h3>
+<section id="id10">
+<h4>Consulta<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
 <p>Para consultar un valor específico utilizamos la misma sintaxis de las listas y tuplas, teniendo presente que los índices de un diccionario son sus llaves. A continuación se muestra un ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>diccionario[llave_1]
 </pre></div>
@@ -1672,16 +1803,16 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>llave_1 in diccionario
 </pre></div>
 </div>
-</div>
-<div class="section" id="id11">
-<h4>Modificación<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id11">
+<h4>Modificación<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
 <p>Para modificar el valor asociado a una llave, volvemos a usar el igual asignar el nuevo valor.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>diccionario[llave_1] = nuevo_valor
 </pre></div>
 </div>
 <p><a id='Ej12'></a></p>
-<div class="section" id="ejemplo-12">
-<h5>Ejemplo 12<a class="headerlink" href="#ejemplo-12" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-12">
+<h5>Ejemplo 12<a class="headerlink" href="#ejemplo-12" title="Permalink to this headline">#</a></h5>
 <p>Un niño le pidió ayuda para crear un diccionario de la edad de su familia. Su mamá y su papá tienen 40 años cada uno, su hermana 8 años y su hermano 11 años. A continuación, se presenta un diagrama con las relaciones de correspondencia:</p>
 <img src="Archivos/diccionarios.png">
 <p>Se nos solicita lo siguiente:</p>
@@ -1742,9 +1873,9 @@ lista_donacionesPara cumplir con el primer requerimiento, utilizamos el método 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="ejemplo-13">
-<h5>Ejemplo 13<a class="headerlink" href="#ejemplo-13" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="ejemplo-13">
+<h5>Ejemplo 13<a class="headerlink" href="#ejemplo-13" title="Permalink to this headline">#</a></h5>
 <p>Partiendo del diccionario <code class="docutils literal notranslate"><span class="pre">familia</span></code> declarado en el <a class="reference external" href="#Ej12">Ejemplo 12</a>, creemos una lista con sus llaves y otra con sus valores. Por último, necesitamos almacenar ambas listas en una tupla y visualizarla.</p>
 <p>Inicialmente podemos separar las llaves de los valores usando el método <code class="docutils literal notranslate"><span class="pre">keys</span></code>, el cual retorna una estructura de datos predefinida en Python que se llama <code class="docutils literal notranslate"><span class="pre">dict_keys</span></code>.</p>
 <div class="cell docutils container">
@@ -1814,13 +1945,13 @@ Los valores del diccionario son: [40, 40, 9, 11, 45]
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="id12">
-<h3>4.4. Métodos y particularidades<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="metodos-de-los-diccionarios">
-<h4>Métodos de los diccionarios<a class="headerlink" href="#metodos-de-los-diccionarios" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+</section>
+<section id="id12">
+<h3>4.4. Métodos y particularidades<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<section id="metodos-de-los-diccionarios">
+<h4>Métodos de los diccionarios<a class="headerlink" href="#metodos-de-los-diccionarios" title="Permalink to this headline">#</a></h4>
 <p>Al igual que las listas, las tuplas y los conjuntos, los diccionarios disponen de los siguientes métodos:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1852,8 +1983,8 @@ Los valores del diccionario son: [40, 40, 9, 11, 45]
 </tr>
 </tbody>
 </table>
-<div class="section" id="ejemplo-14">
-<h5>Ejemplo 14<a class="headerlink" href="#ejemplo-14" title="Permalink to this headline">¶</a></h5>
+<section id="ejemplo-14">
+<h5>Ejemplo 14<a class="headerlink" href="#ejemplo-14" title="Permalink to this headline">#</a></h5>
 <p>Se nos solicita construir un diccionario de tuplas que almacene la tabla de posiciones final de las eliminatorias para los mundiales 2010, 2014 y 2018. Como insumo se tendrán las tuplas de 2010 y 2014 y un diccionario con las de 2018.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1907,21 +2038,21 @@ Los valores del diccionario son: [40, 40, 9, 11, 45]
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">#</a></h2>
 <p>Downey, A., Elkner, J., &amp; Meyers, C. (2012). How To Think Like A Computer Scientist: Learning with Python. Segunda Edición. Disponible en: <a class="reference external" href="https://www.openbookproject.net/thinkcs/python/english2e/index.html">https://www.openbookproject.net/thinkcs/python/english2e/index.html</a></p>
 <p>Los métodos y definiciones se consultaron en el portal: <a class="reference external" href="https://www.w3schools.com/">https://www.w3schools.com/</a></p>
-</div>
-<div class="section" id="creditos">
-<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">#</a></h2>
 <p><strong>Autor(es):</strong> Jorge Esteban Camargo Forero, Juan Felipe Rengifo Méndez, Diego Alejandro Cely Gómez</p>
 <p><strong>Fecha última actualización:</strong> 06/08/2021</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1945,9 +2076,11 @@ Los valores del diccionario son: [40, 40, 9, 11, 45]
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../S1.TU1/TUTORIAL%20-%20Bienvenida%20a%20Jupyter%20Notebook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1963,24 +2096,28 @@ Los valores del diccionario son: [40, 40, 9, 11, 45]
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Equipo de LCA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Equipo de LCA<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

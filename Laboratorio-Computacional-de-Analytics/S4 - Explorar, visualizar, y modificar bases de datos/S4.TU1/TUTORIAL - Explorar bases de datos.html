@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Explorar bases de datos &#8212; Repositorio de LCA</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/text-align.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -133,106 +147,223 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Laboratorio-Computacional-de-Analytics/S4 - Explorar, visualizar, y modificar bases de datos/S4.TU1/TUTORIAL - Explorar bases de datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#requisitos">
    Requisitos
@@ -352,12 +483,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Explorar bases de datos</h1>
@@ -493,30 +623,31 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <img src="Archivos/miad4.png" width=800x>
-<div class="tex2jax_ignore mathjax_ignore section" id="explorar-bases-de-datos">
-<h1>Explorar bases de datos<a class="headerlink" href="#explorar-bases-de-datos" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="explorar-bases-de-datos">
+<h1>Explorar bases de datos<a class="headerlink" href="#explorar-bases-de-datos" title="Permalink to this headline">#</a></h1>
 <p>Explorar bases de datos es uno de los pasos esenciales en cualquier proyecto de analítica de datos, pues nos permite identificar aspectos útiles del caso de estudio.</p>
 <p>En este tutorial establecemos nociones fundamentales sobre el uso del paquete <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para explorar datos.</p>
-<div class="section" id="requisitos">
-<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<section id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">#</a></h2>
 <p>Para desarrollar este tutorial necesitarás:</p>
 <ul class="simple">
 <li><p>Utilizar arreglos y operaciones básicas y vectorizadas en <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. <br></p></li>
 <li><p>Crear, consultar y utilizar métodos para explorar y manipular objetos tipo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="objetivos">
-<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">#</a></h2>
 <p>Al final de este tutorial podrás:</p>
 <p><strong>1.</strong> Indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> empleando índices múltiples. <br>
 <strong>2.</strong> Aplicar distintos tipos de filtrado utilizando <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.<br></p>
-</div>
-<div class="section" id="indexar-un-dataframe">
-<h2>1. Indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#indexar-un-dataframe" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="indexar-un-dataframe">
+<h2>1. Indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#indexar-un-dataframe" title="Permalink to this headline">#</a></h2>
 <p>Entre los aspectos a detallar al explorar una base de datos, se encuentra la llave o el <em>ID</em> que distingue un registro de otro. Esta llave no siempre se conoce de antemano o, en ocasiones, deseamos modificarla.</p>
 <p>Para distinguir una observación (o fila) de otra en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> define un objeto de tipo <code class="docutils literal notranslate"><span class="pre">Index</span></code> (o <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>).</p>
 <p>Al analizar datos generalmente requerimos que el índice de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> corresponda a una llave de la base de datos. Todo registro debe tener asignada una llave única, con el fin de distinguirlo de los demás registros. En ocasiones debemos usar más de una característica del registro para crear una llave, es decir, debemos definir un índice de múltiples niveles.</p>
@@ -530,8 +661,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Veamos el siguiente ejemplo para considerar un caso en el que se necesite más de una columna para indexar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
-<div class="section" id="ejemplo-1">
-<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">¶</a></h3>
+<section id="ejemplo-1">
+<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">#</a></h3>
 <p>En la siguiente celda de código declaramos un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contiene información de algunas personas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -577,9 +708,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="objeto-de-tipo-multiindex">
-<h3>1.1. Objeto de tipo <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#objeto-de-tipo-multiindex" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="objeto-de-tipo-multiindex">
+<h3>1.1. Objeto de tipo <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#objeto-de-tipo-multiindex" title="Permalink to this headline">#</a></h3>
 <p>La clase <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> permite crear un índice múltiple para los registros de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> o un <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Podemos declarar objetos de tipo <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> a partir de métodos que reciben diferentes tipos de objeto por parámetro.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -602,8 +733,8 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<div class="section" id="ejemplo-2">
-<h4>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-2">
+<h4>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">#</a></h4>
 <p>Creamos un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> a partir de las columnas <code class="docutils literal notranslate"><span class="pre">&quot;nombre&quot;</span></code> y <code class="docutils literal notranslate"><span class="pre">&quot;apellido&quot;</span></code>y lo utilizamos para indexar el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> contenido en la variable <code class="docutils literal notranslate"><span class="pre">nombres</span></code>.</p>
 <p>Usamos el método <code class="docutils literal notranslate"><span class="pre">from_arrays</span></code>.</p>
 <div class="cell docutils container">
@@ -623,9 +754,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>También podemos nombrar columnas que tengan múltiples niveles a partir de un objeto <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>.</p>
-</div>
-<div class="section" id="ejemplo-3">
-<h4>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="ejemplo-3">
+<h4>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">#</a></h4>
 <p>A continuación importamos una base de datos llamada <code class="docutils literal notranslate"><span class="pre">&quot;Bid-Cornell.csv&quot;</span></code> que reúne información sobre un grupo de ciudadanos y los medios de comunicación que utilizan para informarse sobre noticias generales o noticias acerca del COVID-19.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -685,16 +816,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="filtrar-bases-de-datos-utilizando-la-libreria-pandas">
-<h2>2. Filtrar bases de datos utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#filtrar-bases-de-datos-utilizando-la-libreria-pandas" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="filtrado-de-posiciones-no-consecutivas">
-<h3>2.1. Filtrado de posiciones no consecutivas<a class="headerlink" href="#filtrado-de-posiciones-no-consecutivas" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="filtrar-bases-de-datos-utilizando-la-libreria-pandas">
+<h2>2. Filtrar bases de datos utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#filtrar-bases-de-datos-utilizando-la-libreria-pandas" title="Permalink to this headline">#</a></h2>
+<section id="filtrado-de-posiciones-no-consecutivas">
+<h3>2.1. Filtrado de posiciones no consecutivas<a class="headerlink" href="#filtrado-de-posiciones-no-consecutivas" title="Permalink to this headline">#</a></h3>
 <p>Si las posiciones que queremos seleccionar no son consecutivas, debemos representarlas en una lista. A continuación, vemos un ejemplo de esto.</p>
-<div class="section" id="ejemplo-5">
-<h4>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-5">
+<h4>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">#</a></h4>
 <p>Se nos solicita mostrar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contenga únicamente las 10 primeras y las 10 últimas observaciones del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <code class="docutils literal notranslate"><span class="pre">df_covid_19</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -705,9 +836,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="ejemplo-6">
-<h4>Ejemplo 6<a class="headerlink" href="#ejemplo-6" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="ejemplo-6">
+<h4>Ejemplo 6<a class="headerlink" href="#ejemplo-6" title="Permalink to this headline">#</a></h4>
 <p>Se nos solicita mostrar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contenga únicamente las 3 primeras columnas y de la columna 6 en adelante del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <code class="docutils literal notranslate"><span class="pre">df_covid_19</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -718,13 +849,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="filtrado-por-niveles">
-<h3>2.2. Filtrado por niveles<a class="headerlink" href="#filtrado-por-niveles" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="filtrado-por-niveles">
+<h3>2.2. Filtrado por niveles<a class="headerlink" href="#filtrado-por-niveles" title="Permalink to this headline">#</a></h3>
 <p>El objeto <code class="docutils literal notranslate"><span class="pre">IndexSlice</span></code> nos permite indicar, para cada nivel de un objeto <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>, qué elementos queremos incluir.</p>
-<div class="section" id="ejemplo-7">
-<h4>Ejemplo 7<a class="headerlink" href="#ejemplo-7" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-7">
+<h4>Ejemplo 7<a class="headerlink" href="#ejemplo-7" title="Permalink to this headline">#</a></h4>
 <p>A partir de la base de datos del BID, nos solicitan seleccionar las columnas que tengan información de noticias generales (<code class="docutils literal notranslate"><span class="pre">&quot;noti&quot;</span></code>) sobre el uso del <code class="docutils literal notranslate"><span class="pre">&quot;chat&quot;</span></code> o <code class="docutils literal notranslate"><span class="pre">&quot;tv&quot;</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,10 +864,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="filtrado-condicional">
-<h3>2.3. Filtrado condicional<a class="headerlink" href="#filtrado-condicional" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="filtrado-condicional">
+<h3>2.3. Filtrado condicional<a class="headerlink" href="#filtrado-condicional" title="Permalink to this headline">#</a></h3>
 <p>El filtrado condicional nos permite indicarle a un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, mediante un arreglo de objetos tipo <code class="docutils literal notranslate"><span class="pre">bool</span></code>, cuales elementos incluir. Podemos declarar un arreglo de objetos tipo <code class="docutils literal notranslate"><span class="pre">bool</span></code> aplicando, término a término, los operadores relacionales (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>) o lógicos (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code>) que ya conoces.</p>
 <p>A continuación, encuentras un ejemplo utilizando un operador relacional:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">3</span>
@@ -751,8 +882,8 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>Veamos un ejemplo de cómo aplicar filtrado condicional a las filas de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
-<div class="section" id="ejemplo-8">
-<h4>Ejemplo 8<a class="headerlink" href="#ejemplo-8" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-8">
+<h4>Ejemplo 8<a class="headerlink" href="#ejemplo-8" title="Permalink to this headline">#</a></h4>
 <p>Seleccionemos los registros correspondientes a personas menores de 35 años, oriundas de <code class="docutils literal notranslate"><span class="pre">&quot;Lima&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -762,9 +893,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Veamos un ejemplo de cómo aplicar filtrado condicional a las columnas de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
-</div>
-<div class="section" id="ejemplo-9">
-<h4>Ejemplo 9<a class="headerlink" href="#ejemplo-9" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="ejemplo-9">
+<h4>Ejemplo 9<a class="headerlink" href="#ejemplo-9" title="Permalink to this headline">#</a></h4>
 <p>Seleccionemos los registros correspondientes a personas menores de 35 años, oriundas de <code class="docutils literal notranslate"><span class="pre">&quot;Lima&quot;</span></code>, exluyendo las columnas cuyo nombre tenga menos de 6 caracteres.</p>
 <p>Para esto, utilizamos el atributo <code class="docutils literal notranslate"><span class="pre">loc</span></code>.</p>
 <div class="cell docutils container">
@@ -774,22 +905,22 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">#</a></h2>
 <p>Pandas (2020). Documentación sobre el método .iloc(). Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html</a></p>
 <p>Pandas (2020). Documentación sobre el método .loc(). Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html</a></p>
 <p>Pandas (2020). Documentación sobre el método .IndexSlice() . Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.IndexSlice.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.IndexSlice.html</a></p>
 <p>BID (2020). Encuesta Coronavirus BID/Cornell. Recuperado el 11 de febrero de 2020 de: <a class="reference external" href="https://data.iadb.org/DataCatalog/Dataset#DataCatalogID=11319/28452">https://data.iadb.org/DataCatalog/Dataset#DataCatalogID=11319/28452</a></p>
-</div>
-<div class="section" id="creditos">
-<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">#</a></h2>
 <p><strong>Autor(es):</strong> Juan David Reyes Jaimes, Jorge Esteban Camargo Forero, Alejandro Mantilla, Diego Alejandro Cely Gómez</p>
 <p><strong>Fecha última actualización:</strong> 26/08/2021</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -813,28 +944,34 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Equipo de LCA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Equipo de LCA<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

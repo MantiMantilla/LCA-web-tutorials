@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Manejo de archivos de texto &#8212; Repositorio de LCA</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/text-align.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -133,106 +147,223 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S2 - Funciones, manejo de archivos y visualización/S2.TU2/TUTORIAL - Manejo de archivos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S2 - Funciones, manejo de archivos y visualización/S2.TU2/TUTORIAL - Manejo de archivos.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S2 - Funciones, manejo de archivos y visualización/S2.TU2/TUTORIAL - Manejo de archivos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S2 - Funciones, manejo de archivos y visualización/S2.TU2/TUTORIAL - Manejo de archivos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S2 - Funciones, manejo de archivos y visualización/S2.TU2/TUTORIAL - Manejo de archivos.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Laboratorio-Computacional-de-Analytics/S2 - Funciones, manejo de archivos y visualización/S2.TU2/TUTORIAL - Manejo de archivos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#requisitos">
    Requisitos
@@ -368,12 +499,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Manejo de archivos de texto</h1>
@@ -525,33 +655,34 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <img src="Archivos/miad4.png" width=800x>
-<div class="tex2jax_ignore mathjax_ignore section" id="manejo-de-archivos-de-texto">
-<h1>Manejo de archivos de texto<a class="headerlink" href="#manejo-de-archivos-de-texto" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="manejo-de-archivos-de-texto">
+<h1>Manejo de archivos de texto<a class="headerlink" href="#manejo-de-archivos-de-texto" title="Permalink to this headline">#</a></h1>
 <p>Todo proyecto de analítica de datos parte de tener acceso a datos, ya sea a partir de Internet, de una base de datos, o de archivos locales. Aunque existen paquetes especializados que facilitan la interacción con fuentes de datos, es importante conocer las herramientas básicas de Python para importar y exportar archivos.</p>
-<div class="section" id="requisitos">
-<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<section id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">#</a></h2>
 <p>Para desarrollar este tutorial necesitarás:</p>
 <ul class="simple">
 <li><p>Utilizar listas y diccionarios.</p></li>
 <li><p>Implementar condicionales y ciclos.</p></li>
 </ul>
-</div>
-<div class="section" id="objetivos">
-<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">#</a></h2>
 <p>Al final de este tutorial podrás:</p>
 <p><strong>1.</strong> Aplicar los métodos y los atributos principales de las cadenas de texto. <br>
 <strong>2.</strong> Importar y exportar archivos de texto en formato .txt o .csv por medio de un <em>file handle</em>. <br>
 <strong>3.</strong> Procesar archivos de texto delimitados y no delimitados valiendose del uso de los métodos de las cadenas de texto y de los <em>file handle</em>. <br></p>
-</div>
-<div class="section" id="cadenas-de-caracteres">
-<h2>1. Cadenas de caracteres<a class="headerlink" href="#cadenas-de-caracteres" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="cadenas-de-caracteres">
+<h2>1. Cadenas de caracteres<a class="headerlink" href="#cadenas-de-caracteres" title="Permalink to this headline">#</a></h2>
 <p>Dado que la lectura de archivos usualmente implica trabajar con cadenas de caracteres (<code class="docutils literal notranslate"><span class="pre">str</span></code>), señalaremos algunas características de estas para ampliar lo aprendido en el tutorial 1 de la semana 1 “Bienvenida a Jupyter Notebook”. Esencialmente, una cadena de caracteres es una estructura de datos ordenada e inmutable con un índice numérico, por lo que vienen compartiendo características similares a las tuplas. Siendo que son ordenadas, heredan las propiedades de rebanado que conocemos.</p>
-<div class="section" id="ejemplo-1">
-<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">¶</a></h3>
+<section id="ejemplo-1">
+<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">#</a></h3>
 <p>A partir de la cadena de caracteres “Stack Overflow es un portal web muy útil para solucionar dudas de Python” requerimos:</p>
 <ul class="simple">
 <li><p>Encontrar el primer carácter de la cadena de caracteres.</p></li>
@@ -610,7 +741,7 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>Indica si una cadena de caracteres está compuesta únicamente de dígitos</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">isspace()</span></code></p></td>
-<td class="text-align:left"><p>Indica si una cadena de caracteres está compuesta únicamente de espacios (‘ ‘)</p></td>
+<td class="text-align:left"><p>Indica si una cadena de caracteres está compuesta únicamente de espacios (’ ‘)</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">lower()</span></code></p></td>
 <td class="text-align:left"><p>Convierte todas las letras de una cadena de caracteres a minúsculas</p></td>
@@ -641,9 +772,9 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="ejemplo-2">
-<h3>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ejemplo-2">
+<h3>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">#</a></h3>
 <p>Usando la cadena de caracteres encontrada en la caja de código se requiere:</p>
 <ul class="simple">
 <li><p>Reemplazar los númerales (#) por espacios para que su lectura sea más fácil.</p></li>
@@ -701,9 +832,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cadenas-de-caracteres-interpretadas-como-true-o-false">
-<h3>1.2. Cadenas de caracteres interpretadas como <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code><a class="headerlink" href="#cadenas-de-caracteres-interpretadas-como-true-o-false" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="cadenas-de-caracteres-interpretadas-como-true-o-false">
+<h3>1.2. Cadenas de caracteres interpretadas como <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code><a class="headerlink" href="#cadenas-de-caracteres-interpretadas-como-true-o-false" title="Permalink to this headline">#</a></h3>
 <p>En Python, aplicamos un condicional a una cadena de caracteres, lista o cualquier otra estructura de datos, para verificar si está vacía. El condicional retorna: <code class="docutils literal notranslate"><span class="pre">False</span></code>, si la estructura está vacía; <code class="docutils literal notranslate"><span class="pre">True</span></code>, de lo contrario. Esto será especialmente útil para identificar líneas vacías al leer archivos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -727,17 +858,17 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="importacion-de-archivos-de-texto-csv-y-txt">
-<h2>2. Importación de archivos de texto .csv y .txt<a class="headerlink" href="#importacion-de-archivos-de-texto-csv-y-txt" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="importacion-de-archivos-de-texto-csv-y-txt">
+<h2>2. Importación de archivos de texto .csv y .txt<a class="headerlink" href="#importacion-de-archivos-de-texto-csv-y-txt" title="Permalink to this headline">#</a></h2>
 <p>Según el Instituto de Ingenieros Eléctricos y Electrónicos (IEEE por sus siglas en Inglés), un archivo de texto el cual es típicamente almacenado con una extensión ‘.txt’, es un documento estándar de texto organizado en cero o más líneas (IEEE, 2018). Las líneas no pueden contener un carácter ‘Null’ y tampoco pueden exceder la constante de la extensión máxima de una línea (específicada en bytes). Generalmente, para marcar el final de una línea (<em>EOL</em> por sus siglas en Inglés) se usa la expresión <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
 <p>En Python, los archivos se pueden modificar como si fueran variables. Utilizamos propiedades similares a las que hemos visto, puesto que disponemos de métodos para realizar las operaciones que necesitemos. La palabra <em>open</em> está reservada en Python para una función integrada llamada <code class="docutils literal notranslate"><span class="pre">open</span></code>, la cuál recibe como parámetro indispensable un archivo. Esta función abre un archivo y retorna un Objeto Archivo (<em>File Object</em>). Según el tipo de archivo que se haya importado, este objeto se encontrará en alguna de las siguientes categorías: binario sin procesar, binario procesado o texto. Esta sería la sintaxis básica para importar un archivo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&quot;Archivos/archivo.txt&quot;)
 </pre></div>
 </div>
-<div class="section" id="parametros-de-la-funcion-open">
-<h3>2.1. Parámetros de la función <code class="docutils literal notranslate"><span class="pre">open</span></code><a class="headerlink" href="#parametros-de-la-funcion-open" title="Permalink to this headline">¶</a></h3>
+<section id="parametros-de-la-funcion-open">
+<h3>2.1. Parámetros de la función <code class="docutils literal notranslate"><span class="pre">open</span></code><a class="headerlink" href="#parametros-de-la-funcion-open" title="Permalink to this headline">#</a></h3>
 <p>Como estamos trabajando con archivos de texto, el objeto <code class="docutils literal notranslate"><span class="pre">f</span></code> será del tipo archivo de texto, y estará en capacidad de leer y escribir cadenas de caracteres. Antes de explicar los métodos que tendrá el objeto <code class="docutils literal notranslate"><span class="pre">f</span></code>, explicaremos los argumentos que ofrece la función <code class="docutils literal notranslate"><span class="pre">open()</span></code>, que son relevantes para el manejo de archivos de texto.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(file, mode, encoding, newline) 
 </pre></div>
@@ -800,9 +931,9 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="metodos-del-objeto-archivo">
-<h3>2.2.  Métodos del Objeto Archivo<a class="headerlink" href="#metodos-del-objeto-archivo" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="metodos-del-objeto-archivo">
+<h3>2.2.  Métodos del Objeto Archivo<a class="headerlink" href="#metodos-del-objeto-archivo" title="Permalink to this headline">#</a></h3>
 <p>Los métodos más utilizados del Objeto Archivo son los siguientes:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -834,8 +965,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong>desp</strong>: 0 (por defecto), desplaza el cursor <code class="docutils literal notranslate"><span class="pre">num</span></code> caracteres adelante con respecto al inicio del archivo; 1, desplaza el cursor <code class="docutils literal notranslate"><span class="pre">num</span></code> caracteres adelante con respecto a la posición en la que se encuentra actualmente el cursor; 2, desplaza el cursor <code class="docutils literal notranslate"><span class="pre">num</span></code> caracteres atrás con respecto al final del archivo.</p></li>
 </ul>
 <p><strong>Nota:</strong> los métodos de lectura en Python (<code class="docutils literal notranslate"><span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">readline</span></code>, <code class="docutils literal notranslate"><span class="pre">readlines</span></code>) leen archivos de forma secuencial (línea por línea). Una vez leído el archivo, si volvemos a ejecutar alguno de estos métodos, este retorna una cadena de caracteres vacía. A continuación vemos un ejemplo de lectura de archivos.</p>
-<div class="section" id="ejemplo-3">
-<h4>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-3">
+<h4>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">#</a></h4>
 <p>En el archivo de texto “capitales.txt” encontramos las siguientes líneas:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;Capitales del mundo:&quot;
 &quot;&quot;
@@ -910,10 +1041,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="atributos-del-objeto-archivo">
-<h3>2.3. Atributos del Objeto Archivo<a class="headerlink" href="#atributos-del-objeto-archivo" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="atributos-del-objeto-archivo">
+<h3>2.3. Atributos del Objeto Archivo<a class="headerlink" href="#atributos-del-objeto-archivo" title="Permalink to this headline">#</a></h3>
 <p>Los atributos más utilizados del Objeto Archivo son los siguientes:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -936,9 +1067,9 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="sintaxis-de-apertura-y-cierre-automatico-de-archivos">
-<h3>2.4. Sintaxis de apertura y cierre automático de archivos<a class="headerlink" href="#sintaxis-de-apertura-y-cierre-automatico-de-archivos" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sintaxis-de-apertura-y-cierre-automatico-de-archivos">
+<h3>2.4. Sintaxis de apertura y cierre automático de archivos<a class="headerlink" href="#sintaxis-de-apertura-y-cierre-automatico-de-archivos" title="Permalink to this headline">#</a></h3>
 <p>Hasta el momento, hemos trabajado con los archivos de texto suministrando una instrucción de apertura del archivo y una instrucción de cierre. Con este proceder corremos el riesgo de olvidar cerrar el archivo, lo cuál se presta para confusiones, consume memoria, y bloquea el uso o apertura del archivo fuera de nuestro Notebook. Para evitar este riesgo, podemos utilizar la siguiente sintaxis:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;myfile.txt&quot;, mode, encoding, newline) as f:
     # Código a ejecutar con el archivo abierto: 
@@ -947,15 +1078,15 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>La sintaxis anterior abre el archivo, lo asigna a un Objeto Archivo (<code class="docutils literal notranslate"><span class="pre">f</span></code>), nos permite realizar operaciones y lo cierre de manera automática.</p>
-</div>
-</div>
-<div class="section" id="archivos-de-textos-delimitados">
-<h2>3. Archivos de textos delimitados<a class="headerlink" href="#archivos-de-textos-delimitados" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="archivos-de-textos-delimitados">
+<h2>3. Archivos de textos delimitados<a class="headerlink" href="#archivos-de-textos-delimitados" title="Permalink to this headline">#</a></h2>
 <p>Los archivo de texto se dividen en archivos de texto delimitados y archivos de texto no delimitados. Los primeros resultan más sencillos para trabajar pues, como su nombre lo indica, cada línea de un archivo de texto delimitado esta separada por un delimitador. Los archivos “.csv”, por ejemplo, se encuentran delimitados por comas (,) o por punto y comas (;), según convención. Otro delimitador muy común para separar los campos de texto es la tabulación <code class="docutils literal notranslate"><span class="pre">'\t'</span></code>, la cual se usa regularmente en los archivos con formato “.txt”.</p>
 <p>Para trabajar con archivos de texto delimitados podemos utilizar los métodos de las cadenas de caracteres. En particular, una estrategía muy común es utilizar el método <code class="docutils literal notranslate"><span class="pre">split</span></code> para separar las línea del archivo. Este uso quedará ilustrado en el siguiente ejemplo.</p>
 <p><a id='Ej4'></a></p>
-<div class="section" id="ejemplo-4">
-<h3>Ejemplo 4<a class="headerlink" href="#ejemplo-4" title="Permalink to this headline">¶</a></h3>
+<section id="ejemplo-4">
+<h3>Ejemplo 4<a class="headerlink" href="#ejemplo-4" title="Permalink to this headline">#</a></h3>
 <p>Se creó un archivo “DiccionarioPaises.csv” con codificación “UTF-8” para almacenar en inglés y en español el nombre de los países del mundo. Se nos solicita que llevemos a cabo las siguientes tareas:</p>
 <ul class="simple">
 <li><p>Identificar cuál es el delimitador del archivo.</p></li>
@@ -993,10 +1124,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="archivos-de-textos-no-delimitados">
-<h2>4. Archivos de textos no delimitados<a class="headerlink" href="#archivos-de-textos-no-delimitados" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="archivos-de-textos-no-delimitados">
+<h2>4. Archivos de textos no delimitados<a class="headerlink" href="#archivos-de-textos-no-delimitados" title="Permalink to this headline">#</a></h2>
 <p>Los archivos de texto no delimitados no tienen un delimitador para distinguir los campos de texto. Sin embargo, suelen agrupar la información en campos de texto de ancho fijo. A continuación, se presenta una matriz de números con tres columnas de ancho fijo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                col1    col2    col3   
                                 ------  ------  ------  
@@ -1016,8 +1147,8 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>Puesto que la característica principal de los archivos de ancho fijo es que hay espacios entre las columnas, generalmente utilizamos el método <code class="docutils literal notranslate"><span class="pre">split</span></code> para separarlos, ingresando como parámetro una cadena vacía. También es posible utilizar una cadena de guíones (—-) para identificar donde empieza cada columna. Los ejemplos a continuación ilustran estos casos.</p>
-<div class="section" id="ejemplo-5">
-<h3>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">¶</a></h3>
+<section id="ejemplo-5">
+<h3>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">#</a></h3>
 <p>El archivo “matriz.txt” contiene la matriz de tres columnas definida en la celda anterior. Se nos solicita guardar cada columna de la matriz en una lista independiente y mostrar las tres en una sola tupla.</p>
 <p>En la celda de código procedemos de la siguiente manera:</p>
 <div class="cell docutils container">
@@ -1044,9 +1175,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="ejemplo-6">
-<h3>Ejemplo 6<a class="headerlink" href="#ejemplo-6" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ejemplo-6">
+<h3>Ejemplo 6<a class="headerlink" href="#ejemplo-6" title="Permalink to this headline">#</a></h3>
 <p>Requerimos analizar la distribución del monto de títulos del tesoro americano de los Estados Unidos que se encuentra en cuentas afuera de su país. El archivo “mfh.txt” (<em>Major foreign holders</em>) recopila esta información para los países donde se concentran un mayor montor de estos títulos. En relación con este archivo se nos solicita inspeccionar el archivo, guardar en una lista la información de los tenedores de bonos en el tiempo, y eliminar el encabezado, las líneas vacías y el gran total del monto de los títulos del tesoro americano.</p>
 <p>Iniciamos con la impresión del archivo de texto para inspeccionarlo:</p>
 <div class="cell docutils container">
@@ -1076,8 +1207,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="ejemplo-7">
-<h4>Ejemplo 7<a class="headerlink" href="#ejemplo-7" title="Permalink to this headline">¶</a></h4>
+<section id="ejemplo-7">
+<h4>Ejemplo 7<a class="headerlink" href="#ejemplo-7" title="Permalink to this headline">#</a></h4>
 <p>Ahora se nos solicita que traduzcamos del Inglés al Español el nombre de los países y de los meses incluidos en la <code class="docutils literal notranslate"><span class="pre">lista_mfh</span></code> que recién creamos. Para traducir los países podemos usar el diccionario <code class="docutils literal notranslate"><span class="pre">dicc_paises</span></code> creado en el <a class="reference external" href="#Ej4">Ejemplo 4</a>, mientras que para traducir los meses utilizaremos el diccionario <code class="docutils literal notranslate"><span class="pre">dicc_meses</span></code> declarado en la siguiente celda.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1171,9 +1302,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="ejemplo-8">
-<h4>Ejemplo 8<a class="headerlink" href="#ejemplo-8" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="ejemplo-8">
+<h4>Ejemplo 8<a class="headerlink" href="#ejemplo-8" title="Permalink to this headline">#</a></h4>
 <p>Requerimos imprimir la tabla traducida en un archivo llamado “tft.txt” (Tenedores Fóraneos de Tesoros), incluyendo encabezados y pies de tablas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1194,11 +1325,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">#</a></h2>
 <p>The Java Tutorials (1995). What Is a Path? (And Other File System Facts). Recuperado el 17 de agosto de 2021. <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/io/path.html">https://docs.oracle.com/javase/tutorial/essential/io/path.html</a></p>
 <p>Biblioteca Estándar de Python (2020). Built in Functions. Recuperado el 8 de mayo de 2020. <a class="reference external" href="https://docs.python.org/es/3/library/functions.html#open">https://docs.python.org/es/3/library/functions.html#open</a></p>
 <p>IEEE Std, The Open Group Technical Standard Base Specifications (2018). The open group base specifications issue 7. <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_403">https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_403</a></p>
@@ -1207,13 +1338,13 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference external" href="https://www.rae.es/dpd/punto%20y%20coma">https://www.rae.es/dpd/punto y coma</a></p>
 <p>Departamento del Tesoro Americano (2020). Principales tenedores foráneos de títulos del tesoro [Base de Datos]. Recuperado el  15 de septiembre de 2020 de :
 <a class="reference external" href="https://ticdata.treasury.gov/Publish/mfh.txt">https://ticdata.treasury.gov/Publish/mfh.txt</a>.</p>
-</div>
-<div class="section" id="creditos">
-<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">#</a></h2>
 <p><strong>Autor</strong>: Jorge Esteban Camargo Forero, Diego Alejandro Cely Gómez</p>
 <p><strong>Fecha última actualización</strong>: 17/08/2021</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1237,28 +1368,34 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Equipo de LCA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Equipo de LCA<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Visualización &#8212; Repositorio de LCA</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/text-align.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -133,106 +147,223 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Laboratorio-Computacional-de-Analytics/S6 - Visualizacion e interactividad/S6.TU1/TUTORIAL - Visualizacion.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#requisitos">
    Requisitos
@@ -388,12 +519,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Visualización</h1>
@@ -565,37 +695,38 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <img src="Archivos/miad4.png" width=800x>
-<div class="tex2jax_ignore mathjax_ignore section" id="visualizacion">
-<h1>Visualización<a class="headerlink" href="#visualizacion" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="visualizacion">
+<h1>Visualización<a class="headerlink" href="#visualizacion" title="Permalink to this headline">#</a></h1>
 <p>Cuando abordamos un proyecto de analítica de datos nos enfrentamos al siguiente reto: ¿Cómo generar valor a partir de grandes volúmenes de información recolectada? Visualizar la información a través de mapas o gráficos simplifica este reto, ya que facilita la identificación de tendencias, patrones y valores atípicos. Usualmente utilizamos las visualizaciones para decidir cómo orientar nuestro análisis.</p>
 <p>En este tutorial establecemos nociones fundamentales sobre el uso de las librerías <code class="docutils literal notranslate"><span class="pre">plotly</span></code> y <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> para integrarlas en procesos de visualización de datos.</p>
-<div class="section" id="requisitos">
-<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<section id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">#</a></h2>
 <p>Para desarrollar este tutorial necesitarás:</p>
 <ul class="simple">
 <li><p>Utilizar estructuras de datos.</p></li>
 <li><p>Implementar estructuras de control.</p></li>
 <li><p>Utilizar la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="objetivos">
-<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">#</a></h2>
 <p>Al final de este tutorial podrás:</p>
 <p><strong>1.</strong> Crear diferentes tipos de visualizaciones en <code class="docutils literal notranslate"><span class="pre">plotly</span></code> y personalizarlas de manera amigable. <br />
 <strong>2.</strong> Utilizar <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> para explorar datos de forma interactiva. <br />
 <strong>3.</strong> Crear visualizaciones interactivas en <code class="docutils literal notranslate"><span class="pre">plotly</span></code> con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code>.</p>
-</div>
-<div class="section" id="libreria-plotly">
-<h2>1. Librería <code class="docutils literal notranslate"><span class="pre">plotly</span></code><a class="headerlink" href="#libreria-plotly" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="libreria-plotly">
+<h2>1. Librería <code class="docutils literal notranslate"><span class="pre">plotly</span></code><a class="headerlink" href="#libreria-plotly" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">plotly</span></code> es una librería interactiva de uso abierto para el lenguaje Python, que soporta más de 40 tipos de visualizaciones únicas. Estas cubren una amplia gama de casos de uso estadístico, financiero, geográfico y científico. Esta librería nos permite crear visualizaciones interactivas que podemos mostrar en Jupyter Notebook, guardar en archivos HTML o utilizar como parte de aplicaciones web construidas con Python utilizando Dash.</p>
-<div class="section" id="declarar-una-figura-en-plotly">
-<h3>1.1. Declarar una figura en <code class="docutils literal notranslate"><span class="pre">plotly</span></code><a class="headerlink" href="#declarar-una-figura-en-plotly" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="declarar-una-figura-como-un-diccionario">
-<h4>Declarar una figura como un diccionario<a class="headerlink" href="#declarar-una-figura-como-un-diccionario" title="Permalink to this headline">¶</a></h4>
+<section id="declarar-una-figura-en-plotly">
+<h3>1.1. Declarar una figura en <code class="docutils literal notranslate"><span class="pre">plotly</span></code><a class="headerlink" href="#declarar-una-figura-en-plotly" title="Permalink to this headline">#</a></h3>
+<section id="declarar-una-figura-como-un-diccionario">
+<h4>Declarar una figura como un diccionario<a class="headerlink" href="#declarar-una-figura-como-un-diccionario" title="Permalink to this headline">#</a></h4>
 <p>Declarar una figura haciendo uso de una estructura de datos conocida como un diccionario es el primer paso para entender el funcionamiento de <code class="docutils literal notranslate"><span class="pre">plotly</span></code>. Te recomendamos importar el módulo <code class="docutils literal notranslate"><span class="pre">plotly.io</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">pio</span></code>(su alias más frecuentemente usado), como se muestra a continuación.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -638,9 +769,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="declarar-una-figura-como-un-objeto-grafico">
-<h4>Declarar una figura como un objeto gráfico<a class="headerlink" href="#declarar-una-figura-como-un-objeto-grafico" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="declarar-una-figura-como-un-objeto-grafico">
+<h4>Declarar una figura como un objeto gráfico<a class="headerlink" href="#declarar-una-figura-como-un-objeto-grafico" title="Permalink to this headline">#</a></h4>
 <p>Declarar una figura haciendo uso de un objeto gráfico tiene ventajas frente a declararla como un diccionario. De esta manera, podemos:</p>
 <ol class="simple">
 <li><p>Realizar una validación de los datos de manera precisa.</p></li>
@@ -688,12 +819,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="tipos-de-visualizaciones">
-<h3>1.2. Tipos de visualizaciones<a class="headerlink" href="#tipos-de-visualizaciones" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="principales-tipos-de-visualizaciones">
-<h4>Principales tipos de visualizaciones<a class="headerlink" href="#principales-tipos-de-visualizaciones" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="tipos-de-visualizaciones">
+<h3>1.2. Tipos de visualizaciones<a class="headerlink" href="#tipos-de-visualizaciones" title="Permalink to this headline">#</a></h3>
+<section id="principales-tipos-de-visualizaciones">
+<h4>Principales tipos de visualizaciones<a class="headerlink" href="#principales-tipos-de-visualizaciones" title="Permalink to this headline">#</a></h4>
 <p>La siguiente tabla asocia algunos de los métodos del módulo <code class="docutils literal notranslate"><span class="pre">go</span></code> con el respectivo tipo de visualización que genera.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -725,9 +856,9 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="grafico-de-linea">
-<h4>Gráfico de línea<a class="headerlink" href="#grafico-de-linea" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="grafico-de-linea">
+<h4>Gráfico de línea<a class="headerlink" href="#grafico-de-linea" title="Permalink to this headline">#</a></h4>
 <p>Para crear un gráfico de línea utilizamos colecciones de objetos llamadas trazos (<code class="docutils literal notranslate"><span class="pre">traces</span></code>). En primer lugar, creamos un objeto figura. Posteriormente, utilizamos el método <code class="docutils literal notranslate"><span class="pre">add_trace</span></code> para agregar un trazo por cada una de las series de datos que queremos mostrar en nuestra figura. Para finalizar, modificaremos el gráfico añadiéndole títulos y leyendas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -776,9 +907,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="serie-de-tiempo">
-<h4>Serie de tiempo<a class="headerlink" href="#serie-de-tiempo" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="serie-de-tiempo">
+<h4>Serie de tiempo<a class="headerlink" href="#serie-de-tiempo" title="Permalink to this headline">#</a></h4>
 <p>A continuación, crearemos una serie de tiempo y modificaremos los siguientes elementos del gráfico: el color de la línea, el color de fondo del área del gráfico y los colores de los ejes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -811,9 +942,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="diagrama-de-caja">
-<h4>Diagrama de caja<a class="headerlink" href="#diagrama-de-caja" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="diagrama-de-caja">
+<h4>Diagrama de caja<a class="headerlink" href="#diagrama-de-caja" title="Permalink to this headline">#</a></h4>
 <p>A continuación crearemos una diagrama de caja.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -846,11 +977,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="libreria-ipywidgets">
-<h2>2. Librería <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#libreria-ipywidgets" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="libreria-ipywidgets">
+<h2>2. Librería <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#libreria-ipywidgets" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> es una librería de controles HTML interactivos para Jupyter Notebook. Esta librería agrega interactividad a los gráficos y al manejo de datos, al otorgar control a los usuarios por medio de controles. Te recomendamos importar la librería <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">widgets</span></code> (su alias más frecuentemente usado), como se muestra a continuación.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -859,8 +990,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="tabla-con-los-principales-tipos-de-controles">
-<h3>Tabla con los principales tipos de controles<a class="headerlink" href="#tabla-con-los-principales-tipos-de-controles" title="Permalink to this headline">¶</a></h3>
+<section id="tabla-con-los-principales-tipos-de-controles">
+<h3>Tabla con los principales tipos de controles<a class="headerlink" href="#tabla-con-los-principales-tipos-de-controles" title="Permalink to this headline">#</a></h3>
 <p>A continuación se presenta una tabla que asocia algunos de los principales métodos del objeto <code class="docutils literal notranslate"><span class="pre">widgets</span></code>, que importamos anteriormente, con su respectivo tipo de control.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -905,11 +1036,11 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 <p>*Este método se utiliza para números enteros, para el caso de números decimales reemplazamos <code class="docutils literal notranslate"><span class="pre">Int</span></code> por <code class="docutils literal notranslate"><span class="pre">Float</span></code>. Por ejemplo, el método <code class="docutils literal notranslate"><span class="pre">IntSlider</span></code> para números decimales es <code class="docutils literal notranslate"><span class="pre">FloatSlider</span></code>.</p>
-</div>
-<div class="section" id="controles-simples">
-<h3>2.1. Controles simples<a class="headerlink" href="#controles-simples" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="barra-deslizante">
-<h4>Barra deslizante<a class="headerlink" href="#barra-deslizante" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="controles-simples">
+<h3>2.1. Controles simples<a class="headerlink" href="#controles-simples" title="Permalink to this headline">#</a></h3>
+<section id="barra-deslizante">
+<h4>Barra deslizante<a class="headerlink" href="#barra-deslizante" title="Permalink to this headline">#</a></h4>
 <p>A continuación, crearemos una barra deslizante (<code class="docutils literal notranslate"><span class="pre">slider</span></code>) y posteriormente, capturaremos su valor para mostrarlo. En primer lugar, declaramos la barra deslizante. Esta tiene un valor mínimo de 1, un valor máximo de 10 y va de 1 en 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -964,9 +1095,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="casilla-de-verificacion">
-<h4>Casilla de verificación<a class="headerlink" href="#casilla-de-verificacion" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="casilla-de-verificacion">
+<h4>Casilla de verificación<a class="headerlink" href="#casilla-de-verificacion" title="Permalink to this headline">#</a></h4>
 <p>A continuación, crearemos una casilla de verificación (<code class="docutils literal notranslate"><span class="pre">checkbox</span></code>) y posteriormente, capturaremos su valor para mostrarlo. En primer lugar, declaramos la casilla de verificación.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1025,12 +1156,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="integracion-con-bases-de-datos">
-<h3>2.2.  Integración con bases de datos<a class="headerlink" href="#integracion-con-bases-de-datos" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="filtrar-valores-en-una-base-de-datos">
-<h4>Filtrar valores en una base de datos<a class="headerlink" href="#filtrar-valores-en-una-base-de-datos" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="integracion-con-bases-de-datos">
+<h3>2.2.  Integración con bases de datos<a class="headerlink" href="#integracion-con-bases-de-datos" title="Permalink to this headline">#</a></h3>
+<section id="filtrar-valores-en-una-base-de-datos">
+<h4>Filtrar valores en una base de datos<a class="headerlink" href="#filtrar-valores-en-una-base-de-datos" title="Permalink to this headline">#</a></h4>
 <p>A continuación, filtraremos valores en una base de datos. Para esto, utilizamos una base de datos que contiene la oferta de alojamientos de Airbnb en Nueva York para el año 2019. En primer lugar, importamos la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para el manejo de la base datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1132,9 +1263,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="controles-con-interactive">
-<h4>Controles con <code class="docutils literal notranslate"><span class="pre">interactive</span></code><a class="headerlink" href="#controles-con-interactive" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="controles-con-interactive">
+<h4>Controles con <code class="docutils literal notranslate"><span class="pre">interactive</span></code><a class="headerlink" href="#controles-con-interactive" title="Permalink to this headline">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">interactive</span></code> es una función que nos permite agregarle interactividad a la exploración de los datos. Para usar esta función, en primer lugar, debemos importar el módulo <code class="docutils literal notranslate"><span class="pre">interactive</span></code> de <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1184,11 +1315,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="plotly-con-ipywidgets">
-<h2>3. <code class="docutils literal notranslate"><span class="pre">plotly</span></code> con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#plotly-con-ipywidgets" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="plotly-con-ipywidgets">
+<h2>3. <code class="docutils literal notranslate"><span class="pre">plotly</span></code> con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#plotly-con-ipywidgets" title="Permalink to this headline">#</a></h2>
 <p>Al combinar las librerías <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> y <code class="docutils literal notranslate"><span class="pre">plotly</span></code> obtenemos gráficos visualmente agradables e interactivos, los cuales nos facilitan el filtrado de datos para su respectivo análisis. A continuación, crearemos un gráfico interactivo a partir de una base de datos de la oferta de alojamientos de Airbnb en Buenos Aires. Este gráfico se actualizará de acuerdo con los filtros aplicados a los registros de la base de datos. Aplicaremos filtros al tipo de alojamiento, barrio de la ciudad y número de huéspedes por alojamiento.</p>
 <p>Importamos las librerías <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y el módulo <code class="docutils literal notranslate"><span class="pre">plotly.graph_objects</span></code> de <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.</p>
 <div class="cell docutils container">
@@ -1367,9 +1498,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">#</a></h2>
 <p>Analytiks (2020). Why Data Visualization Is Important. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://analytiks.co/importance-of-data-visualization/">https://analytiks.co/importance-of-data-visualization/</a></p>
 <p>Inside Airbnb (2021). Buenos Aires. Recuperado el 11 de febrero de 2021 de:
 <a class="reference external" href="http://data.insideairbnb.com/argentina/ciudad-aut%C3%B3noma-de-buenos-aires/buenos-aires/2021-01-29/visualisations/listings.csv">http://data.insideairbnb.com/argentina/ciudad-autónoma-de-buenos-aires/buenos-aires/2021-01-29/visualisations/listings.csv</a></p>
@@ -1380,13 +1511,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Plotly (2021). Creating and Updating Figures in Python. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://plotly.com/python/creating-and-updating-figures/">https://plotly.com/python/creating-and-updating-figures/</a></p>
 <p>Plotly (2021). The Figure Data Structure in Python. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://plotly.com/python/figure-structure/">https://plotly.com/python/figure-structure/</a></p>
 <p>Plotly (2021). Interactive Data Analysis with FigureWidget ipywidgets in Python. Recuperado el 11 de febrero de 2021 de: <a class="reference external" href="https://plotly.com/python/figurewidget-app/">https://plotly.com/python/figurewidget-app/</a></p>
-</div>
-<div class="section" id="creditos">
-<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">#</a></h2>
 <p><strong>Autor(es):</strong> Juan David Reyes Jaimes, Alejandro Mantilla Redondo, Diego Alejandro Cely Gómez</p>
 <p><strong>Fecha última actualización:</strong> 04/09/2021</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1410,28 +1541,34 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Equipo de LCA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Equipo de LCA<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

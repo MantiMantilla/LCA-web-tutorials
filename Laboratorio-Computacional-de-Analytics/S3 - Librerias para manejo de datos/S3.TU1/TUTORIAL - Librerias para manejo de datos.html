@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Librerías para manejo de datos: numpy y pandas &#8212; Repositorio de LCA</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/text-align.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -65,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -136,106 +150,223 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mantimantilla/LCA-web-tutorials/main?urlpath=tree/LCA-book/Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mantimantilla/LCA-web-tutorials/issues/new?title=Issue%20on%20page%20%2FLaboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Laboratorio-Computacional-de-Analytics/S3 - Librerias para manejo de datos/S3.TU1/TUTORIAL - Librerias para manejo de datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#requisitos">
    Requisitos
@@ -481,12 +612,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Librerías para manejo de datos: numpy y pandas</h1>
@@ -748,30 +878,31 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <img src="Archivos/miad4.png" width=800x>
-<div class="tex2jax_ignore mathjax_ignore section" id="librerias-para-manejo-de-datos-numpy-y-pandas">
-<h1>Librerías para manejo de datos: <code class="docutils literal notranslate"><span class="pre">numpy</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#librerias-para-manejo-de-datos-numpy-y-pandas" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="librerias-para-manejo-de-datos-numpy-y-pandas">
+<h1>Librerías para manejo de datos: <code class="docutils literal notranslate"><span class="pre">numpy</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#librerias-para-manejo-de-datos-numpy-y-pandas" title="Permalink to this headline">#</a></h1>
 <p>En programación, una librería es un conjunto de funcionalidades que ya están escritas y podemos llamar para utilizarlas en nuestros programas. La librería <code class="docutils literal notranslate"><span class="pre">numpy</span></code> nos ofrece la posibilidad de crear arreglos y matrices multidimensionales, lo cual nos permite estructurar datos, con el fin de analizarlos más adelante. Por otro lado, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> es una librería de Python que ofrece la posibilidad de manipular y explorar datos que forma fácil y rápida.</p>
 <p>En este tutorial establecemos nociones fundamentales sobre el uso de las librerías <code class="docutils literal notranslate"><span class="pre">numpy</span></code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, para integrarlos en procesos de análisis de datos.</p>
-<div class="section" id="requisitos">
-<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">¶</a></h2>
+<section id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Permalink to this headline">#</a></h2>
 <p>Para desarrollar este tutorial necesitarás:</p>
 <ul class="simple">
 <li><p>Utilizar estructuras de datos (listas, tuplas, diccionarios).</p></li>
 <li><p>Utilizar estructuras de control (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>).</p></li>
 </ul>
-</div>
-<div class="section" id="objetivos">
-<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">#</a></h2>
 <p>Al final de este tutorial podrás:</p>
 <p><strong>1.</strong> Utilizar arreglos y operaciones básicas y vectorizadas en <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. <br>
 <strong>2.</strong> Crear, consultar y utilizar métodos para explorar y manipular objetos tipo <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
-</div>
-<div class="section" id="libreria-numpy">
-<h2>1. Librería <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#libreria-numpy" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="libreria-numpy">
+<h2>1. Librería <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#libreria-numpy" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> es una librería de uso abierto para el lenguaje de Python que permite crear vectores (arreglos) y matrices multidimensionales. Esta librería nos ofrece la posibilidad de llevar a cabo operaciones matemáticas de alto nivel y con una gran velocidad.</p>
 <p>Te recomendamos importar la libería <code class="docutils literal notranslate"><span class="pre">numpy</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">np</span></code> (su alias más frecuentemente usado), como se muestra a continuación.</p>
 <div class="cell docutils container">
@@ -781,11 +912,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="declaracion-consulta-y-operaciones-basicas-con-arreglos">
-<h3>1.1. Declaración, consulta y operaciones básicas con arreglos<a class="headerlink" href="#declaracion-consulta-y-operaciones-basicas-con-arreglos" title="Permalink to this headline">¶</a></h3>
+<section id="declaracion-consulta-y-operaciones-basicas-con-arreglos">
+<h3>1.1. Declaración, consulta y operaciones básicas con arreglos<a class="headerlink" href="#declaracion-consulta-y-operaciones-basicas-con-arreglos" title="Permalink to this headline">#</a></h3>
 <p>Los arreglos son la estructura principal que nos provee <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Estos nos permiten guardar información en un contenedor para aplicar operaciones sobre ellos posteriormente. Los arreglos de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> tienen más funcionalidades que las listas nativas de Python.</p>
-<div class="section" id="declaracion">
-<h4>Declaración<a class="headerlink" href="#declaracion" title="Permalink to this headline">¶</a></h4>
+<section id="declaracion">
+<h4>Declaración<a class="headerlink" href="#declaracion" title="Permalink to this headline">#</a></h4>
 <p>Para declarar un arreglo utilizamos el método <code class="docutils literal notranslate"><span class="pre">array</span></code> del paquete <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -796,9 +927,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="consulta">
-<h4>Consulta<a class="headerlink" href="#consulta" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="consulta">
+<h4>Consulta<a class="headerlink" href="#consulta" title="Permalink to this headline">#</a></h4>
 <p>Accedemos a un elemento en un arreglo con la misma sintaxis que consultamos listas. A continuación vemos un ejemplo de cómo acceder al primer elemento del arreglo <code class="docutils literal notranslate"><span class="pre">arreglo</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -809,9 +940,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="rebanado">
-<h4>Rebanado<a class="headerlink" href="#rebanado" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="rebanado">
+<h4>Rebanado<a class="headerlink" href="#rebanado" title="Permalink to this headline">#</a></h4>
 <p>Utilizamos la misma notación de las listas nativas de Python para acceder a una porción de un arreglo. A continuación vemos un ejemplo de cómo acceder a los últimos dos elementos del arreglo <code class="docutils literal notranslate"><span class="pre">arreglo</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,9 +953,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="operaciones-basicas-con-arreglos-agregar-y-eliminar-elementos">
-<h4>Operaciones básicas con arreglos: agregar y eliminar elementos<a class="headerlink" href="#operaciones-basicas-con-arreglos-agregar-y-eliminar-elementos" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="operaciones-basicas-con-arreglos-agregar-y-eliminar-elementos">
+<h4>Operaciones básicas con arreglos: agregar y eliminar elementos<a class="headerlink" href="#operaciones-basicas-con-arreglos-agregar-y-eliminar-elementos" title="Permalink to this headline">#</a></h4>
 <p>Revisemos como añadir un elemento a un arreglo. Para esto, debemos especificar el arreglo y el elemento que queremos añadir al final del mismo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -845,10 +976,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="metodos-comunes-con-arreglos-en-numpy">
-<h3>1.2. Métodos comunes con arreglos en <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#metodos-comunes-con-arreglos-en-numpy" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="metodos-comunes-con-arreglos-en-numpy">
+<h3>1.2. Métodos comunes con arreglos en <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#metodos-comunes-con-arreglos-en-numpy" title="Permalink to this headline">#</a></h3>
 <p>La ventaja de utilizar arreglos de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> es que estos tienen un gran número de métodos que nos permiten llevar a cabo diversos tipos de análisis. A continuación, definiremos un arreglo de tipo numerico e implementaremos algunos de los métodos más utilizados. Recomendamos que revises la bibliografía para expandir el conocimiento acerca de otros métodos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -857,8 +988,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="suma">
-<h4>Suma<a class="headerlink" href="#suma" title="Permalink to this headline">¶</a></h4>
+<section id="suma">
+<h4>Suma<a class="headerlink" href="#suma" title="Permalink to this headline">#</a></h4>
 <p>Calcula la suma de todos los elementos de un arreglo, siempre y cuando todos sean de tipo numerico.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,9 +1000,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="promedio">
-<h4>Promedio<a class="headerlink" href="#promedio" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="promedio">
+<h4>Promedio<a class="headerlink" href="#promedio" title="Permalink to this headline">#</a></h4>
 <p>Calcula el promedio de todos los elementos de un arreglo, siempre y cuando todos sean de tipo numerico.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -882,9 +1013,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="maximo-y-minimo">
-<h4>Máximo y mínimo<a class="headerlink" href="#maximo-y-minimo" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="maximo-y-minimo">
+<h4>Máximo y mínimo<a class="headerlink" href="#maximo-y-minimo" title="Permalink to this headline">#</a></h4>
 <p>Calcula el máximo y mínimo elemento dentro de un arreglo, respectivamente, siempre y cuando todos los elementos sean de tipo numerico.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -904,9 +1035,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="concatenar">
-<h4>Concatenar<a class="headerlink" href="#concatenar" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="concatenar">
+<h4>Concatenar<a class="headerlink" href="#concatenar" title="Permalink to this headline">#</a></h4>
 <p>Concatena dos o más arreglos en uno.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -920,13 +1051,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="operaciones-basicas-sobre-vectores-con-numpy">
-<h3>1.3. Operaciones básicas sobre vectores con <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#operaciones-basicas-sobre-vectores-con-numpy" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="operaciones-basicas-sobre-vectores-con-numpy">
+<h3>1.3. Operaciones básicas sobre vectores con <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#operaciones-basicas-sobre-vectores-con-numpy" title="Permalink to this headline">#</a></h3>
 <p>Otra gran funcionalidad que nos provee <code class="docutils literal notranslate"><span class="pre">numpy</span></code> es la posibilidad de realizar operaciones vectoriales de una manera sencilla y rápida. Para esto, veremos como crear matrices con <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
-<div class="section" id="matrices">
-<h4>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h4>
+<section id="matrices">
+<h4>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> provee la posibilidad de crear matrices multidimensionales a las cuales les podemos aplicar múltiples operaciones. La forma de crearlas en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> es la siguiente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -954,9 +1085,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Ahora, procedamos a ver operaciones con matrices en <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:</p>
-</div>
-<div class="section" id="suma-termino-a-termino">
-<h4>Suma término a término<a class="headerlink" href="#suma-termino-a-termino" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="suma-termino-a-termino">
+<h4>Suma término a término<a class="headerlink" href="#suma-termino-a-termino" title="Permalink to this headline">#</a></h4>
 <p>Para sumar cada elemento de <code class="docutils literal notranslate"><span class="pre">mat_1</span></code> con el elemento ubicado en la misma posición de <code class="docutils literal notranslate"><span class="pre">mat_2</span></code>, utilizamos el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -966,9 +1097,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="multiplicacion-termino-a-termino">
-<h4>Multiplicación término a término<a class="headerlink" href="#multiplicacion-termino-a-termino" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="multiplicacion-termino-a-termino">
+<h4>Multiplicación término a término<a class="headerlink" href="#multiplicacion-termino-a-termino" title="Permalink to this headline">#</a></h4>
 <p>Para multiplicar cada elemento de <code class="docutils literal notranslate"><span class="pre">mat_1</span></code> con el elemento ubicado en la misma posición de <code class="docutils literal notranslate"><span class="pre">mat_2</span></code>, utilizamos el operador <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -978,9 +1109,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="multiplicacion-matricial">
-<h4>Multiplicación matricial<a class="headerlink" href="#multiplicacion-matricial" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="multiplicacion-matricial">
+<h4>Multiplicación matricial<a class="headerlink" href="#multiplicacion-matricial" title="Permalink to this headline">#</a></h4>
 <p>Para realizar una multiplicación matricial en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> utilizamos el método <code class="docutils literal notranslate"><span class="pre">dot()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -998,9 +1129,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="matriz-transpuesta">
-<h4>Matriz transpuesta<a class="headerlink" href="#matriz-transpuesta" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="matriz-transpuesta">
+<h4>Matriz transpuesta<a class="headerlink" href="#matriz-transpuesta" title="Permalink to this headline">#</a></h4>
 <p>Para transponer una matriz en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> utilizamos el método <code class="docutils literal notranslate"><span class="pre">transpose()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1010,9 +1141,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="expresion-logica-termino-a-termino">
-<h4>Expresión lógica término a término<a class="headerlink" href="#expresion-logica-termino-a-termino" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="expresion-logica-termino-a-termino">
+<h4>Expresión lógica término a término<a class="headerlink" href="#expresion-logica-termino-a-termino" title="Permalink to this headline">#</a></h4>
 <p>Podemos aplicar los operadores lógicos <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code> y <code class="docutils literal notranslate"><span class="pre">~</span></code> (similares a <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> y <code class="docutils literal notranslate"><span class="pre">not</span></code>, respectivamente) a dos objetos tipo <code class="docutils literal notranslate"><span class="pre">array</span></code> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (que contengan valores de tipo <code class="docutils literal notranslate"><span class="pre">bool</span></code>), con el fin de evaluar término a término la condición lógica.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1022,11 +1153,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="libreria-pandas">
-<h2>2. Librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#libreria-pandas" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="libreria-pandas">
+<h2>2. Librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#libreria-pandas" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> es una librería abierta de Python que permite llevar a cabo manipulación y exploración de datos de forma sencilla. Sus estructuras básicas son llamadas <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, y nos permiten almacenar, limpiar y analizar datos.</p>
 <p>Te recomendamos importar la libería <code class="docutils literal notranslate"><span class="pre">pandas</span></code> utilizando el nombre <code class="docutils literal notranslate"><span class="pre">pd</span></code> (su alias más frecuentemente usado), como se muestra a continuación.</p>
 <div class="cell docutils container">
@@ -1036,8 +1167,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="objeto-series">
-<h3>2.1. Objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#objeto-series" title="Permalink to this headline">¶</a></h3>
+<section id="objeto-series">
+<h3>2.1. Objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#objeto-series" title="Permalink to this headline">#</a></h3>
 <p>Un <code class="docutils literal notranslate"><span class="pre">Series</span></code> es un objeto unidimensional similar a una columna de una matriz, en el cual podemos almacenar datos. Un <code class="docutils literal notranslate"><span class="pre">Series</span></code> esta compuesto por índices y datos almacenados.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1063,8 +1194,8 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<div class="section" id="id1">
-<h4>Declaración<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<section id="id1">
+<h4>Declaración<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <p>Podemos declarar un <code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de diferentes estructuras de datos. A continuación, vemos un ejemplo de declaración a partir de una lista:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1095,9 +1226,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id2">
-<h4>Consulta<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id2">
+<h4>Consulta<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
 <p>Para acceder a un elemento de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> podemos hacer uso de su posición o del valor de su índice, utilizando los atributos <code class="docutils literal notranslate"><span class="pre">iloc</span></code> o <code class="docutils literal notranslate"><span class="pre">loc</span></code>, respectivamente. A continuación, veremos un ejemplo de cómo acceder al segundo elemento según su posición.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1116,9 +1247,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id3">
-<h4>Rebanado<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id3">
+<h4>Rebanado<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
 <p>De manera similar a cómo accedimos a un elemento, también podemos acceder a una porción de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> utilizando los atributos <code class="docutils literal notranslate"><span class="pre">iloc</span></code> y <code class="docutils literal notranslate"><span class="pre">loc</span></code>, y la sintaxis que ya hemos aprendido anteriormente para rebanar. Veremos cómo obtener los primeros dos elementos del <code class="docutils literal notranslate"><span class="pre">Series</span></code> <code class="docutils literal notranslate"><span class="pre">serie</span></code> usando un rebanado por posición:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1129,10 +1260,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="objeto-dataframe">
-<h3>2.2. Objeto <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#objeto-dataframe" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="objeto-dataframe">
+<h3>2.2. Objeto <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#objeto-dataframe" title="Permalink to this headline">#</a></h3>
 <p>Un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> es una estructura de datos mutable de dos dimensiones: filas y columnas. Usualmente utilizamos un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> para registrar observaciones de variables o características. A cada observación le corresponde una fila y a cada característica una columna.</p>
 <p>Esta convención no es exclusiva de Python, generalmente los programas para el análisis de datos se manejan de la misma manera.</p>
 <p>Podemos ver en la siguiente tabla un ejemplo de como ordenamos observaciones en una tabla o <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
@@ -1177,8 +1308,8 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<div class="section" id="id4">
-<h4>Declaración<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<section id="id4">
+<h4>Declaración<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
 <p>Podemos declarar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> a partir de diferentes estructuras de datos. A continuación, vemos un ejemplo de declaración a partir de una listas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1206,9 +1337,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id5">
-<h4>Consulta<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id5">
+<h4>Consulta<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
 <p>De manera similar al filtrado por posiciones de un <code class="docutils literal notranslate"><span class="pre">Series</span></code>, para acceder a uno o más valores dentro de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, podemos hacer uso de su posición, del nombre de su índice o del nombre de su columna.</p>
 <p>Los atributos <code class="docutils literal notranslate"><span class="pre">loc</span></code> y <code class="docutils literal notranslate"><span class="pre">iloc</span></code> son estructuras iterables que nos permiten filtrar filas y columnas de manera simultánea.</p>
 <p>Por ejemplo, podemos utilizar los objetos <code class="docutils literal notranslate"><span class="pre">filas</span></code> y <code class="docutils literal notranslate"><span class="pre">columnas</span></code> para indicar las posiciones deseadas, como se muestra a continuación:</p>
@@ -1259,9 +1390,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id6">
-<h4>Rebanado<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id6">
+<h4>Rebanado<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
 <p>De manera similar a cómo accedimos a un elemento, también podemos acceder a una porción de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> utilizando los atributos <code class="docutils literal notranslate"><span class="pre">iloc</span></code> y <code class="docutils literal notranslate"><span class="pre">loc</span></code>, y la sintaxis que ya hemos aprendido anteriormente para rebanar. Veremos cómo obtener las primeras dos filas del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <code class="docutils literal notranslate"><span class="pre">df</span></code> usando un rebanado por posición:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1301,10 +1432,10 @@ A continuación, vemos una manera de mostrar únicamente la primera y última fi
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="declaracion-de-un-series-o-un-dataframe-desde-un-archivo">
-<h3>2.3. Declaración de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> o un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> desde un archivo<a class="headerlink" href="#declaracion-de-un-series-o-un-dataframe-desde-un-archivo" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="declaracion-de-un-series-o-un-dataframe-desde-un-archivo">
+<h3>2.3. Declaración de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> o un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> desde un archivo<a class="headerlink" href="#declaracion-de-un-series-o-un-dataframe-desde-un-archivo" title="Permalink to this headline">#</a></h3>
 <p>Un <code class="docutils literal notranslate"><span class="pre">Series</span></code> y un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> también pueden ser declarados a partir de archivos externos, tales como archivos de Excel (.xlsx), CSV (.csv), JSON (.json) y muchos más.
 Para declarar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> a partir de un archivo de Excel usamos la siguiente sintaxis:</p>
 <div class="cell docutils container">
@@ -1321,9 +1452,9 @@ Para declarar un <code class="docutils literal notranslate"><span class="pre">Da
 <li><p>CSV: <code class="docutils literal notranslate"><span class="pre">pd.read_csv(&quot;Nombre</span> <span class="pre">archivo&quot;)</span></code></p></li>
 <li><p>JSON: <code class="docutils literal notranslate"><span class="pre">pd.read_json(&quot;Nombre</span> <span class="pre">archivo&quot;)</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="exploracion-de-los-objetos-series-y-dataframe">
-<h3>2.4. Exploración de los objetos <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#exploracion-de-los-objetos-series-y-dataframe" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exploracion-de-los-objetos-series-y-dataframe">
+<h3>2.4. Exploración de los objetos <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#exploracion-de-los-objetos-series-y-dataframe" title="Permalink to this headline">#</a></h3>
 <p>A continuación, implementamos algunos de los métodos más utilizados para explorar <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Recomendamos que revises la documentación oficial de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para expandir el conocimiento acerca de otros métodos.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">head</span></code>:
@@ -1437,9 +1568,9 @@ muestra las últimas n filas.</p></li>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="manipulacion-de-series-y-dataframe">
-<h3>2.5. Manipulación de <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#manipulacion-de-series-y-dataframe" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="manipulacion-de-series-y-dataframe">
+<h3>2.5. Manipulación de <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#manipulacion-de-series-y-dataframe" title="Permalink to this headline">#</a></h3>
 <p>A continuación, implementaremos algunos de los métodos más utilizados para manipular <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> utilizando la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Recomendamos que revises la documentación oficial de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para expandir el conocimiento acerca de otros métodos. A continuación crearemos un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que contiene información personal de tres personas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1492,14 +1623,14 @@ muestra las últimas n filas.</p></li>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="creditos">
-<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">#</a></h2>
 <p><strong>Autor(es)</strong>: Camilo Falla Moreno, Juan David Reyes, Diego Alejandro Cely Gomez</p>
 <p><strong>Fecha última actualización</strong>: 06/08/2021</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1523,9 +1654,11 @@ muestra las últimas n filas.</p></li>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../../S1%20-%20Bienvenida%2C%20estructuras%20de%20datos%20y%20de%20control/S1.TU2/TUTORIAL%20-%20Estructuras%20de%20datos.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1534,24 +1667,28 @@ muestra las últimas n filas.</p></li>
         </div>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Equipo de LCA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Equipo de LCA<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
